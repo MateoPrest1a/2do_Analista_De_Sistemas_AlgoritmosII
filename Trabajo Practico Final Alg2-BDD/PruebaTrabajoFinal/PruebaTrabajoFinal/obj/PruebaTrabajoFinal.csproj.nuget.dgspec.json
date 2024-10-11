@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario1\\Documents\\2do Analista de Sistemas\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario1\\Documents\\2do Analista de Sistemas\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj": {
+    "C:\\Users\\Usuario\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario1\\Documents\\2do Analista de Sistemas\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj",
         "projectName": "PruebaTrabajoFinal",
-        "projectPath": "C:\\Users\\Usuario1\\Documents\\2do Analista de Sistemas\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj",
-        "packagesPath": "C:\\Users\\Usuario1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario1\\Documents\\2do Analista de Sistemas\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\PruebaTrabajoFinal.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Trabajo Practico Final Alg2-BDD\\PruebaTrabajoFinal\\PruebaTrabajoFinal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
