@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Proyecto Final AlgoritmsoBDD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4f6864506033401769aac4f105ce225ff2b0b19")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0de2059697c2aa282ed256de259b02809d59dd09")]
 [assembly: System.Reflection.AssemblyProductAttribute("Proyecto Final AlgoritmsoBDD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Proyecto Final AlgoritmsoBDD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
