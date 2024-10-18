@@ -7,7 +7,22 @@
     <Compile Update="FormAlumnosModal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormCarreras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormCarrerasModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormEmpleadosModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormExamenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormExamenesModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormExamenesRendidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormMaterias.cs">

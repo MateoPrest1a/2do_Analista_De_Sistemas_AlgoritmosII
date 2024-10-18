@@ -15,6 +15,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormAlumnos : Form
     {
+        
 
         Conexionbdd conectarBDD;
 
@@ -88,14 +89,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     string documento = dataGridView1.Rows[e.RowIndex].Cells["dni"].Value.ToString();
                     string email = dataGridView1.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                     DateTime fechaNacimiento = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["fecha_nacimiento"].Value);
-                    int carrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
+                    int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
 
-
-
-
-
-                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, carrera);
-                    formalumnosmodal.AlumnoEvento += FormAgregar_AlumnoAgregado;
+                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, idcarrera);
+                    formalumnosmodal.AlumnoEvento += ActualizarDataGridView;
                     formalumnosmodal.ShowDialog();
                 }
                 catch
@@ -110,8 +107,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     string email = "";
                     DateTime fechaNacimiento = DateTime.Now;
                     int carrera = 0;
+
                     FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, carrera);
-                    formalumnosmodal.AlumnoEvento += FormAgregar_AlumnoAgregado;  //Me suscribo al evento para que se actualice al agregar un alumno
+                    formalumnosmodal.AlumnoEvento += ActualizarDataGridView;  //Me suscribo al evento para que se actualice al agregar un alumno
                     formalumnosmodal.ShowDialog();
                 }
 
@@ -119,14 +117,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
-        private void FormAgregar_AlumnoAgregado()
-        {
-            ActualizarDataGridView(); // Actualizar el DataGridView
-        }
-
         private void ActualizarDataGridView()
         {
-            
             string consulta = "SELECT * FROM Alumnos";
             SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
             DataTable dt = new DataTable();

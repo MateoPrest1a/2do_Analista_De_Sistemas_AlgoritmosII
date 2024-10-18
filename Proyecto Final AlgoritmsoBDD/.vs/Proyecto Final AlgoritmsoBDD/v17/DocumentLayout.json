@@ -1,0 +1,167 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formexamenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formexamenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|c:\\users\\hilet.hilet\\desktop\\trabajo final algoritmos\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formexamenesmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formexamenesmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formexamenesmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formexamenesmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formexamenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formexamenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\conexionbdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\conexionbdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormExamenesModal.cs",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs",
+              "ViewState": "AQIAANEAAAAAAAAAAAAQwNwAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T14:37:55.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormAlumnosModal.cs",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "ViewState": "AQIAAK0AAAAAAAAAAADwv3cAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T14:36:22.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormAlumnosModal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T14:36:17.467Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormAlumnos.cs",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "ViewState": "AQIAAFYAAAAAAAAAAAAAwDUAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T14:36:14.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormAlumnos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T14:36:12.361Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormExamenes.cs",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenes.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormExamenes.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenes.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormExamenes.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAgwB0AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T13:55:52.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormExamenes.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenes.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormExamenes.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenes.cs [Design]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormExamenes.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T13:55:51.283Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormExamenesModal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormExamenesModal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T13:55:48.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ConexionBDD.cs",
+              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ConexionBDD.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\ConexionBDD.cs",
+              "ToolTip": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ConexionBDD.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\ConexionBDD.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-18T12:54:33.512Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
