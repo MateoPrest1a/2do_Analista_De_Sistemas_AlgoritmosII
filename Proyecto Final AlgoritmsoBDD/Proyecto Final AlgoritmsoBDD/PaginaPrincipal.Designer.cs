@@ -34,7 +34,7 @@
             panel2 = new Panel();
             label3 = new Label();
             button2 = new Button();
-            button1 = new Button();
+            btnExamenes = new Button();
             btnCarreras = new Button();
             btnMaterias = new Button();
             btnAdministrativo = new Button();
@@ -78,7 +78,7 @@
             // 
             panel2.Controls.Add(label3);
             panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(btnExamenes);
             panel2.Controls.Add(btnCarreras);
             panel2.Controls.Add(btnMaterias);
             panel2.Controls.Add(btnAdministrativo);
@@ -110,16 +110,17 @@
             button2.Text = "Permisos";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnExamenes
             // 
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Schadow BT", 9F);
-            button1.Location = new Point(14, 281);
-            button1.Name = "button1";
-            button1.Size = new Size(95, 43);
-            button1.TabIndex = 5;
-            button1.Text = "Examenes";
-            button1.UseVisualStyleBackColor = true;
+            btnExamenes.FlatStyle = FlatStyle.Popup;
+            btnExamenes.Font = new Font("Schadow BT", 9F);
+            btnExamenes.Location = new Point(14, 281);
+            btnExamenes.Name = "btnExamenes";
+            btnExamenes.Size = new Size(95, 43);
+            btnExamenes.TabIndex = 5;
+            btnExamenes.Text = "Examenes";
+            btnExamenes.UseVisualStyleBackColor = true;
+            btnExamenes.Click += btnExamenes_Click;
             // 
             // btnCarreras
             // 
@@ -131,6 +132,7 @@
             btnCarreras.TabIndex = 4;
             btnCarreras.Text = "Carreras";
             btnCarreras.UseVisualStyleBackColor = true;
+            btnCarreras.Click += btnCarreras_Click;
             // 
             // btnMaterias
             // 
@@ -207,7 +209,7 @@
         private Button btnCarreras;
         private Button btnMaterias;
         private Button btnAdministrativo;
-        private Button button1;
+        private Button btnExamenes;
         private Button button2;
         private Label label3;
     }

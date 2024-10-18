@@ -27,16 +27,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             PaginaPrincipal frm2 = new PaginaPrincipal();
-            DialogResult resultado = frm2.ShowDialog();
-
-            if (resultado == DialogResult.OK)
-            {
-                MessageBox.Show("Estudiante cargado Correctamente.");
-            }
-            else if (resultado == DialogResult.Cancel)
-            {
-                MessageBox.Show("Cancelado.");
-            }
+            frm2.ShowDialog();
         }
 
         private void Login_Load(object sender, EventArgs e)
