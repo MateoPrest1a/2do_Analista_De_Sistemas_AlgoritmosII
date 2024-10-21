@@ -54,7 +54,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             foreach (Carrera carrera in cmbIDCarrera.Items)
             {
-                if (carrera.Id == idcarrera)
+                if (carrera.ID_Carrera == idcarrera)
                 {
                     cmbIDCarrera.SelectedItem = carrera;
                     break;
@@ -108,8 +108,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                 // Crear un nuevo objeto para almacenar la carrera
                                 var carrera = new Carrera
                                 {
-                                    Id = reader.GetInt32(0), // id_carrera
-                                    Nombre = reader.GetString(1) // nombre_carrera
+                                    ID_Carrera = reader.GetInt32(0), // id_carrera
+                                    Nombre_Carrera = reader.GetString(1) // nombre_carrera
                                 };
 
                                 // Agregar la carrera al ComboBox
@@ -217,7 +217,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            conexionbdd.CargarExamen(Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).Id), Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).Id), txtExamenHora.Text,dtpFechaExamen.Value, Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id), Convert.ToInt32(txtLibro.Text),Convert.ToInt32(txtFolio.Text));
+            conexionbdd.CargarExamen(Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera), Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).Id), txtExamenHora.Text,dtpFechaExamen.Value, Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id), Convert.ToInt32(txtLibro.Text),Convert.ToInt32(txtFolio.Text));
             ExamenEvento?.Invoke();
             this.Close();
         }

@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj",
+      "projectUniqueName": "C:\\Users\\hilet.HILET\\Desktop\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj",
       "projectName": "Proyecto Final AlgoritmsoBDD",
-      "projectPath": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj",
+      "projectPath": "C:\\Users\\hilet.HILET\\Desktop\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj",
       "packagesPath": "C:\\Users\\hilet.HILET\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\obj\\",
+      "outputPath": "C:\\Users\\hilet.HILET\\Desktop\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hilet.HILET\\AppData\\Roaming\\NuGet\\NuGet.Config",

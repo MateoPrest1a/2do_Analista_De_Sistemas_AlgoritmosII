@@ -37,13 +37,13 @@
             label1 = new Label();
             btnSalir = new Button();
             panel3 = new Panel();
+            cmbAñoCursada = new ComboBox();
             lblMateriaID = new Label();
             lblMateria = new Label();
             pictureBox1 = new PictureBox();
             label4 = new Label();
             label3 = new Label();
             txtNombreMateria = new TextBox();
-            txtAñoCursada = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -129,17 +129,25 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.None;
+            panel3.Controls.Add(cmbAñoCursada);
             panel3.Controls.Add(lblMateriaID);
             panel3.Controls.Add(lblMateria);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(txtNombreMateria);
-            panel3.Controls.Add(txtAñoCursada);
             panel3.Location = new Point(78, 89);
             panel3.Name = "panel3";
             panel3.Size = new Size(499, 322);
             panel3.TabIndex = 7;
+            // 
+            // cmbAñoCursada
+            // 
+            cmbAñoCursada.FormattingEnabled = true;
+            cmbAñoCursada.Location = new Point(152, 67);
+            cmbAñoCursada.Name = "cmbAñoCursada";
+            cmbAñoCursada.Size = new Size(123, 23);
+            cmbAñoCursada.TabIndex = 37;
             // 
             // lblMateriaID
             // 
@@ -203,13 +211,6 @@
             txtNombreMateria.Size = new Size(123, 23);
             txtNombreMateria.TabIndex = 15;
             // 
-            // txtAñoCursada
-            // 
-            txtAñoCursada.Location = new Point(152, 67);
-            txtAñoCursada.Name = "txtAñoCursada";
-            txtAñoCursada.Size = new Size(123, 23);
-            txtAñoCursada.TabIndex = 14;
-            // 
             // FormMateriasModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -237,7 +238,6 @@
         private Label label4;
         private Label label3;
         private TextBox txtNombreMateria;
-        private TextBox txtAñoCursada;
         private Label lblMateriaID;
         private Panel panel2;
         private Label label1;
@@ -245,5 +245,6 @@
         private Button btnEliminarMateria;
         private Button btnModificarMateria;
         private Button btnAgregarMateria;
+        private ComboBox cmbAñoCursada;
     }
 }

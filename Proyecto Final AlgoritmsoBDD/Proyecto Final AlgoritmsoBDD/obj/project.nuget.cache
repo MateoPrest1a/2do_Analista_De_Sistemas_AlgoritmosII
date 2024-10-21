@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IPsAvIbp2SSpVNc06+oUQrAoiFzPkkKr9hHqHsW+/tD2YnyATSm8nEYRWZHMLjDnyPlT5+7t9XuFbiuoZH0zZw==",
+  "dgSpecHash": "9/8Ut567X8pSU+qL/i8xVc+D9iFfkXQRM4tNCDkuEvMNkg25u3smZNX42Kh69F/GE050ivyMO0HDuljAQjJd/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hilet.HILET\\Desktop\\Trabajo Final Algoritmos\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj",
+  "projectFilePath": "C:\\Users\\hilet.HILET\\Desktop\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hilet.HILET\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\hilet.HILET\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
