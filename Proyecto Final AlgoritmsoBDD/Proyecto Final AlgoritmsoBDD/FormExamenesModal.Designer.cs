@@ -32,6 +32,9 @@
             label1 = new Label();
             btnSalir = new Button();
             panel2 = new Panel();
+            btnEliminar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
             panel3 = new Panel();
             cmbTipoExamen = new ComboBox();
             dtpFechaExamen = new DateTimePicker();
@@ -49,9 +52,6 @@
             label3 = new Label();
             label2 = new Label();
             label6 = new Label();
-            btnEliminar = new Button();
-            btnModificar = new Button();
-            btnAgregar = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -102,6 +102,34 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(800, 371);
             panel2.TabIndex = 1;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(643, 216);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 12;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(643, 161);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(75, 23);
+            btnModificar.TabIndex = 11;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(643, 111);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 10;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // panel3
             // 
@@ -267,34 +295,6 @@
             label6.TabIndex = 7;
             label6.Text = "ID Examen :";
             // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(643, 216);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
-            btnEliminar.TabIndex = 12;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Location = new Point(643, 161);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(75, 23);
-            btnModificar.TabIndex = 11;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(643, 111);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 10;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
             // FormExamenesModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -303,6 +303,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormExamenesModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormExamenesModal";
             Load += FormExamenesModal_Load;
             panel1.ResumeLayout(false);

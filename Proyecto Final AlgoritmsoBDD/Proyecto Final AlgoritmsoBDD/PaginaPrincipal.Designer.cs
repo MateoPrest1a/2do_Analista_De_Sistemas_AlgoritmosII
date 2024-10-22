@@ -189,6 +189,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "PaginaPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PaginaPrincipal";
             Load += PaginaPrincipal_Load;
             panel1.ResumeLayout(false);

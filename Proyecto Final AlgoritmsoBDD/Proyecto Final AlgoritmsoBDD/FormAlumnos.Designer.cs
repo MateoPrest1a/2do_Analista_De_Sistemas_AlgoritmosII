@@ -113,6 +113,7 @@
             MaximumSize = new Size(816, 489);
             MinimumSize = new Size(816, 489);
             Name = "FormAlumnos";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Alumnos";
             Load += FormAlumnos_Load;
             panel1.ResumeLayout(false);

@@ -101,6 +101,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormCarreras";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCarreras";
             Load += FormCarreras_Load;
             panel1.ResumeLayout(false);

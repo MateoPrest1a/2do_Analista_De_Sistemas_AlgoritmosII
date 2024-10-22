@@ -119,12 +119,13 @@
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(729, 12);
+            btnSalir.Location = new Point(673, 12);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(59, 44);
             btnSalir.TabIndex = 0;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnEliminar
             // 
@@ -385,6 +386,7 @@
             ClientSize = new Size(744, 450);
             Controls.Add(panel1);
             Name = "FormAlumnosModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormAlumnosModal";
             Load += FormAlumnosModal_Load;
             panel1.ResumeLayout(false);

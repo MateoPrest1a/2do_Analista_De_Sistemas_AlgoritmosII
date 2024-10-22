@@ -44,6 +44,8 @@
             label4 = new Label();
             label3 = new Label();
             txtNombreMateria = new TextBox();
+            cmbCarreras = new ComboBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -125,10 +127,13 @@
             btnSalir.TabIndex = 0;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.None;
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(cmbCarreras);
             panel3.Controls.Add(cmbAñoCursada);
             panel3.Controls.Add(lblMateriaID);
             panel3.Controls.Add(lblMateria);
@@ -211,6 +216,24 @@
             txtNombreMateria.Size = new Size(123, 23);
             txtNombreMateria.TabIndex = 15;
             // 
+            // cmbCarreras
+            // 
+            cmbCarreras.FormattingEnabled = true;
+            cmbCarreras.Location = new Point(152, 125);
+            cmbCarreras.Name = "cmbCarreras";
+            cmbCarreras.Size = new Size(123, 23);
+            cmbCarreras.TabIndex = 38;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Schadow BT", 12F);
+            label2.Location = new Point(66, 125);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 19);
+            label2.TabIndex = 39;
+            label2.Text = "Carrera :";
+            // 
             // FormMateriasModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -218,6 +241,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Name = "FormMateriasModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMateriasModal";
             Load += FormMateriasModal_Load;
             panel1.ResumeLayout(false);
@@ -246,5 +270,7 @@
         private Button btnModificarMateria;
         private Button btnAgregarMateria;
         private ComboBox cmbAñoCursada;
+        private Label label2;
+        private ComboBox cmbCarreras;
     }
 }

@@ -395,6 +395,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Name = "FormEmpleadosModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormEmpleadosModal";
             Load += FormEmpleadosModal_Load;
             panel1.ResumeLayout(false);

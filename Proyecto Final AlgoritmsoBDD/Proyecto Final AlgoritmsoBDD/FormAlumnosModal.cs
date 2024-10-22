@@ -34,6 +34,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
+        public void Validacion(string n)
+        {
+
+        }
+
+
         private void CargarCarreras()
         {
             string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
@@ -428,7 +434,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 error1.Clear();
             }
 
-            conexionbdd.ActualizarAlumno(Convert.ToInt32(lblMatriculaAlumno.Text),NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
+            conexionbdd.ActualizarAlumno(Convert.ToInt32(lblMatriculaAlumno.Text), NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
             AlumnoEvento?.Invoke();
             this.Close();
         }
@@ -475,6 +481,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void cmbCarrerasAlumnos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

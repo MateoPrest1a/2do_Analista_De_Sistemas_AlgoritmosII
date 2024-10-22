@@ -230,6 +230,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormCarrerasModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCarrerasModal";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -93,7 +93,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void ActualizarDataGridView()
         {
-            string consulta = "SELECT id_materia as ID, anio_cursada as Año, nombre_materia as Materia FROM Materias";
+            string consulta = @"SELECT  
+                                    m.id_materia as ID, 
+                                    m.anio_cursada as Año, 
+                                    m.nombre_materia as Materia,
+                                    mc.id_carrera AS Carrera
+                                FROM 
+                                    Materias as m
+                                JOIN MateriasxCarrera as mc ON m.id_materia = mc.id_materia;";
             SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);

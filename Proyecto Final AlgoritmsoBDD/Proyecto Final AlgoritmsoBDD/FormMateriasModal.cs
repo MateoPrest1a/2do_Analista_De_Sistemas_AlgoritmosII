@@ -26,9 +26,52 @@ namespace Proyecto_Final_AlgoritmsoBDD
             cmbAñoCursada.Items.Add("3");
         }
 
+        private void CargarCarreras()
+        {
+            string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
+
+            using (var connection = conexionbdd.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            cmbCarreras.Items.Clear();
+
+                            while (reader.Read())
+                            {
+                                // Crear un nuevo objeto para almacenar la carrera
+                                var carrera = new Carrera
+                                {
+                                    ID_Carrera = reader.GetInt32(0), // id_carrera
+                                    Nombre_Carrera = reader.GetString(1) // nombre_carrera
+                                };
+
+                                // Agregar la carrera al ComboBox
+                                cmbCarreras.Items.Add(carrera);
+                            }
+                        }
+                    }
+
+                    cmbCarreras.DisplayMember = "nombre_carrera"; // Lo que se muestra en el ComboBox
+                    cmbCarreras.ValueMember = "id_carrera"; // El valor que se utilizará
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
+                }
+            }
+        }
+
         public FormMateriasModal(int ID, int Año, string Nombre)
         {
             InitializeComponent();
+            CargarCarreras();
             if (ID == 0)
             {
                 lblMateria.Visible = false;
@@ -77,6 +120,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-       
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
