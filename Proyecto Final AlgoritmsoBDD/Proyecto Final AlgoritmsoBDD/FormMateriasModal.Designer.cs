@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMateriasModal));
             panel1 = new Panel();
             btnEliminarMateria = new Button();
@@ -37,6 +38,8 @@
             label1 = new Label();
             btnSalir = new Button();
             panel3 = new Panel();
+            label2 = new Label();
+            cmbCarreras = new ComboBox();
             cmbAñoCursada = new ComboBox();
             lblMateriaID = new Label();
             lblMateria = new Label();
@@ -44,12 +47,12 @@
             label4 = new Label();
             label3 = new Label();
             txtNombreMateria = new TextBox();
-            cmbCarreras = new ComboBox();
-            label2 = new Label();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -146,8 +149,28 @@
             panel3.Size = new Size(499, 322);
             panel3.TabIndex = 7;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Schadow BT", 12F);
+            label2.Location = new Point(66, 125);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 19);
+            label2.TabIndex = 39;
+            label2.Text = "Carrera :";
+            // 
+            // cmbCarreras
+            // 
+            cmbCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCarreras.FormattingEnabled = true;
+            cmbCarreras.Location = new Point(152, 125);
+            cmbCarreras.Name = "cmbCarreras";
+            cmbCarreras.Size = new Size(123, 23);
+            cmbCarreras.TabIndex = 38;
+            // 
             // cmbAñoCursada
             // 
+            cmbAñoCursada.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAñoCursada.FormattingEnabled = true;
             cmbAñoCursada.Location = new Point(152, 67);
             cmbAñoCursada.Name = "cmbAñoCursada";
@@ -216,23 +239,9 @@
             txtNombreMateria.Size = new Size(123, 23);
             txtNombreMateria.TabIndex = 15;
             // 
-            // cmbCarreras
+            // error1
             // 
-            cmbCarreras.FormattingEnabled = true;
-            cmbCarreras.Location = new Point(152, 125);
-            cmbCarreras.Name = "cmbCarreras";
-            cmbCarreras.Size = new Size(123, 23);
-            cmbCarreras.TabIndex = 38;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Schadow BT", 12F);
-            label2.Location = new Point(66, 125);
-            label2.Name = "label2";
-            label2.Size = new Size(69, 19);
-            label2.TabIndex = 39;
-            label2.Text = "Carrera :";
+            error1.ContainerControl = this;
             // 
             // FormMateriasModal
             // 
@@ -250,6 +259,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -272,5 +282,6 @@
         private ComboBox cmbAñoCursada;
         private Label label2;
         private ComboBox cmbCarreras;
+        private ErrorProvider error1;
     }
 }

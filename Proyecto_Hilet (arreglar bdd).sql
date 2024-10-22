@@ -470,12 +470,58 @@ create table MateriasxCarrera(
 	foreign key (id_materia) references Materias(id_materia)
 );
 
+
 CREATE PROCEDURE SP_AgregarMatxCarrera
-	@id_carrera int,
-	@id_materia int
+    @anio_cursada INT,
+    @nombre_materia VARCHAR(30),
+    @id_carrera INT,
+    @id_materia INT OUTPUT
 AS
 BEGIN
-	INSERT INTO MateriasxCarrera(id_carrera,id_materia)
-	VALUES(@id_carrera,@id_materia)
-END;
-	
+
+    INSERT INTO Materias (anio_cursada, nombre_materia)
+    VALUES (@anio_cursada, @nombre_materia);
+
+
+    SET @id_materia = SCOPE_IDENTITY();
+
+
+    INSERT INTO MateriasxCarrera (id_carrera, id_materia)
+    VALUES (@id_carrera, @id_materia);
+END
+
+
+
+
+CREATE PROCEDURE SP_EliminarMateria
+    @id_materia INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Eliminar las relaciones de la tabla MateriasxCarrera
+    DELETE FROM MateriasxCarrera WHERE id_materia = @id_materia;
+
+    -- Eliminar la materia de la tabla Materias
+    DELETE FROM Materias WHERE id_materia = @id_materia;
+END
+
+drop procedure SP_EliminarMateria
+
+
+CREATE PROCEDURE SP_ModificarMateria
+    @id_materia INT,
+    @anio_cursada INT,
+    @nombre_materia VARCHAR(30)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Actualizar la materia en la tabla Materias
+    UPDATE Materias
+    SET anio_cursada = @anio_cursada, nombre_materia = @nombre_materia
+    WHERE id_materia = @id_materia;
+END
+
+
+select * from MateriasxCarrera
