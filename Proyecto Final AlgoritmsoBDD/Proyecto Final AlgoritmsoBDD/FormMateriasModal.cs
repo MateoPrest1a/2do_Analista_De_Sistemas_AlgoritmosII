@@ -93,13 +93,51 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
 
 
-
+        
         private void btnAgregarMateria_Click(object sender, EventArgs e)
         {
             conexionbdd.CargarMateria(Convert.ToInt32(cmbAñoCursada.SelectedText), txtNombreMateria.Text);
+            string queryInsertMateria = "INSERT INTO Materias (nombre_materia, descripcion) OUTPUT INSERTED.id_materia VALUES (@nombreMateria, @descripcion)";
+            string queryInsertMateriasPorCarrera = "INSERT INTO MateriasPorCarreras (id_carrera, id_materia) VALUES (@idCarrera, @idMateria)";
+
+            using (var connection = conexionbdd.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    // Primero, insertar la materia y obtener su ID
+                    using (SqlCommand commandInsertMateria = new SqlCommand(queryInsertMateria, connection))
+                    {
+                        commandInsertMateria.Parameters.AddWithValue("@nombreMateria", txtNombreMateria.Text);
+                        commandInsertMateria.Parameters.AddWithValue("@descripcion", txtDescripcionMateria.Text);
+
+                        // Ejecutar la consulta y obtener el ID generado
+                        int idMateriaGenerada = (int)commandInsertMateria.ExecuteScalar();
+
+                        // Después, insertar la relación en la tabla MateriasPorCarreras
+                        using (SqlCommand commandInsertMateriasPorCarrera = new SqlCommand(queryInsertMateriasPorCarrera, connection))
+                        {
+                            commandInsertMateriasPorCarrera.Parameters.AddWithValue("@idCarrera", (int)cmbCarreras.SelectedValue);
+                            commandInsertMateriasPorCarrera.Parameters.AddWithValue("@idMateria", idMateriaGenerada);
+
+                            // Ejecutar la inserción en la tabla intermedia
+                            commandInsertMateriasPorCarrera.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Materia y asociación con carrera cargadas exitosamente.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar la materia: {ex.Message}");
+                }
+            }
             MateriaEvento?.Invoke();
             this.Close();
         }
+        
+
 
         private void btnModificarMateria_Click(object sender, EventArgs e)
         {

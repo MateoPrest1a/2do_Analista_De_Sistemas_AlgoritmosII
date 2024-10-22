@@ -42,9 +42,7 @@ create table Estado_De_Alumno(
 create table Materias(
 	id_materia int identity primary key,
 	anio_cursada int,
-	nombre_materia varchar(30),
-	id_carrera int,
-	foreign key (id_carrera) references Carreras(id_carrera)
+	nombre_materia varchar(30)
 );
 
 DROP TABLE Materias
@@ -446,3 +444,38 @@ BEGIN
     DELETE FROM Examenes
     WHERE id_examen = @id_examen;
 END;
+
+
+CREATE PROCEDURE SP_InsertarMateria
+    @anio_cursada INT,
+    @nombre_materia VARCHAR(30),
+    @id_materia INT OUTPUT -- Parámetro de salida para devolver el ID generado
+AS
+BEGIN
+    -- Insertar en la tabla Materias y devolver el ID generado
+    INSERT INTO Materias (anio_cursada, nombre_materia)
+    OUTPUT INSERTED.id_materia INTO @id_materia
+    VALUES (@anio_cursada, @nombre_materia);
+END;
+
+
+
+--------------------------------------------------------Store Procedure MateriasxCarrera--------------------------------------------------------
+
+create table MateriasxCarrera(
+	id_matxcarr int identity primary key,
+	id_carrera int,
+	id_materia int,
+	foreign key (id_carrera) references Carreras(id_carrera),
+	foreign key (id_materia) references Materias(id_materia)
+);
+
+CREATE PROCEDURE SP_AgregarMatxCarrera
+	@id_carrera int,
+	@id_materia int
+AS
+BEGIN
+	INSERT INTO MateriasxCarrera(id_carrera,id_materia)
+	VALUES(@id_carrera,@id_materia)
+END;
+	
