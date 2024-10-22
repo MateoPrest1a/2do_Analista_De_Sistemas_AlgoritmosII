@@ -437,8 +437,6 @@ BEGIN
     WHERE id_examen = @id_examen;
 END;
 
-
-
 CREATE PROCEDURE SP_EliminarExamen
     @id_examen INT
 AS
@@ -446,3 +444,31 @@ BEGIN
     DELETE FROM Examenes
     WHERE id_examen = @id_examen;
 END;
+
+--------------------------------------------------------Store Procedure Busqueda Alumnos--------------------------------------------------------
+
+CREATE PROCEDURE SP_BuscarAlumnosPorNombre
+    @Nombre NVARCHAR,
+	@Apellido NVARCHAR
+AS
+BEGIN
+    SELECT *
+    FROM Alumnos
+    WHERE nombre LIKE '%' + @Nombre + '%' AND Apellido LIKE '%' + @Apellido + '%'
+END;
+
+--------------------------------------------------------Store Procedure Busqueda Empleados--------------------------------------------------------
+
+CREATE PROCEDURE SP_BuscarEmpleadosPorNombre
+    @Nombre NVARCHAR,
+	@Apellido NVARCHAR
+AS
+BEGIN
+    SELECT *
+    FROM Empleados
+    WHERE nombre LIKE '%' + @Nombre + '%' AND apellido LIKE '%' + @Apellido + '%'
+END;
+
+
+
+
