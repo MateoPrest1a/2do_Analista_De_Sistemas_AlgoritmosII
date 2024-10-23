@@ -82,6 +82,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(800, 308);
             dataGridView1.TabIndex = 38;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // panel1
             // 
@@ -101,6 +102,7 @@
             btnAgregar.TabIndex = 8;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // FormExamenesRendidos
             // 

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
@@ -21,6 +22,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void FormMateriasModal_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void CargarAños()
+        {
             cmbAñoCursada.Items.Add("1");
             cmbAñoCursada.Items.Add("2");
             cmbAñoCursada.Items.Add("3");
@@ -28,7 +34,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void CargarCarreras()
         {
-            string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
+            string query = @"SELECT 
+                                id_carrera, 
+                                nombre_carrera 
+                             FROM 
+                                Carreras";
 
             using (var connection = conexionbdd.GetConnection())
             {
@@ -68,20 +78,32 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
-        public FormMateriasModal(int ID, int Año, string Nombre)
+        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera)
         {
             InitializeComponent();
             CargarCarreras();
+            CargarAños();
+
+            lblMateriaID.Text = ID.ToString();
+            cmbAñoCursada.SelectedItem = Año.ToString();
+            txtNombreMateria.Text = Nombre;
+
+            // Asignar la carrera seleccionada
+            if (cmbCarreras.Items.Count > 0)
+            {
+                cmbCarreras.SelectedItem = cmbCarreras.Items.Cast<Carrera>().FirstOrDefault(c => c.ID_Carrera == idcarrera); // La función Cast<Carrera>() convierte esos elementos al tipo Carrera FirstOrDefault(c => c.ID_Carrera == idcarrera) : Esta parte busca el primer elemento en la colección que cumpla con la condición especificada en la expresión lambda c => c.ID_Carrera == idcarrera.
+            }
+
             if (ID == 0)
             {
                 lblMateria.Visible = false;
                 lblMateriaID.Visible = false;
+                btnModificarMateria.Visible = false;
+                btnEliminarMateria.Visible = false;
             }
             else
             {
-                lblMateriaID.Text = ID.ToString();
-                cmbAñoCursada.SelectedItem = Año.ToString();
-                txtNombreMateria.Text = Nombre;
+                btnAgregarMateria.Visible = false;
             }
 
         }
@@ -172,7 +194,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 return;
             }
 
-            if (txtNombreMateria.Text == null || txtNombreMateria.Text.Trim() == "")
+            if (txtNombreMateria.Text == null )
             {
                 error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
                 txtNombreMateria.Focus();
@@ -185,9 +207,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 cmbAñoCursada.Focus();
                 return;
             }
-            int idMateria = Convert.ToInt32(lblMateriaID.Text); // Obtener ID de la materia a modificar
-            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem); // Año cursada
-            string nombreMateria = txtNombreMateria.Text; // Obtener el nombre de la materia del TextBox
+            int idMateria = Convert.ToInt32(lblMateriaID.Text);
+            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
+            string nombreMateria = txtNombreMateria.Text;
+            int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
 
             using (var connection = conexionbdd.GetConnection())
             {
@@ -201,6 +224,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         cmd.Parameters.AddWithValue("@id_materia", idMateria);
                         cmd.Parameters.AddWithValue("@anio_cursada", anioCursada);
                         cmd.Parameters.AddWithValue("@nombre_materia", nombreMateria);
+                        cmd.Parameters.AddWithValue("@id_carrera", idCarrera);
 
                         // Ejecutar el stored procedure
                         cmd.ExecuteNonQuery();

@@ -133,6 +133,30 @@ create table AlumnosxCarrera(
 	foreign key (matricula) references Alumnos(matricula)
 );
 
+
+create table ExamenxAlumno(
+	id_examenxalumno int identity primary key,
+	id_alumno int,
+	id_materia int,
+	id_carrera int,
+	fecha date,
+	calificacion decimal,
+	id_examen int,
+	foreign key (id_alumno) references Alumnos(matricula),
+	foreign key (id_carrera) references Carreras(id_carrera),
+	foreign key (id_materia) references Materias(id_materia),
+	FOREIGN KEY (id_examen) REFERENCES Examenes(id_examen)
+);
+
+
+drop table ExamenxAlumno
+
+select * from Alumnos
+
+INSERT INTO ExamenxAlumno VALUES(
+2,1,1,'2024-10-24',10
+);
+
 /*-------------------------------------------------------*/
 
 create table Perfiles(
@@ -492,7 +516,6 @@ END
 
 
 
-
 CREATE PROCEDURE SP_EliminarMateria
     @id_materia INT
 AS
@@ -506,22 +529,72 @@ BEGIN
     DELETE FROM Materias WHERE id_materia = @id_materia;
 END
 
-drop procedure SP_EliminarMateria
-
+drop procedure SP_ModificarMateria
 
 CREATE PROCEDURE SP_ModificarMateria
     @id_materia INT,
     @anio_cursada INT,
-    @nombre_materia VARCHAR(30)
+    @nombre_materia VARCHAR(30),
+    @id_carrera INT
 AS
 BEGIN
-    SET NOCOUNT ON;
-
-    -- Actualizar la materia en la tabla Materias
+    -- Actualizar la materia
     UPDATE Materias
-    SET anio_cursada = @anio_cursada, nombre_materia = @nombre_materia
+    SET anio_cursada = @anio_cursada,
+        nombre_materia = @nombre_materia
     WHERE id_materia = @id_materia;
+
+    -- Actualizar la relación en MateriasxCarrera
+    IF EXISTS (SELECT 1 FROM MateriasxCarrera WHERE id_materia = @id_materia)
+    BEGIN
+        UPDATE MateriasxCarrera
+        SET id_carrera = @id_carrera
+        WHERE id_materia = @id_materia;
+    END
+    ELSE
+    BEGIN
+        INSERT INTO MateriasxCarrera (id_carrera, id_materia)
+        VALUES (@id_carrera, @id_materia);
+    END
 END
 
-
 select * from MateriasxCarrera
+
+SELECT 
+    e.id_examenxalumno,
+    e.fecha,
+    e.calificacion,
+    a.nombre AS Alumno,
+    m.id_materia,
+    m.nombre_materia AS Materia,
+    c.nombre_carrera AS Carrera,
+    ex.tipo_examen AS [tipo examen]
+FROM 
+    ExamenxAlumno AS e
+JOIN 
+    Alumnos AS a ON a.matricula = e.id_alumno
+JOIN 
+    Materias AS m ON m.id_materia = e.id_materia
+JOIN 
+    Carreras AS c ON c.id_carrera = e.id_carrera
+JOIN
+    Examenes AS ex ON ex.id_examen = e.id_examen  -- Ahora es correcto
+JOIN 
+    tipoexamen AS tx ON ex.tipo_examen = tx.id_tipoexamen -- Verifica que este sea el correcto
+WHERE 
+    e.id_alumno = 2;
+
+
+	SELECT e.*, a.nombre 
+FROM ExamenxAlumno AS e
+JOIN Alumnos AS a ON a.matricula = e.id_alumno
+WHERE e.id_alumno = 2;
+
+
+
+SELECT e.*, a.nombre, m.nombre_materia, c.nombre_carrera
+FROM ExamenxAlumno AS e
+JOIN Alumnos AS a ON a.matricula = e.id_alumno
+JOIN Materias AS m ON m.id_materia = e.id_materia
+JOIN Carreras AS c ON c.id_carrera = e.id_carrera
+WHERE e.id_alumno = 2;

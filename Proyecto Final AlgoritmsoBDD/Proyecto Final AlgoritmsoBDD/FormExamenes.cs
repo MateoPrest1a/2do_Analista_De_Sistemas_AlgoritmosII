@@ -57,7 +57,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
 
-                // Opcional: Ocultar la columna de id_carrera
+                // Ocultar la columna de ids
                 dataGridView1.Columns["id_carrera"].Visible = false; // Oculta la columna
                 dataGridView1.Columns["id_materia"].Visible = false; 
                 dataGridView1.Columns["id_tipoexamen"].Visible = false;
@@ -116,7 +116,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 try
                 {
 
-                    //Necesito que al cargarle el nombre "Analista de sistemas" se lo pase como int ya que es el id del combo box.
+                    
 
                     // Obtener los valores de las celdas
                     int idExamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);

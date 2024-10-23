@@ -474,8 +474,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnExamenesRendidos_Click(object sender, EventArgs e)
         {
             FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(Convert.ToInt32(lblMatriculaAlumno.Text));
-
-
+            formexamenesrendidos.ShowDialog();
         }
 
         private void cmbCarrerasAlumnos_SelectedIndexChanged(object sender, EventArgs e)
