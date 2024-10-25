@@ -58,14 +58,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 63);
             panel1.TabIndex = 39;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Schadow BT", 25F);
+            label1.Font = new Font("Microsoft Sans Serif", 25F);
             label1.Location = new Point(312, 9);
             label1.Name = "label1";
-            label1.Size = new Size(147, 41);
+            label1.Size = new Size(147, 39);
             label1.TabIndex = 2;
             label1.Text = "Materias";
             // 
@@ -73,7 +74,7 @@
             // 
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(734, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 57);

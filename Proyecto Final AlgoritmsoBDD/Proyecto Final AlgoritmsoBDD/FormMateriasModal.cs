@@ -49,6 +49,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnAgregarMateria_Click(object sender, EventArgs e)
         {
+            if (txtNombreMateria.Text == "");
+
             conexionbdd.CargarMateria(Convert.ToInt32(txtAñoCursada.Text), txtNombreMateria.Text);
             MateriaEvento?.Invoke();
             this.Close();
@@ -66,6 +68,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
             conexionbdd.EliminarMateria(Convert.ToInt32(lblMateriaID.Text));
             MateriaEvento?.Invoke();
             this.Close();
+        }
+
+        private void txtNombreMateria_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMateriasModal));
             panel1 = new Panel();
             btnEliminarMateria = new Button();
@@ -44,10 +45,12 @@
             label3 = new Label();
             txtNombreMateria = new TextBox();
             txtAñoCursada = new TextBox();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -107,10 +110,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Schadow BT", 25F);
+            label1.Font = new Font("Microsoft Sans Serif", 25F);
             label1.Location = new Point(312, 9);
             label1.Name = "label1";
-            label1.Size = new Size(147, 41);
+            label1.Size = new Size(147, 39);
             label1.TabIndex = 2;
             label1.Text = "Materias";
             // 
@@ -118,7 +121,7 @@
             // 
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(734, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 57);
@@ -144,22 +147,22 @@
             // lblMateriaID
             // 
             lblMateriaID.AutoSize = true;
-            lblMateriaID.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMateriaID.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMateriaID.ImageAlign = ContentAlignment.BottomLeft;
             lblMateriaID.Location = new Point(152, 40);
             lblMateriaID.Name = "lblMateriaID";
-            lblMateriaID.Size = new Size(0, 19);
+            lblMateriaID.Size = new Size(0, 20);
             lblMateriaID.TabIndex = 36;
             lblMateriaID.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblMateria
             // 
             lblMateria.AutoSize = true;
-            lblMateria.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMateria.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMateria.ImageAlign = ContentAlignment.BottomLeft;
             lblMateria.Location = new Point(46, 40);
             lblMateria.Name = "lblMateria";
-            lblMateria.Size = new Size(89, 19);
+            lblMateria.Size = new Size(91, 20);
             lblMateria.TabIndex = 35;
             lblMateria.Text = "ID Materia :";
             lblMateria.TextAlign = ContentAlignment.MiddleCenter;
@@ -177,21 +180,21 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Schadow BT", 12F);
+            label4.Font = new Font("Microsoft Sans Serif", 12F);
             label4.Location = new Point(8, 96);
             label4.Name = "label4";
-            label4.Size = new Size(127, 19);
+            label4.Size = new Size(130, 20);
             label4.TabIndex = 25;
             label4.Text = "Nombre Materia :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ImageAlign = ContentAlignment.BottomLeft;
             label3.Location = new Point(29, 67);
             label3.Name = "label3";
-            label3.Size = new Size(106, 19);
+            label3.Size = new Size(110, 20);
             label3.TabIndex = 24;
             label3.Text = "Año Cursada :";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -202,6 +205,7 @@
             txtNombreMateria.Name = "txtNombreMateria";
             txtNombreMateria.Size = new Size(123, 23);
             txtNombreMateria.TabIndex = 15;
+            txtNombreMateria.TextChanged += txtNombreMateria_TextChanged;
             // 
             // txtAñoCursada
             // 
@@ -209,6 +213,10 @@
             txtAñoCursada.Name = "txtAñoCursada";
             txtAñoCursada.Size = new Size(123, 23);
             txtAñoCursada.TabIndex = 14;
+            // 
+            // error1
+            // 
+            error1.ContainerControl = this;
             // 
             // FormMateriasModal
             // 
@@ -225,6 +233,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -245,5 +254,6 @@
         private Button btnEliminarMateria;
         private Button btnModificarMateria;
         private Button btnAgregarMateria;
+        private ErrorProvider error1;
     }
 }

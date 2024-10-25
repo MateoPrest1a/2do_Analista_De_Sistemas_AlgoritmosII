@@ -41,85 +41,78 @@ namespace DiseñoFinal
             label35 = new Label();
             label4 = new Label();
             label5 = new Label();
+            label21 = new Label();
+            label23 = new Label();
+            label20 = new Label();
             label1 = new Label();
             label3 = new Label();
+            label22 = new Label();
             panel6 = new Panel();
             label31 = new Label();
             label30 = new Label();
             label29 = new Label();
             label28 = new Label();
             panel5 = new Panel();
+            label19 = new Label();
             label27 = new Label();
+            label12 = new Label();
             label26 = new Label();
             label25 = new Label();
             label24 = new Label();
-            label23 = new Label();
-            label22 = new Label();
-            label21 = new Label();
-            label20 = new Label();
             panel4 = new Panel();
-            label19 = new Label();
+            panel3 = new Panel();
             label18 = new Label();
             label17 = new Label();
+            label2 = new Label();
             label16 = new Label();
+            label8 = new Label();
             label15 = new Label();
-            label12 = new Label();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
-            label8 = new Label();
-            panel3 = new Panel();
-            label6 = new Label();
-            label33 = new Label();
-            label34 = new Label();
-            label32 = new Label();
-            label2 = new Label();
             panel1 = new Panel();
             btnABMAlumnos = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             btnABMMaterias = new Button();
             btnABMProfesores = new Button();
-            btnABMPerfiles = new Button();
+            btnABMPermisos = new Button();
             btnABMEmpleados = new Button();
-            tabAlumno = new TabPage();
-            tabProfesores = new TabPage();
-            panel9 = new Panel();
+            tabPerfilAlumno = new TabPage();
             panel10 = new Panel();
-            pictureBox2 = new PictureBox();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            panel11 = new Panel();
+            btnExamenesAlumnos = new Button();
+            btnCursosAlumnos = new Button();
+            btnMateriasAlumnos = new Button();
+            tabPerfilProfesores = new TabPage();
+            panel9 = new Panel();
+            btnExamenesProfesor = new Button();
+            btnCarrerasProfesor = new Button();
+            btnMateriasProfesor = new Button();
             button1 = new Button();
-            tabMiPerfilAlumno = new TabPage();
-            tabMiPerfilProfesor = new TabPage();
-            tabPage2 = new TabPage();
+            button2 = new Button();
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
             panel7.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
-            panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            tabProfesores.SuspendLayout();
-            panel9.SuspendLayout();
+            tabPerfilAlumno.SuspendLayout();
             panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel11.SuspendLayout();
+            tabPerfilProfesores.SuspendLayout();
+            panel9.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabMenuPrincipal);
-            tabControl1.Controls.Add(tabAlumno);
-            tabControl1.Controls.Add(tabProfesores);
-            tabControl1.Controls.Add(tabMiPerfilAlumno);
-            tabControl1.Controls.Add(tabMiPerfilProfesor);
-            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPerfilAlumno);
+            tabControl1.Controls.Add(tabPerfilProfesores);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -166,6 +159,7 @@ namespace DiseñoFinal
             lblUsuario.Size = new Size(69, 21);
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "Usuario";
+            lblUsuario.Click += lblUsuario_Click;
             // 
             // lblPerfil
             // 
@@ -255,6 +249,39 @@ namespace DiseñoFinal
             label5.TabIndex = 4;
             label5.Text = "label5";
             // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.BackColor = Color.FromArgb(33, 63, 96);
+            label21.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.ForeColor = SystemColors.ControlLightLight;
+            label21.Location = new Point(727, 26);
+            label21.Name = "label21";
+            label21.Size = new Size(197, 22);
+            label21.TabIndex = 18;
+            label21.Text = "Egresados de Publicidad:";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(930, 31);
+            label23.Name = "label23";
+            label23.Size = new Size(44, 15);
+            label23.TabIndex = 20;
+            label23.Text = "label23";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.BackColor = Color.FromArgb(33, 63, 96);
+            label20.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label20.ForeColor = SystemColors.ControlLightLight;
+            label20.Location = new Point(435, 69);
+            label20.Name = "label20";
+            label20.Size = new Size(272, 22);
+            label20.TabIndex = 17;
+            label20.Text = "Egresados de Analista de Sistemas:";
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -278,6 +305,15 @@ namespace DiseñoFinal
             label3.Size = new Size(353, 22);
             label3.TabIndex = 2;
             label3.Text = "Cantidad de Alumnos de Analista de Sistemas:";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(713, 76);
+            label22.Name = "label22";
+            label22.Size = new Size(44, 15);
+            label22.TabIndex = 19;
+            label22.Text = "label22";
             // 
             // panel6
             // 
@@ -348,6 +384,15 @@ namespace DiseñoFinal
             panel5.Size = new Size(1008, 105);
             panel5.TabIndex = 3;
             // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(751, 47);
+            label19.Name = "label19";
+            label19.Size = new Size(44, 15);
+            label19.TabIndex = 16;
+            label19.Text = "label19";
+            // 
             // label27
             // 
             label27.AutoSize = true;
@@ -356,6 +401,18 @@ namespace DiseñoFinal
             label27.Size = new Size(44, 15);
             label27.TabIndex = 24;
             label27.Text = "label27";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = Color.FromArgb(33, 63, 96);
+            label12.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = SystemColors.ControlLightLight;
+            label12.Location = new Point(554, 42);
+            label12.Name = "label12";
+            label12.Size = new Size(191, 22);
+            label12.TabIndex = 11;
+            label12.Text = "Cantidad de Profesores:";
             // 
             // label26
             // 
@@ -390,68 +447,31 @@ namespace DiseñoFinal
             label24.TabIndex = 21;
             label24.Text = "Profesores de Analista de Sistemas:";
             // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new Point(930, 31);
-            label23.Name = "label23";
-            label23.Size = new Size(44, 15);
-            label23.TabIndex = 20;
-            label23.Text = "label23";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(713, 76);
-            label22.Name = "label22";
-            label22.Size = new Size(44, 15);
-            label22.TabIndex = 19;
-            label22.Text = "label22";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.BackColor = Color.FromArgb(33, 63, 96);
-            label21.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.ForeColor = SystemColors.ControlLightLight;
-            label21.Location = new Point(727, 26);
-            label21.Name = "label21";
-            label21.Size = new Size(197, 22);
-            label21.TabIndex = 18;
-            label21.Text = "Egresados de Publicidad:";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.BackColor = Color.FromArgb(33, 63, 96);
-            label20.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.ForeColor = SystemColors.ControlLightLight;
-            label20.Location = new Point(435, 69);
-            label20.Name = "label20";
-            label20.Size = new Size(272, 22);
-            label20.TabIndex = 17;
-            label20.Text = "Egresados de Analista de Sistemas:";
-            // 
             // panel4
             // 
-            panel4.Controls.Add(label6);
-            panel4.Controls.Add(label33);
-            panel4.Controls.Add(label32);
-            panel4.Controls.Add(label34);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(197, 108);
             panel4.Name = "panel4";
             panel4.Size = new Size(1008, 105);
             panel4.TabIndex = 2;
             // 
-            // label19
+            // panel3
             // 
-            label19.AutoSize = true;
-            label19.Location = new Point(751, 47);
-            label19.Name = "label19";
-            label19.Size = new Size(44, 15);
-            label19.TabIndex = 16;
-            label19.Text = "label19";
+            panel3.BackColor = Color.Gainsboro;
+            panel3.Controls.Add(label18);
+            panel3.Controls.Add(label17);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label16);
+            panel3.Controls.Add(label8);
+            panel3.Controls.Add(label15);
+            panel3.Controls.Add(label11);
+            panel3.Controls.Add(label10);
+            panel3.Controls.Add(label9);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(197, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1008, 105);
+            panel3.TabIndex = 1;
             // 
             // label18
             // 
@@ -471,6 +491,14 @@ namespace DiseñoFinal
             label17.TabIndex = 14;
             label17.Text = "label17";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(172, 66);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 15);
+            label2.TabIndex = 1;
+            // 
             // label16
             // 
             label16.AutoSize = true;
@@ -480,6 +508,18 @@ namespace DiseñoFinal
             label16.TabIndex = 13;
             label16.Text = "label16";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.FromArgb(33, 63, 96);
+            label8.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.ControlLightLight;
+            label8.Location = new Point(172, 16);
+            label8.Name = "label8";
+            label8.Size = new Size(248, 22);
+            label8.TabIndex = 7;
+            label8.Text = "Cantidad de Empleados Totales:";
+            // 
             // label15
             // 
             label15.AutoSize = true;
@@ -488,18 +528,6 @@ namespace DiseñoFinal
             label15.Size = new Size(44, 15);
             label15.TabIndex = 12;
             label15.Text = "label15";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.FromArgb(33, 63, 96);
-            label12.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.ForeColor = SystemColors.ControlLightLight;
-            label12.Location = new Point(554, 42);
-            label12.Name = "label12";
-            label12.Size = new Size(191, 22);
-            label12.TabIndex = 11;
-            label12.Text = "Cantidad de Profesores:";
             // 
             // label11
             // 
@@ -537,86 +565,6 @@ namespace DiseñoFinal
             label9.TabIndex = 8;
             label9.Text = "Cantidad de Profesores:";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.FromArgb(33, 63, 96);
-            label8.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ControlLightLight;
-            label8.Location = new Point(172, 16);
-            label8.Name = "label8";
-            label8.Size = new Size(248, 22);
-            label8.TabIndex = 7;
-            label8.Text = "Cantidad de Empleados Totales:";
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Gainsboro;
-            panel3.Controls.Add(label18);
-            panel3.Controls.Add(label17);
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(label16);
-            panel3.Controls.Add(label8);
-            panel3.Controls.Add(label15);
-            panel3.Controls.Add(label11);
-            panel3.Controls.Add(label10);
-            panel3.Controls.Add(label9);
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(197, 3);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1008, 105);
-            panel3.TabIndex = 1;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(727, 47);
-            label6.Name = "label6";
-            label6.Size = new Size(38, 15);
-            label6.TabIndex = 5;
-            label6.Text = "label6";
-            // 
-            // label33
-            // 
-            label33.AutoSize = true;
-            label33.Location = new Point(554, 47);
-            label33.Name = "label33";
-            label33.Size = new Size(44, 15);
-            label33.TabIndex = 30;
-            label33.Text = "label33";
-            // 
-            // label34
-            // 
-            label34.AutoSize = true;
-            label34.BackColor = Color.FromArgb(33, 63, 96);
-            label34.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label34.ForeColor = SystemColors.ControlLightLight;
-            label34.Location = new Point(672, 42);
-            label34.Name = "label34";
-            label34.Size = new Size(44, 22);
-            label34.TabIndex = 31;
-            label34.Text = "Algo";
-            // 
-            // label32
-            // 
-            label32.AutoSize = true;
-            label32.BackColor = Color.FromArgb(33, 63, 96);
-            label32.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label32.ForeColor = SystemColors.ControlLightLight;
-            label32.Location = new Point(342, 44);
-            label32.Name = "label32";
-            label32.Size = new Size(206, 22);
-            label32.TabIndex = 29;
-            label32.Text = "Cantidad total de perfiles:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(172, 66);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 1;
-            // 
             // panel1
             // 
             panel1.BackColor = SystemColors.Highlight;
@@ -624,7 +572,7 @@ namespace DiseñoFinal
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnABMMaterias);
             panel1.Controls.Add(btnABMProfesores);
-            panel1.Controls.Add(btnABMPerfiles);
+            panel1.Controls.Add(btnABMPermisos);
             panel1.Controls.Add(btnABMEmpleados);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 3);
@@ -705,22 +653,22 @@ namespace DiseñoFinal
             btnABMProfesores.UseVisualStyleBackColor = false;
             btnABMProfesores.Click += btnABMMaterias_Click;
             // 
-            // btnABMPerfiles
+            // btnABMPermisos
             // 
-            btnABMPerfiles.BackColor = Color.FromArgb(33, 63, 96);
-            btnABMPerfiles.BackgroundImageLayout = ImageLayout.None;
-            btnABMPerfiles.Dock = DockStyle.Top;
-            btnABMPerfiles.FlatAppearance.BorderSize = 0;
-            btnABMPerfiles.FlatStyle = FlatStyle.Flat;
-            btnABMPerfiles.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnABMPerfiles.ForeColor = Color.White;
-            btnABMPerfiles.Location = new Point(0, 105);
-            btnABMPerfiles.Name = "btnABMPerfiles";
-            btnABMPerfiles.Size = new Size(194, 105);
-            btnABMPerfiles.TabIndex = 2;
-            btnABMPerfiles.Text = "PERFILES";
-            btnABMPerfiles.UseVisualStyleBackColor = false;
-            btnABMPerfiles.Click += btnABMCarreras_Click;
+            btnABMPermisos.BackColor = Color.FromArgb(33, 63, 96);
+            btnABMPermisos.BackgroundImageLayout = ImageLayout.None;
+            btnABMPermisos.Dock = DockStyle.Top;
+            btnABMPermisos.FlatAppearance.BorderSize = 0;
+            btnABMPermisos.FlatStyle = FlatStyle.Flat;
+            btnABMPermisos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnABMPermisos.ForeColor = Color.White;
+            btnABMPermisos.Location = new Point(0, 105);
+            btnABMPermisos.Name = "btnABMPermisos";
+            btnABMPermisos.Size = new Size(194, 105);
+            btnABMPermisos.TabIndex = 2;
+            btnABMPermisos.Text = "PERMISOS";
+            btnABMPermisos.UseVisualStyleBackColor = false;
+            btnABMPermisos.Click += btnABMCarreras_Click;
             // 
             // btnABMEmpleados
             // 
@@ -739,122 +687,155 @@ namespace DiseñoFinal
             btnABMEmpleados.UseVisualStyleBackColor = false;
             btnABMEmpleados.Click += btnABMEmpleados_Click;
             // 
-            // tabAlumno
+            // tabPerfilAlumno
             // 
-            tabAlumno.Location = new Point(4, 24);
-            tabAlumno.Name = "tabAlumno";
-            tabAlumno.Size = new Size(1208, 573);
-            tabAlumno.TabIndex = 2;
-            tabAlumno.Text = "Alumnos";
-            tabAlumno.UseVisualStyleBackColor = true;
+            tabPerfilAlumno.Controls.Add(panel10);
+            tabPerfilAlumno.Location = new Point(4, 24);
+            tabPerfilAlumno.Name = "tabPerfilAlumno";
+            tabPerfilAlumno.Size = new Size(1208, 573);
+            tabPerfilAlumno.TabIndex = 2;
+            tabPerfilAlumno.Text = "Mi Perfil";
+            tabPerfilAlumno.UseVisualStyleBackColor = true;
             // 
-            // tabProfesores
+            // panel10
             // 
-            tabProfesores.Controls.Add(panel9);
-            tabProfesores.Location = new Point(4, 24);
-            tabProfesores.Name = "tabProfesores";
-            tabProfesores.Padding = new Padding(3);
-            tabProfesores.Size = new Size(1208, 573);
-            tabProfesores.TabIndex = 1;
-            tabProfesores.Text = "Profesores";
-            tabProfesores.UseVisualStyleBackColor = true;
+            panel10.Controls.Add(panel11);
+            panel10.Dock = DockStyle.Fill;
+            panel10.Location = new Point(0, 0);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(1208, 573);
+            panel10.TabIndex = 0;
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(btnExamenesAlumnos);
+            panel11.Controls.Add(btnCursosAlumnos);
+            panel11.Controls.Add(btnMateriasAlumnos);
+            panel11.Dock = DockStyle.Left;
+            panel11.Location = new Point(0, 0);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(195, 573);
+            panel11.TabIndex = 2;
+            // 
+            // btnExamenesAlumnos
+            // 
+            btnExamenesAlumnos.BackColor = Color.FromArgb(33, 63, 96);
+            btnExamenesAlumnos.BackgroundImageLayout = ImageLayout.None;
+            btnExamenesAlumnos.Dock = DockStyle.Top;
+            btnExamenesAlumnos.FlatAppearance.BorderSize = 0;
+            btnExamenesAlumnos.FlatStyle = FlatStyle.Flat;
+            btnExamenesAlumnos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExamenesAlumnos.ForeColor = SystemColors.ButtonHighlight;
+            btnExamenesAlumnos.Location = new Point(0, 380);
+            btnExamenesAlumnos.Name = "btnExamenesAlumnos";
+            btnExamenesAlumnos.Size = new Size(195, 193);
+            btnExamenesAlumnos.TabIndex = 3;
+            btnExamenesAlumnos.Text = "EXAMENES";
+            btnExamenesAlumnos.UseVisualStyleBackColor = false;
+            // 
+            // btnCursosAlumnos
+            // 
+            btnCursosAlumnos.BackColor = Color.FromArgb(33, 63, 96);
+            btnCursosAlumnos.BackgroundImageLayout = ImageLayout.None;
+            btnCursosAlumnos.Dock = DockStyle.Top;
+            btnCursosAlumnos.FlatAppearance.BorderSize = 0;
+            btnCursosAlumnos.FlatStyle = FlatStyle.Flat;
+            btnCursosAlumnos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCursosAlumnos.ForeColor = SystemColors.ButtonHighlight;
+            btnCursosAlumnos.Location = new Point(0, 193);
+            btnCursosAlumnos.Name = "btnCursosAlumnos";
+            btnCursosAlumnos.Size = new Size(195, 187);
+            btnCursosAlumnos.TabIndex = 2;
+            btnCursosAlumnos.Text = "CURSOS";
+            btnCursosAlumnos.UseVisualStyleBackColor = false;
+            // 
+            // btnMateriasAlumnos
+            // 
+            btnMateriasAlumnos.BackColor = Color.FromArgb(33, 63, 96);
+            btnMateriasAlumnos.BackgroundImageLayout = ImageLayout.None;
+            btnMateriasAlumnos.Dock = DockStyle.Top;
+            btnMateriasAlumnos.FlatAppearance.BorderSize = 0;
+            btnMateriasAlumnos.FlatStyle = FlatStyle.Flat;
+            btnMateriasAlumnos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMateriasAlumnos.ForeColor = SystemColors.ButtonHighlight;
+            btnMateriasAlumnos.Location = new Point(0, 0);
+            btnMateriasAlumnos.Name = "btnMateriasAlumnos";
+            btnMateriasAlumnos.Size = new Size(195, 193);
+            btnMateriasAlumnos.TabIndex = 1;
+            btnMateriasAlumnos.Text = "MATERIAS";
+            btnMateriasAlumnos.UseVisualStyleBackColor = false;
+            // 
+            // tabPerfilProfesores
+            // 
+            tabPerfilProfesores.Controls.Add(button2);
+            tabPerfilProfesores.Controls.Add(panel9);
+            tabPerfilProfesores.Location = new Point(4, 24);
+            tabPerfilProfesores.Name = "tabPerfilProfesores";
+            tabPerfilProfesores.Padding = new Padding(3);
+            tabPerfilProfesores.Size = new Size(1208, 573);
+            tabPerfilProfesores.TabIndex = 1;
+            tabPerfilProfesores.Text = "Mi Perfil";
+            tabPerfilProfesores.UseVisualStyleBackColor = true;
             // 
             // panel9
             // 
-            panel9.Controls.Add(panel10);
-            panel9.Controls.Add(button5);
-            panel9.Controls.Add(button4);
-            panel9.Controls.Add(button3);
-            panel9.Controls.Add(button2);
             panel9.Controls.Add(button1);
+            panel9.Controls.Add(btnExamenesProfesor);
+            panel9.Controls.Add(btnCarrerasProfesor);
+            panel9.Controls.Add(btnMateriasProfesor);
             panel9.Dock = DockStyle.Left;
             panel9.Location = new Point(3, 3);
             panel9.Name = "panel9";
             panel9.Size = new Size(195, 567);
             panel9.TabIndex = 0;
             // 
-            // panel10
+            // btnExamenesProfesor
             // 
-            panel10.Controls.Add(pictureBox2);
-            panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(0, 529);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(195, 45);
-            panel10.TabIndex = 6;
+            btnExamenesProfesor.BackColor = Color.FromArgb(33, 63, 96);
+            btnExamenesProfesor.BackgroundImageLayout = ImageLayout.None;
+            btnExamenesProfesor.Dock = DockStyle.Top;
+            btnExamenesProfesor.FlatAppearance.BorderSize = 0;
+            btnExamenesProfesor.FlatStyle = FlatStyle.Flat;
+            btnExamenesProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExamenesProfesor.ForeColor = SystemColors.ButtonHighlight;
+            btnExamenesProfesor.Location = new Point(0, 380);
+            btnExamenesProfesor.Name = "btnExamenesProfesor";
+            btnExamenesProfesor.Size = new Size(195, 193);
+            btnExamenesProfesor.TabIndex = 3;
+            btnExamenesProfesor.Text = "EXAMENES";
+            btnExamenesProfesor.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // btnCarrerasProfesor
             // 
-            pictureBox2.Dock = DockStyle.Top;
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(195, 35);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
+            btnCarrerasProfesor.BackColor = Color.FromArgb(33, 63, 96);
+            btnCarrerasProfesor.BackgroundImageLayout = ImageLayout.None;
+            btnCarrerasProfesor.Dock = DockStyle.Top;
+            btnCarrerasProfesor.FlatAppearance.BorderSize = 0;
+            btnCarrerasProfesor.FlatStyle = FlatStyle.Flat;
+            btnCarrerasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCarrerasProfesor.ForeColor = SystemColors.ButtonHighlight;
+            btnCarrerasProfesor.Location = new Point(0, 193);
+            btnCarrerasProfesor.Name = "btnCarrerasProfesor";
+            btnCarrerasProfesor.Size = new Size(195, 187);
+            btnCarrerasProfesor.TabIndex = 2;
+            btnCarrerasProfesor.Text = "CARRERAS";
+            btnCarrerasProfesor.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnMateriasProfesor
             // 
-            button5.BackColor = Color.FromArgb(33, 63, 96);
-            button5.BackgroundImageLayout = ImageLayout.None;
-            button5.Dock = DockStyle.Top;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = SystemColors.ButtonHighlight;
-            button5.Location = new Point(0, 426);
-            button5.Name = "button5";
-            button5.Size = new Size(195, 103);
-            button5.TabIndex = 5;
-            button5.Text = "ALUMNOS";
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(33, 63, 96);
-            button4.BackgroundImageLayout = ImageLayout.None;
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = SystemColors.ButtonHighlight;
-            button4.Location = new Point(0, 321);
-            button4.Name = "button4";
-            button4.Size = new Size(195, 105);
-            button4.TabIndex = 4;
-            button4.Text = "ALUMNOS";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(33, 63, 96);
-            button3.BackgroundImageLayout = ImageLayout.None;
-            button3.Dock = DockStyle.Top;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = SystemColors.ButtonHighlight;
-            button3.Location = new Point(0, 216);
-            button3.Name = "button3";
-            button3.Size = new Size(195, 105);
-            button3.TabIndex = 3;
-            button3.Text = "ALUMNOS";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(33, 63, 96);
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(0, 111);
-            button2.Name = "button2";
-            button2.Size = new Size(195, 105);
-            button2.TabIndex = 2;
-            button2.Text = "ALUMNOS";
-            button2.UseVisualStyleBackColor = false;
+            btnMateriasProfesor.BackColor = Color.FromArgb(33, 63, 96);
+            btnMateriasProfesor.BackgroundImageLayout = ImageLayout.None;
+            btnMateriasProfesor.Dock = DockStyle.Top;
+            btnMateriasProfesor.FlatAppearance.BorderSize = 0;
+            btnMateriasProfesor.FlatStyle = FlatStyle.Flat;
+            btnMateriasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMateriasProfesor.ForeColor = SystemColors.ButtonHighlight;
+            btnMateriasProfesor.Location = new Point(0, 0);
+            btnMateriasProfesor.Name = "btnMateriasProfesor";
+            btnMateriasProfesor.Size = new Size(195, 193);
+            btnMateriasProfesor.TabIndex = 1;
+            btnMateriasProfesor.Text = "MATERIAS";
+            btnMateriasProfesor.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -865,39 +846,27 @@ namespace DiseñoFinal
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(0, 0);
+            button1.Location = new Point(0, 573);
             button1.Name = "button1";
-            button1.Size = new Size(195, 111);
-            button1.TabIndex = 1;
-            button1.Text = "ALUMNOS";
+            button1.Size = new Size(195, 193);
+            button1.TabIndex = 4;
+            button1.Text = "MATERIAS";
             button1.UseVisualStyleBackColor = false;
             // 
-            // tabMiPerfilAlumno
+            // button2
             // 
-            tabMiPerfilAlumno.Location = new Point(4, 24);
-            tabMiPerfilAlumno.Name = "tabMiPerfilAlumno";
-            tabMiPerfilAlumno.Size = new Size(1208, 573);
-            tabMiPerfilAlumno.TabIndex = 3;
-            tabMiPerfilAlumno.Text = "Mi Perfil";
-            tabMiPerfilAlumno.UseVisualStyleBackColor = true;
-            // 
-            // tabMiPerfilProfesor
-            // 
-            tabMiPerfilProfesor.Location = new Point(4, 24);
-            tabMiPerfilProfesor.Name = "tabMiPerfilProfesor";
-            tabMiPerfilProfesor.Size = new Size(1208, 573);
-            tabMiPerfilProfesor.TabIndex = 4;
-            tabMiPerfilProfesor.Text = "Mi Perfil";
-            tabMiPerfilProfesor.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(1208, 573);
-            tabPage2.TabIndex = 5;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            button2.BackColor = Color.FromArgb(33, 63, 96);
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(313, 64);
+            button2.Name = "button2";
+            button2.Size = new Size(195, 193);
+            button2.TabIndex = 2;
+            button2.Text = "asignar materia";
+            button2.UseVisualStyleBackColor = false;
             // 
             // DiseñoFinalCodigo
             // 
@@ -917,17 +886,16 @@ namespace DiseñoFinal
             panel6.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            tabProfesores.ResumeLayout(false);
-            panel9.ResumeLayout(false);
+            tabPerfilAlumno.ResumeLayout(false);
             panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel11.ResumeLayout(false);
+            tabPerfilProfesores.ResumeLayout(false);
+            panel9.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -941,10 +909,10 @@ namespace DiseñoFinal
         private TabControl tabControl1;
         private TabPage tabMenuPrincipal;
         private Panel panel1;
-        private TabPage tabProfesores;
+        private TabPage tabPerfilProfesores;
         private Button btnABMMaterias;
         private Button btnABMProfesores;
-        private Button btnABMPerfiles;
+        private Button btnABMPermisos;
         private Button btnABMEmpleados;
         private Panel panel2;
         private PictureBox pictureBox1;
@@ -957,13 +925,9 @@ namespace DiseñoFinal
         private Label label1;
         private Label label2;
         private Panel panel9;
-        private Panel panel10;
-        private PictureBox pictureBox2;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private Button btnExamenesProfesor;
+        private Button btnCarrerasProfesor;
+        private Button btnMateriasProfesor;
         private Label label3;
         private Label label4;
         private Label label12;
@@ -972,7 +936,6 @@ namespace DiseñoFinal
         private Label label9;
         private Label label8;
         private Label label7;
-        private Label label6;
         private Label label5;
         private Label lblUsuario;
         private Label lblPerfil;
@@ -995,14 +958,15 @@ namespace DiseñoFinal
         private Label label28;
         private Label label31;
         private Label label30;
-        private Label label33;
-        private Label label32;
-        private TabPage tabAlumno;
-        private TabPage tabMiPerfilAlumno;
-        private Label label34;
+        private TabPage tabPerfilAlumno;
         private Label label35;
         private Button btnABMAlumnos;
-        private TabPage tabMiPerfilProfesor;
-        private TabPage tabPage2;
+        private Panel panel10;
+        private Panel panel11;
+        private Button btnExamenesAlumnos;
+        private Button btnCursosAlumnos;
+        private Button btnMateriasAlumnos;
+        private Button button1;
+        private Button button2;
     }
 }
