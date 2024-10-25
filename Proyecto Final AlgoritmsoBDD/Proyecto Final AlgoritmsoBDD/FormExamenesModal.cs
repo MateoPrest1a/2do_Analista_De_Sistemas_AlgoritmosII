@@ -217,7 +217,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            conexionbdd.CargarExamen(Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera), Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).Id), txtExamenHora.Text,dtpFechaExamen.Value, Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id), Convert.ToInt32(txtLibro.Text),Convert.ToInt32(txtFolio.Text));
+            conexionbdd.CargarExamen(Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera), Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).Id), txtExamenHora.Text, dtpFechaExamen.Value, Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id), Convert.ToInt32(txtLibro.Text), Convert.ToInt32(txtFolio.Text));
             ExamenEvento?.Invoke();
             this.Close();
         }

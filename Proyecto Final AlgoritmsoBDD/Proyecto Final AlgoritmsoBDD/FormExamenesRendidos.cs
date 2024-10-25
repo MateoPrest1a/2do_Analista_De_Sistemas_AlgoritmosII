@@ -78,7 +78,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -86,7 +86,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             if (e.RowIndex >= 0)
             {
                 string nombre = dataGridView1.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-                int materia; 
+                int materia;
 
 
             }

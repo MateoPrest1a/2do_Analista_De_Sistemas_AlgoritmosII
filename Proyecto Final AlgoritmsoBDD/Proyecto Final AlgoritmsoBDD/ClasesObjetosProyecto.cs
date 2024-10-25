@@ -167,3 +167,68 @@ class Program
 
     }//llave del main
 }//llave del program  */
+
+
+
+
+//COMPROBACIONES DE SI EXISTEN LOS CAPOS
+//PARA EMPLEADO CAMBIAR ID Y AGREGAR:
+
+//ID_EMPLEADO
+/*
+if (txtID_Empleado.Text = "")
+{
+    MessageBox.Show("Ingrese un valor para la ID");
+}
+else
+{
+    if (int.TryParse(txtID_Empleado.Text, out int numero))
+    {
+        ID_Empleado = numero;
+    }
+    else
+    {
+
+        MessageBox.Show("Por favor ingrese un número válido.");
+    }
+}
+
+//SALARIO
+
+if (txtSalario.Text == "")
+{
+    MessageBox.Show("Ingrese un valor para el salario");
+}
+else
+{
+    if (int.TryParse(txtSalario.Text, out int numero))
+    {
+        Salario = numero;
+    }
+    else
+    {
+
+        MessageBox.Show("Por favor ingrese un número válido.");
+    }
+}
+
+//DIAS TRABAJADOS
+
+if(txtDiasTrabajados.Text =="")
+{
+    MessageBox.Show("Ingrese una cantidad de dias");
+}
+else
+{
+    if (int.TryParse(txtDiasTrabajados.Text, out int numero))
+    {
+        DiasTrabajados = numero;
+    }
+    else
+    {
+
+        MessageBox.Show("Por favor ingrese un número válido.");
+    }
+
+}
+*/

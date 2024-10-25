@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
@@ -23,7 +24,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             public string especialidad { get; set; }
         }
 
-        
+
         private void CargarEspecialidades()
         {
             var especialidades = new List<Especialidad>
@@ -43,7 +44,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             CargarEspecialidades();
 
-            
+
             txtNombreEmpleados.Text = nombre;
             txtApellidoEmpleados.Text = apellido;
             txtDireCalleEmpleados.Text = direccioncalle;
@@ -102,7 +103,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 return;
             }
             error1.Clear();
-            
+
         }
         private void btnAgregarEmpleado_Click(object sender, EventArgs e)
         {
@@ -193,10 +194,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 }
             }
             //EMAIL
-            
-            ValidarCampo(txtEmailEmpleados,"Email Invalido");
+
+            ValidarCampo(txtEmailEmpleados, "Email Invalido");
             EmailEmpleado = txtEmailEmpleados.Text;
-            
+
             //FECHA DE NACIMIENTO dtpFechaNacimientoEmpleado.Value 
 
             if (dtpFechaNacimientoEmpleado.Value == DateTime.Now)
@@ -242,7 +243,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 error1.Clear();
             }
 
-             //CARGA A LA BASE DE DATOS
+            //CARGA A LA BASE DE DATOS
             conexionbdd.CargarEmpleado(NombreEmpleado, ApellidoEmpleado, Direcalle, Direnum, TelefonoEmpleado, DocumentoEmpleado, EmailEmpleado, FechaNacimientoEmpleado, salario, especialidad);
             EmpleadoEvento?.Invoke();
             this.Close();

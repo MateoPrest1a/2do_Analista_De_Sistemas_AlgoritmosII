@@ -59,7 +59,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
                 // Ocultar la columna de ids
                 dataGridView1.Columns["id_carrera"].Visible = false; // Oculta la columna
-                dataGridView1.Columns["id_materia"].Visible = false; 
+                dataGridView1.Columns["id_materia"].Visible = false;
                 dataGridView1.Columns["id_tipoexamen"].Visible = false;
                 dataGridView1.Columns["id_examen"].Visible = false;
             }
@@ -116,7 +116,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 try
                 {
 
-                    
+
 
                     // Obtener los valores de las celdas
                     int idExamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
@@ -136,7 +136,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 catch (Exception ex)
                 {
 
-                    FormExamenesModal formExamenModal = new FormExamenesModal(0, 0, 0, "",DateTime.Now, 0, 0, 0); // Valores por defecto
+                    FormExamenesModal formExamenModal = new FormExamenesModal(0, 0, 0, "", DateTime.Now, 0, 0, 0); // Valores por defecto
                     formExamenModal.ExamenEvento += Actualizar_DataGridView; // Suscribirse al evento
                     formExamenModal.ShowDialog(); // Mostrar el formulario modal
                 }

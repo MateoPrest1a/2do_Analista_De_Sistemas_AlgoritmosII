@@ -209,7 +209,7 @@
             // 
             lblCarrera.AutoSize = true;
             lblCarrera.Font = new Font("Microsoft Sans Serif", 12F);
-            lblCarrera.Location = new Point(54, 43);
+            lblCarrera.Location = new Point(54, 45);
             lblCarrera.Name = "lblCarrera";
             lblCarrera.Size = new Size(91, 20);
             lblCarrera.TabIndex = 0;
@@ -222,7 +222,7 @@
             cmbAño.Location = new Point(151, 124);
             cmbAño.Name = "cmbAño";
             cmbAño.Size = new Size(142, 23);
-            cmbAño.TabIndex = 39;
+            cmbAño.TabIndex = 40;
             // 
             // FormCarrerasModal
             // 
@@ -232,7 +232,6 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormCarrerasModal";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCarrerasModal";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -15,7 +15,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormAlumnos : Form
     {
-        
+
 
         Conexionbdd conectarBDD;
 

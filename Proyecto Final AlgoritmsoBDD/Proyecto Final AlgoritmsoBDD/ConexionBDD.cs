@@ -38,7 +38,7 @@ namespace Proyecto_Final
                 Console.WriteLine($"Error al conectar con la BDD: {ex.Message}");
             }
         }
-        public void EliminarAlumno(int matricula) 
+        public void EliminarAlumno(int matricula)
         {
             using (SqlCommand command = new SqlCommand("SP_EliminarAlumno", conectarbdd))
             {
@@ -68,15 +68,15 @@ namespace Proyecto_Final
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.AddWithValue("@matricula", matricula);
-                command.Parameters.AddWithValue("@nombre", nombre); 
-                command.Parameters.AddWithValue("@apellido", apellido); 
-                command.Parameters.AddWithValue("@direccion_calle", direccionCalle); 
-                command.Parameters.AddWithValue("@direccion_numero", direccionNumero); 
-                command.Parameters.AddWithValue("@telefono", telefono); 
-                command.Parameters.AddWithValue("@dni", dni); 
-                command.Parameters.AddWithValue("@email", email); 
-                command.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento); 
-                command.Parameters.AddWithValue("@id_carrera", idCarrera); 
+                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@apellido", apellido);
+                command.Parameters.AddWithValue("@direccion_calle", direccionCalle);
+                command.Parameters.AddWithValue("@direccion_numero", direccionNumero);
+                command.Parameters.AddWithValue("@telefono", telefono);
+                command.Parameters.AddWithValue("@dni", dni);
+                command.Parameters.AddWithValue("@email", email);
+                command.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
+                command.Parameters.AddWithValue("@id_carrera", idCarrera);
 
                 try
                 {
@@ -101,7 +101,7 @@ namespace Proyecto_Final
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-               
+
                 command.Parameters.AddWithValue("@Nombre", nombre);
                 command.Parameters.AddWithValue("@Apellido", apellido);
                 command.Parameters.AddWithValue("@direccion_calle", direccionCalle);
@@ -114,7 +114,7 @@ namespace Proyecto_Final
 
                 try
                 {
-                    abrir(); 
+                    abrir();
                     command.ExecuteNonQuery();
                     MessageBox.Show("Alumno cargado con éxito.");
                 }
@@ -124,7 +124,7 @@ namespace Proyecto_Final
                 }
                 finally
                 {
-                    cerrar(); 
+                    cerrar();
                 }
             }
         }
