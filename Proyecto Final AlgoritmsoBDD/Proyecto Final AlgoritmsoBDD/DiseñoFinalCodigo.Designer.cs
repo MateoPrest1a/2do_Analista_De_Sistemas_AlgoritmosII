@@ -85,12 +85,12 @@ namespace DiseñoFinal
             btnCursosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
             tabPerfilProfesores = new TabPage();
+            button2 = new Button();
             panel9 = new Panel();
+            button1 = new Button();
             btnExamenesProfesor = new Button();
             btnCarrerasProfesor = new Button();
             btnMateriasProfesor = new Button();
-            button1 = new Button();
-            button2 = new Button();
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -584,6 +584,7 @@ namespace DiseñoFinal
             // 
             btnABMAlumnos.BackColor = Color.FromArgb(33, 63, 96);
             btnABMAlumnos.BackgroundImageLayout = ImageLayout.None;
+            btnABMAlumnos.Cursor = Cursors.Hand;
             btnABMAlumnos.Dock = DockStyle.Top;
             btnABMAlumnos.FlatAppearance.BorderSize = 0;
             btnABMAlumnos.FlatStyle = FlatStyle.Flat;
@@ -595,6 +596,7 @@ namespace DiseñoFinal
             btnABMAlumnos.TabIndex = 6;
             btnABMAlumnos.Text = "ALUMNOS";
             btnABMAlumnos.UseVisualStyleBackColor = false;
+            btnABMAlumnos.Click += btnABMAlumnos_Click_1;
             // 
             // panel2
             // 
@@ -623,6 +625,7 @@ namespace DiseñoFinal
             // 
             btnABMMaterias.BackColor = Color.FromArgb(33, 63, 96);
             btnABMMaterias.BackgroundImageLayout = ImageLayout.None;
+            btnABMMaterias.Cursor = Cursors.Hand;
             btnABMMaterias.Dock = DockStyle.Top;
             btnABMMaterias.FlatAppearance.BorderSize = 0;
             btnABMMaterias.FlatStyle = FlatStyle.Flat;
@@ -634,12 +637,13 @@ namespace DiseñoFinal
             btnABMMaterias.TabIndex = 4;
             btnABMMaterias.Text = "MATERIAS";
             btnABMMaterias.UseVisualStyleBackColor = false;
-            btnABMMaterias.Click += btnABMPerfiles_Click;
+            btnABMMaterias.Click += btnABMMaterias_Click;
             // 
             // btnABMProfesores
             // 
             btnABMProfesores.BackColor = Color.FromArgb(33, 63, 96);
             btnABMProfesores.BackgroundImageLayout = ImageLayout.None;
+            btnABMProfesores.Cursor = Cursors.Hand;
             btnABMProfesores.Dock = DockStyle.Top;
             btnABMProfesores.FlatAppearance.BorderSize = 0;
             btnABMProfesores.FlatStyle = FlatStyle.Flat;
@@ -651,12 +655,13 @@ namespace DiseñoFinal
             btnABMProfesores.TabIndex = 3;
             btnABMProfesores.Text = "PROFESORES";
             btnABMProfesores.UseVisualStyleBackColor = false;
-            btnABMProfesores.Click += btnABMMaterias_Click;
+            btnABMProfesores.Click += btnABMProfesores_Click;
             // 
             // btnABMPermisos
             // 
             btnABMPermisos.BackColor = Color.FromArgb(33, 63, 96);
             btnABMPermisos.BackgroundImageLayout = ImageLayout.None;
+            btnABMPermisos.Cursor = Cursors.Hand;
             btnABMPermisos.Dock = DockStyle.Top;
             btnABMPermisos.FlatAppearance.BorderSize = 0;
             btnABMPermisos.FlatStyle = FlatStyle.Flat;
@@ -668,12 +673,13 @@ namespace DiseñoFinal
             btnABMPermisos.TabIndex = 2;
             btnABMPermisos.Text = "PERMISOS";
             btnABMPermisos.UseVisualStyleBackColor = false;
-            btnABMPermisos.Click += btnABMCarreras_Click;
+            btnABMPermisos.Click += btnABMPermisos_Click;
             // 
             // btnABMEmpleados
             // 
             btnABMEmpleados.BackColor = Color.FromArgb(33, 63, 96);
             btnABMEmpleados.BackgroundImageLayout = ImageLayout.None;
+            btnABMEmpleados.Cursor = Cursors.Hand;
             btnABMEmpleados.Dock = DockStyle.Top;
             btnABMEmpleados.FlatAppearance.BorderSize = 0;
             btnABMEmpleados.FlatStyle = FlatStyle.Flat;
@@ -732,6 +738,7 @@ namespace DiseñoFinal
             btnExamenesAlumnos.TabIndex = 3;
             btnExamenesAlumnos.Text = "EXAMENES";
             btnExamenesAlumnos.UseVisualStyleBackColor = false;
+            btnExamenesAlumnos.Click += btnExamenesAlumnos_Click;
             // 
             // btnCursosAlumnos
             // 
@@ -777,6 +784,21 @@ namespace DiseñoFinal
             tabPerfilProfesores.Text = "Mi Perfil";
             tabPerfilProfesores.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(33, 63, 96);
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(313, 64);
+            button2.Name = "button2";
+            button2.Size = new Size(195, 193);
+            button2.TabIndex = 2;
+            button2.Text = "asignar materia";
+            button2.UseVisualStyleBackColor = false;
+            // 
             // panel9
             // 
             panel9.Controls.Add(button1);
@@ -788,54 +810,6 @@ namespace DiseñoFinal
             panel9.Name = "panel9";
             panel9.Size = new Size(195, 567);
             panel9.TabIndex = 0;
-            // 
-            // btnExamenesProfesor
-            // 
-            btnExamenesProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnExamenesProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnExamenesProfesor.Dock = DockStyle.Top;
-            btnExamenesProfesor.FlatAppearance.BorderSize = 0;
-            btnExamenesProfesor.FlatStyle = FlatStyle.Flat;
-            btnExamenesProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExamenesProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnExamenesProfesor.Location = new Point(0, 380);
-            btnExamenesProfesor.Name = "btnExamenesProfesor";
-            btnExamenesProfesor.Size = new Size(195, 193);
-            btnExamenesProfesor.TabIndex = 3;
-            btnExamenesProfesor.Text = "EXAMENES";
-            btnExamenesProfesor.UseVisualStyleBackColor = false;
-            // 
-            // btnCarrerasProfesor
-            // 
-            btnCarrerasProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnCarrerasProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnCarrerasProfesor.Dock = DockStyle.Top;
-            btnCarrerasProfesor.FlatAppearance.BorderSize = 0;
-            btnCarrerasProfesor.FlatStyle = FlatStyle.Flat;
-            btnCarrerasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCarrerasProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnCarrerasProfesor.Location = new Point(0, 193);
-            btnCarrerasProfesor.Name = "btnCarrerasProfesor";
-            btnCarrerasProfesor.Size = new Size(195, 187);
-            btnCarrerasProfesor.TabIndex = 2;
-            btnCarrerasProfesor.Text = "CARRERAS";
-            btnCarrerasProfesor.UseVisualStyleBackColor = false;
-            // 
-            // btnMateriasProfesor
-            // 
-            btnMateriasProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnMateriasProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnMateriasProfesor.Dock = DockStyle.Top;
-            btnMateriasProfesor.FlatAppearance.BorderSize = 0;
-            btnMateriasProfesor.FlatStyle = FlatStyle.Flat;
-            btnMateriasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMateriasProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnMateriasProfesor.Location = new Point(0, 0);
-            btnMateriasProfesor.Name = "btnMateriasProfesor";
-            btnMateriasProfesor.Size = new Size(195, 193);
-            btnMateriasProfesor.TabIndex = 1;
-            btnMateriasProfesor.Text = "MATERIAS";
-            btnMateriasProfesor.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -853,20 +827,55 @@ namespace DiseñoFinal
             button1.Text = "MATERIAS";
             button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnExamenesProfesor
             // 
-            button2.BackColor = Color.FromArgb(33, 63, 96);
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(313, 64);
-            button2.Name = "button2";
-            button2.Size = new Size(195, 193);
-            button2.TabIndex = 2;
-            button2.Text = "asignar materia";
-            button2.UseVisualStyleBackColor = false;
+            btnExamenesProfesor.BackColor = Color.FromArgb(33, 63, 96);
+            btnExamenesProfesor.BackgroundImageLayout = ImageLayout.None;
+            btnExamenesProfesor.Dock = DockStyle.Top;
+            btnExamenesProfesor.FlatAppearance.BorderSize = 0;
+            btnExamenesProfesor.FlatStyle = FlatStyle.Flat;
+            btnExamenesProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExamenesProfesor.ForeColor = SystemColors.ButtonHighlight;
+            btnExamenesProfesor.Location = new Point(0, 380);
+            btnExamenesProfesor.Name = "btnExamenesProfesor";
+            btnExamenesProfesor.Size = new Size(195, 193);
+            btnExamenesProfesor.TabIndex = 3;
+            btnExamenesProfesor.Text = "EXAMENES";
+            btnExamenesProfesor.UseVisualStyleBackColor = false;
+            btnExamenesProfesor.Click += btnExamenesProfesor_Click;
+            // 
+            // btnCarrerasProfesor
+            // 
+            btnCarrerasProfesor.BackColor = Color.FromArgb(33, 63, 96);
+            btnCarrerasProfesor.BackgroundImageLayout = ImageLayout.None;
+            btnCarrerasProfesor.Dock = DockStyle.Top;
+            btnCarrerasProfesor.FlatAppearance.BorderSize = 0;
+            btnCarrerasProfesor.FlatStyle = FlatStyle.Flat;
+            btnCarrerasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCarrerasProfesor.ForeColor = SystemColors.ButtonHighlight;
+            btnCarrerasProfesor.Location = new Point(0, 193);
+            btnCarrerasProfesor.Name = "btnCarrerasProfesor";
+            btnCarrerasProfesor.Size = new Size(195, 187);
+            btnCarrerasProfesor.TabIndex = 2;
+            btnCarrerasProfesor.Text = "CARRERAS";
+            btnCarrerasProfesor.UseVisualStyleBackColor = false;
+            btnCarrerasProfesor.Click += btnCarrerasProfesor_Click;
+            // 
+            // btnMateriasProfesor
+            // 
+            btnMateriasProfesor.BackColor = Color.FromArgb(33, 63, 96);
+            btnMateriasProfesor.BackgroundImageLayout = ImageLayout.None;
+            btnMateriasProfesor.Dock = DockStyle.Top;
+            btnMateriasProfesor.FlatAppearance.BorderSize = 0;
+            btnMateriasProfesor.FlatStyle = FlatStyle.Flat;
+            btnMateriasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMateriasProfesor.ForeColor = SystemColors.ButtonHighlight;
+            btnMateriasProfesor.Location = new Point(0, 0);
+            btnMateriasProfesor.Name = "btnMateriasProfesor";
+            btnMateriasProfesor.Size = new Size(195, 193);
+            btnMateriasProfesor.TabIndex = 1;
+            btnMateriasProfesor.Text = "MATERIAS";
+            btnMateriasProfesor.UseVisualStyleBackColor = false;
             // 
             // DiseñoFinalCodigo
             // 

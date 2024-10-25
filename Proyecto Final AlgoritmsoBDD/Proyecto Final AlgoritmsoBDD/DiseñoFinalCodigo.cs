@@ -6,8 +6,8 @@ namespace DiseñoFinal
 {
     public partial class DiseñoFinalCodigo : Form
     {
-        Conexionbdd conectar;      
-        
+        Conexionbdd conectar;
+
 
         public DiseñoFinalCodigo()
         {
@@ -28,27 +28,52 @@ namespace DiseñoFinal
 
         private void btnABMEmpleados_Click(object sender, EventArgs e)
         {
-
+            FormEmpleados formempleados = new FormEmpleados();
+            formempleados.ShowDialog();
         }
 
-        private void btnABMCarreras_Click(object sender, EventArgs e)
+        private void btnABMPermisos_Click(object sender, EventArgs e)   
         {
-
+            
         }
 
-        private void btnABMMaterias_Click(object sender, EventArgs e)
+        private void btnABMProfesores_Click(object sender, EventArgs e)   
         {
-
+            
         }
 
-        private void btnABMPerfiles_Click(object sender, EventArgs e)
+        private void btnABMMaterias_Click(object sender, EventArgs e)  
         {
-
+            FormMaterias formmaterias = new FormMaterias();
+            formmaterias.ShowDialog();
         }
 
         private void lblUsuario_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnABMAlumnos_Click_1(object sender, EventArgs e)
+        {
+            FormAlumnos formalumnos = new FormAlumnos();
+            formalumnos.ShowDialog();
+        }
+
+        private void btnExamenesAlumnos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExamenesProfesor_Click(object sender, EventArgs e)
+        {
+            FormExamenes formexamenes = new FormExamenes();
+            formexamenes.ShowDialog();
+        }
+
+        private void btnCarrerasProfesor_Click(object sender, EventArgs e)
+        {
+            FormCarreras formcarreras = new FormCarreras();
+            formcarreras.ShowDialog();
         }
     }
 }

@@ -114,6 +114,7 @@
             MaximumSize = new Size(567, 470);
             MinimumSize = new Size(567, 470);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Ingresar";
             Load += Login_Load;
             panel1.ResumeLayout(false);

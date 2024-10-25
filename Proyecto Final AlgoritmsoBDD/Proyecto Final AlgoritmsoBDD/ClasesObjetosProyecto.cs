@@ -175,6 +175,7 @@ class Program
 //PARA EMPLEADO CAMBIAR ID Y AGREGAR:
 
 //ID_EMPLEADO
+/*
 if (txtID_Empleado.Text = "")
 {
     MessageBox.Show("Ingrese un valor para la ID");
@@ -230,3 +231,4 @@ else
     }
 
 }
+*/

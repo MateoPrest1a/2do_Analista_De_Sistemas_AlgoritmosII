@@ -38,13 +38,15 @@
             label1 = new Label();
             btnSalir = new Button();
             panel3 = new Panel();
+            label2 = new Label();
+            cmbCarreras = new ComboBox();
+            cmbAñoCursada = new ComboBox();
             lblMateriaID = new Label();
             lblMateria = new Label();
             pictureBox1 = new PictureBox();
             label4 = new Label();
             label3 = new Label();
             txtNombreMateria = new TextBox();
-            txtAñoCursada = new TextBox();
             error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -110,10 +112,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 25F);
+            label1.Font = new Font("Schadow BT", 25F);
             label1.Location = new Point(312, 9);
             label1.Name = "label1";
-            label1.Size = new Size(147, 39);
+            label1.Size = new Size(147, 41);
             label1.TabIndex = 2;
             label1.Text = "Materias";
             // 
@@ -121,48 +123,79 @@
             // 
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Schadow BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(734, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 57);
             btnSalir.TabIndex = 0;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.None;
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(cmbCarreras);
+            panel3.Controls.Add(cmbAñoCursada);
             panel3.Controls.Add(lblMateriaID);
             panel3.Controls.Add(lblMateria);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(txtNombreMateria);
-            panel3.Controls.Add(txtAñoCursada);
             panel3.Location = new Point(78, 89);
             panel3.Name = "panel3";
             panel3.Size = new Size(499, 322);
             panel3.TabIndex = 7;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Schadow BT", 12F);
+            label2.Location = new Point(66, 125);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 19);
+            label2.TabIndex = 39;
+            label2.Text = "Carrera :";
+            // 
+            // cmbCarreras
+            // 
+            cmbCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCarreras.FormattingEnabled = true;
+            cmbCarreras.Location = new Point(152, 125);
+            cmbCarreras.Name = "cmbCarreras";
+            cmbCarreras.Size = new Size(123, 23);
+            cmbCarreras.TabIndex = 38;
+            // 
+            // cmbAñoCursada
+            // 
+            cmbAñoCursada.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAñoCursada.FormattingEnabled = true;
+            cmbAñoCursada.Location = new Point(152, 67);
+            cmbAñoCursada.Name = "cmbAñoCursada";
+            cmbAñoCursada.Size = new Size(123, 23);
+            cmbAñoCursada.TabIndex = 37;
+            // 
             // lblMateriaID
             // 
             lblMateriaID.AutoSize = true;
-            lblMateriaID.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMateriaID.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMateriaID.ImageAlign = ContentAlignment.BottomLeft;
             lblMateriaID.Location = new Point(152, 40);
             lblMateriaID.Name = "lblMateriaID";
-            lblMateriaID.Size = new Size(0, 20);
+            lblMateriaID.Size = new Size(0, 19);
             lblMateriaID.TabIndex = 36;
             lblMateriaID.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblMateria
             // 
             lblMateria.AutoSize = true;
-            lblMateria.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMateria.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMateria.ImageAlign = ContentAlignment.BottomLeft;
             lblMateria.Location = new Point(46, 40);
             lblMateria.Name = "lblMateria";
-            lblMateria.Size = new Size(91, 20);
+            lblMateria.Size = new Size(89, 19);
             lblMateria.TabIndex = 35;
             lblMateria.Text = "ID Materia :";
             lblMateria.TextAlign = ContentAlignment.MiddleCenter;
@@ -180,21 +213,21 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 12F);
+            label4.Font = new Font("Schadow BT", 12F);
             label4.Location = new Point(8, 96);
             label4.Name = "label4";
-            label4.Size = new Size(130, 20);
+            label4.Size = new Size(127, 19);
             label4.TabIndex = 25;
             label4.Text = "Nombre Materia :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ImageAlign = ContentAlignment.BottomLeft;
             label3.Location = new Point(29, 67);
             label3.Name = "label3";
-            label3.Size = new Size(110, 20);
+            label3.Size = new Size(106, 19);
             label3.TabIndex = 24;
             label3.Text = "Año Cursada :";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -205,14 +238,6 @@
             txtNombreMateria.Name = "txtNombreMateria";
             txtNombreMateria.Size = new Size(123, 23);
             txtNombreMateria.TabIndex = 15;
-            txtNombreMateria.TextChanged += txtNombreMateria_TextChanged;
-            // 
-            // txtAñoCursada
-            // 
-            txtAñoCursada.Location = new Point(152, 67);
-            txtAñoCursada.Name = "txtAñoCursada";
-            txtAñoCursada.Size = new Size(123, 23);
-            txtAñoCursada.TabIndex = 14;
             // 
             // error1
             // 
@@ -225,6 +250,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Name = "FormMateriasModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMateriasModal";
             Load += FormMateriasModal_Load;
             panel1.ResumeLayout(false);
@@ -246,7 +272,6 @@
         private Label label4;
         private Label label3;
         private TextBox txtNombreMateria;
-        private TextBox txtAñoCursada;
         private Label lblMateriaID;
         private Panel panel2;
         private Label label1;
@@ -254,6 +279,9 @@
         private Button btnEliminarMateria;
         private Button btnModificarMateria;
         private Button btnAgregarMateria;
+        private ComboBox cmbAñoCursada;
+        private Label label2;
+        private ComboBox cmbCarreras;
         private ErrorProvider error1;
     }
 }

@@ -19,15 +19,24 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         Conexionbdd conexionbdd = new Conexionbdd();
 
+        private void CargarAño()
+        {
+            cmbAño.Items.Add("1");
+            cmbAño.Items.Add("2");
+            cmbAño.Items.Add("3");
+        }
         public FormCarrerasModal(int idcarrera, string carrera, int resolucion, int añoplanestudio)
         {
             InitializeComponent();
+            CargarAño();
+
             if (idcarrera != 0)
             {
                 lblIDCarrera.Text = idcarrera.ToString();
                 txtCarrera.Text = carrera;
                 txtResolucion.Text = resolucion.ToString();
-                txtAñoPlanEstudio.Text = añoplanestudio.ToString();
+                cmbAño.Text = añoplanestudio.ToString();
+                btnAgregarCarreras.Visible = false;
             }
             else
             {
@@ -35,7 +44,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 lblCarrera.Visible = false;
                 txtCarrera.Clear();
                 txtResolucion.Clear();
-                txtAñoPlanEstudio.Clear();
+                btnModificarCarreras.Visible = false;
+                btnEliminarCarreras.Visible = false;
             }
         }
 
@@ -48,14 +58,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnAgregarCarreras_Click(object sender, EventArgs e)
         {
 
-            conexionbdd.CargarCarrera(txtCarrera.Text, Convert.ToInt32(txtResolucion.Text), Convert.ToInt32(txtAñoPlanEstudio.Text));
+            conexionbdd.CargarCarrera(txtCarrera.Text, Convert.ToInt32(txtResolucion.Text), Convert.ToInt32(cmbAño.Text));
             CarreraEvento?.Invoke();
             this.Close();
         }
 
         private void btnModificarCarreras_Click(object sender, EventArgs e)
         {
-            conexionbdd.ModificarCarrera(Convert.ToInt32(lblIDCarrera.Text), txtCarrera.Text, Convert.ToInt32(txtResolucion.Text), Convert.ToInt32(txtAñoPlanEstudio.Text));
+            conexionbdd.ModificarCarrera(Convert.ToInt32(lblIDCarrera.Text), txtCarrera.Text, Convert.ToInt32(txtResolucion.Text), Convert.ToInt32(cmbAño.Text));
             CarreraEvento?.Invoke();
             this.Close();
         }

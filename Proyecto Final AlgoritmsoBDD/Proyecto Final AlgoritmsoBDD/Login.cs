@@ -79,9 +79,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
-            string NameUser = ObtenerNombreUsuario(txtUsuario.Text);
+            //string NameUser = ObtenerNombreUsuario(txtUsuario.Text);
 
-            PaginaPrincipal frm2 = new PaginaPrincipal();
+            DiseñoFinal.DiseñoFinalCodigo frm2 = new DiseñoFinal.DiseñoFinalCodigo();
             frm2.ShowDialog();
         }
 

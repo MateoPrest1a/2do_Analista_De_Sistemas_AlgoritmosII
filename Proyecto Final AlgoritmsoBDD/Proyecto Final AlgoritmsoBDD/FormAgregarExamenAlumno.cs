@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -10,13 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
+using static Proyecto_Final_AlgoritmsoBDD.FormAgregarExamenAlumno;
+using static Proyecto_Final_AlgoritmsoBDD.FormExamenesModal;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
-    public partial class FormExamenesModal : Form
+
+    public partial class FormAgregarExamenAlumno : Form
     {
-        public event Action ExamenEvento; //Evento para actualizar el datagridview
+        Conexionbdd conectarBDD = new Conexionbdd();
+
+
         public class Materia
         {
             public int Id { get; set; }
@@ -36,61 +39,26 @@ namespace Proyecto_Final_AlgoritmsoBDD
             public override string ToString() => Descripcion; // Para que se muestre correctamente en el ComboBox
         }
 
-        Conexionbdd conexionbdd = new Conexionbdd();
-
-        public FormExamenesModal(int idexamen, int idcarrera, int idmateria, string horaexamen, DateTime fecha, int tipoexamen, int libro, int folio)
+        public FormAgregarExamenAlumno(string nombre, int materia, decimal calificacion, int carrera, int tipocarrera, DateTime fecha)
         {
             InitializeComponent();
             CargarCarreras();
             CargarMaterias();
             CargarTiposExamen();
-            lblIDExamen.Text = idexamen.ToString();
-            cmbIDMaterias.SelectedValue = idmateria;
-            txtExamenHora.Text = horaexamen.ToString();
-            dtpFechaExamen.Value = fecha;
-            cmbTipoExamen.Text = tipoexamen.ToString();
-            txtLibro.Text = libro.ToString();
-            txtFolio.Text = folio.ToString();
+            txtAlumno.Text = nombre;
+            cmbMateria.SelectedValue = materia;
+            txtCalificacion.Text = calificacion.ToString();
+            cmbCarreras.SelectedValue = carrera;
+            cmbTipoExamen.SelectedValue = tipocarrera;
+            dtpFechaExamenAlumno.Value = fecha;
 
-            foreach (Carrera carrera in cmbIDCarrera.Items)
-            {
-                if (carrera.ID_Carrera == idcarrera)
-                {
-                    cmbIDCarrera.SelectedItem = carrera;
-                    break;
-                }
-            }
-
-            foreach (Materia materias in cmbIDMaterias.Items)
-            {
-                if (materias.Id == idmateria)
-                {
-                    cmbIDMaterias.SelectedItem = materias;
-                    break;
-                }
-            }
-
-            foreach (TipoExamen tipoexamenes in cmbTipoExamen.Items)
-            {
-                if (tipoexamenes.Id == idexamen)
-                {
-                    cmbTipoExamen.SelectedItem = tipoexamenes;
-                    break;
-                }
-            }
 
         }
-
-        private void FormExamenesModal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void CargarCarreras()
         {
             string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
 
-            using (var connection = conexionbdd.GetConnection())
+            using (var connection = conectarBDD.GetConnection())
             {
                 try
                 {
@@ -101,7 +69,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             // Limpia el ComboBox antes de llenarlo
-                            cmbIDCarrera.Items.Clear();
+                            cmbCarreras.Items.Clear();
 
                             while (reader.Read())
                             {
@@ -113,14 +81,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                 };
 
                                 // Agregar la carrera al ComboBox
-                                cmbIDCarrera.Items.Add(carrera);
+                                cmbCarreras.Items.Add(carrera);
                             }
                         }
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
-                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
+                    cmbCarreras.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
+                    cmbCarreras.ValueMember = "Id"; // El valor que se utilizará
                 }
                 catch (Exception ex)
                 {
@@ -138,7 +106,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                              FROM 
                                Materias";
 
-            using (var connection = conexionbdd.GetConnection())
+            using (var connection = conectarBDD.GetConnection())
             {
                 try
                 {
@@ -149,7 +117,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
 
-                            cmbIDMaterias.Items.Clear();
+                            cmbMateria.Items.Clear();
 
                             while (reader.Read())
                             {
@@ -161,7 +129,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                 };
 
                                 // Agregar la materia al ComboBox
-                                cmbIDMaterias.Items.Add(materia);
+                                cmbMateria.Items.Add(materia);
                             }
                         }
                     }
@@ -177,7 +145,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             string query = "SELECT id_tipoexamen, descripcion FROM tipoexamen";
 
-            using (var connection = conexionbdd.GetConnection())
+            using (var connection = conectarBDD.GetConnection())
             {
                 try
                 {
@@ -210,16 +178,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            conexionbdd.CargarExamen(Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera), Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).Id), txtExamenHora.Text, dtpFechaExamen.Value, Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id), Convert.ToInt32(txtLibro.Text), Convert.ToInt32(txtFolio.Text));
-            ExamenEvento?.Invoke();
-            this.Close();
-        }
+        
     }
 }

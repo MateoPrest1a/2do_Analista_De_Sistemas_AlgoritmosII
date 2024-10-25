@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
@@ -19,19 +20,90 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         Conexionbdd conexionbdd = new Conexionbdd();
 
-        public FormMateriasModal(int ID, int Año, string Nombre)
+        private void FormMateriasModal_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void CargarAños()
+        {
+            cmbAñoCursada.Items.Add("1");
+            cmbAñoCursada.Items.Add("2");
+            cmbAñoCursada.Items.Add("3");
+        }
+
+        private void CargarCarreras()
+        {
+            string query = @"SELECT 
+                                id_carrera, 
+                                nombre_carrera 
+                             FROM 
+                                Carreras";
+
+            using (var connection = conexionbdd.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+
+                            cmbCarreras.Items.Clear();
+
+                            while (reader.Read())
+                            {
+                                // Crear un nuevo objeto para almacenar la carrera
+                                var carrera = new Carrera
+                                {
+                                    ID_Carrera = reader.GetInt32(0), // id_carrera
+                                    Nombre_Carrera = reader.GetString(1) // nombre_carrera
+                                };
+
+                                // Agregar la carrera al ComboBox
+                                cmbCarreras.Items.Add(carrera);
+                            }
+                        }
+                    }
+
+                    cmbCarreras.DisplayMember = "nombre_carrera"; // Lo que se muestra en el ComboBox
+                    cmbCarreras.ValueMember = "id_carrera"; // El valor que se utilizará
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
+                }
+            }
+        }
+
+        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera)
         {
             InitializeComponent();
+            CargarCarreras();
+            CargarAños();
+
+            lblMateriaID.Text = ID.ToString();
+            cmbAñoCursada.SelectedItem = Año.ToString();
+            txtNombreMateria.Text = Nombre;
+
+            // Asignar la carrera seleccionada
+            if (cmbCarreras.Items.Count > 0)
+            {
+                cmbCarreras.SelectedItem = cmbCarreras.Items.Cast<Carrera>().FirstOrDefault(c => c.ID_Carrera == idcarrera); // La función Cast<Carrera>() convierte esos elementos al tipo Carrera FirstOrDefault(c => c.ID_Carrera == idcarrera) : Esta parte busca el primer elemento en la colección que cumpla con la condición especificada en la expresión lambda c => c.ID_Carrera == idcarrera.
+            }
+
             if (ID == 0)
             {
                 lblMateria.Visible = false;
                 lblMateriaID.Visible = false;
+                btnModificarMateria.Visible = false;
+                btnEliminarMateria.Visible = false;
             }
             else
             {
-                lblMateriaID.Text = ID.ToString();
-                txtAñoCursada.Text = Año.ToString();
-                txtNombreMateria.Text = Nombre;
+                btnAgregarMateria.Visible = false;
             }
 
         }
@@ -42,37 +114,176 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-        private void FormMateriasModal_Load(object sender, EventArgs e)
-        {
 
-        }
-
+        
         private void btnAgregarMateria_Click(object sender, EventArgs e)
         {
-            if (txtNombreMateria.Text == "");
 
-            conexionbdd.CargarMateria(Convert.ToInt32(txtAñoCursada.Text), txtNombreMateria.Text);
-            MateriaEvento?.Invoke();
-            this.Close();
+            if (cmbCarreras.SelectedItem == null)
+            {
+                error1.SetError(cmbCarreras, "Eliga una carrera válida");
+                cmbCarreras.Focus();
+                return;
+            }
+
+            if (txtNombreMateria.Text == null)
+            {
+                error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
+                txtNombreMateria.Focus();
+                return;
+            }
+
+            if (cmbAñoCursada.SelectedItem == null)
+            {
+                error1.SetError(cmbAñoCursada, "Eliga una carrera válida");
+                cmbAñoCursada.Focus();
+                return;
+            }
+
+            int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera; // Obtener el ID de la carrera seleccionada
+            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem); // Año cursada
+            string nombreMateria = txtNombreMateria.Text; // Obtener el nombre de la materia del TextBox
+
+            using (var connection = conexionbdd.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand("SP_AgregarMatxCarrera", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@anio_cursada", anioCursada);
+                        cmd.Parameters.AddWithValue("@nombre_materia", nombreMateria);
+                        cmd.Parameters.AddWithValue("@id_carrera", idCarrera);
+
+                        // Parámetro de salida para el ID de la materia
+                        SqlParameter idMateriaParam = new SqlParameter("@id_materia", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        cmd.Parameters.Add(idMateriaParam);
+
+                        // Ejecutar el stored procedure
+                        cmd.ExecuteNonQuery();
+
+                        // Obtener el ID de la materia insertada
+                        int idMateria = (int)idMateriaParam.Value;
+
+                        MessageBox.Show("Materia guardada correctamente.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al agregar la materia: {ex.Message}");
+                }
+
+                MateriaEvento?.Invoke();
+                this.Close();
+            }
         }
+
+
 
         private void btnModificarMateria_Click(object sender, EventArgs e)
         {
-            conexionbdd.ModificarMateria(Convert.ToInt32(lblMateriaID.Text), Convert.ToInt32(txtAñoCursada.Text), txtNombreMateria.Text);
-            MateriaEvento?.Invoke();
-            this.Close();
+            if (cmbCarreras.SelectedItem == null)
+            {
+                error1.SetError(cmbCarreras, "Elija una carrera válida");
+                cmbCarreras.Focus();
+                return;
+            }
+
+            if (txtNombreMateria.Text == null )
+            {
+                error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
+                txtNombreMateria.Focus();
+                return;
+            }
+
+            if (cmbAñoCursada.SelectedItem == null)
+            {
+                error1.SetError(cmbAñoCursada, "Elija un año válido");
+                cmbAñoCursada.Focus();
+                return;
+            }
+            int idMateria = Convert.ToInt32(lblMateriaID.Text);
+            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
+            string nombreMateria = txtNombreMateria.Text;
+            int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
+
+            using (var connection = conexionbdd.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand("SP_ModificarMateria", connection))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@id_materia", idMateria);
+                        cmd.Parameters.AddWithValue("@anio_cursada", anioCursada);
+                        cmd.Parameters.AddWithValue("@nombre_materia", nombreMateria);
+                        cmd.Parameters.AddWithValue("@id_carrera", idCarrera);
+
+                        // Ejecutar el stored procedure
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Materia modificada correctamente.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al modificar la materia: {ex.Message}");
+                }
+
+                MateriaEvento?.Invoke();
+                this.Close();
+            }
         }
 
         private void btnEliminarMateria_Click(object sender, EventArgs e)
         {
-            conexionbdd.EliminarMateria(Convert.ToInt32(lblMateriaID.Text));
-            MateriaEvento?.Invoke();
-            this.Close();
+            int idMateria = Convert.ToInt32(lblMateriaID.Text); // Obtener ID de la materia a eliminar
+
+            if (MessageBox.Show("¿Estás seguro de que quieres eliminar esta materia?", "Confirmar eliminación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using (var connection = conexionbdd.GetConnection())
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (SqlCommand cmd = new SqlCommand("SP_EliminarMateria", connection))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+
+                            cmd.Parameters.AddWithValue("@id_materia", idMateria);
+
+                            // Ejecutar el stored procedure
+                            cmd.ExecuteNonQuery();
+
+                            MessageBox.Show("Materia eliminada correctamente.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al eliminar la materia: {ex.Message}");
+                    }
+
+                    MateriaEvento?.Invoke();
+                    this.Close();
+                }
+            }
         }
 
-        private void txtNombreMateria_TextChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
