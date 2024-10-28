@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmpleadosModal));
             panel1 = new Panel();
             panel4 = new Panel();
@@ -39,7 +40,7 @@
             btnAgregarEmpleado = new Button();
             cmbEspecialidadEmpleado = new ComboBox();
             lblEmpleado = new Label();
-            label11 = new Label();
+            lblEmpleado2 = new Label();
             label12 = new Label();
             txtSalarioEmpleados = new TextBox();
             label2 = new Label();
@@ -60,10 +61,12 @@
             txtDireCalleEmpleados = new TextBox();
             txtApellidoEmpleados = new TextBox();
             txtNombreEmpleados = new TextBox();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -100,6 +103,7 @@
             btnSalir.TabIndex = 43;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // label1
             // 
@@ -118,7 +122,7 @@
             panel3.Controls.Add(btnAgregarEmpleado);
             panel3.Controls.Add(cmbEspecialidadEmpleado);
             panel3.Controls.Add(lblEmpleado);
-            panel3.Controls.Add(label11);
+            panel3.Controls.Add(lblEmpleado2);
             panel3.Controls.Add(label12);
             panel3.Controls.Add(txtSalarioEmpleados);
             panel3.Controls.Add(label2);
@@ -193,17 +197,17 @@
             lblEmpleado.Size = new Size(0, 19);
             lblEmpleado.TabIndex = 41;
             // 
-            // label11
+            // lblEmpleado2
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ImageAlign = ContentAlignment.BottomLeft;
-            label11.Location = new Point(63, 101);
-            label11.Name = "label11";
-            label11.Size = new Size(106, 19);
-            label11.TabIndex = 40;
-            label11.Text = "ID Empleado :";
-            label11.TextAlign = ContentAlignment.MiddleCenter;
+            lblEmpleado2.AutoSize = true;
+            lblEmpleado2.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmpleado2.ImageAlign = ContentAlignment.BottomLeft;
+            lblEmpleado2.Location = new Point(63, 101);
+            lblEmpleado2.Name = "lblEmpleado2";
+            lblEmpleado2.Size = new Size(106, 19);
+            lblEmpleado2.TabIndex = 40;
+            lblEmpleado2.Text = "ID Empleado :";
+            lblEmpleado2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label12
             // 
@@ -380,6 +384,10 @@
             txtNombreEmpleados.Size = new Size(123, 23);
             txtNombreEmpleados.TabIndex = 14;
             // 
+            // error1
+            // 
+            error1.ContainerControl = this;
+            // 
             // FormEmpleadosModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -395,6 +403,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -424,12 +433,13 @@
         private TextBox txtSalarioEmpleados;
         private Label label2;
         private Label label12;
-        private Label label11;
+        private Label lblEmpleado2;
         private Label lblEmpleado;
         private ComboBox cmbEspecialidadEmpleado;
         private Button btnSalir;
         private Button btnEliminarEmpleado;
         private Button btnModificarEmpleado;
         private Button btnAgregarEmpleado;
+        private ErrorProvider error1;
     }
 }

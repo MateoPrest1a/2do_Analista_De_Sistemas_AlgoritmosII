@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAlumnosModal));
             panel1 = new Panel();
+            btnExamenesRendidos = new Button();
+            panel2 = new Panel();
+            label2 = new Label();
+            btnSalir = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
             panel3 = new Panel();
             lblMatriculaAlumno = new Label();
-            label1 = new Label();
+            lblMatricula = new Label();
             pictureBox1 = new PictureBox();
             label11 = new Label();
             cmbCarrerasAlumnos = new ComboBox();
@@ -55,13 +60,18 @@
             txtDireCalleAlumno = new TextBox();
             txtApellidoAlumno = new TextBox();
             txtNombreAlumno = new TextBox();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnExamenesRendidos);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnEliminar);
             panel1.Controls.Add(btnModificar);
             panel1.Controls.Add(btnAgregar);
@@ -71,7 +81,51 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(744, 450);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            // 
+            // btnExamenesRendidos
+            // 
+            btnExamenesRendidos.Location = new Point(622, 351);
+            btnExamenesRendidos.Name = "btnExamenesRendidos";
+            btnExamenesRendidos.Size = new Size(92, 40);
+            btnExamenesRendidos.TabIndex = 11;
+            btnExamenesRendidos.Text = "Examenes Rendidos";
+            btnExamenesRendidos.UseVisualStyleBackColor = true;
+            btnExamenesRendidos.Click += btnExamenesRendidos_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(48, 94, 214);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(btnSalir);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(744, 69);
+            panel2.TabIndex = 10;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Schadow BT", 25F);
+            label2.Location = new Point(283, 15);
+            label2.Name = "label2";
+            label2.Size = new Size(145, 41);
+            label2.TabIndex = 1;
+            label2.Text = "Alumnos";
+            // 
+            // btnSalir
+            // 
+            btnSalir.BackgroundImageLayout = ImageLayout.None;
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Location = new Point(673, 12);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(59, 44);
+            btnSalir.TabIndex = 0;
+            btnSalir.Text = "X";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnEliminar
             // 
@@ -107,7 +161,7 @@
             // 
             panel3.Anchor = AnchorStyles.None;
             panel3.Controls.Add(lblMatriculaAlumno);
-            panel3.Controls.Add(label1);
+            panel3.Controls.Add(lblMatricula);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label11);
             panel3.Controls.Add(cmbCarrerasAlumnos);
@@ -127,7 +181,7 @@
             panel3.Controls.Add(txtDireCalleAlumno);
             panel3.Controls.Add(txtApellidoAlumno);
             panel3.Controls.Add(txtNombreAlumno);
-            panel3.Location = new Point(21, 24);
+            panel3.Location = new Point(37, 81);
             panel3.Name = "panel3";
             panel3.Size = new Size(499, 322);
             panel3.TabIndex = 6;
@@ -141,17 +195,17 @@
             lblMatriculaAlumno.Size = new Size(0, 19);
             lblMatriculaAlumno.TabIndex = 36;
             // 
-            // label1
+            // lblMatricula
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ImageAlign = ContentAlignment.BottomLeft;
-            label1.Location = new Point(62, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(82, 19);
-            label1.TabIndex = 35;
-            label1.Text = "Matricula :";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lblMatricula.AutoSize = true;
+            lblMatricula.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMatricula.ImageAlign = ContentAlignment.BottomLeft;
+            lblMatricula.Location = new Point(62, 40);
+            lblMatricula.Name = "lblMatricula";
+            lblMatricula.Size = new Size(82, 19);
+            lblMatricula.TabIndex = 35;
+            lblMatricula.Text = "Matricula :";
+            lblMatricula.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -180,6 +234,7 @@
             cmbCarrerasAlumnos.Name = "cmbCarrerasAlumnos";
             cmbCarrerasAlumnos.Size = new Size(145, 23);
             cmbCarrerasAlumnos.TabIndex = 32;
+            cmbCarrerasAlumnos.SelectedIndexChanged += cmbCarrerasAlumnos_SelectedIndexChanged;
             // 
             // label10
             // 
@@ -320,6 +375,10 @@
             txtNombreAlumno.TabIndex = 14;
             txtNombreAlumno.TextChanged += txtNombreAlumno_TextChanged_1;
             // 
+            // error1
+            // 
+            error1.ContainerControl = this;
+            // 
             // FormAlumnosModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -330,9 +389,12 @@
             Text = "FormAlumnosModal";
             Load += FormAlumnosModal_Load;
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -343,7 +405,7 @@
         private Button btnModificar;
         private Button btnAgregar;
         private Panel panel3;
-        private Label label1;
+        private Label lblMatricula;
         private PictureBox pictureBox1;
         private Label label11;
         private ComboBox cmbCarrerasAlumnos;
@@ -364,5 +426,10 @@
         private TextBox txtApellidoAlumno;
         private TextBox txtNombreAlumno;
         private Label lblMatriculaAlumno;
+        private Panel panel2;
+        private Label label2;
+        private Button btnSalir;
+        private Button btnExamenesRendidos;
+        private ErrorProvider error1;
     }
 }

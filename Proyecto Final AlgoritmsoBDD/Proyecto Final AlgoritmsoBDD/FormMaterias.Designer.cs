@@ -46,8 +46,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(800, 387);
             dataGridView1.TabIndex = 37;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // panel1
             // 
@@ -81,6 +80,7 @@
             btnSalir.TabIndex = 0;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // panel2
             // 
@@ -99,7 +99,9 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormMaterias";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Materias";
+            Load += FormMaterias_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
