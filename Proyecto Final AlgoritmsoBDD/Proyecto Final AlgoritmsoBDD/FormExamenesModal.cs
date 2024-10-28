@@ -36,13 +36,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
             public override string ToString() => Descripcion; // Para que se muestre correctamente en el ComboBox
         }
 
-        Conexionbdd conexionbdd = new Conexionbdd();
+        Conexionbdd conexionbdd = new Conexionbdd();    //Instancio la conexion
 
         public FormExamenesModal(int idexamen, int idcarrera, int idmateria, string horaexamen, DateTime fecha, int tipoexamen, int libro, int folio)
         {
             InitializeComponent();
             CargarCarreras();
-            CargarMaterias();
+            CargarMaterias(idcarrera);
             CargarTiposExamen();
             lblIDExamen.Text = idexamen.ToString();
             cmbIDMaterias.SelectedValue = idmateria;
@@ -83,6 +83,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void FormExamenesModal_Load(object sender, EventArgs e)
         {
+            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
 
         }
 
@@ -119,8 +120,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
-                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
+                    cmbIDCarrera.DisplayMember = "Nombre_Carrera"; // Lo que se muestra en el ComboBox
+                    cmbIDCarrera.ValueMember = "ID_Carrera"; // El valor que se utilizará
                 }
                 catch (Exception ex)
                 {
@@ -130,14 +131,19 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
 
 
-        private void CargarMaterias()
+        private void CargarMaterias(int idCarrera)
         {
             string query = @"SELECT 
-                               id_materia, 
-                               nombre_materia AS Materias 
-                             FROM 
-                               Materias";
-
+                         m.id_materia, 
+                         m.nombre_materia AS Materias 
+                     FROM 
+                         Materias as M
+                     INNER JOIN 
+                        MateriasxCarrera mc ON mc.id_materia = m.id_materia
+                    INNER JOIN 
+                        Carreras c ON mc.id_carrera = c.id_carrera
+                    WHERE 
+                        c.id_carrera = @idCarrera";
             using (var connection = conexionbdd.GetConnection())
             {
                 try
@@ -146,14 +152,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.Parameters.AddWithValue("@idCarrera", idCarrera); // Añadir el parámetro
+
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-
-                            cmbIDMaterias.Items.Clear();
+                            cmbIDMaterias.Items.Clear(); // Limpia el ComboBox antes de llenarlo
 
                             while (reader.Read())
                             {
-
                                 var materia = new Materia
                                 {
                                     Id = reader.GetInt32(0),
@@ -170,6 +176,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 {
                     MessageBox.Show("Error al cargar las materias: " + ex.Message);
                 }
+            }
+        }
+
+        private void CmbIDCarrera_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbIDCarrera.SelectedItem is Carrera carrera)
+            {
+                CargarMaterias(carrera.ID_Carrera); // Llama a CargarMaterias con el ID de la carrera seleccionada
             }
         }
 

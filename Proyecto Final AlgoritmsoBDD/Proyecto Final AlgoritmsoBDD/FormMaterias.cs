@@ -85,7 +85,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             catch (Exception ex)
             {
-                // Manejar excepciones, por ejemplo, mostrar un mensaje de error
+                // Manejar excepciones
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
             finally

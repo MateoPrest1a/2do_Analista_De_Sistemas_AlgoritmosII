@@ -121,12 +121,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             if (cmbCarreras.SelectedItem == null)
             {
-                error1.SetError(cmbCarreras, "Eliga una carrera válida");
+                error1.SetError(cmbCarreras, "Elija una carrera válida");
                 cmbCarreras.Focus();
                 return;
             }
 
-            if (txtNombreMateria.Text == null)
+            if (string.IsNullOrWhiteSpace(txtNombreMateria.Text))
             {
                 error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
                 txtNombreMateria.Focus();
@@ -135,11 +135,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             if (cmbAñoCursada.SelectedItem == null)
             {
-                error1.SetError(cmbAñoCursada, "Eliga una carrera válida");
+                error1.SetError(cmbAñoCursada, "Elija un año de cursada válido");
                 cmbAñoCursada.Focus();
                 return;
             }
 
+            // Obtener valores
             int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera; // Obtener el ID de la carrera seleccionada
             int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem); // Año cursada
             string nombreMateria = txtNombreMateria.Text; // Obtener el nombre de la materia del TextBox
@@ -149,26 +150,17 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 try
                 {
                     connection.Open();
-                    using (SqlCommand cmd = new SqlCommand("SP_AgregarMatxCarrera", connection))
+                    using (SqlCommand cmd = new SqlCommand("SP_AgregarMateria", connection)) // Asegúrate de que el nombre sea correcto
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
+                        // Pasar los parámetros al stored procedure
                         cmd.Parameters.AddWithValue("@anio_cursada", anioCursada);
                         cmd.Parameters.AddWithValue("@nombre_materia", nombreMateria);
-                        cmd.Parameters.AddWithValue("@id_carrera", idCarrera);
-
-                        // Parámetro de salida para el ID de la materia
-                        SqlParameter idMateriaParam = new SqlParameter("@id_materia", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        cmd.Parameters.Add(idMateriaParam);
+                        cmd.Parameters.AddWithValue("@id_carrera", idCarrera); // Se pasa el ID de la carrera
 
                         // Ejecutar el stored procedure
                         cmd.ExecuteNonQuery();
-
-                        // Obtener el ID de la materia insertada
-                        int idMateria = (int)idMateriaParam.Value;
 
                         MessageBox.Show("Materia guardada correctamente.");
                     }
@@ -178,6 +170,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     MessageBox.Show($"Error al agregar la materia: {ex.Message}");
                 }
 
+                // Invocar el evento y cerrar el formulario
                 MateriaEvento?.Invoke();
                 this.Close();
             }
@@ -187,6 +180,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnModificarMateria_Click(object sender, EventArgs e)
         {
+            // Validaciones
             if (cmbCarreras.SelectedItem == null)
             {
                 error1.SetError(cmbCarreras, "Elija una carrera válida");
@@ -194,7 +188,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 return;
             }
 
-            if (txtNombreMateria.Text == null )
+            if (string.IsNullOrWhiteSpace(txtNombreMateria.Text))
             {
                 error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
                 txtNombreMateria.Focus();
@@ -207,10 +201,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 cmbAñoCursada.Focus();
                 return;
             }
-            int idMateria = Convert.ToInt32(lblMateriaID.Text);
-            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
-            string nombreMateria = txtNombreMateria.Text;
-            int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
+
+            // Obtener valores
+            int idMateria = Convert.ToInt32(lblMateriaID.Text); // Obtener el ID de la materia
+            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem); // Año cursada
+            string nombreMateria = txtNombreMateria.Text; // Obtener el nombre de la materia
+            int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera; // Obtener el ID de la carrera
 
             using (var connection = conexionbdd.GetConnection())
             {
@@ -221,10 +217,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
+                        // Pasar los parámetros al stored procedure
                         cmd.Parameters.AddWithValue("@id_materia", idMateria);
                         cmd.Parameters.AddWithValue("@anio_cursada", anioCursada);
                         cmd.Parameters.AddWithValue("@nombre_materia", nombreMateria);
-                        cmd.Parameters.AddWithValue("@id_carrera", idCarrera);
+                        cmd.Parameters.AddWithValue("@id_carrera", idCarrera); // Pasar el ID de la carrera
 
                         // Ejecutar el stored procedure
                         cmd.ExecuteNonQuery();
@@ -237,6 +234,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     MessageBox.Show($"Error al modificar la materia: {ex.Message}");
                 }
 
+                // Invocar el evento y cerrar el formulario
                 MateriaEvento?.Invoke();
                 this.Close();
             }

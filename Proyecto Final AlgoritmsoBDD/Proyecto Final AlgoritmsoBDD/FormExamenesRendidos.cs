@@ -31,27 +31,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void CargarTabla(int Matricula)
         {
+            //Arreglar esto
             string consulta = @"
-                                SELECT 
-                                    e.id_examenxalumno,
-                                    e.fecha,
-                                    e.calificacion,
-                                    a.nombre AS Alumno,
-                                    m.nombre_materia AS Materia,
-                                    c.nombre_carrera AS Carrera,
-                                    ex.tipo_examen AS [Tipo Examen]
-                                FROM 
-                                    ExamenxAlumno AS e
-                                JOIN 
-                                    Alumnos AS a ON a.matricula = e.id_alumno
-                                JOIN 
-                                    Materias AS m ON m.id_materia = e.id_materia
-                                JOIN 
-                                    Carreras AS c ON c.id_carrera = e.id_carrera
-                                JOIN 
-                                    Examenes AS ex ON ex.id_examen = e.id_examen
-                                WHERE 
-                                    e.id_alumno = @matricula;";
+                                SELECT * from ExamenxAlumno";
 
             using (SqlCommand command = new SqlCommand(consulta, conectarBDD.conectarbdd))
             {
