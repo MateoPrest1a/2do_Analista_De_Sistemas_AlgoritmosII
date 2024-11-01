@@ -65,7 +65,7 @@
             // btnAcceder
             // 
             btnAcceder.BackColor = Color.FromArgb(64, 55, 223);
-            btnAcceder.Font = new Font("Swis721 BlkCn BT", 12F);
+            btnAcceder.Font = new Font("Microsoft Sans Serif", 12F);
             btnAcceder.ForeColor = SystemColors.ButtonHighlight;
             btnAcceder.Location = new Point(103, 279);
             btnAcceder.Name = "btnAcceder";
@@ -93,6 +93,7 @@
             txtUsuario.PlaceholderText = " Usuario";
             txtUsuario.Size = new Size(248, 34);
             txtUsuario.TabIndex = 0;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // pictureBox1
             // 
@@ -113,6 +114,7 @@
             MaximumSize = new Size(567, 470);
             MinimumSize = new Size(567, 470);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Ingresar";
             Load += Login_Load;
             panel1.ResumeLayout(false);

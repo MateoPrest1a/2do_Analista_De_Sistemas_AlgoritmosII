@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
@@ -32,6 +33,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 return Nombre;
             }
         }
+
+        public void Validacion(string n)
+        {
+
+        }
+
 
         private void CargarCarreras()
         {
@@ -106,7 +113,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             txtDocumentoAlumno.Text = documento;
             dtpFechaNacimientoAlumno.Value = fechanacimientoalumno;
             txtEmailAlumno.Text = email;
-
             foreach (Carrera carrera in cmbCarrerasAlumnos.Items)
             {
                 if (carrera.Id == idcarrera)
@@ -121,10 +127,158 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            conexionbdd.CargarAlumno(txtNombreAlumno.Text, txtApellidoAlumno.Text, txtDireCalleAlumno.Text, Convert.ToInt32(txtDireNumeroAlumno.Text), txtTelefonoAlumno.Text, txtDocumentoAlumno.Text, txtEmailAlumno.Text, dtpFechaNacimientoAlumno.Value, Convert.ToInt32(((Carrera)cmbCarrerasAlumnos.SelectedItem).Id));
+            string NombreAlumno = "";
+            string ApellidoAlumno = "";
+            string Direcalle = "";
+            int Direnum = 0;
+            string TelefonoAlumno = "";
+            string DocumentoAlumno = "";
+            string EmailAlumno = "";
+            DateTime FechaNacimientoAlumno = DateTime.Now;
+            int carreraId = 0;
 
+            // NOMBRE ALUMNO
+            if (txtNombreAlumno.Text == "")
+            {
+                error1.SetError(txtNombreAlumno, "Nombre Inválido");
+                txtNombreAlumno.Focus();
+                return;
+            }
+            else
+            {
+                NombreAlumno = txtNombreAlumno.Text;
+                error1.Clear();
+            }
+
+            // APELLIDO ALUMNO
+            if (txtApellidoAlumno.Text == "")
+            {
+                error1.SetError(txtApellidoAlumno, "Apellido Inválido");
+                txtApellidoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                ApellidoAlumno = txtApellidoAlumno.Text;
+                error1.Clear();
+            }
+
+            // DIRECCIÓN CALLE
+            if (txtDireCalleAlumno.Text == "")
+            {
+                error1.SetError(txtDireCalleAlumno, "Calle Inválida");
+                txtDireCalleAlumno.Focus();
+                return;
+            }
+            else
+            {
+                Direcalle = txtDireCalleAlumno.Text;
+                error1.Clear();
+            }
+
+            // NÚMERO CALLE
+            if (txtDireNumeroAlumno.Text == "")
+            {
+                error1.SetError(txtDireNumeroAlumno, "Número Inválido");
+                txtDireNumeroAlumno.Focus();
+                return;
+            }
+            else
+            {
+                if (int.TryParse(txtDireNumeroAlumno.Text, out Direnum))
+                {
+                    error1.Clear();
+                }
+                else
+                {
+                    error1.SetError(txtDireNumeroAlumno, "Número Inválido");
+                    txtDireNumeroAlumno.Focus();
+                    return;
+                }
+            }
+
+            // TELÉFONO ALUMNO
+            if (txtTelefonoAlumno.Text == "")
+            {
+                error1.SetError(txtTelefonoAlumno, "Teléfono Inválido");
+                txtTelefonoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                if (double.TryParse(txtTelefonoAlumno.Text, out double numerito))
+                {
+                    TelefonoAlumno = txtTelefonoAlumno.Text;
+                    error1.Clear();
+                }
+                else
+                {
+                    error1.SetError(txtTelefonoAlumno, "Ingrese un número válido");
+                    txtTelefonoAlumno.Focus();
+                    return;
+                }
+            }
+
+            // DOCUMENTO ALUMNO
+            if (txtDocumentoAlumno.Text == "")
+            {
+                error1.SetError(txtDocumentoAlumno, "Documento Inválido");
+                txtDocumentoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                if (double.TryParse(txtDocumentoAlumno.Text, out double numerito))
+                {
+                    DocumentoAlumno = txtDocumentoAlumno.Text;
+                    error1.Clear();
+                }
+            }
+
+            // EMAIL ALUMNO
+            if (txtEmailAlumno.Text == "")
+            {
+                error1.SetError(txtEmailAlumno, "Email Inválido");
+                txtEmailAlumno.Focus();
+                return;
+            }
+            else
+            {
+                EmailAlumno = txtEmailAlumno.Text;
+                error1.Clear();
+            }
+
+            // FECHA DE NACIMIENTO
+            if (dtpFechaNacimientoAlumno.Value == DateTime.Now)
+            {
+                error1.SetError(dtpFechaNacimientoAlumno, "Fecha de Nacimiento Inválida");
+                dtpFechaNacimientoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                FechaNacimientoAlumno = dtpFechaNacimientoAlumno.Value;
+                error1.Clear();
+            }
+
+            // CARRERA
+            if (cmbCarrerasAlumnos.SelectedItem == null || !(cmbCarrerasAlumnos.SelectedItem is Carrera))
+            {
+                error1.SetError(cmbCarrerasAlumnos, "Carrera Inválida");
+                cmbCarrerasAlumnos.Focus();
+                return;
+            }
+            else
+            {
+                carreraId = ((Carrera)cmbCarrerasAlumnos.SelectedItem).Id;
+                error1.Clear();
+            }
+
+            // LLAMADA A BASE DE DATOS
+            conexionbdd.CargarAlumno(NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
+
+            // EVENTO Y CIERRE
             AlumnoEvento?.Invoke();
-
             this.Close();
 
         }
@@ -133,7 +287,154 @@ namespace Proyecto_Final_AlgoritmsoBDD
         //Resuelto para cargar el id de la carrera y no se rompa
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            conexionbdd.ActualizarAlumno(Convert.ToInt32(lblMatriculaAlumno.Text), txtNombreAlumno.Text, txtApellidoAlumno.Text, txtDireCalleAlumno.Text, Convert.ToInt32(txtDireNumeroAlumno.Text), txtTelefonoAlumno.Text, txtDocumentoAlumno.Text, txtEmailAlumno.Text, dtpFechaNacimientoAlumno.Value, Convert.ToInt32(((Carrera)cmbCarrerasAlumnos.SelectedItem).Id));
+            string NombreAlumno = "";
+            string ApellidoAlumno = "";
+            string Direcalle = "";
+            int Direnum = 0;
+            string TelefonoAlumno = "";
+            string DocumentoAlumno = "";
+            string EmailAlumno = "";
+            DateTime FechaNacimientoAlumno = DateTime.Now;
+            int carreraId = 0;
+
+            // NOMBRE ALUMNO
+            if (txtNombreAlumno.Text == "")
+            {
+                error1.SetError(txtNombreAlumno, "Nombre Inválido");
+                txtNombreAlumno.Focus();
+                return;
+            }
+            else
+            {
+                NombreAlumno = txtNombreAlumno.Text;
+                error1.Clear();
+            }
+
+            // APELLIDO ALUMNO
+            if (txtApellidoAlumno.Text == "")
+            {
+                error1.SetError(txtApellidoAlumno, "Apellido Inválido");
+                txtApellidoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                ApellidoAlumno = txtApellidoAlumno.Text;
+                error1.Clear();
+            }
+
+            // DIRECCIÓN CALLE
+            if (txtDireCalleAlumno.Text == "")
+            {
+                error1.SetError(txtDireCalleAlumno, "Calle Inválida");
+                txtDireCalleAlumno.Focus();
+                return;
+            }
+            else
+            {
+                Direcalle = txtDireCalleAlumno.Text;
+                error1.Clear();
+            }
+
+            // NÚMERO CALLE
+            if (txtDireNumeroAlumno.Text == "")
+            {
+                error1.SetError(txtDireNumeroAlumno, "Número Inválido");
+                txtDireNumeroAlumno.Focus();
+                return;
+            }
+            else
+            {
+                if (int.TryParse(txtDireNumeroAlumno.Text, out Direnum))
+                {
+                    error1.Clear();
+                }
+                else
+                {
+                    error1.SetError(txtDireNumeroAlumno, "Número Inválido");
+                    txtDireNumeroAlumno.Focus();
+                    return;
+                }
+            }
+
+            // TELÉFONO ALUMNO
+            if (txtTelefonoAlumno.Text == "")
+            {
+                error1.SetError(txtTelefonoAlumno, "Teléfono Inválido");
+                txtTelefonoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                if (double.TryParse(txtTelefonoAlumno.Text, out double numerito))
+                {
+                    TelefonoAlumno = txtTelefonoAlumno.Text;
+                    error1.Clear();
+                }
+                else
+                {
+                    error1.SetError(txtTelefonoAlumno, "Ingrese un número válido");
+                    txtTelefonoAlumno.Focus();
+                    return;
+                }
+            }
+
+            // DOCUMENTO ALUMNO
+            if (txtDocumentoAlumno.Text == "")
+            {
+                error1.SetError(txtDocumentoAlumno, "Documento Inválido");
+                txtDocumentoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                if (double.TryParse(txtDocumentoAlumno.Text, out double numerito))
+                {
+                    DocumentoAlumno = txtDocumentoAlumno.Text;
+                    error1.Clear();
+                }
+            }
+
+            // EMAIL ALUMNO
+            if (txtEmailAlumno.Text == "")
+            {
+                error1.SetError(txtEmailAlumno, "Email Inválido");
+                txtEmailAlumno.Focus();
+                return;
+            }
+            else
+            {
+                EmailAlumno = txtEmailAlumno.Text;
+                error1.Clear();
+            }
+
+            // FECHA DE NACIMIENTO
+            if (dtpFechaNacimientoAlumno.Value == DateTime.Now)
+            {
+                error1.SetError(dtpFechaNacimientoAlumno, "Fecha de Nacimiento Inválida");
+                dtpFechaNacimientoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                FechaNacimientoAlumno = dtpFechaNacimientoAlumno.Value;
+                error1.Clear();
+            }
+
+            // CARRERA 
+            if (cmbCarrerasAlumnos.SelectedItem == null)
+            {
+                error1.SetError(cmbCarrerasAlumnos, "Carrera Inválida");
+                cmbCarrerasAlumnos.Focus();
+                return;
+            }
+            else
+            {
+                carreraId = ((Carrera)cmbCarrerasAlumnos.SelectedItem).Id;
+                error1.Clear();
+            }
+
+            conexionbdd.ActualizarAlumno(Convert.ToInt32(lblMatriculaAlumno.Text), NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
             AlumnoEvento?.Invoke();
             this.Close();
         }
@@ -173,13 +474,17 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnExamenesRendidos_Click(object sender, EventArgs e)
         {
             FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(Convert.ToInt32(lblMatriculaAlumno.Text));
-
-
+            formexamenesrendidos.ShowDialog();
         }
 
         private void cmbCarrerasAlumnos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

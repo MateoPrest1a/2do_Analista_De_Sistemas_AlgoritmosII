@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAlumnosModal));
             panel1 = new Panel();
             btnExamenesRendidos = new Button();
@@ -59,10 +60,12 @@
             txtDireCalleAlumno = new TextBox();
             txtApellidoAlumno = new TextBox();
             txtNombreAlumno = new TextBox();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -116,12 +119,13 @@
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(729, 12);
+            btnSalir.Location = new Point(673, 12);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(59, 44);
             btnSalir.TabIndex = 0;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnEliminar
             // 
@@ -371,6 +375,10 @@
             txtNombreAlumno.TabIndex = 14;
             txtNombreAlumno.TextChanged += txtNombreAlumno_TextChanged_1;
             // 
+            // error1
+            // 
+            error1.ContainerControl = this;
+            // 
             // FormAlumnosModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -386,6 +394,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -421,5 +430,6 @@
         private Label label2;
         private Button btnSalir;
         private Button btnExamenesRendidos;
+        private ErrorProvider error1;
     }
 }

@@ -99,6 +99,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormMaterias";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Materias";
             Load += FormMaterias_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

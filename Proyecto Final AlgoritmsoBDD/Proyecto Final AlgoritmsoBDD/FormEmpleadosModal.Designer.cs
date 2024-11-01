@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEmpleadosModal));
             panel1 = new Panel();
             panel4 = new Panel();
@@ -60,10 +61,12 @@
             txtDireCalleEmpleados = new TextBox();
             txtApellidoEmpleados = new TextBox();
             txtNombreEmpleados = new TextBox();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -381,6 +384,10 @@
             txtNombreEmpleados.Size = new Size(123, 23);
             txtNombreEmpleados.TabIndex = 14;
             // 
+            // error1
+            // 
+            error1.ContainerControl = this;
+            // 
             // FormEmpleadosModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -388,6 +395,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Name = "FormEmpleadosModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormEmpleadosModal";
             Load += FormEmpleadosModal_Load;
             panel1.ResumeLayout(false);
@@ -396,6 +404,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -432,5 +441,6 @@
         private Button btnEliminarEmpleado;
         private Button btnModificarEmpleado;
         private Button btnAgregarEmpleado;
+        private ErrorProvider error1;
     }
 }

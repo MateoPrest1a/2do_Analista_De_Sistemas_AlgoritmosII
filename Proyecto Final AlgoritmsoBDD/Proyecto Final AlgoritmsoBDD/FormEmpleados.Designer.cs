@@ -103,6 +103,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormEmpleados";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Profesores";
             Load += FormEmpleados_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

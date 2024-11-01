@@ -35,8 +35,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     int ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
                     int Año = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Año"].Value);
                     string Nombre = dataGridView1.Rows[e.RowIndex].Cells["Materia"].Value.ToString();
+                    int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
 
-                    FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre);
+                    FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre, idcarrera);
                     formmateriasmodal.MateriaEvento += ActualizarDataGridView;
                     formmateriasmodal.ShowDialog();
                 }
@@ -45,8 +46,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     int ID = 0;
                     int Año = 0;
                     string Nombre = "";
+                    int idcarrera = 0;
 
-                    FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre);
+                    FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre, idcarrera);
                     formmateriasmodal.MateriaEvento += ActualizarDataGridView;
                     formmateriasmodal.ShowDialog();
                 }
@@ -60,24 +62,30 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void CargarTabla()
         {
             string consulta = @"SELECT  
-                                    id_materia as ID, 
-                                    anio_cursada as Año, 
-                                    nombre_materia as Materia,
-                                    mc.id_carrera AS Carrera
+                                    m.id_materia as ID, 
+                                    m.anio_cursada as Año, 
+                                    m.nombre_materia as Materia,
+                                    c.nombre_carrera AS Carrera,
+                                    c.id_carrera
                                 FROM 
-                                    Materias
-                                JOIN MateriasxCarrera as mc ON m.id_materia = mc.id_materia;";
+                                    Materias as m
+                                JOIN MateriasxCarrera as mc ON m.id_materia = mc.id_materia
+                                JOIN Carreras as c ON mc.id_carrera = c.id_carrera;";
             SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
             DataTable dt = new DataTable();
-
+            
+            
+            
             try
             {
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
+                //Oculto la columna que no quiero que se vea
+                dataGridView1.Columns["id_carrera"].Visible = false;
             }
             catch (Exception ex)
             {
-                // Manejar excepciones, por ejemplo, mostrar un mensaje de error
+                // Manejar excepciones
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
             finally
@@ -93,11 +101,23 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void ActualizarDataGridView()
         {
-            string consulta = "SELECT id_materia as ID, anio_cursada as Año, nombre_materia as Materia FROM Materias";
+            string consulta = @"SELECT  
+                                    m.id_materia as ID, 
+                                    m.anio_cursada as Año, 
+                                    m.nombre_materia as Materia,
+                                    c.nombre_carrera AS Carrera,
+                                    c.id_carrera
+                                FROM 
+                                    Materias as m
+                                JOIN MateriasxCarrera as mc ON m.id_materia = mc.id_materia
+                                JOIN Carreras as c ON mc.id_carrera = c.id_carrera;";
             SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
             DataTable dt = new DataTable();
+
+            
             adapter.Fill(dt);
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns["id_carrera"].Visible = false;
         }
     }
 }

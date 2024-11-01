@@ -100,6 +100,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormExamenes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormExamenes";
             Load += FormExamenes_Load;
             panel1.ResumeLayout(false);

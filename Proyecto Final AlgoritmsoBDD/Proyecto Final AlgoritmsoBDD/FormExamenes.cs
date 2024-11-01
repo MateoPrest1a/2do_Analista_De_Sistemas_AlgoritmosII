@@ -34,6 +34,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     c.nombre_carrera AS Carrera,
                                     m.id_materia, 
                                     m.nombre_materia AS Materia,
+                                    m.anio_cursada AS Año, 
                                     e.fecha_examen AS Fecha,
                                     e.hora_examen AS [Hora Examen],
                                     te.id_tipoexamen,
@@ -57,9 +58,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 adapter.Fill(dt);
                 dataGridView1.DataSource = dt;
 
-                // Opcional: Ocultar la columna de id_carrera
+                // Ocultar la columna de ids
                 dataGridView1.Columns["id_carrera"].Visible = false; // Oculta la columna
-                dataGridView1.Columns["id_materia"].Visible = false; 
+                dataGridView1.Columns["id_materia"].Visible = false;
                 dataGridView1.Columns["id_tipoexamen"].Visible = false;
                 dataGridView1.Columns["id_examen"].Visible = false;
             }
@@ -84,6 +85,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     c.nombre_carrera AS Carrera,
                                     m.id_materia, 
                                     m.nombre_materia AS Materia,
+                                    m.anio_cursada AS Año, 
                                     e.fecha_examen AS Fecha,
                                     e.hora_examen AS [Hora Examen],
                                     te.id_tipoexamen,
@@ -116,7 +118,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 try
                 {
 
-                    //Necesito que al cargarle el nombre "Analista de sistemas" se lo pase como int ya que es el id del combo box.
+
 
                     // Obtener los valores de las celdas
                     int idExamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
@@ -136,7 +138,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 catch (Exception ex)
                 {
 
-                    FormExamenesModal formExamenModal = new FormExamenesModal(0, 0, 0, "",DateTime.Now, 0, 0, 0); // Valores por defecto
+                    FormExamenesModal formExamenModal = new FormExamenesModal(0, 0, 0, "", DateTime.Now, 0, 0, 0); // Valores por defecto
                     formExamenModal.ExamenEvento += Actualizar_DataGridView; // Suscribirse al evento
                     formExamenModal.ShowDialog(); // Mostrar el formulario modal
                 }

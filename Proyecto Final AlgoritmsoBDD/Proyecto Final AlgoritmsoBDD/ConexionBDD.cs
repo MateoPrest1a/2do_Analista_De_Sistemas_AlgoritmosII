@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
+using static Proyecto_Final_AlgoritmsoBDD.FormExamenesModal;
 
 namespace Proyecto_Final
 {
@@ -36,7 +38,7 @@ namespace Proyecto_Final
                 Console.WriteLine($"Error al conectar con la BDD: {ex.Message}");
             }
         }
-        public void EliminarAlumno(int matricula) 
+        public void EliminarAlumno(int matricula)
         {
             using (SqlCommand command = new SqlCommand("SP_EliminarAlumno", conectarbdd))
             {
@@ -66,15 +68,15 @@ namespace Proyecto_Final
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.AddWithValue("@matricula", matricula);
-                command.Parameters.AddWithValue("@nombre", nombre); 
-                command.Parameters.AddWithValue("@apellido", apellido); 
-                command.Parameters.AddWithValue("@direccion_calle", direccionCalle); 
-                command.Parameters.AddWithValue("@direccion_numero", direccionNumero); 
-                command.Parameters.AddWithValue("@telefono", telefono); 
-                command.Parameters.AddWithValue("@dni", dni); 
-                command.Parameters.AddWithValue("@email", email); 
-                command.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento); 
-                command.Parameters.AddWithValue("@id_carrera", idCarrera); 
+                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@apellido", apellido);
+                command.Parameters.AddWithValue("@direccion_calle", direccionCalle);
+                command.Parameters.AddWithValue("@direccion_numero", direccionNumero);
+                command.Parameters.AddWithValue("@telefono", telefono);
+                command.Parameters.AddWithValue("@dni", dni);
+                command.Parameters.AddWithValue("@email", email);
+                command.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
+                command.Parameters.AddWithValue("@id_carrera", idCarrera);
 
                 try
                 {
@@ -99,7 +101,7 @@ namespace Proyecto_Final
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-               
+
                 command.Parameters.AddWithValue("@Nombre", nombre);
                 command.Parameters.AddWithValue("@Apellido", apellido);
                 command.Parameters.AddWithValue("@direccion_calle", direccionCalle);
@@ -112,7 +114,7 @@ namespace Proyecto_Final
 
                 try
                 {
-                    abrir(); 
+                    abrir();
                     command.ExecuteNonQuery();
                     MessageBox.Show("Alumno cargado con éxito.");
                 }
@@ -122,7 +124,7 @@ namespace Proyecto_Final
                 }
                 finally
                 {
-                    cerrar(); 
+                    cerrar();
                 }
             }
         }
@@ -222,6 +224,7 @@ namespace Proyecto_Final
             }
         }
 
+        // Carreras
         public void CargarCarrera(string nombreCarrera, int numResolucion, int anioPlanEstudio)
         {
             using (SqlCommand command = new SqlCommand("SP_AgregarCarrera", conectarbdd))
@@ -364,7 +367,7 @@ namespace Proyecto_Final
         }
 
 
-        //Eliminar Carreras
+        //Eliminar Materias
 
         public void EliminarMateria(int idMateria)
         {
@@ -388,6 +391,32 @@ namespace Proyecto_Final
                 finally
                 {
                     cerrar(); // Cierra la conexión
+                }
+            }
+        }
+
+
+        //Cargar MatxCarrera
+        public void CargarMatxCarr(int idcarrera, int idmateria)
+        {
+            using (SqlCommand command = new SqlCommand("SP_AgregarMatxCarrera", conectarbdd))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@id_carrera", idcarrera);
+                command.Parameters.AddWithValue("@id_materia", idmateria);
+                try
+                {
+                    abrir();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar la matxcarrera: {ex.Message}");
+                }
+                finally
+                {
+                    cerrar();
                 }
             }
         }

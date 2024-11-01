@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMateriasModal));
             panel1 = new Panel();
             btnEliminarMateria = new Button();
@@ -37,17 +38,21 @@
             label1 = new Label();
             btnSalir = new Button();
             panel3 = new Panel();
+            label2 = new Label();
+            cmbCarreras = new ComboBox();
+            cmbAñoCursada = new ComboBox();
             lblMateriaID = new Label();
             lblMateria = new Label();
             pictureBox1 = new PictureBox();
             label4 = new Label();
             label3 = new Label();
             txtNombreMateria = new TextBox();
-            txtAñoCursada = new TextBox();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -125,21 +130,52 @@
             btnSalir.TabIndex = 0;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.None;
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(cmbCarreras);
+            panel3.Controls.Add(cmbAñoCursada);
             panel3.Controls.Add(lblMateriaID);
             panel3.Controls.Add(lblMateria);
             panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(txtNombreMateria);
-            panel3.Controls.Add(txtAñoCursada);
             panel3.Location = new Point(78, 89);
             panel3.Name = "panel3";
             panel3.Size = new Size(499, 322);
             panel3.TabIndex = 7;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Schadow BT", 12F);
+            label2.Location = new Point(66, 125);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 19);
+            label2.TabIndex = 39;
+            label2.Text = "Carrera :";
+            // 
+            // cmbCarreras
+            // 
+            cmbCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCarreras.FormattingEnabled = true;
+            cmbCarreras.Location = new Point(152, 125);
+            cmbCarreras.Name = "cmbCarreras";
+            cmbCarreras.Size = new Size(123, 23);
+            cmbCarreras.TabIndex = 38;
+            // 
+            // cmbAñoCursada
+            // 
+            cmbAñoCursada.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAñoCursada.FormattingEnabled = true;
+            cmbAñoCursada.Location = new Point(152, 67);
+            cmbAñoCursada.Name = "cmbAñoCursada";
+            cmbAñoCursada.Size = new Size(123, 23);
+            cmbAñoCursada.TabIndex = 37;
             // 
             // lblMateriaID
             // 
@@ -203,12 +239,9 @@
             txtNombreMateria.Size = new Size(123, 23);
             txtNombreMateria.TabIndex = 15;
             // 
-            // txtAñoCursada
+            // error1
             // 
-            txtAñoCursada.Location = new Point(152, 67);
-            txtAñoCursada.Name = "txtAñoCursada";
-            txtAñoCursada.Size = new Size(123, 23);
-            txtAñoCursada.TabIndex = 14;
+            error1.ContainerControl = this;
             // 
             // FormMateriasModal
             // 
@@ -217,6 +250,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Name = "FormMateriasModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormMateriasModal";
             Load += FormMateriasModal_Load;
             panel1.ResumeLayout(false);
@@ -225,6 +259,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -237,7 +272,6 @@
         private Label label4;
         private Label label3;
         private TextBox txtNombreMateria;
-        private TextBox txtAñoCursada;
         private Label lblMateriaID;
         private Panel panel2;
         private Label label1;
@@ -245,5 +279,9 @@
         private Button btnEliminarMateria;
         private Button btnModificarMateria;
         private Button btnAgregarMateria;
+        private ComboBox cmbAñoCursada;
+        private Label label2;
+        private ComboBox cmbCarreras;
+        private ErrorProvider error1;
     }
 }
