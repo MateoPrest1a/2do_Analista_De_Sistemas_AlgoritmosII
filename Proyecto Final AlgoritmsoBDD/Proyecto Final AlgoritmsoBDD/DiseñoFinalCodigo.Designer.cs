@@ -85,7 +85,6 @@ namespace DiseñoFinal
             btnCursosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
             tabPerfilProfesores = new TabPage();
-            button2 = new Button();
             panel9 = new Panel();
             button1 = new Button();
             btnExamenesProfesor = new Button();
@@ -774,7 +773,6 @@ namespace DiseñoFinal
             // 
             // tabPerfilProfesores
             // 
-            tabPerfilProfesores.Controls.Add(button2);
             tabPerfilProfesores.Controls.Add(panel9);
             tabPerfilProfesores.Location = new Point(4, 24);
             tabPerfilProfesores.Name = "tabPerfilProfesores";
@@ -783,21 +781,6 @@ namespace DiseñoFinal
             tabPerfilProfesores.TabIndex = 1;
             tabPerfilProfesores.Text = "Mi Perfil";
             tabPerfilProfesores.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(33, 63, 96);
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(313, 64);
-            button2.Name = "button2";
-            button2.Size = new Size(195, 193);
-            button2.TabIndex = 2;
-            button2.Text = "asignar materia";
-            button2.UseVisualStyleBackColor = false;
             // 
             // panel9
             // 
@@ -976,6 +959,5 @@ namespace DiseñoFinal
         private Button btnCursosAlumnos;
         private Button btnMateriasAlumnos;
         private Button button1;
-        private Button button2;
     }
 }

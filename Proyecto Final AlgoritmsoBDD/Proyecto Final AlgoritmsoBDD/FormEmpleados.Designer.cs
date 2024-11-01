@@ -65,10 +65,10 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Schadow BT", 25F);
+            label12.Font = new Font("Microsoft Sans Serif", 25F);
             label12.Location = new Point(299, 9);
             label12.Name = "label12";
-            label12.Size = new Size(178, 41);
+            label12.Size = new Size(188, 39);
             label12.TabIndex = 2;
             label12.Text = "Empleados";
             // 
@@ -76,7 +76,7 @@
             // 
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(734, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 57);
@@ -103,7 +103,6 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormEmpleados";
-            Text = "Profesores";
             Load += FormEmpleados_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
