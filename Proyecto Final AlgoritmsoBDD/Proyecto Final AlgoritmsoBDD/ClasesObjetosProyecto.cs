@@ -126,6 +126,15 @@ class PerfilXPersona
     public string Constraseña { get; set; }
 }
 
+
+public class TipoExamen     // Clase para cargar los tipo examen en los combo box.
+{
+    public int Id { get; set; }
+    public string Descripcion { get; set; }
+
+    public override string ToString() => Descripcion; // Para que se muestre correctamente en el ComboBox
+}
+
 /*
 class Program
 {

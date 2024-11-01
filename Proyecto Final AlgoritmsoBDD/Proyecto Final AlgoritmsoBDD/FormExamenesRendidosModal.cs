@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -10,30 +9,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
-    public partial class FormExamenesModal : Form
+    public partial class FormExamenesRendidosModal : Form
     {
-        public event Action ExamenEvento; //Evento para actualizar el datagridview
-        
 
-        Conexionbdd conexionbdd = new Conexionbdd();    //Instancio la conexion
-
-        public FormExamenesModal(int idexamen, int idcarrera, int idmateria, string horaexamen, DateTime fecha, int tipoexamen, int libro, int folio)
+        Conexionbdd conexionbdd = new Conexionbdd();
+        public FormExamenesRendidosModal(int idexamenxalumno, string nombre, int idexamen, int idmateria, int idcarrera, int año, DateTime fecha, decimal calificacion)
         {
             InitializeComponent();
             CargarCarreras();
-            CargarMaterias(idcarrera);
             CargarTiposExamen();
-            lblIDExamen.Text = idexamen.ToString();
-            cmbIDMaterias.SelectedValue = idmateria;
-            txtExamenHora.Text = horaexamen.ToString();
+            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
+            CargarMaterias(idcarrera);
+
+            lblIDExamen.Text = idexamenxalumno.ToString();
+            lblAlumno.Text = nombre;
             dtpFechaExamen.Value = fecha;
-            cmbTipoExamen.Text = tipoexamen.ToString();
-            txtLibro.Text = libro.ToString();
-            txtFolio.Text = folio.ToString();
+
 
             foreach (Carrera carrera in cmbIDCarrera.Items)
             {
@@ -61,14 +55,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     break;
                 }
             }
-
         }
 
-        private void FormExamenesModal_Load(object sender, EventArgs e)
-        {
-            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
 
-        }
+
+
+
+
+
 
         private void CargarCarreras()
         {
@@ -162,6 +156,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
+
         private void CmbIDCarrera_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbIDCarrera.SelectedItem is Carrera carrera)
@@ -169,6 +164,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 CargarMaterias(carrera.ID_Carrera); // Llama a CargarMaterias con el ID de la carrera seleccionada
             }
         }
+
 
         private void CargarTiposExamen()
         {
@@ -212,11 +208,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
             this.Close();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void FormExamenesRendidosModal_Load(object sender, EventArgs e)
         {
-            conexionbdd.CargarExamen(Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera), Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).ID_Materia), txtExamenHora.Text, dtpFechaExamen.Value, Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id), Convert.ToInt32(txtLibro.Text), Convert.ToInt32(txtFolio.Text));
-            ExamenEvento?.Invoke();
-            this.Close();
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
