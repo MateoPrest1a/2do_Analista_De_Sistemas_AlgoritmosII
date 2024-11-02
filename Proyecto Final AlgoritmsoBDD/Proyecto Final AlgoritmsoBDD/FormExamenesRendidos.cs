@@ -14,7 +14,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormExamenesRendidos : Form
     {
-        Conexionbdd conectarBDD = new Conexionbdd();
+        GestorExamenes Gestorexamenes = new GestorExamenes();
 
         public FormExamenesRendidos(int idmatricula)
         {
@@ -61,37 +61,20 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                 WHERE 
                                     exa.matricula = @matricula";
 
-            using (SqlCommand command = new SqlCommand(consulta, conectarBDD.conectarbdd))
+            SqlCommand command = new SqlCommand(consulta);
+
+            try
             {
-                command.Parameters.AddWithValue("@matricula", Matricula);
-
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-
-                try
-                {
-                    conectarBDD.abrir();
-                    adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
-
-                    // Ocultar la columna 'id_examenxalumno
-                    dataGridView1.Columns["id_examenxalumno"].Visible = false;
-                    dataGridView1.Columns["id_examen"].Visible = false;
-                    dataGridView1.Columns["id_materia"].Visible = false;
-                    dataGridView1.Columns["id_carrera"].Visible = false;
-                    //dataGridView1.Columns["anio_cursada"].Visible = false;
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar la tabla de exámenes: " + ex.Message);
-                }
-                finally
-                {
-                    conectarBDD.cerrar(); // Asegúrate de cerrar la conexión en caso de que ocurra un error
-                }
+                DataTable dt = Gestorexamenes.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
+                dataGridView1.DataSource = dt;
+                dataGridView1.Columns["id_carrera"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
         }
+        
 
 
         private void btnAgregar_Click(object sender, EventArgs e)

@@ -14,8 +14,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormExamenesRendidosModal : Form
     {
+        GestorExamenes Gestorexamenes = new GestorExamenes();
 
-        SqlConnection conexionbdd = Conexionbdd.ObtenerInstancia().ObtenerConexion();
+        SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
         public FormExamenesRendidosModal(int idexamenxalumno, string nombre, int idexamen, int idmateria, int idcarrera, int año, DateTime fecha, decimal calificacion)
         {
             InitializeComponent();
@@ -68,42 +69,38 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
 
-            using (var connection = conexionbdd.GetConnection())
+            try
             {
-                try
+                // Crear el comando SQL
+                using (SqlCommand command = new SqlCommand(query, conexion))
                 {
-                    connection.Open();
+                    // Usar la clase gestora para ejecutar la consulta
+                    DataTable carrerasTable = Gestorexamenes.EjecutarConsulta(command);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Limpia el ComboBox antes de llenarlo
+                    cmbIDCarrera.Items.Clear();
+
+                    foreach (DataRow row in carrerasTable.Rows)
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        // Crear un nuevo objeto para almacenar la carrera
+                        var carrera = new Carrera
                         {
-                            // Limpia el ComboBox antes de llenarlo
-                            cmbIDCarrera.Items.Clear();
+                            ID_Carrera = Convert.ToInt32(row["id_carrera"]), // id_carrera
+                            Nombre_Carrera = row["nombre_carrera"].ToString() // nombre_carrera
+                        };
 
-                            while (reader.Read())
-                            {
-                                // Crear un nuevo objeto para almacenar la carrera
-                                var carrera = new Carrera
-                                {
-                                    ID_Carrera = reader.GetInt32(0), // id_carrera
-                                    Nombre_Carrera = reader.GetString(1) // nombre_carrera
-                                };
-
-                                // Agregar la carrera al ComboBox
-                                cmbIDCarrera.Items.Add(carrera);
-                            }
-                        }
+                        // Agregar la carrera al ComboBox
+                        cmbIDCarrera.Items.Add(carrera);
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbIDCarrera.DisplayMember = "Nombre_Carrera"; // Lo que se muestra en el ComboBox
-                    cmbIDCarrera.ValueMember = "ID_Carrera"; // El valor que se utilizará
+                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
+                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
             }
         }
 
@@ -121,38 +118,38 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         Carreras c ON mc.id_carrera = c.id_carrera
                     WHERE 
                         c.id_carrera = @idCarrera";
-            using (var connection = conexionbdd.GetConnection())
+            try
             {
-                try
+                // Crear el comando SQL
+                using (SqlCommand command = new SqlCommand(query, conexion))
                 {
-                    connection.Open();
+                    // Usar la clase gestora para ejecutar la consulta
+                    DataTable carrerasTable = Gestorexamenes.EjecutarConsulta(command);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Limpia el ComboBox antes de llenarlo
+                    cmbIDMaterias.Items.Clear();
+
+                    foreach (DataRow row in carrerasTable.Rows)
                     {
-                        command.Parameters.AddWithValue("@idCarrera", idCarrera); // Añadir el parámetro
-
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        // Crear un nuevo objeto para almacenar la carrera
+                        var materia = new Materia
                         {
-                            cmbIDMaterias.Items.Clear(); // Limpia el ComboBox antes de llenarlo
+                            ID_Materia = Convert.ToInt32(row["id_materia"]), // id_carrera
+                            Nombre_Materia= row["nombre_materia"].ToString() // nombre_carrera
+                        };
 
-                            while (reader.Read())
-                            {
-                                var materia = new Materia
-                                {
-                                    ID_Materia = reader.GetInt32(0),
-                                    Nombre_Materia = reader.GetString(1)
-                                };
-
-                                // Agregar la materia al ComboBox
-                                cmbIDMaterias.Items.Add(materia);
-                            }
-                        }
+                        // Agregar la carrera al ComboBox
+                        cmbIDCarrera.Items.Add(materia);
                     }
+
+                    // Configura DisplayMember y ValueMember
+                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
+                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar las materias: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
             }
         }
 
@@ -169,37 +166,38 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void CargarTiposExamen()
         {
             string query = "SELECT id_tipoexamen, descripcion FROM tipoexamen";
-
-            using (var connection = conexionbdd.GetConnection())
+            try
             {
-                try
+                // Crear el comando SQL
+                using (SqlCommand command = new SqlCommand(query, conexion))
                 {
-                    connection.Open();
+                    // Usar la clase gestora para ejecutar la consulta
+                    DataTable carrerasTable = Gestorexamenes.EjecutarConsulta(command);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Limpia el ComboBox antes de llenarlo
+                    cmbTipoExamen.Items.Clear();
+
+                    foreach (DataRow row in carrerasTable.Rows)
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        // Crear un nuevo objeto para almacenar la carrera
+                        var tipoExamen = new TipoExamen
                         {
-                            cmbTipoExamen.Items.Clear(); // Limpia el ComboBox antes de llenarlo
+                            Id = Convert.ToInt32(row["id_tipoexamen"]), // id_carrera
+                            Descripcion = row["descripcion"].ToString() // nombre_carrera
+                        };
 
-                            while (reader.Read())
-                            {
-                                var tipoExamen = new TipoExamen
-                                {
-                                    Id = reader.GetInt32(0), // id_tipoexamen
-                                    Descripcion = reader.GetString(1) // descripcion
-                                };
-
-                                // Agregar el tipo de examen al ComboBox
-                                cmbTipoExamen.Items.Add(tipoExamen);
-                            }
-                        }
+                        // Agregar la carrera al ComboBox
+                        cmbIDCarrera.Items.Add(tipoExamen);
                     }
+
+                    // Configura DisplayMember y ValueMember
+                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
+                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar los tipos de examen: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
             }
         }
 
