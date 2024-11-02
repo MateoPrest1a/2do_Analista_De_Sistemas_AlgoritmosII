@@ -17,8 +17,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
     public partial class FormAgregarExamenAlumno : Form
     {
-        Conexionbdd conectarBDD = new Conexionbdd();
-
+        //Necesito clase gestora para aca
+        SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
         public class Materia
         {
@@ -38,7 +38,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             public override string ToString() => Descripcion; // Para que se muestre correctamente en el ComboBox
         }
-
+        /*
         public FormAgregarExamenAlumno(string nombre, int materia, decimal calificacion, int carrera, int tipocarrera, DateTime fecha)
         {
             InitializeComponent();
@@ -54,6 +54,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
 
         }
+
         private void CargarCarreras()
         {
             string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
@@ -184,6 +185,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             this.Close();
         }
 
-        
+        */
     }
+        
 }

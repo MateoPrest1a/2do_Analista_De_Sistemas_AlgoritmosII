@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             btnSalir = new Button();
             label1 = new Label();
@@ -36,6 +37,7 @@
             btnModificarCarreras = new Button();
             btnAgregarCarreras = new Button();
             panel3 = new Panel();
+            cmbAño = new ComboBox();
             lblIDCarrera = new Label();
             label6 = new Label();
             txtResolucion = new TextBox();
@@ -44,10 +46,11 @@
             label4 = new Label();
             label3 = new Label();
             lblCarrera = new Label();
-            cmbAño = new ComboBox();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -142,6 +145,15 @@
             panel3.Size = new Size(439, 261);
             panel3.TabIndex = 0;
             // 
+            // cmbAño
+            // 
+            cmbAño.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAño.FormattingEnabled = true;
+            cmbAño.Location = new Point(151, 124);
+            cmbAño.Name = "cmbAño";
+            cmbAño.Size = new Size(142, 23);
+            cmbAño.TabIndex = 40;
+            // 
             // lblIDCarrera
             // 
             lblIDCarrera.AutoSize = true;
@@ -215,14 +227,9 @@
             lblCarrera.TabIndex = 0;
             lblCarrera.Text = "ID Carrera :";
             // 
-            // cmbAño
+            // error1
             // 
-            cmbAño.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbAño.FormattingEnabled = true;
-            cmbAño.Location = new Point(151, 124);
-            cmbAño.Name = "cmbAño";
-            cmbAño.Size = new Size(142, 23);
-            cmbAño.TabIndex = 40;
+            error1.ContainerControl = this;
             // 
             // FormCarrerasModal
             // 
@@ -238,6 +245,7 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -260,5 +268,6 @@
         private Button btnAgregarCarreras;
         private Label lblIDCarrera;
         private ComboBox cmbAño;
+        private ErrorProvider error1;
     }
 }

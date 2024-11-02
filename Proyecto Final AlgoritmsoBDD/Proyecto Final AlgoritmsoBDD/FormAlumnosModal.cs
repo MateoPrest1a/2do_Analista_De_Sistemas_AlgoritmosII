@@ -17,10 +17,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormAlumnosModal : Form
     {
-        Conexionbdd conexionbdd = new Conexionbdd();
+        ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos(); // Instancia de la clase gestora
 
-        public event Action AlumnoEvento; //Evento para actualizar el datagridview
+        public event Action AlumnoEvento; //Evento para actualizar el datagridvie
 
+        SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
         public class Carrera
         {
@@ -44,49 +45,45 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
 
-            using (var connection = conexionbdd.GetConnection())
+            try
             {
-                try
+                // Crear el comando SQL
+                using (SqlCommand command = new SqlCommand(query, conexion))
                 {
-                    connection.Open();
+                    // Usar la clase gestora para ejecutar la consulta
+                    DataTable carrerasTable = gestorAlumnos.EjecutarConsulta(command);
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    // Limpia el ComboBox antes de llenarlo
+                    cmbCarrerasAlumnos.Items.Clear();
+
+                    foreach (DataRow row in carrerasTable.Rows)
                     {
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        // Crear un nuevo objeto para almacenar la carrera
+                        var carrera = new Carrera
                         {
-                            // Limpia el ComboBox antes de llenarlo
-                            cmbCarrerasAlumnos.Items.Clear();
+                            Id = Convert.ToInt32(row["id_carrera"]), // id_carrera
+                            Nombre = row["nombre_carrera"].ToString() // nombre_carrera
+                        };
 
-                            while (reader.Read())
-                            {
-                                // Crear un nuevo objeto para almacenar la carrera
-                                var carrera = new Carrera
-                                {
-                                    Id = reader.GetInt32(0), // id_carrera
-                                    Nombre = reader.GetString(1) // nombre_carrera
-                                };
-
-                                // Agregar la carrera al ComboBox
-                                cmbCarrerasAlumnos.Items.Add(carrera);
-                            }
-                        }
+                        // Agregar la carrera al ComboBox
+                        cmbCarrerasAlumnos.Items.Add(carrera);
                     }
 
                     // Configura DisplayMember y ValueMember
                     cmbCarrerasAlumnos.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
                     cmbCarrerasAlumnos.ValueMember = "Id"; // El valor que se utilizará
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
             }
         }
 
 
         private void FormAlumnosModal_Load(object sender, EventArgs e)
         {
-            CargarCarreras();
+
         }
 
         public FormAlumnosModal(int matricula, string nombre, string apellido, string direcalle, string direnum, string telefono, string documento, string email, DateTime fechanacimientoalumno, int idcarrera)
@@ -274,8 +271,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 error1.Clear();
             }
 
-            // LLAMADA A BASE DE DATOS
-            conexionbdd.CargarAlumno(NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
+            // Llamada a la clase gestora para agregar un alumno
+            gestorAlumnos.CargarAlumno(NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
 
             // EVENTO Y CIERRE
             AlumnoEvento?.Invoke();
@@ -287,6 +284,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         //Resuelto para cargar el id de la carrera y no se rompa
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            int matricula = Convert.ToInt32(lblMatriculaAlumno.Text);
             string NombreAlumno = "";
             string ApellidoAlumno = "";
             string Direcalle = "";
@@ -434,8 +432,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 error1.Clear();
             }
 
-            conexionbdd.ActualizarAlumno(Convert.ToInt32(lblMatriculaAlumno.Text), NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
-            AlumnoEvento?.Invoke();
+            gestorAlumnos.ActualizarAlumno(matricula, NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId); AlumnoEvento?.Invoke();
             this.Close();
         }
 
@@ -445,24 +442,25 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             int matricula = Convert.ToInt32(lblMatriculaAlumno.Text);
 
-
             DialogResult result = MessageBox.Show(
-            "¿Está seguro de que desea eliminar este alumno?",
-            "Confirmar eliminación",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning);
+                "¿Está seguro de que desea eliminar este alumno?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
-                conexionbdd.EliminarAlumno(matricula);
-                AlumnoEvento?.Invoke();
+                // Llamada a la clase gestora para eliminar un alumno
+                gestorAlumnos.EliminarAlumno(matricula);
 
+                // Actualizar la vista si es necesario
+                AlumnoEvento?.Invoke();
             }
             else
             {
                 MessageBox.Show("La eliminación ha sido cancelada.");
-
             }
+
             this.Close();
         }
 
@@ -473,7 +471,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnExamenesRendidos_Click(object sender, EventArgs e)
         {
-            FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(Convert.ToInt32(lblMatriculaAlumno.Text));
+            //No hace falta validar que sea un numero ya que si no hay numero cargado este boton no aparece
+            int matricula = Convert.ToInt32(lblMatriculaAlumno.Text);
+            FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(matricula);
             formexamenesrendidos.ShowDialog();
         }
 

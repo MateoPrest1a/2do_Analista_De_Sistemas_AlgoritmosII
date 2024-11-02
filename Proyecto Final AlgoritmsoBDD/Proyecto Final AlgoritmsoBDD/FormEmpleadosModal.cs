@@ -15,7 +15,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormEmpleadosModal : Form
     {
-        Conexionbdd conexionbdd = new Conexionbdd();
+        private GestorEmpleados gestorEmpleados = new GestorEmpleados();
 
         public event Action EmpleadoEvento; //Evento para actualizar el datagridview
         private class Especialidad
@@ -243,14 +243,15 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 error1.Clear();
             }
 
-            //CARGA A LA BASE DE DATOS
-            conexionbdd.CargarEmpleado(NombreEmpleado, ApellidoEmpleado, Direcalle, Direnum, TelefonoEmpleado, DocumentoEmpleado, EmailEmpleado, FechaNacimientoEmpleado, salario, especialidad);
+            // CARGA A LA BASE DE DATOS
+            gestorEmpleados.CargarEmpleado(NombreEmpleado, ApellidoEmpleado, Direcalle, Direnum, TelefonoEmpleado, DocumentoEmpleado, EmailEmpleado, FechaNacimientoEmpleado, salario, especialidad);
             EmpleadoEvento?.Invoke();
             this.Close();
         }
 
         private void btnModificarEmpleado_Click(object sender, EventArgs e)
         {
+            int idempleado = Convert.ToInt32(lblEmpleado.Text);
             string NombreEmpleado = "";
             string ApellidoEmpleado = "";
             string Direcalle = "";
@@ -387,8 +388,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 especialidad = Convert.ToInt32(cmbEspecialidadEmpleado.SelectedValue);
                 error1.Clear();
             }
-            //CARGO A LA BDD
-            conexionbdd.ModificarEmpleado(Convert.ToInt32(lblEmpleado.Text), txtNombreEmpleados.Text, txtApellidoEmpleados.Text, txtDireCalleEmpleados.Text, Convert.ToInt32(txtDireNumeroEmpleados.Text), txtTelefonoEmpleados.Text, txtDocumentoEmpleados.Text, txtEmailEmpleados.Text, dtpFechaNacimientoEmpleado.Value, Convert.ToInt32(txtSalarioEmpleados.Text), Convert.ToInt32(cmbEspecialidadEmpleado.SelectedValue));
+
+            // CARGO A LA BDD
+            gestorEmpleados.ActualizarEmpleado(idempleado, NombreEmpleado, ApellidoEmpleado, Direcalle, Direnum, TelefonoEmpleado, DocumentoEmpleado, EmailEmpleado, FechaNacimientoEmpleado, salario, especialidad);
             EmpleadoEvento?.Invoke();
             this.Close();
         }
@@ -406,7 +408,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             if (result == DialogResult.Yes)
             {
-                conexionbdd.EliminarEmpleado(idempleado);
+                gestorEmpleados.EliminarEmpleado(idempleado); // Uso la clase GestorEmpleados
                 EmpleadoEvento?.Invoke();
 
             }

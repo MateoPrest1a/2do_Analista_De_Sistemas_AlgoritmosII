@@ -14,31 +14,25 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormEmpleados : Form
     {
-        Conexionbdd conectarBDD;
+        private GestorEmpleados gestorEmpleados = new GestorEmpleados(); // Instancia de la clase gestora
         public FormEmpleados()
         {
             InitializeComponent();
-            conectarBDD = new Conexionbdd();
         }
 
         public void Cargar_Tabla()
         {
             string consulta = "SELECT * FROM Empleados";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
+            SqlCommand command = new SqlCommand(consulta);
 
             try
             {
-                adapter.Fill(dt);
+                DataTable dt = gestorEmpleados.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
-            }
-            finally
-            {
-                conectarBDD.cerrar();
             }
         }
         private void btnSalir_Click(object sender, EventArgs e)
@@ -104,12 +98,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void ActualizarDataGridView()
         {
-
-            string consulta = "SELECT * FROM Empleados";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
+            Cargar_Tabla();
         }
 
         private void FormAgregar_EmpleadoAgregado()

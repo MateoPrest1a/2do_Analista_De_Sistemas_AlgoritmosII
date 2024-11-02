@@ -168,3 +168,43 @@ C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proy
 C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\ref\Proyecto Final AlgoritmsoBDD.dll
 C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormAgregarExamenAlumno.resources
 C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenesRendidosModal.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.exe
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.deps.json
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.runtimeconfig.json
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.pdb
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.csproj.AssemblyReference.cache
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\DiseñoFinal.DiseñoFinalCodigo.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormAgregarExamenAlumno.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormAlumnos.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormCarreras.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormCarrerasModal.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormEmpleados.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormEmpleadosModal.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenes.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenesModal.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenesRendidos.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenesRendidosModal.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormMaterias.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormMateriasModal.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.Login.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.Properties.Resources.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.csproj.GenerateResource.cache
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.AssemblyInfoInputs.cache
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.AssemblyInfo.cs
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.csproj.CoreCompileInputs.cache
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.sourcelink.json
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto.CE01BB10.Up2Date
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\refint\Proyecto Final AlgoritmsoBDD.dll
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.pdb
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.genruntimeconfig.cache
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\ref\Proyecto Final AlgoritmsoBDD.dll

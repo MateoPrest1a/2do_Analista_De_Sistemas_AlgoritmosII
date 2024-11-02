@@ -17,36 +17,27 @@ namespace Proyecto_Final_AlgoritmsoBDD
     {
 
 
-        Conexionbdd conectarBDD;
+        private ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos(); // Instancia de la clase gestora
 
         public FormAlumnos()
         {
             InitializeComponent();
-            btnSalir.BackColor = Color.Transparent;
-
-            conectarBDD = new Conexionbdd();
-
         }
 
         public void Cargar_Tabla()
         {
             string consulta = "SELECT * FROM Alumnos";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
+            SqlCommand command = new SqlCommand(consulta);
 
             try
             {
-                adapter.Fill(dt);
+                DataTable dt = gestorAlumnos.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
             }
             catch (Exception ex)
             {
                 // Manejar excepciones, por ejemplo, mostrar un mensaje de error
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
-            }
-            finally
-            {
-                conectarBDD.cerrar(); // Cerrar la conexión después de usarla
             }
         }
         private void btnSalir_Click(object sender, EventArgs e)
@@ -119,11 +110,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void ActualizarDataGridView()
         {
-            string consulta = "SELECT * FROM Alumnos";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
+            Cargar_Tabla();
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)

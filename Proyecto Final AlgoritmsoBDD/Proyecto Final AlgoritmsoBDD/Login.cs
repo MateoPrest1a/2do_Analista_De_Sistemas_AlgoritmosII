@@ -1,50 +1,40 @@
+using Proyecto_Final;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class Login : Form
     {
+        private ClaseGestorBase gestor;
+
         public Login()
         {
             InitializeComponent();
-
+            gestor = new ClaseGestorBase();
+            Conexionbdd.ObtenerInstancia().Abrir(); // Abre la conexión al iniciar el formulario
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            txtContraseña.PasswordChar = checkBox1.Checked ? '\0' : '*';
+            txtContraseña.PasswordChar = checkBox1.Checked ? '\0' : '*';    // Oculta Contraseña
         }
 
         private string ObtenerNombreUsuario(string usuario)
         {
-            string nombre = txtUsuario.Text;
-            string connectionString = ""; 
+            string nombre = string.Empty;
+            string query = @"SELECT 
+                                nombre_usuario 
+                             FROM
+                                PerfilxAlumno 
+                            WHERE 
+                                nombre_usuario = @Usuario";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query))
             {
-                string query = "SELECT nombre_usuario FROM PerfilxAlumno WHERE nombre_usuario = @Usuario";
-                
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Usuario", usuario);
-                    connection.Open();
-                    object result = command.ExecuteScalar();
-                    
-                    if (result != null)
-                    {
-                        nombre = "Not Found";
-                    }
-                }
+                command.Parameters.AddWithValue("@Usuario", usuario);
+                nombre = gestor.EjecutarConsulta(command).Rows.Count > 0 ? usuario : "Not Found";
             }
 
             return nombre;
@@ -53,46 +43,64 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private string ObtenerPerfilDeUsuario(string usuario, string contrasena)
         {
             string perfil = string.Empty;
-            string connectionString = "tu_cadena_de_conexion"; // Reemplaza con tu cadena de conexión
+            string query = @"SELECT 
+                                p.tipo 
+                            FROM 
+                                Perfiles as p 
+                            WHERE 
+                                Nombre = @Usuario AND Contrasena = @Contrasena"; 
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query))
             {
-                string query = "SELECT p.tipo FROM Perfiles as p WHERE Nombre = @Usuario AND Contrasena = @Contrasena"; // Ajusta según tu tabla
+                command.Parameters.AddWithValue("@Usuario", usuario);
+                command.Parameters.AddWithValue("@Contrasena", contrasena);
 
-                using (SqlCommand command = new SqlCommand(query, connection))
+                var result = gestor.EjecutarConsulta(command);
+                if (result.Rows.Count > 0)
                 {
-                    command.Parameters.AddWithValue("@Usuario", usuario);
-                    command.Parameters.AddWithValue("@Contrasena", contrasena);
-
-                    connection.Open();
-                    object result = command.ExecuteScalar(); // Ejecuta la consulta
-
-                    if (result != null)
-                    {
-                        perfil = result.ToString(); // Obtiene el perfil del usuario
-                    }
+                    perfil = result.Rows[0]["tipo"].ToString(); // Obtiene el tipo de perfil del usuario
                 }
             }
 
-            return perfil; // Devuelve el perfil o una cadena vacía si no se encontró
+            return perfil;
         }
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
-            //string NameUser = ObtenerNombreUsuario(txtUsuario.Text);
+            string perfil = "kjsadkjas";
+            /*
+            string usuario = txtUsuario.Text;
+            string contrasena = txtContraseña.Text;
 
-            DiseñoFinal.DiseñoFinalCodigo frm2 = new DiseñoFinal.DiseñoFinalCodigo();
-            frm2.ShowDialog();
+            // Validar el usuario y la contraseña
+            string perfil = ObtenerPerfilDeUsuario(usuario, contrasena);
+
+            */
+            if (!string.IsNullOrEmpty(perfil))
+            {
+                // Abre el siguiente formulario
+                DiseñoFinal.DiseñoFinalCodigo frm2 = new DiseñoFinal.DiseñoFinalCodigo();
+                frm2.ShowDialog();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuario o contraseña incorrectos.");
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-
         }
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
+        }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            Conexionbdd.ObtenerInstancia().Cerrar(); // Cerrar conexión al cerrar el formulario
         }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel3 = new Panel();
+            lblIDExamen = new Label();
+            label4 = new Label();
             cmbTipoExamen = new ComboBox();
             dtpFechaExamen = new DateTimePicker();
             label9 = new Label();
@@ -47,8 +49,6 @@
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
-            label4 = new Label();
-            lblIDExamen = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -74,6 +74,25 @@
             panel3.Size = new Size(448, 305);
             panel3.TabIndex = 1;
             panel3.Paint += panel3_Paint;
+            // 
+            // lblIDExamen
+            // 
+            lblIDExamen.AutoSize = true;
+            lblIDExamen.Font = new Font("Microsoft Sans Serif", 12F);
+            lblIDExamen.Location = new Point(147, 37);
+            lblIDExamen.Name = "lblIDExamen";
+            lblIDExamen.Size = new Size(0, 20);
+            lblIDExamen.TabIndex = 27;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F);
+            label4.Location = new Point(49, 37);
+            label4.Name = "label4";
+            label4.Size = new Size(92, 20);
+            label4.TabIndex = 26;
+            label4.Text = "ID Examen:";
             // 
             // cmbTipoExamen
             // 
@@ -242,25 +261,7 @@
             btnAgregar.TabIndex = 13;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 12F);
-            label4.Location = new Point(49, 37);
-            label4.Name = "label4";
-            label4.Size = new Size(92, 20);
-            label4.TabIndex = 26;
-            label4.Text = "ID Examen:";
-            // 
-            // lblIDExamen
-            // 
-            lblIDExamen.AutoSize = true;
-            lblIDExamen.Font = new Font("Microsoft Sans Serif", 12F);
-            lblIDExamen.Location = new Point(147, 37);
-            lblIDExamen.Name = "lblIDExamen";
-            lblIDExamen.Size = new Size(0, 20);
-            lblIDExamen.TabIndex = 27;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // FormExamenesRendidosModal
             // 

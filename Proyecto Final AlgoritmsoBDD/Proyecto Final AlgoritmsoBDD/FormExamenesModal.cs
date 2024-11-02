@@ -16,10 +16,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormExamenesModal : Form
     {
+        
         public event Action ExamenEvento; //Evento para actualizar el datagridview
         
-
-        Conexionbdd conexionbdd = new Conexionbdd();    //Instancio la conexion
+        
+        GestorExamenes Gestorexamenes = new GestorExamenes();    //Instancio la conexion
 
         public FormExamenesModal(int idexamen, int idcarrera, int idmateria, string horaexamen, DateTime fecha, int tipoexamen, int libro, int folio)
         {
@@ -218,5 +219,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             ExamenEvento?.Invoke();
             this.Close();
         }
+        
     }
 }

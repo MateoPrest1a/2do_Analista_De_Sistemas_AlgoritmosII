@@ -15,14 +15,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
     public partial class FormExamenesRendidosModal : Form
     {
 
-        Conexionbdd conexionbdd = new Conexionbdd();
+        SqlConnection conexionbdd = Conexionbdd.ObtenerInstancia().ObtenerConexion();
         public FormExamenesRendidosModal(int idexamenxalumno, string nombre, int idexamen, int idmateria, int idcarrera, int año, DateTime fecha, decimal calificacion)
         {
             InitializeComponent();
             CargarCarreras();
             CargarTiposExamen();
-            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
             CargarMaterias(idcarrera);
+            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
 
             lblIDExamen.Text = idexamenxalumno.ToString();
             lblAlumno.Text = nombre;
@@ -214,6 +214,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
 
         }

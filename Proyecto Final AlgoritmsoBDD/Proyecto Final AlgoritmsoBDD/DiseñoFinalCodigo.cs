@@ -12,7 +12,6 @@ namespace DiseñoFinal
         public DiseñoFinalCodigo()
         {
             InitializeComponent();
-            conectar = new Conexionbdd();
         }
 
         private void CargarLabel()
