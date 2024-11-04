@@ -7,28 +7,28 @@ namespace Proyecto_Final
 {
     public class Conexionbdd
     {
-        private static Conexionbdd _instancia;
+        private static Conexionbdd _instancia; //Instancia unica para garantizar una unica conexion y no instanciar la clase en cada formulario (patron Singleton).
         private SqlConnection _conexion;
 
-        //private string cadena = Cadena facultad falta
+        private string cadena = "Data Source=192.168.0.100; Database=u11; User Id=u11; Password=u11";
 
-        private string cadena = @"Data Source=DESKTOP-D5URBLB\SQLEXPRESS01; Initial Catalog=Proyecto_Hilet; Integrated Security=True;"; // Cadena de conexión
+        //private string cadena = @"Data Source=DESKTOP-D5URBLB\SQLEXPRESS01; Initial Catalog=Proyecto_Hilet; Integrated Security=True;"; // Cadena de conexión
 
-        private Conexionbdd()
+        private Conexionbdd()   //Constructor privado para evitar instancias de la clase.
         {
             _conexion = new SqlConnection(cadena);
         }
 
         public static Conexionbdd ObtenerInstancia()
         {
-            if (_instancia == null)
+            if (_instancia == null) //Si la instancia no existe la crea y si existe utiliza la ya creada
             {
                 _instancia = new Conexionbdd();
             }
             return _instancia;
         }
 
-        public SqlConnection ObtenerConexion()
+        public SqlConnection ObtenerConexion()  //Metodo para obtener la conexion desde cualquier parte del programa y poder realizar consultas
         {
             return _conexion;
         }
@@ -37,7 +37,7 @@ namespace Proyecto_Final
         {
             try
             {
-                if (_conexion.State == ConnectionState.Closed)
+                if (_conexion.State == ConnectionState.Closed)  //Verifico que este cerrada antes de abrirla
                 {
                     _conexion.Open();
                     Console.WriteLine("Conexión exitosa");
@@ -51,7 +51,7 @@ namespace Proyecto_Final
 
         public void Cerrar()
         {
-            if (_conexion != null && _conexion.State == ConnectionState.Open)
+            if (_conexion != null && _conexion.State == ConnectionState.Open)   //Verifico que este abierta antes de cerrarla.
             {
                 _conexion.Close();
                 Console.WriteLine("Conexión cerrada");

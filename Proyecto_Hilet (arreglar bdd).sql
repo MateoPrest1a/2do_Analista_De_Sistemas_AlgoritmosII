@@ -216,6 +216,10 @@ select * from Perfiles
 
 select * from Empleados
 
+
+--------------------------------------------------------Store Procedure Alumnos--------------------------------------------------------
+
+
 CREATE PROCEDURE SP_AgregarAlumno
     @nombre VARCHAR(20),
     @apellido VARCHAR(20),
@@ -268,6 +272,9 @@ BEGIN
     DELETE FROM Alumnos
     WHERE matricula = @matricula;
 END;
+
+
+--------------------------------------------------------Store Procedure Empleados--------------------------------------------------------
 
 
 CREATE PROCEDURE SP_AgregarEmpleado
@@ -326,7 +333,11 @@ BEGIN
     WHERE id_empleado = @id_empleado;
 END;
 
-select * from Materias
+
+
+
+--------------------------------------------------------Store Procedure Carreras--------------------------------------------------------
+
 
 CREATE PROCEDURE SP_AgregarCarrera
     @nombre_carrera VARCHAR(50),
@@ -359,6 +370,10 @@ BEGIN
     DELETE FROM Carreras
     WHERE id_carrera = @id_carrera;
 END;
+
+
+--------------------------------------------------------Store Procedure Materias--------------------------------------------------------
+
 
 CREATE PROCEDURE SP_AgregarMateria
     @anio_cursada INT,

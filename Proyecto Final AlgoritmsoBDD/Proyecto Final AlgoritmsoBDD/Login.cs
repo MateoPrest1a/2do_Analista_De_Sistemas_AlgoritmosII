@@ -12,6 +12,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
         public Login()
         {
             InitializeComponent();
+        }
+        private void Login_Load(object sender, EventArgs e)
+        {
             gestor = new ClaseGestorBase();
             Conexionbdd.ObtenerInstancia().Abrir(); // Abre la conexión al iniciar el formulario
         }
@@ -48,7 +51,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                             FROM 
                                 Perfiles as p 
                             WHERE 
-                                Nombre = @Usuario AND Contrasena = @Contrasena"; 
+                                Nombre = @Usuario AND Contrasena = @Contrasena";
 
             using (SqlCommand command = new SqlCommand(query))
             {
@@ -89,17 +92,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-        }
+
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
             Conexionbdd.ObtenerInstancia().Cerrar(); // Cerrar conexión al cerrar el formulario
         }
     }

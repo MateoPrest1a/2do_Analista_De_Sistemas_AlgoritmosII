@@ -98,7 +98,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(103, 24);
+            pictureBox1.Location = new Point(103, 31);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(248, 89);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -116,6 +116,7 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ingresar";
+            FormClosing += Login_FormClosing;
             Load += Login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

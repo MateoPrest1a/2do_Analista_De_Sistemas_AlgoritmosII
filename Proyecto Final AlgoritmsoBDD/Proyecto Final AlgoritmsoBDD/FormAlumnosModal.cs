@@ -19,7 +19,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
     {
         ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos(); // Instancia de la clase gestora
 
-        public event Action AlumnoEvento; //Evento para actualizar el datagridvie
+        public event Action AlumnoEvento; //Evento para actualizar el datagridview
 
         SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
@@ -35,12 +35,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
-        public void Validacion(string n)
-        {
-
-        }
-
-
         private void CargarCarreras()
         {
             string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
@@ -51,12 +45,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 using (SqlCommand command = new SqlCommand(query, conexion))
                 {
                     // Usar la clase gestora para ejecutar la consulta
-                    DataTable carrerasTable = gestorAlumnos.EjecutarConsulta(command);
+                    DataTable cmbCarrerasTabla = gestorAlumnos.EjecutarConsulta(command);
 
                     // Limpia el ComboBox antes de llenarlo
                     cmbCarrerasAlumnos.Items.Clear();
 
-                    foreach (DataRow row in carrerasTable.Rows)
+                    foreach (DataRow row in cmbCarrerasTabla.Rows)
                     {
                         // Crear un nuevo objeto para almacenar la carrera
                         var carrera = new Carrera
@@ -101,6 +95,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
             {
                 lblMatriculaAlumno.Visible = false;
                 lblMatricula.Visible = false; //Hacemos invisible para que al agregar alumno nuevo no se vea el label "Matricula :"
+                btnExamenesRendidos.Visible = false;
+                btnEliminar.Visible = false;
+                btnModificar.Visible = false;
             }
             txtNombreAlumno.Text = nombre;
             txtApellidoAlumno.Text = apellido;
