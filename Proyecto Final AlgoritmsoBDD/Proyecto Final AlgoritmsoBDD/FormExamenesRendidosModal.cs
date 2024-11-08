@@ -23,10 +23,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
             CargarCarreras();
             CargarTiposExamen();
             CargarMaterias(idcarrera);
-            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
 
             lblIDExamen.Text = idexamenxalumno.ToString();
-            lblAlumno.Text = nombre;
             dtpFechaExamen.Value = fecha;
 
 
@@ -94,8 +92,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
-                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
+                    cmbIDCarrera.DisplayMember = "nombre_carrera"; // Lo que se muestra en el ComboBox
+                    cmbIDCarrera.ValueMember = "id_carrera"; // El valor que se utilizará
                 }
             }
             catch (Exception ex)
@@ -109,7 +107,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             string query = @"SELECT 
                          m.id_materia, 
-                         m.nombre_materia AS Materias 
+                         m.nombre_materia 
                      FROM 
                          Materias as M
                      INNER JOIN 
@@ -124,6 +122,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 using (SqlCommand command = new SqlCommand(query, conexion))
                 {
                     // Usar la clase gestora para ejecutar la consulta
+                    command.Parameters.AddWithValue("@idCarrera", idCarrera);
                     DataTable carrerasTable = Gestorexamenes.EjecutarConsulta(command);
 
                     // Limpia el ComboBox antes de llenarlo
@@ -135,16 +134,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         var materia = new Materia
                         {
                             ID_Materia = Convert.ToInt32(row["id_materia"]), // id_carrera
-                            Nombre_Materia= row["nombre_materia"].ToString() // nombre_carrera
+                            Nombre_Materia = row["nombre_materia"].ToString() // nombre_carrera
                         };
 
                         // Agregar la carrera al ComboBox
-                        cmbIDCarrera.Items.Add(materia);
+                        cmbIDMaterias.Items.Add(materia);
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
-                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
+                    cmbIDMaterias.DisplayMember = "nombre_materia"; // Lo que se muestra en el ComboBox
+                    cmbIDMaterias.ValueMember = "id_materia"; // El valor que se utilizará
                 }
             }
             catch (Exception ex)
@@ -158,6 +157,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             if (cmbIDCarrera.SelectedItem is Carrera carrera)
             {
+                cmbIDMaterias.Text = "";
                 CargarMaterias(carrera.ID_Carrera); // Llama a CargarMaterias con el ID de la carrera seleccionada
             }
         }
@@ -187,12 +187,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         };
 
                         // Agregar la carrera al ComboBox
-                        cmbIDCarrera.Items.Add(tipoExamen);
+                        cmbTipoExamen.Items.Add(tipoExamen);
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
-                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
+                    cmbTipoExamen.DisplayMember = "descripcion"; // Lo que se muestra en el ComboBox
+                    cmbTipoExamen.ValueMember = "id_tipoexamen"; // El valor que se utilizará
                 }
             }
             catch (Exception ex)
@@ -208,7 +208,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void FormExamenesRendidosModal_Load(object sender, EventArgs e)
         {
-
+            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -217,6 +217,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbIDCarrera_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

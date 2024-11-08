@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            lblNombre = new Label();
             label2 = new Label();
             btnSalir = new Button();
             dataGridView1 = new DataGridView();
@@ -42,6 +43,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(48, 94, 214);
+            panel2.Controls.Add(lblNombre);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(btnSalir);
             panel2.Dock = DockStyle.Top;
@@ -50,15 +52,25 @@
             panel2.Size = new Size(800, 69);
             panel2.TabIndex = 11;
             // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Schadow BT", 25F);
+            lblNombre.Location = new Point(659, 15);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(0, 41);
+            lblNombre.TabIndex = 2;
+            lblNombre.Visible = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Schadow BT", 25F);
-            label2.Location = new Point(213, 15);
+            label2.Location = new Point(215, 15);
             label2.Name = "label2";
-            label2.Size = new Size(339, 41);
+            label2.Size = new Size(347, 41);
             label2.TabIndex = 1;
-            label2.Text = "Examenes del Alumno";
+            label2.Text = "Examenes del Alumno ";
             // 
             // btnSalir
             // 
@@ -129,5 +141,6 @@
         private DataGridView dataGridView1;
         private Panel panel1;
         private Button btnAgregar;
+        private Label lblNombre;
     }
 }

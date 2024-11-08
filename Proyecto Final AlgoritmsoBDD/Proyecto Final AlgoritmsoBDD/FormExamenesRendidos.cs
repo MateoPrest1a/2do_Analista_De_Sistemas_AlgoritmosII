@@ -45,7 +45,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     m.nombre_materia AS Materia,
                                     c.id_carrera, 
                                     c.nombre_carrera AS Carrera,
-                                    --m.anio_cursada AS Año,
+                                    m.anio_cursada AS Año,
                                     te.descripcion AS TipoExamen,  -- Agregamos el tipo de examen
                                     exa.calificacion 
                                 FROM 
@@ -64,16 +64,17 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     exa.matricula = @matricula";
 
             SqlCommand command = new SqlCommand(consulta);
-            command.Parameters.AddWithValue("@matricula", Matricula); // Agrega el valor del parámetro
+            command.Parameters.AddWithValue("@matricula", Matricula); // Agrego el valor del parámetro
 
             try
             {
-                DataTable dt = Gestorexamenes.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
+                DataTable dt = Gestorexamenes.EjecutarConsulta(command); // Uso la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
                 dataGridView1.Columns["id_carrera"].Visible = false;
                 dataGridView1.Columns["id_materia"].Visible = false;
                 dataGridView1.Columns["id_examenxalumno"].Visible = false;
                 dataGridView1.Columns["id_examen"].Visible = false;
+                dataGridView1.Columns["matricula"].Visible = false;  // Oculto las columnas que no quiero mostrar
 
             }
             catch (Exception ex)
@@ -93,17 +94,36 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             if (e.RowIndex >= 0)
             {
-                int idexamenxalumno = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examenxalumno"].Value);
-                string nombre = dataGridView1.Rows[e.RowIndex].Cells["Alumno"].Value.ToString();
-                int idexamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examen"].Value);
-                DateTime fechaexamen = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["Fecha"].Value);
-                int idmateria = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_materia"].Value);
-                int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
-                int año = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Año"].Value);
-                decimal calificacion = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["calificacion"].Value);
+                try
+                {
+                    int idexamenxalumno = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examenxalumno"].Value);
+                    string nombre = dataGridView1.Rows[e.RowIndex].Cells["Alumno"].Value.ToString();
+                    int idexamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examen"].Value);
+                    DateTime fechaexamen = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["Fecha"].Value);
+                    int idmateria = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_materia"].Value);
+                    int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
+                    int año = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Año"].Value);
+                    decimal calificacion = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["calificacion"].Value);
 
-                FormExamenesRendidosModal formExamenesRendidosModal = new FormExamenesRendidosModal(idexamenxalumno, nombre, idexamen, idmateria, idcarrera, año, fechaexamen, calificacion);
-                formExamenesRendidosModal.ShowDialog();
+
+                    FormExamenesRendidosModal formExamenesRendidosModal = new FormExamenesRendidosModal(idexamenxalumno, nombre, idexamen, idmateria, idcarrera, año, fechaexamen, calificacion);
+                    formExamenesRendidosModal.ShowDialog();
+                }
+                catch 
+                {
+                    int idexamenxalumno = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examenxalumno"].Value);
+                    string nombre = dataGridView1.Rows[e.RowIndex].Cells["Alumno"].Value.ToString();
+                    int idexamen = 0;
+                    DateTime fechaexamen = DateTime.Now;
+                    int idmateria = 0;
+                    int idcarrera = 0;
+                    int año = 0;
+                    decimal calificacion = 0;
+
+
+                    FormExamenesRendidosModal formExamenesRendidosModal = new FormExamenesRendidosModal(idexamenxalumno, nombre, idexamen, idmateria, idcarrera, año, fechaexamen, calificacion);
+                    formExamenesRendidosModal.ShowDialog();
+                }
             }
         }
     }

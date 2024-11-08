@@ -18,7 +18,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         public event Action MateriaEvento;
 
-        private GestorMaterias gestorMaterias; // Instancia de GestorMaterias
+        GestorMaterias gestorMaterias = new GestorMaterias(); // Instancia de GestorMaterias
         
         SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
@@ -40,7 +40,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             try
             {
-                // Crear el comando SQL
                 using (SqlCommand command = new SqlCommand(query, conexion))
                 {
                     // Usar la clase gestora para ejecutar la consulta
@@ -63,8 +62,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbCarreras.DisplayMember = "Nombre_Carrera"; // Lo que se muestra en el ComboBox
-                    cmbCarreras.ValueMember = "ID_Carrera"; // El valor que se utilizará
+                    cmbCarreras.DisplayMember = "nombre_carrera"; // Lo que se muestra en el ComboBox
+                    cmbCarreras.ValueMember = "id_carrera"; // El valor que se utilizará
                 }
             }
             catch (Exception ex)
@@ -84,9 +83,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
             txtNombreMateria.Text = Nombre;
 
             // Asignar la carrera seleccionada
-            if (cmbCarreras.Items.Count > 0)
+            foreach (Carrera carrera in cmbCarreras.Items)
             {
-                cmbCarreras.SelectedItem = cmbCarreras.Items.Cast<Carrera>().FirstOrDefault(c => c.ID_Carrera == idcarrera); // La función Cast<Carrera>() convierte esos elementos al tipo Carrera FirstOrDefault(c => c.ID_Carrera == idcarrera) : Esta parte busca el primer elemento en la colección que cumpla con la condición especificada en la expresión lambda c => c.ID_Carrera == idcarrera.
+                if (carrera.ID_Carrera == idcarrera)
+                {
+                    cmbCarreras.SelectedItem = carrera;
+                    break;
+                }
             }
 
             if (ID == 0)
@@ -140,7 +143,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
             string nombreMateria = txtNombreMateria.Text;
 
             // Usar la clase GestorMaterias para agregar la materia
-            gestorMaterias.CargarMateria(anioCursada, nombreMateria);
+            gestorMaterias.CargarMateria(anioCursada, nombreMateria,idCarrera);
+
 
             // Invocar el evento y cerrar el formulario
             MateriaEvento?.Invoke();

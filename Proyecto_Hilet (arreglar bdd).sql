@@ -32,6 +32,10 @@ id_carrera int,
 foreign key (id_carrera) references Carreras(id_carrera)
 );
 
+ALTER TABLE Alumnos
+ADD baja BIT DEFAULT 0;  -- 0 falso 1 verdadero, el default es 0 para decir que estan dados de alta
+
+
 create table Estado_De_Alumno(
 	id_estado_alumno int identity primary key,
 	matricula int,
@@ -87,6 +91,7 @@ create table tipoexamen(
 INSERT INTO tipoexamen VALUES(
 'Primer Parcial'
 )
+
 
 
 INSERT INTO tipoexamen VALUES(
@@ -264,13 +269,15 @@ BEGIN
     WHERE matricula = @matricula;
 END;
 
+drop procedure SP_EliminarAlumno
 
 CREATE PROCEDURE SP_EliminarAlumno
     @matricula INT
 AS
 BEGIN
-    DELETE FROM Alumnos
-    WHERE matricula = @matricula;
+	UPDATE Alumnos
+	SET baja = 1
+	WHERE matricula = @matricula;
 END;
 
 
@@ -377,12 +384,23 @@ END;
 
 CREATE PROCEDURE SP_AgregarMateria
     @anio_cursada INT,
-    @nombre_materia VARCHAR(30)
+    @nombre_materia VARCHAR(30),
+    @id_carrera INT
 AS
 BEGIN
+    
     INSERT INTO Materias (anio_cursada, nombre_materia)
     VALUES (@anio_cursada, @nombre_materia);
+
+    --id_materia recién insertado
+    DECLARE @id_materia INT;
+    SET @id_materia = SCOPE_IDENTITY();
+
+    -- Insertar el registro en la tabla MateriasxCarrera
+    INSERT INTO MateriasxCarrera (id_carrera, id_materia)
+    VALUES (@id_carrera, @id_materia);
 END;
+
 
 
 
@@ -406,10 +424,14 @@ CREATE PROCEDURE SP_EliminarMateria
     @id_materia INT
 AS
 BEGIN
+    -- Eliminar la relación en la tabla MateriasxCarrera
+    DELETE FROM MateriasxCarrera
+    WHERE id_materia = @id_materia;
+
+    -- Eliminar la materia de la tabla Materias
     DELETE FROM Materias
     WHERE id_materia = @id_materia;
 END;
-
 
 
 --------------------------------------------------------Store Procedure Examenes--------------------------------------------------------
@@ -483,7 +505,3 @@ BEGIN
     FROM Empleados
     WHERE nombre LIKE '%' + @Nombre + '%' AND apellido LIKE '%' + @Apellido + '%'
 END;
-
-
-
-

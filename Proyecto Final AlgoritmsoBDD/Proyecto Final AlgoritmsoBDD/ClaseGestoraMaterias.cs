@@ -8,7 +8,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
     internal class GestorMaterias : ClaseGestorBase
     {
         // Método para cargar una nueva materia
-        public void CargarMateria(int anioCursada, string nombreMateria)
+        public void CargarMateria(int anioCursada, string nombreMateria, int idCarrera)
         {
             using (SqlCommand command = new SqlCommand("SP_AgregarMateria"))
             {
@@ -17,7 +17,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 // Agregar los parámetros
                 command.Parameters.AddWithValue("@anio_cursada", anioCursada);
                 command.Parameters.AddWithValue("@nombre_materia", nombreMateria);
-
+                command.Parameters.AddWithValue("@id_carrera", idCarrera);
                 try
                 {
                     EjecutarComando(command); // Ejecuta el procedimiento almacenado
@@ -90,11 +90,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 try
                 {
                     EjecutarComando(command); // Ejecuta el procedimiento almacenado
-                    MessageBox.Show("Materia relacionada con carrera cargada con éxito.");
+                    
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    MessageBox.Show($"Error al cargar la relación materia-carrera: {ex.Message}");
+      
                 }
             }
         }

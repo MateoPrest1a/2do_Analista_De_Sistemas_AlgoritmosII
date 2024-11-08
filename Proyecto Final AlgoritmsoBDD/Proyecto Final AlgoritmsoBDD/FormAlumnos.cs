@@ -26,7 +26,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         public void Cargar_Tabla()
         {
-            string consulta = "SELECT * FROM Alumnos";
+            string consulta = "SELECT * FROM Alumnos WHERE baja = 0";
             SqlCommand command = new SqlCommand(consulta);
 
             try

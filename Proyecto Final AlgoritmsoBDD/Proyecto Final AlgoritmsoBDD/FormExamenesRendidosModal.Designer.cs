@@ -34,7 +34,6 @@
             cmbTipoExamen = new ComboBox();
             dtpFechaExamen = new DateTimePicker();
             label9 = new Label();
-            lblAlumno = new Label();
             cmbIDMaterias = new ComboBox();
             cmbIDCarrera = new ComboBox();
             txtCalificacion = new TextBox();
@@ -42,7 +41,6 @@
             label5 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label6 = new Label();
             panel1 = new Panel();
             label1 = new Label();
             btnSalir = new Button();
@@ -60,7 +58,6 @@
             panel3.Controls.Add(cmbTipoExamen);
             panel3.Controls.Add(dtpFechaExamen);
             panel3.Controls.Add(label9);
-            panel3.Controls.Add(lblAlumno);
             panel3.Controls.Add(cmbIDMaterias);
             panel3.Controls.Add(cmbIDCarrera);
             panel3.Controls.Add(txtCalificacion);
@@ -68,7 +65,6 @@
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(label6);
             panel3.Location = new Point(79, 102);
             panel3.Name = "panel3";
             panel3.Size = new Size(448, 305);
@@ -79,7 +75,7 @@
             // 
             lblIDExamen.AutoSize = true;
             lblIDExamen.Font = new Font("Microsoft Sans Serif", 12F);
-            lblIDExamen.Location = new Point(147, 37);
+            lblIDExamen.Location = new Point(147, 57);
             lblIDExamen.Name = "lblIDExamen";
             lblIDExamen.Size = new Size(0, 20);
             lblIDExamen.TabIndex = 27;
@@ -88,7 +84,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F);
-            label4.Location = new Point(49, 37);
+            label4.Location = new Point(49, 57);
             label4.Name = "label4";
             label4.Size = new Size(92, 20);
             label4.TabIndex = 26;
@@ -119,15 +115,6 @@
             label9.TabIndex = 23;
             label9.Text = "Fecha Examen :";
             // 
-            // lblAlumno
-            // 
-            lblAlumno.AutoSize = true;
-            lblAlumno.Font = new Font("Microsoft Sans Serif", 12F);
-            lblAlumno.Location = new Point(147, 57);
-            lblAlumno.Name = "lblAlumno";
-            lblAlumno.Size = new Size(0, 20);
-            lblAlumno.TabIndex = 22;
-            // 
             // cmbIDMaterias
             // 
             cmbIDMaterias.FormattingEnabled = true;
@@ -143,6 +130,7 @@
             cmbIDCarrera.Name = "cmbIDCarrera";
             cmbIDCarrera.Size = new Size(129, 23);
             cmbIDCarrera.TabIndex = 17;
+            cmbIDCarrera.SelectedIndexChanged += cmbIDCarrera_SelectedIndexChanged_1;
             // 
             // txtCalificacion
             // 
@@ -190,16 +178,6 @@
             label2.Size = new Size(70, 20);
             label2.TabIndex = 8;
             label2.Text = "Carrera :";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 12F);
-            label6.Location = new Point(70, 57);
-            label6.Name = "label6";
-            label6.Size = new Size(71, 20);
-            label6.TabIndex = 7;
-            label6.Text = "Alumno :";
             // 
             // panel1
             // 
@@ -289,7 +267,6 @@
         private ComboBox cmbTipoExamen;
         private DateTimePicker dtpFechaExamen;
         private Label label9;
-        private Label lblAlumno;
         private TextBox txtExamenHora;
         private ComboBox cmbIDMaterias;
         private ComboBox cmbIDCarrera;
@@ -301,7 +278,6 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label6;
         private Panel panel1;
         private Label label1;
         private Button btnSalir;

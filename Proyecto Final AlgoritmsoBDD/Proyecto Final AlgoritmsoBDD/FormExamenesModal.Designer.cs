@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             label1 = new Label();
             btnSalir = new Button();
@@ -51,10 +52,12 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label6 = new Label();
+            lblExamenID = new Label();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -150,7 +153,7 @@
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(label6);
+            panel3.Controls.Add(lblExamenID);
             panel3.Location = new Point(112, 47);
             panel3.Name = "panel3";
             panel3.Size = new Size(448, 305);
@@ -196,6 +199,8 @@
             txtExamenHora.Name = "txtExamenHora";
             txtExamenHora.Size = new Size(129, 23);
             txtExamenHora.TabIndex = 19;
+            txtExamenHora.TextChanged += txtExamenHora_TextChanged;
+            txtExamenHora.KeyPress += txtExamenHora_KeyPress;
             // 
             // cmbIDMaterias
             // 
@@ -208,10 +213,11 @@
             // cmbIDCarrera
             // 
             cmbIDCarrera.FormattingEnabled = true;
-            cmbIDCarrera.Location = new Point(147, 64);
+            cmbIDCarrera.Location = new Point(147, 65);
             cmbIDCarrera.Name = "cmbIDCarrera";
             cmbIDCarrera.Size = new Size(129, 23);
             cmbIDCarrera.TabIndex = 17;
+            cmbIDCarrera.SelectedIndexChanged += cmbIDCarrera_SelectedIndexChanged_1;
             // 
             // txtLibro
             // 
@@ -287,15 +293,19 @@
             label2.TabIndex = 8;
             label2.Text = "Carrera :";
             // 
-            // label6
+            // lblExamenID
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 12F);
-            label6.Location = new Point(45, 34);
-            label6.Name = "label6";
-            label6.Size = new Size(96, 20);
-            label6.TabIndex = 7;
-            label6.Text = "ID Examen :";
+            lblExamenID.AutoSize = true;
+            lblExamenID.Font = new Font("Microsoft Sans Serif", 12F);
+            lblExamenID.Location = new Point(45, 34);
+            lblExamenID.Name = "lblExamenID";
+            lblExamenID.Size = new Size(96, 20);
+            lblExamenID.TabIndex = 7;
+            lblExamenID.Text = "ID Examen :";
+            // 
+            // error1
+            // 
+            error1.ContainerControl = this;
             // 
             // FormExamenesModal
             // 
@@ -313,6 +323,7 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -326,7 +337,7 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label6;
+        private Label lblExamenID;
         private Label label8;
         private Label label7;
         private Label label5;
@@ -342,5 +353,6 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
+        private ErrorProvider error1;
     }
 }

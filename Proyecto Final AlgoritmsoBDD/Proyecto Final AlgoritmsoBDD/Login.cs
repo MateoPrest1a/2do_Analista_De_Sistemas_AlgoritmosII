@@ -81,10 +81,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
             */
             if (!string.IsNullOrEmpty(perfil))
             {
-                // Abre el siguiente formulario
+                
                 DiseñoFinal.DiseñoFinalCodigo frm2 = new DiseñoFinal.DiseñoFinalCodigo();
                 frm2.ShowDialog();
-                this.Hide();
             }
             else
             {

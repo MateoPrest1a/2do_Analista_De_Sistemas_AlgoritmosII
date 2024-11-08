@@ -36,6 +36,22 @@ namespace Proyecto_Final_AlgoritmsoBDD
             cmbTipoExamen.Text = tipoexamen.ToString();
             txtLibro.Text = libro.ToString();
             txtFolio.Text = folio.ToString();
+            
+            // Valido si es un examen ya cargado o nuevo
+            if (idexamen != 0)
+            {
+                btnAgregar.Visible = false;
+            }
+            else
+            {
+                lblExamenID.Visible = false;
+                lblIDExamen.Visible = false;
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+                txtFolio.Clear();
+                txtLibro.Clear();
+                cmbTipoExamen.Text = "";
+            }
 
             foreach (Carrera carrera in cmbIDCarrera.Items)
             {
@@ -68,7 +84,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void FormExamenesModal_Load(object sender, EventArgs e)
         {
-            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged;
+            cmbIDCarrera.SelectedIndexChanged += CmbIDCarrera_SelectedIndexChanged; // Permite cargar la materia de esa carrera cada vez que cambia la carrera elegida
 
         }
 
@@ -101,8 +117,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     }
 
                     // Configura DisplayMember y ValueMember
-                    cmbIDCarrera.DisplayMember = "Nombre"; // Lo que se muestra en el ComboBox
-                    cmbIDCarrera.ValueMember = "Id"; // El valor que se utilizará
+                    cmbIDCarrera.DisplayMember = "nombre_carrera"; // Lo que se muestra en el ComboBox
+                    cmbIDCarrera.ValueMember = "id_carrera"; // El valor que se utilizará
                 }
             }
             catch (Exception ex)
@@ -117,7 +133,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             string query = @"SELECT 
                          m.id_materia, 
-                         m.nombre_materia AS Materias 
+                         m.nombre_materia 
                      FROM 
                          Materias as M
                      INNER JOIN 
@@ -143,7 +159,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         var materia = new Materia
                         {
                             ID_Materia = Convert.ToInt32(row["id_materia"]),
-                            Nombre_Materia = row["Materias"].ToString()
+                            Nombre_Materia = row["nombre_materia"].ToString()
                         };
 
                         // Agregar la materia al ComboBox
@@ -151,8 +167,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     }
 
                     // Configura DisplayMember y ValueMember si es necesario
-                    cmbIDMaterias.DisplayMember = "Nombre_Materia"; // Lo que se muestra en el ComboBox
-                    cmbIDMaterias.ValueMember = "ID_Materia"; // El valor que se utilizará
+                    cmbIDMaterias.DisplayMember = "nombre_materia"; // Lo que se muestra en el ComboBox
+                    cmbIDMaterias.ValueMember = "id_materia"; // El valor que se utilizará
                 }
             }
             catch (Exception ex)
@@ -165,6 +181,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             if (cmbIDCarrera.SelectedItem is Carrera carrera)
             {
+                cmbIDMaterias.Text = "";
                 CargarMaterias(carrera.ID_Carrera); // Llama a CargarMaterias con el ID de la carrera seleccionada
             }
         }
@@ -214,13 +231,105 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // Variables para almacenar valores de los controles
-            int idCarrera = Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera);
-            int idMateria = Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).ID_Materia);
-            string horaExamen = txtExamenHora.Text;
-            DateTime fechaExamen = dtpFechaExamen.Value;
-            int tipoExamen = Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id);
-            int libro = Convert.ToInt32(txtLibro.Text);
-            int folio = Convert.ToInt32(txtFolio.Text);
+            int idCarrera;
+            int idMateria;
+            string horaExamen;
+            DateTime fechaExamen;
+            int tipoExamen;
+            int libro;
+            int folio;
+
+
+            // Validaciones
+
+            if (cmbIDCarrera.SelectedItem == null)
+            {
+                error1.SetError(cmbIDCarrera, "Seleccione una carrera válida");
+                cmbIDCarrera.Focus();
+                return;
+            }
+            else
+            {
+                idCarrera = Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera);
+                error1.Clear();
+            }
+
+
+            if (cmbIDMaterias.SelectedItem == null)
+            {
+                error1.SetError(cmbIDMaterias, "Seleccione una carrera válida");
+                cmbIDMaterias.Focus();
+                return;
+            }
+            else
+            {
+                idMateria = Convert.ToInt32(((Materia)cmbIDMaterias.SelectedItem).ID_Materia);
+                error1.Clear();
+            }
+
+
+            if(txtExamenHora.Text == "")
+            {
+                error1.SetError(txtExamenHora, "Seleccione una Hora Valida");
+                txtExamenHora.Focus();
+                return;
+            }
+            else
+            {
+                horaExamen = txtExamenHora.Text;
+                error1.Clear();
+            }
+
+
+            if (dtpFechaExamen == null || dtpFechaExamen.Value < DateTime.Now)
+            {
+                error1.SetError(dtpFechaExamen, "Seleccione una fecha válida y futura");
+                dtpFechaExamen.Focus();
+                return;
+            }
+            else
+            {
+                fechaExamen = dtpFechaExamen.Value;
+                error1.Clear();
+            }
+
+
+            if (cmbTipoExamen.SelectedItem == null)
+            {
+                error1.SetError(cmbTipoExamen, "Seleccione un tipo de examen válido");
+                cmbTipoExamen.Focus();
+                return;
+            }
+            else
+            {
+                tipoExamen = Convert.ToInt32(((TipoExamen)cmbTipoExamen.SelectedItem).Id);
+                error1.Clear();
+            }
+
+
+            if (string.IsNullOrWhiteSpace(txtLibro.Text) || !int.TryParse(txtLibro.Text, out libro))
+            {
+                error1.SetError(txtLibro, "Ingrese un número de libro válido");
+                txtLibro.Focus();
+                return;
+            }
+            else
+            {
+                error1.Clear();
+            }
+
+
+            if (string.IsNullOrWhiteSpace(txtFolio.Text) || !int.TryParse(txtFolio.Text, out folio))
+            {
+                error1.SetError(txtFolio, "Ingrese un folio válido");
+                txtFolio.Focus();
+                return;
+            }
+            else
+            {
+                error1.Clear();
+            }
+
 
             // Llama al método para agregar un examen
             Gestorexamenes.CargarExamen(idCarrera, idMateria, horaExamen, fechaExamen, tipoExamen, libro, folio);
@@ -232,7 +341,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnModificar_Click(object sender, EventArgs e)
         {
             // Asegúrate de que tienes el ID del examen a modificar
-            int idExamen = Convert.ToInt32(lblIDExamen);
+            int idExamen = Convert.ToInt32(lblIDExamen.Text);
 
             // Variables para almacenar valores de los controles
             int idCarrera = Convert.ToInt32(((Carrera)cmbIDCarrera.SelectedItem).ID_Carrera);
@@ -253,13 +362,53 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             // Asegúrate de que tienes el ID del examen a eliminar
-            int idExamen = Convert.ToInt32(lblIDExamen);
+            int idExamen = Convert.ToInt32(lblIDExamen.Text);
 
             // Llama al método para eliminar el examen
             Gestorexamenes.EliminarExamen(idExamen);
 
             ExamenEvento?.Invoke();
             this.Close();
+        }
+
+        private void cmbIDCarrera_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // Validacion Horas
+
+        private void txtExamenHora_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y el borrar
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true; // Bloquear cualquier carácter que no sea un número o la tecla borrar
+            }
+        }
+        private void txtExamenHora_TextChanged(object sender, EventArgs e)
+        {
+
+            string text = txtExamenHora.Text.Replace(":", "");  //Elimino los dos puntos si ya estan presentes
+
+            // Si la longitud es mayor que 4, la limito a 5 caracteres
+            if (text.Length > 4)
+            {
+                text = text.Substring(0, 4);
+            }
+
+            // Insertar los dos puntos entre las horas y los minutos
+            if (text.Length > 2)
+            {
+                text = text.Insert(2, ":");
+            }
+
+            // una vez ya añadido los dos puntos le devuelvo al txt el texto
+            txtExamenHora.Text = text;
+
+            // Mover el cursor al final del texto para que no se mueva cuando el texto cambia
+            txtExamenHora.SelectionStart = txtExamenHora.Text.Length;
         }
     }
 }
