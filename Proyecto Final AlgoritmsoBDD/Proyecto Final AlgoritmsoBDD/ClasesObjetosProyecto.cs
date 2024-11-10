@@ -34,6 +34,12 @@ public class Empleado : Persona
     public int DiasTrabajadosMensuales { get; set; }
 }
 
+public class Especialidad
+{
+    public int IdEspecialidad { get; set; }
+    public string especialidad { get; set; }
+}
+
 public class Materia
 {
     public int ID_Materia { get; set; } //PRIMARY KEY

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Proyecto_Final_AlgoritmsoBDD.FormAgregarExamenAlumno;
 using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 
 namespace Proyecto_Final_AlgoritmsoBDD
@@ -72,6 +73,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
+        //Constructor
         public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera)
         {
             InitializeComponent();
@@ -115,7 +117,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         
         private void btnAgregarMateria_Click(object sender, EventArgs e)
-        {
+{
+            int idCarrera = 0;
+            int anioCursada = 0;
+            string nombreMateria = "";
 
             if (cmbCarreras.SelectedItem == null)
             {
@@ -123,12 +128,21 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 cmbCarreras.Focus();
                 return;
             }
+            else
+            {
+                idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
+            }
 
-            if (string.IsNullOrWhiteSpace(txtNombreMateria.Text))
+
+            if (txtNombreMateria.Text == null)
             {
                 error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
                 txtNombreMateria.Focus();
                 return;
+            }
+            else
+            {
+                anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
             }
 
             if (cmbAñoCursada.SelectedItem == null)
@@ -137,14 +151,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 cmbAñoCursada.Focus();
                 return;
             }
-
-            int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
-            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
-            string nombreMateria = txtNombreMateria.Text;
+            else
+            {
+                nombreMateria = txtNombreMateria.Text;
+            }
+            
+            
+            
 
             // Usar la clase GestorMaterias para agregar la materia
             gestorMaterias.CargarMateria(anioCursada, nombreMateria,idCarrera);
-
 
             // Invocar el evento y cerrar el formulario
             MateriaEvento?.Invoke();
@@ -156,6 +172,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void btnModificarMateria_Click(object sender, EventArgs e)
         {
+            int anioCursada = 0;
+            string nombreMateria = "";
+            int idCarrera = 0;
+
             // Validaciones
             if (cmbCarreras.SelectedItem == null)
             {
@@ -163,13 +183,23 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 cmbCarreras.Focus();
                 return;
             }
+            else
+            {
+                idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
+            }
 
-            if (string.IsNullOrWhiteSpace(txtNombreMateria.Text))
+
+            if (txtNombreMateria.Text == null)
             {
                 error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
                 txtNombreMateria.Focus();
                 return;
             }
+            else
+            {
+                nombreMateria = txtNombreMateria.Text;
+            }
+
 
             if (cmbAñoCursada.SelectedItem == null)
             {
@@ -177,11 +207,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 cmbAñoCursada.Focus();
                 return;
             }
+            else
+            {
+                anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
+            }
 
-            int idMateria = Convert.ToInt32(lblMateriaID.Text);
-            int anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
-            string nombreMateria = txtNombreMateria.Text;
-            int idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
+
+            int idMateria = Convert.ToInt32(lblMateriaID.Text); //no hace falta verificar ya que si no esta el boton actualizar no 
 
             // Usar la clase GestorMaterias para modificar la materia
             gestorMaterias.ModificarMateria(idMateria, anioCursada, nombreMateria);

@@ -54,7 +54,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(48, 94, 214);
+            panel2.BackColor = Color.FromArgb(33, 63, 96);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(btnSalir);
             panel2.Dock = DockStyle.Top;
@@ -66,10 +66,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Schadow BT", 25F);
-            label1.Location = new Point(253, 9);
+            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(254, 41);
+            label1.Size = new Size(403, 56);
             label1.TabIndex = 2;
             label1.Text = "Examen Alumno";
             // 
@@ -77,7 +78,7 @@
             // 
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(734, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 57);
@@ -112,7 +113,7 @@
             // 
             cmbTipoExamen.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipoExamen.FormattingEnabled = true;
-            cmbTipoExamen.Location = new Point(152, 154);
+            cmbTipoExamen.Location = new Point(152, 183);
             cmbTipoExamen.Name = "cmbTipoExamen";
             cmbTipoExamen.Size = new Size(123, 23);
             cmbTipoExamen.TabIndex = 45;
@@ -121,7 +122,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F);
-            label6.Location = new Point(36, 157);
+            label6.Location = new Point(36, 186);
             label6.Name = "label6";
             label6.Size = new Size(109, 20);
             label6.TabIndex = 44;
@@ -130,11 +131,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ImageAlign = ContentAlignment.BottomLeft;
             label5.Location = new Point(76, 38);
             label5.Name = "label5";
-            label5.Size = new Size(70, 19);
+            label5.Size = new Size(71, 20);
             label5.TabIndex = 43;
             label5.Text = "Alumno :";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -151,7 +152,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 12F);
-            label10.Location = new Point(21, 186);
+            label10.Location = new Point(21, 215);
             label10.Name = "label10";
             label10.Size = new Size(124, 20);
             label10.TabIndex = 41;
@@ -159,7 +160,7 @@
             // 
             // dtpFechaExamenAlumno
             // 
-            dtpFechaExamenAlumno.Location = new Point(152, 183);
+            dtpFechaExamenAlumno.Location = new Point(152, 212);
             dtpFechaExamenAlumno.Name = "dtpFechaExamenAlumno";
             dtpFechaExamenAlumno.Size = new Size(239, 23);
             dtpFechaExamenAlumno.TabIndex = 40;
@@ -167,10 +168,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Schadow BT", 12F);
-            label2.Location = new Point(76, 125);
+            label2.Font = new Font("Microsoft Sans Serif", 12F);
+            label2.Location = new Point(76, 154);
             label2.Name = "label2";
-            label2.Size = new Size(69, 19);
+            label2.Size = new Size(70, 20);
             label2.TabIndex = 39;
             label2.Text = "Carrera :";
             // 
@@ -178,7 +179,7 @@
             // 
             cmbCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCarreras.FormattingEnabled = true;
-            cmbCarreras.Location = new Point(152, 125);
+            cmbCarreras.Location = new Point(152, 154);
             cmbCarreras.Name = "cmbCarreras";
             cmbCarreras.Size = new Size(123, 23);
             cmbCarreras.TabIndex = 38;
@@ -187,7 +188,7 @@
             // 
             cmbMateria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMateria.FormattingEnabled = true;
-            cmbMateria.Location = new Point(152, 67);
+            cmbMateria.Location = new Point(152, 96);
             cmbMateria.Name = "cmbMateria";
             cmbMateria.Size = new Size(123, 23);
             cmbMateria.TabIndex = 37;
@@ -195,11 +196,11 @@
             // lblMateriaID
             // 
             lblMateriaID.AutoSize = true;
-            lblMateriaID.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMateriaID.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMateriaID.ImageAlign = ContentAlignment.BottomLeft;
             lblMateriaID.Location = new Point(152, 40);
             lblMateriaID.Name = "lblMateriaID";
-            lblMateriaID.Size = new Size(0, 19);
+            lblMateriaID.Size = new Size(0, 20);
             lblMateriaID.TabIndex = 36;
             lblMateriaID.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -216,28 +217,28 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Schadow BT", 12F);
-            label4.Location = new Point(48, 96);
+            label4.Font = new Font("Microsoft Sans Serif", 12F);
+            label4.Location = new Point(48, 125);
             label4.Name = "label4";
-            label4.Size = new Size(97, 19);
+            label4.Size = new Size(97, 20);
             label4.TabIndex = 25;
             label4.Text = "Calificación :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ImageAlign = ContentAlignment.BottomLeft;
-            label3.Location = new Point(76, 67);
+            label3.Location = new Point(76, 96);
             label3.Name = "label3";
-            label3.Size = new Size(69, 19);
+            label3.Size = new Size(70, 20);
             label3.TabIndex = 24;
             label3.Text = "Materia :";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // txtCalificacion
             // 
-            txtCalificacion.Location = new Point(152, 96);
+            txtCalificacion.Location = new Point(152, 125);
             txtCalificacion.Name = "txtCalificacion";
             txtCalificacion.Size = new Size(123, 23);
             txtCalificacion.TabIndex = 15;

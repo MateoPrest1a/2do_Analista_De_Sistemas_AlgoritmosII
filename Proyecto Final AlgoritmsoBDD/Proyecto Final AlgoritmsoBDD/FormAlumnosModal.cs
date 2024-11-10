@@ -35,6 +35,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
+        private void CargarAños()
+        {
+            cmbAñoAlumno.Items.Clear();
+            cmbAñoAlumno.Items.Add("1");
+            cmbAñoAlumno.Items.Add("2");
+            cmbAñoAlumno.Items.Add("3");
+        }
+
         private void CargarCarreras()
         {
             string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
@@ -80,11 +88,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-        public FormAlumnosModal(int matricula, string nombre, string apellido, string direcalle, string direnum, string telefono, string documento, string email, DateTime fechanacimientoalumno, int idcarrera)
+        public FormAlumnosModal(int matricula, string nombre, string apellido, string direcalle, string direnum, string telefono, string documento, string email, DateTime fechanacimientoalumno, int idcarrera, int año)
         {
             InitializeComponent();
 
+            //Cargo los combobox al iniciar cada formulario
             CargarCarreras();
+            CargarAños();
 
             if (matricula != 0)
             {
@@ -107,6 +117,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             txtDocumentoAlumno.Text = documento;
             dtpFechaNacimientoAlumno.Value = fechanacimientoalumno;
             txtEmailAlumno.Text = email;
+            cmbAñoAlumno.SelectedItem = año;
             foreach (Carrera carrera in cmbCarrerasAlumnos.Items)
             {
                 if (carrera.Id == idcarrera)
@@ -130,6 +141,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             string EmailAlumno = "";
             DateTime FechaNacimientoAlumno = DateTime.Now;
             int carreraId = 0;
+            int año = 0;
 
             // NOMBRE ALUMNO
             if (txtNombreAlumno.Text == "")
@@ -268,8 +280,21 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 error1.Clear();
             }
 
+            // AÑO
+            if(cmbAñoAlumno.SelectedItem == null)
+            {
+                error1.SetError(cmbAñoAlumno, "Seleccione un año valido");
+                cmbAñoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                año = Convert.ToInt32(cmbAñoAlumno.SelectedItem);
+            }
+
+
             // Llamada a la clase gestora para agregar un alumno
-            gestorAlumnos.CargarAlumno(NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId);
+            gestorAlumnos.CargarAlumno(NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId, año);
 
             // EVENTO Y CIERRE
             AlumnoEvento?.Invoke();
@@ -291,6 +316,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             string EmailAlumno = "";
             DateTime FechaNacimientoAlumno = DateTime.Now;
             int carreraId = 0;
+            int año = 0;
 
             // NOMBRE ALUMNO
             if (txtNombreAlumno.Text == "")
@@ -429,7 +455,19 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 error1.Clear();
             }
 
-            gestorAlumnos.ActualizarAlumno(matricula, NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId); AlumnoEvento?.Invoke();
+            // AÑO
+            if (cmbAñoAlumno.SelectedItem == null)
+            {
+                error1.SetError(cmbAñoAlumno, "Seleccione un año valido");
+                cmbAñoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                año = Convert.ToInt32(cmbAñoAlumno.SelectedText);
+            }
+
+            gestorAlumnos.ActualizarAlumno(matricula, NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId, año); AlumnoEvento?.Invoke();
             this.Close();
         }
 
@@ -469,9 +507,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnExamenesRendidos_Click(object sender, EventArgs e)
         {
             //No hace falta validar que sea un numero ya que si no hay numero cargado este boton no aparece
-            int matricula = Convert.ToInt32(lblMatriculaAlumno.Text);
-            FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(matricula);
-            formexamenesrendidos.ShowDialog();
+            int matricula;
+            if (int.TryParse(lblMatriculaAlumno.Text, out matricula))
+            {
+                FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(matricula);
+                formexamenesrendidos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("El valor de matrícula no es válido.");
+            }
         }
 
         private void cmbCarrerasAlumnos_SelectedIndexChanged(object sender, EventArgs e)

@@ -42,7 +42,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(48, 94, 214);
+            panel2.BackColor = Color.FromArgb(33, 63, 96);
             panel2.Controls.Add(lblNombre);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(btnSalir);
@@ -55,20 +55,21 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Schadow BT", 25F);
+            lblNombre.Font = new Font("Microsoft Sans Serif", 25F);
             lblNombre.Location = new Point(659, 15);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(0, 41);
+            lblNombre.Size = new Size(0, 39);
             lblNombre.TabIndex = 2;
             lblNombre.Visible = false;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Schadow BT", 25F);
-            label2.Location = new Point(215, 15);
+            label2.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(0, 9);
             label2.Name = "label2";
-            label2.Size = new Size(347, 41);
+            label2.Size = new Size(559, 56);
             label2.TabIndex = 1;
             label2.Text = "Examenes del Alumno ";
             // 
@@ -77,7 +78,7 @@
             btnSalir.BackgroundImageLayout = ImageLayout.None;
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(729, 12);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(59, 44);
@@ -98,7 +99,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(48, 94, 214);
+            panel1.BackColor = Color.FromArgb(33, 63, 96);
             panel1.Controls.Add(btnAgregar);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 377);

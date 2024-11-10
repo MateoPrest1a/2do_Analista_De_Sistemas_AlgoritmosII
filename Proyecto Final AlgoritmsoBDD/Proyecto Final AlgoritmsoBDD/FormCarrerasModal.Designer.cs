@@ -55,7 +55,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(26, 73, 153);
+            panel1.BackColor = Color.FromArgb(33, 63, 96);
             panel1.Controls.Add(btnSalir);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
@@ -80,10 +80,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 25F);
-            label1.Location = new Point(326, 20);
+            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(0, 9);
             label1.Name = "label1";
-            label1.Size = new Size(149, 39);
+            label1.Size = new Size(223, 56);
             label1.TabIndex = 1;
             label1.Text = "Carreras";
             // 

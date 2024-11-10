@@ -28,7 +28,7 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
         }
 
         // Método para actualizar un alumno
-        public void ActualizarAlumno(int matricula, string nombre, string apellido, string direccionCalle, int direccionNumero, string telefono, string dni, string email, DateTime fechaNacimiento, int idCarrera)
+        public void ActualizarAlumno(int matricula, string nombre, string apellido, string direccionCalle, int direccionNumero, string telefono, string dni, string email, DateTime fechaNacimiento, int idCarrera, int año)
         {
             using (SqlCommand command = new SqlCommand("SP_ActualizarAlumno"))
             {
@@ -43,6 +43,7 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
                 command.Parameters.AddWithValue("@email", email);
                 command.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
                 command.Parameters.AddWithValue("@id_carrera", idCarrera);
+                command.Parameters.AddWithValue("@año", año);
 
                 try
                 {
@@ -57,7 +58,7 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
         }
 
         // Método para cargar un nuevo alumno
-        public void CargarAlumno(string nombre, string apellido, string direccionCalle, int direccionNumero, string telefono, string dni, string email, DateTime fechaNacimiento, int idCarrera)
+        public void CargarAlumno(string nombre, string apellido, string direccionCalle, int direccionNumero, string telefono, string dni, string email, DateTime fechaNacimiento, int idCarrera, int año)
         {
             using (SqlCommand command = new SqlCommand("SP_AgregarAlumno"))
             {
@@ -72,6 +73,7 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
                 command.Parameters.AddWithValue("@email", email);
                 command.Parameters.AddWithValue("@fecha_nacimiento", fechaNacimiento);
                 command.Parameters.AddWithValue("@id_carrera", idCarrera); // Cambia 2 por el idCarrera correspondiente
+                command.Parameters.AddWithValue("@año", año);
 
                 try
                 {

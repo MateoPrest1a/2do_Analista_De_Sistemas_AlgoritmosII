@@ -18,11 +18,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private GestorEmpleados gestorEmpleados = new GestorEmpleados();
 
         public event Action EmpleadoEvento; //Evento para actualizar el datagridview
-        private class Especialidad
-        {
-            public int IdEspecialidad { get; set; }
-            public string especialidad { get; set; }
-        }
+       
 
 
         private void CargarEspecialidades()
@@ -198,7 +194,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             ValidarCampo(txtEmailEmpleados, "Email Invalido");
             EmailEmpleado = txtEmailEmpleados.Text;
 
-            //FECHA DE NACIMIENTO dtpFechaNacimientoEmpleado.Value 
+            //FECHA DE NACIMIENTO 
 
             if (dtpFechaNacimientoEmpleado.Value == DateTime.Now)
             {

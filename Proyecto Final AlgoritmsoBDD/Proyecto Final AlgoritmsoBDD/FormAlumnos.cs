@@ -16,17 +16,90 @@ namespace Proyecto_Final_AlgoritmsoBDD
     public partial class FormAlumnos : Form
     {
 
+        SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
         private ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos(); // Instancia de la clase gestora
 
         public FormAlumnos()
         {
             InitializeComponent();
+            Cargar_Filtros();
+            CargarCarreras();
+        }
+
+        private void CargarCarreras()
+        {
+            string query = "SELECT id_carrera, nombre_carrera FROM Carreras";
+
+            try
+            {
+                // Crear el comando SQL
+                using (SqlCommand command = new SqlCommand(query, conexion))
+                {
+                    // Usar la clase gestora para ejecutar la consulta
+                    DataTable cmbCarrerasTabla = gestorAlumnos.EjecutarConsulta(command);
+
+                    // Limpia el ComboBox antes de llenarlo
+                    cmbCarrera.Items.Clear();
+
+                    foreach (DataRow row in cmbCarrerasTabla.Rows)
+                    {
+                        // Crear un nuevo objeto para almacenar la carrera
+                        var carrera = new Carrera
+                        {
+                            ID_Carrera = Convert.ToInt32(row["id_carrera"]), // id_carrera
+                            Nombre_Carrera = row["nombre_carrera"].ToString() // nombre_carrera
+                        };
+
+                        // Agregar la carrera al ComboBox
+                        cmbCarrera.Items.Add(carrera);
+                    }
+
+                    // Configura DisplayMember y ValueMember
+                    cmbCarrera.DisplayMember = "Nombre_Carrera"; // Lo que se muestra en el ComboBox
+                    cmbCarrera.ValueMember = "ID_Carrera"; // El valor que se utilizará
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las carreras: {ex.Message}");
+            }
+        }
+
+
+        //Cargo los filtros y todas sus opciones
+        private void Cargar_Filtros()
+        {
+            cmbFiltros.Items.Clear();
+            cmbFiltros.Items.Add("Nombre y Apellido");
+            cmbFiltros.Items.Add("Año");
+            cmbFiltros.Items.Add("Carrera");
+            cmbFiltros.Items.Add("Dni");
+
+            cmbAño.Items.Clear();
+            cmbAño.Items.Add("1");
+            cmbAño.Items.Add("2");
+            cmbAño.Items.Add("3");
         }
 
         public void Cargar_Tabla()
         {
-            string consulta = "SELECT * FROM Alumnos WHERE baja = 0";
+            string consulta = @"SELECT 
+                                    matricula, 
+                                    nombre, 
+                                    apellido, 
+                                    direccion_calle, 
+                                    direccion_numero, 
+                                    telefono, 
+                                    dni, 
+                                    email, 
+                                    fecha_nacimiento, 
+                                    id_carrera, 
+                                    año 
+                                FROM 
+                                    Alumnos 
+                                WHERE 
+                                    baja = 0;";
             SqlCommand command = new SqlCommand(consulta);
 
             try
@@ -81,8 +154,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     string email = dataGridView1.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                     DateTime fechaNacimiento = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["fecha_nacimiento"].Value);
                     int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
+                    int año = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["año"].Value);
 
-                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, idcarrera);
+                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, idcarrera, año);
                     formalumnosmodal.AlumnoEvento += ActualizarDataGridView;
                     formalumnosmodal.ShowDialog();
                 }
@@ -98,8 +172,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     string email = "";
                     DateTime fechaNacimiento = DateTime.Now;
                     int carrera = 0;
+                    int año = 0;
 
-                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, carrera);
+                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, carrera, año);
                     formalumnosmodal.AlumnoEvento += ActualizarDataGridView;  //Me suscribo al evento para que se actualice al agregar un alumno
                     formalumnosmodal.ShowDialog();
                 }
@@ -118,9 +193,36 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtNombreApellido.Visible = false;
+            cmbAño.Visible = false;
+            cmbCarrera.Visible = false;
+            txtDni.Visible = false;
+
+            // Muestra el control correspondiente según la selección.
+            switch (cmbFiltros.SelectedItem.ToString())
+            {
+                case "Nombre y Apellido":
+                    txtNombreApellido.Visible = true;
+                    break;
+                case "Año":
+                    cmbAño.Visible = true;
+                    break;
+                case "Carrera":
+                    cmbCarrera.Visible = true;
+                    break;
+                case "Dni":
+                    txtDni.Visible = true;
+                    break;
+            }
         }
     }
 }

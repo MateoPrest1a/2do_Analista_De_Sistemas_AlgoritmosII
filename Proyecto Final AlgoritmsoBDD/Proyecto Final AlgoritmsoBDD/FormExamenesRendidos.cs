@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
@@ -49,7 +50,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     te.descripcion AS TipoExamen,  -- Agregamos el tipo de examen
                                     exa.calificacion 
                                 FROM 
-                                    ExamenxAlumno exa
+                                    ExamenesXAlumno exa
                                 INNER JOIN 
                                     Alumnos a ON exa.matricula = a.matricula
                                 INNER JOIN 
@@ -64,7 +65,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     exa.matricula = @matricula";
 
             SqlCommand command = new SqlCommand(consulta);
-            command.Parameters.AddWithValue("@matricula", Matricula); // Agrego el valor del parámetro
+            command.Parameters.AddWithValue("@matricula", Matricula);  // Agrego el valor del parámetro
 
             try
             {
@@ -106,7 +107,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     decimal calificacion = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["calificacion"].Value);
 
 
-                    FormExamenesRendidosModal formExamenesRendidosModal = new FormExamenesRendidosModal(idexamenxalumno, nombre, idexamen, idmateria, idcarrera, año, fechaexamen, calificacion);
+                    FormAgregarExamenAlumno formExamenesRendidosModal = new FormAgregarExamenAlumno();
                     formExamenesRendidosModal.ShowDialog();
                 }
                 catch 
@@ -121,7 +122,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     decimal calificacion = 0;
 
 
-                    FormExamenesRendidosModal formExamenesRendidosModal = new FormExamenesRendidosModal(idexamenxalumno, nombre, idexamen, idmateria, idcarrera, año, fechaexamen, calificacion);
+                    FormAgregarExamenAlumno formExamenesRendidosModal = new FormAgregarExamenAlumno();
                     formExamenesRendidosModal.ShowDialog();
                 }
             }

@@ -31,9 +31,6 @@
     <Compile Update="FormExamenesRendidos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormExamenesRendidosModal.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormMaterias.cs">
       <SubType>Form</SubType>
     </Compile>

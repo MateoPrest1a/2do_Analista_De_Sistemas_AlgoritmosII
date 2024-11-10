@@ -10,9 +10,9 @@ namespace Proyecto_Final
         private static Conexionbdd _instancia; //Instancia unica para garantizar una unica conexion y no instanciar la clase en cada formulario (patron Singleton).
         private SqlConnection _conexion;
 
-        private string cadena = "Data Source=192.168.0.100; Database=u11; User Id=u11; Password=u11";
+        //private string cadena = "Data Source=192.168.0.100; Database=u11; User Id=u11; Password=u11";
 
-        //private string cadena = @"Data Source=DESKTOP-D5URBLB\SQLEXPRESS01; Initial Catalog=Proyecto_Hilet; Integrated Security=True;"; // Cadena de conexión
+        private string cadena = @"Data Source=DESKTOP-D5URBLB\SQLEXPRESS01; Initial Catalog=Proyecto_Hilet; Integrated Security=True;"; // Cadena de conexión
 
         private Conexionbdd()   //Constructor privado para evitar instancias de la clase.
         {
