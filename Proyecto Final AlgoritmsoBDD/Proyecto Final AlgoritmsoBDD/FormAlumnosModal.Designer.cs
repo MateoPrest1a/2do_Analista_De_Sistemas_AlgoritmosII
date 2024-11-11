@@ -108,10 +108,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 25F);
-            label2.Location = new Point(283, 15);
+            label2.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(3, 9);
             label2.Name = "label2";
-            label2.Size = new Size(150, 39);
+            label2.Size = new Size(227, 56);
             label2.TabIndex = 1;
             label2.Text = "Alumnos";
             // 

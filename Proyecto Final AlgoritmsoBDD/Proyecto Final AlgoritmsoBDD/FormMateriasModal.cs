@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Proyecto_Final_AlgoritmsoBDD.FormAgregarExamenAlumno;
+using static Proyecto_Final_AlgoritmsoBDD.FormHistorialExamenAlumno;
 using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 
 namespace Proyecto_Final_AlgoritmsoBDD

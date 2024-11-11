@@ -38,6 +38,7 @@
             btnSalir = new Button();
             panel3 = new Panel();
             panel4 = new Panel();
+            btnBuscar = new Button();
             txtDni = new TextBox();
             cmbCarrera = new ComboBox();
             cmbAño = new ComboBox();
@@ -45,7 +46,6 @@
             cmbFiltros = new ComboBox();
             label2 = new Label();
             panel5 = new Panel();
-            btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -105,6 +105,7 @@
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Image = (Image)resources.GetObject("btnSalir.Image");
             btnSalir.Location = new Point(729, 17);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(59, 44);
@@ -139,6 +140,15 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(800, 61);
             panel4.TabIndex = 39;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(366, 20);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(70, 23);
+            btnBuscar.TabIndex = 46;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
             // 
             // txtDni
             // 
@@ -199,15 +209,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(797, 59);
             panel5.TabIndex = 39;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.Location = new Point(366, 20);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(70, 23);
-            btnBuscar.TabIndex = 46;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
             // 
             // FormAlumnos
             // 

@@ -117,7 +117,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             txtDocumentoAlumno.Text = documento;
             dtpFechaNacimientoAlumno.Value = fechanacimientoalumno;
             txtEmailAlumno.Text = email;
-            cmbAñoAlumno.SelectedItem = año;
+            cmbAñoAlumno.SelectedItem = año.ToString();
             foreach (Carrera carrera in cmbCarrerasAlumnos.Items)
             {
                 if (carrera.Id == idcarrera)
@@ -508,15 +508,47 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             //No hace falta validar que sea un numero ya que si no hay numero cargado este boton no aparece
             int matricula;
+            string NombreAlumno;
+            int idcarrera;
             if (int.TryParse(lblMatriculaAlumno.Text, out matricula))
             {
-                FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(matricula);
-                formexamenesrendidos.ShowDialog();
+                // devuelve matricula en caso de que este bien
             }
             else
             {
                 MessageBox.Show("El valor de matrícula no es válido.");
             }
+
+            // NOMBRE ALUMNO
+            if (txtNombreAlumno.Text == "")
+            {
+                error1.SetError(txtNombreAlumno, "Nombre Inválido");
+                txtNombreAlumno.Focus();
+                return;
+            }
+            else
+            {
+                NombreAlumno = txtNombreAlumno.Text;
+                error1.Clear();
+            }
+
+            // CARRERA 
+            if (cmbCarrerasAlumnos.SelectedItem == null)
+            {
+                error1.SetError(cmbCarrerasAlumnos, "Carrera Inválida");
+                cmbCarrerasAlumnos.Focus();
+                return;
+            }
+            else
+            {
+                idcarrera = ((Carrera)cmbCarrerasAlumnos.SelectedItem).Id;
+                error1.Clear();
+            }
+
+
+            FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(matricula,NombreAlumno,idcarrera);
+            formexamenesrendidos.ShowDialog();
+
         }
 
         private void cmbCarrerasAlumnos_SelectedIndexChanged(object sender, EventArgs e)
