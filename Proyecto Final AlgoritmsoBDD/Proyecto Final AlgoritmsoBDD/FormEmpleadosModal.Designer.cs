@@ -82,13 +82,13 @@
             // 
             // panel4
             // 
-            panel4.BackColor = Color.FromArgb(33, 67, 158);
+            panel4.BackColor = Color.FromArgb(33, 63, 96);
             panel4.Controls.Add(btnSalir);
             panel4.Controls.Add(label1);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(800, 65);
+            panel4.Size = new Size(800, 70);
             panel4.TabIndex = 5;
             panel4.Paint += panel4_Paint;
             // 
@@ -96,7 +96,7 @@
             // 
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(725, 5);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 57);
@@ -108,10 +108,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Schadow BT", 25F);
-            label1.Location = new Point(318, 9);
+            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(0, 6);
             label1.Name = "label1";
-            label1.Size = new Size(178, 41);
+            label1.Size = new Size(286, 56);
             label1.TabIndex = 0;
             label1.Text = "Empleados";
             // 
@@ -191,20 +192,20 @@
             // lblEmpleado
             // 
             lblEmpleado.AutoSize = true;
-            lblEmpleado.Font = new Font("Schadow BT", 12F);
+            lblEmpleado.Font = new Font("Microsoft Sans Serif", 12F);
             lblEmpleado.Location = new Point(180, 101);
             lblEmpleado.Name = "lblEmpleado";
-            lblEmpleado.Size = new Size(0, 19);
+            lblEmpleado.Size = new Size(0, 20);
             lblEmpleado.TabIndex = 41;
             // 
             // lblEmpleado2
             // 
             lblEmpleado2.AutoSize = true;
-            lblEmpleado2.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmpleado2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblEmpleado2.ImageAlign = ContentAlignment.BottomLeft;
             lblEmpleado2.Location = new Point(63, 101);
             lblEmpleado2.Name = "lblEmpleado2";
-            lblEmpleado2.Size = new Size(106, 19);
+            lblEmpleado2.Size = new Size(110, 20);
             lblEmpleado2.TabIndex = 40;
             lblEmpleado2.Text = "ID Empleado :";
             lblEmpleado2.TextAlign = ContentAlignment.MiddleCenter;
@@ -212,10 +213,10 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Schadow BT", 12F);
+            label12.Font = new Font("Microsoft Sans Serif", 12F);
             label12.Location = new Point(63, 362);
             label12.Name = "label12";
-            label12.Size = new Size(106, 19);
+            label12.Size = new Size(107, 20);
             label12.TabIndex = 38;
             label12.Text = "Especialidad :";
             // 
@@ -229,10 +230,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Schadow BT", 12F);
+            label2.Font = new Font("Microsoft Sans Serif", 12F);
             label2.Location = new Point(105, 335);
             label2.Name = "label2";
-            label2.Size = new Size(64, 19);
+            label2.Size = new Size(66, 20);
             label2.TabIndex = 35;
             label2.Text = "Salario :";
             // 
@@ -249,81 +250,81 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Schadow BT", 12F);
+            label10.Font = new Font("Microsoft Sans Serif", 12F);
             label10.Location = new Point(27, 307);
             label10.Name = "label10";
-            label10.Size = new Size(140, 19);
+            label10.Size = new Size(145, 20);
             label10.TabIndex = 31;
             label10.Text = "Fecha Nacimiento :";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Schadow BT", 12F);
+            label9.Font = new Font("Microsoft Sans Serif", 12F);
             label9.Location = new Point(111, 275);
             label9.Name = "label9";
-            label9.Size = new Size(56, 19);
+            label9.Size = new Size(56, 20);
             label9.TabIndex = 30;
             label9.Text = "Email :";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Schadow BT", 12F);
+            label8.Font = new Font("Microsoft Sans Serif", 12F);
             label8.Location = new Point(71, 246);
             label8.Name = "label8";
-            label8.Size = new Size(96, 19);
+            label8.Size = new Size(100, 20);
             label8.TabIndex = 29;
             label8.Text = "Documento :";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Schadow BT", 12F);
+            label7.Font = new Font("Microsoft Sans Serif", 12F);
             label7.Location = new Point(91, 217);
             label7.Name = "label7";
-            label7.Size = new Size(76, 19);
+            label7.Size = new Size(79, 20);
             label7.TabIndex = 28;
             label7.Text = "Telefono :";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Schadow BT", 12F);
+            label6.Font = new Font("Microsoft Sans Serif", 12F);
             label6.Location = new Point(304, 188);
             label6.Name = "label6";
-            label6.Size = new Size(72, 19);
+            label6.Size = new Size(73, 20);
             label6.TabIndex = 27;
             label6.Text = "Numero :";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Schadow BT", 12F);
+            label5.Font = new Font("Microsoft Sans Serif", 12F);
             label5.Location = new Point(48, 188);
             label5.Name = "label5";
-            label5.Size = new Size(121, 19);
+            label5.Size = new Size(122, 20);
             label5.TabIndex = 26;
             label5.Text = "Dirección Calle :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Schadow BT", 12F);
+            label4.Font = new Font("Microsoft Sans Serif", 12F);
             label4.Location = new Point(96, 159);
             label4.Name = "label4";
-            label4.Size = new Size(73, 19);
+            label4.Size = new Size(73, 20);
             label4.TabIndex = 25;
             label4.Text = "Apellido :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ImageAlign = ContentAlignment.BottomLeft;
             label3.Location = new Point(96, 130);
             label3.Name = "label3";
-            label3.Size = new Size(71, 19);
+            label3.Size = new Size(73, 20);
             label3.TabIndex = 24;
             label3.Text = "Nombre :";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -351,7 +352,7 @@
             // 
             // txtDireNumeroEmpleados
             // 
-            txtDireNumeroEmpleados.Location = new Point(382, 188);
+            txtDireNumeroEmpleados.Location = new Point(383, 189);
             txtDireNumeroEmpleados.Name = "txtDireNumeroEmpleados";
             txtDireNumeroEmpleados.Size = new Size(100, 23);
             txtDireNumeroEmpleados.TabIndex = 18;

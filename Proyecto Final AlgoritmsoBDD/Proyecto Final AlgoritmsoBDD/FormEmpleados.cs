@@ -14,31 +14,46 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormEmpleados : Form
     {
-        Conexionbdd conectarBDD;
+        private GestorEmpleados gestorEmpleados = new GestorEmpleados(); // Instancia de la clase gestora
         public FormEmpleados()
         {
             InitializeComponent();
-            conectarBDD = new Conexionbdd();
+            CargarEspecialidades();
+            Cargar_Filtros();
         }
+        private void Cargar_Filtros()
+        {
+            cmbFiltros.Items.Clear();
+            cmbFiltros.Items.Add("Nombre y Apellido");
+            cmbFiltros.Items.Add("Especialidad");
+            cmbFiltros.Items.Add("Carrera");
+            cmbFiltros.Items.Add("Dni");
+        }
+        private void CargarEspecialidades()
+        {
+            var especialidades = new List<Especialidad>
+            {
+                new Especialidad { IdEspecialidad = 1, especialidad = "Profesor" },
+                new Especialidad { IdEspecialidad = 2, especialidad = "Personal Administrativo" }
+            };
 
+            cmbEspecialidad.DataSource = especialidades;
+            cmbEspecialidad.DisplayMember = "Especialidad";  // Lo que se muestra en el ComboBox
+            cmbEspecialidad.ValueMember = "IdEspecialidad"; // El valor que necesitas
+        }
         public void Cargar_Tabla()
         {
             string consulta = "SELECT * FROM Empleados";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
+            SqlCommand command = new SqlCommand(consulta);
 
             try
             {
-                adapter.Fill(dt);
+                DataTable dt = gestorEmpleados.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
-            }
-            finally
-            {
-                conectarBDD.cerrar();
             }
         }
         private void btnSalir_Click(object sender, EventArgs e)
@@ -104,12 +119,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void ActualizarDataGridView()
         {
-
-            string consulta = "SELECT * FROM Empleados";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
+            Cargar_Tabla();
         }
 
         private void FormAgregar_EmpleadoAgregado()
@@ -125,6 +135,47 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cmbFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtNombreApellido.Visible = false;
+            cmbCarrera.Visible = false;
+            txtDni.Visible = false;
+            cmbEspecialidad.Visible = false;
+
+            // Muestra el control correspondiente según la selección.
+            switch (cmbFiltros.SelectedItem.ToString())
+            {
+                case "Nombre y Apellido":
+                    txtNombreApellido.Visible = true;
+                    break;
+                case "Carrera":
+                    cmbCarrera.Visible = true;
+                    break;
+                case "Especialidad":
+                    cmbEspecialidad.Visible = true;
+                    break;
+                case "Dni":
+                    txtDni.Visible = true;
+                    break;
+            }
+        }
+        private void Filtrar_tablaEspecialidad()
+        {
+
+            string consulta = "SELECT * FROM Empleados";
+            SqlCommand command = new SqlCommand(consulta);
+
+            try
+            {
+                DataTable dt = gestorEmpleados.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la tabla: " + ex.Message);
+            }
         }
     }
 }

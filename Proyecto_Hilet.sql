@@ -8,6 +8,8 @@ num_resolucion int,
 anio_plan_estudio int
 );
 
+drop table Carreras
+
 insert into Carreras values(
 	'Analista de Sistemas',1,1
 );
@@ -29,8 +31,19 @@ dni varchar(15),
 email varchar(50),
 fecha_nacimiento date,
 id_carrera int,
+baja BIT DEFAULT 0,
 foreign key (id_carrera) references Carreras(id_carrera)
 );
+
+select * from Alumnos
+
+drop table Alumnos
+
+ALTER TABLE Alumnos
+ADD baja BIT DEFAULT 0;  -- 0 falso 1 verdadero, el default es 0 para decir que estan dados de alta
+
+ALTER TABLE Alumnos
+ADD año int
 
 create table Estado_De_Alumno(
 	id_estado_alumno int identity primary key,
@@ -54,6 +67,8 @@ INSERT INTO Materias VALUES
 2,'Algoritmos II', 1
 );
 
+select * from Materias
+
 create table Examenes(
 	id_examen int identity primary key,
 	id_carrera int,
@@ -69,6 +84,52 @@ create table Examenes(
 );
 
 drop table Examenes
+
+
+create table ExamenesXAlumno(
+	id_examenxalumno int identity primary key,
+	matricula int,
+	id_examen int,
+	calificacion decimal,
+	foreign key (matricula) references Alumnos(matricula),
+	foreign key (id_examen) references Examenes(id_examen)
+);
+
+INSERT INTO ExamenesXAlumno VALUES(
+11,1,10
+);
+
+SELECT 
+    exa.id_examenxalumno, 
+    a.matricula, 
+    a.nombre AS Alumno,
+    ex.id_examen,
+    ex.fecha_examen AS Fecha,
+    m.id_materia,
+    m.nombre_materia AS Materia,
+    c.id_carrera, 
+    c.nombre_carrera AS Carrera,
+    m.anio_cursada AS Año,
+    te.descripcion AS TipoExamen,  -- Agregamos el tipo de examen
+    exa.calificacion 
+FROM 
+    ExamenesXAlumno exa
+INNER JOIN 
+    Alumnos a ON exa.matricula = a.matricula
+INNER JOIN 
+    Examenes ex ON exa.id_examen = ex.id_examen
+INNER JOIN 
+    Materias m ON ex.id_materia = m.id_materia
+INNER JOIN 
+    Carreras c ON ex.id_carrera = c.id_carrera
+INNER JOIN 
+    tipoexamen te ON ex.tipo_examen = te.id_tipoexamen  -- Join para obtener el tipo de examen
+WHERE 
+    exa.matricula = 3;
+
+select * from examenes
+
+select * from Alumnos
 
 select * from Carreras
 
@@ -87,6 +148,7 @@ create table tipoexamen(
 INSERT INTO tipoexamen VALUES(
 'Primer Parcial'
 )
+
 
 
 INSERT INTO tipoexamen VALUES(
@@ -196,7 +258,7 @@ VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmai
 
 insert into Alumnos values 
 (
-'Jose','Hernandez','Olazabal',134,'2232232233','40203040','josekpogenio@gmail.com','2024-09-30',1
+'Jose','Hernandez','Olazabal',134,'2232232233','40203040','josekpogenio@gmail.com','2024-09-30',1,0
 );
 
 select * from Alumnos;
@@ -216,6 +278,10 @@ select * from Perfiles
 
 select * from Empleados
 
+
+--------------------------------------------------------Store Procedure Alumnos--------------------------------------------------------
+
+
 CREATE PROCEDURE SP_AgregarAlumno
     @nombre VARCHAR(20),
     @apellido VARCHAR(20),
@@ -225,11 +291,12 @@ CREATE PROCEDURE SP_AgregarAlumno
     @dni VARCHAR(15),
     @email VARCHAR(50),
     @fecha_nacimiento DATE,
-    @id_carrera INT
+    @id_carrera INT,
+	@año INT
 AS
 BEGIN
-    INSERT INTO Alumnos (nombre, apellido, direccion_calle, direccion_numero, telefono, dni, email, fecha_nacimiento, id_carrera)
-    VALUES (@nombre, @apellido, @direccion_calle, @direccion_numero, @telefono, @dni, @email, @fecha_nacimiento, @id_carrera);
+    INSERT INTO Alumnos (nombre, apellido, direccion_calle, direccion_numero, telefono, dni, email, fecha_nacimiento, id_carrera, año)
+    VALUES (@nombre, @apellido, @direccion_calle, @direccion_numero, @telefono, @dni, @email, @fecha_nacimiento, @id_carrera, @año);
 END;
 
 
@@ -243,7 +310,8 @@ CREATE PROCEDURE SP_ActualizarAlumno
     @dni VARCHAR(15),
     @email VARCHAR(50),
     @fecha_nacimiento DATE,
-    @id_carrera INT
+    @id_carrera INT,
+	@año INT
 AS
 BEGIN
     UPDATE Alumnos
@@ -256,18 +324,24 @@ BEGIN
         dni = @dni,
         email = @email,
         fecha_nacimiento = @fecha_nacimiento,
-        id_carrera = @id_carrera
+        id_carrera = @id_carrera,
+		año = @año
     WHERE matricula = @matricula;
 END;
 
+drop procedure SP_AgregarAlumno
 
 CREATE PROCEDURE SP_EliminarAlumno
     @matricula INT
 AS
 BEGIN
-    DELETE FROM Alumnos
-    WHERE matricula = @matricula;
+	UPDATE Alumnos
+	SET baja = 1
+	WHERE matricula = @matricula;
 END;
+
+
+--------------------------------------------------------Store Procedure Empleados--------------------------------------------------------
 
 
 CREATE PROCEDURE SP_AgregarEmpleado
@@ -326,7 +400,11 @@ BEGIN
     WHERE id_empleado = @id_empleado;
 END;
 
-select * from Materias
+
+
+
+--------------------------------------------------------Store Procedure Carreras--------------------------------------------------------
+
 
 CREATE PROCEDURE SP_AgregarCarrera
     @nombre_carrera VARCHAR(50),
@@ -360,14 +438,29 @@ BEGIN
     WHERE id_carrera = @id_carrera;
 END;
 
+
+--------------------------------------------------------Store Procedure Materias--------------------------------------------------------
+
+
 CREATE PROCEDURE SP_AgregarMateria
     @anio_cursada INT,
-    @nombre_materia VARCHAR(30)
+    @nombre_materia VARCHAR(30),
+    @id_carrera INT
 AS
 BEGIN
+    
     INSERT INTO Materias (anio_cursada, nombre_materia)
     VALUES (@anio_cursada, @nombre_materia);
+
+    --id_materia recién insertado
+    DECLARE @id_materia INT;
+    SET @id_materia = SCOPE_IDENTITY();
+
+    -- Insertar el registro en la tabla MateriasxCarrera
+    INSERT INTO MateriasxCarrera (id_carrera, id_materia)
+    VALUES (@id_carrera, @id_materia);
 END;
+
 
 
 
@@ -391,10 +484,14 @@ CREATE PROCEDURE SP_EliminarMateria
     @id_materia INT
 AS
 BEGIN
+    -- Eliminar la relación en la tabla MateriasxCarrera
+    DELETE FROM MateriasxCarrera
+    WHERE id_materia = @id_materia;
+
+    -- Eliminar la materia de la tabla Materias
     DELETE FROM Materias
     WHERE id_materia = @id_materia;
 END;
-
 
 
 --------------------------------------------------------Store Procedure Examenes--------------------------------------------------------
@@ -468,7 +565,3 @@ BEGIN
     FROM Empleados
     WHERE nombre LIKE '%' + @Nombre + '%' AND apellido LIKE '%' + @Apellido + '%'
 END;
-
-
-
-
