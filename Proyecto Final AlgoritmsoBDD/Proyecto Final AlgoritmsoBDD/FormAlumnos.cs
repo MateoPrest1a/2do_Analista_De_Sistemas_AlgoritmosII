@@ -224,5 +224,46 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     break;
             }
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            // Verifica si el campo Nombre y Apellido está visible
+            if (txtNombreApellido.Visible)
+            {
+                // Llama al método BuscarAlumno pasándole el texto de txtNombreApellido
+                string nombreApellido = txtNombreApellido.Text;
+
+                if (!string.IsNullOrEmpty(nombreApellido))
+                {
+                    // Llamar al método de búsqueda
+                    ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos();
+                    DataTable resultados = gestorAlumnos.BuscarAlumno(nombreApellido);
+
+                    if (resultados != null && resultados.Rows.Count > 0)
+                    {
+                        // Si se encuentran resultados, mostrar en un DataGridView
+                        dataGridView1.DataSource = resultados;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron alumnos con ese nombre y apellido.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor ingrese un nombre y apellido.");
+                }
+            }
+            else
+            {
+                // Si no se está usando el filtro de nombre y apellido, podrías manejar los otros casos
+                MessageBox.Show("Seleccione un filtro válido para buscar.");
+            }
+        }
+
+        private void btnRecargarTabla_Click(object sender, EventArgs e)
+        {
+            Cargar_Tabla();
+        }
     }
 }

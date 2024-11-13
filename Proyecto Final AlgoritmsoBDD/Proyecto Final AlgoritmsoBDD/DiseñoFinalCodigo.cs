@@ -9,9 +9,11 @@ namespace DiseñoFinal
         Conexionbdd conectar;
 
 
-        public DiseñoFinalCodigo()
+        public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
         {
             InitializeComponent();
+            lblUsuario.Text = nombre + " " + apellido;
+            lblPerfil.Text = perfil;
         }
 
         private void CargarLabel()

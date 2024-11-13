@@ -53,11 +53,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(403, 56);
+            label1.Size = new Size(390, 55);
             label1.TabIndex = 2;
             label1.Text = "Examen Alumno";
             // 
@@ -103,15 +103,15 @@
             panel1.Size = new Size(800, 69);
             panel1.TabIndex = 48;
             // 
-            // FormAgregarExamenAlumno
+            // FormHistorialExamenAlumno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            Name = "FormAgregarExamenAlumno";
-            Text = "FormAgregarExamenAlumno";
+            Name = "FormHistorialExamenAlumno";
+            Text = "Historial Examenes";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);

@@ -32,8 +32,10 @@ email varchar(50),
 fecha_nacimiento date,
 id_carrera int,
 baja BIT DEFAULT 0,
+año INT,
 foreign key (id_carrera) references Carreras(id_carrera)
 );
+
 
 select * from Alumnos
 
@@ -42,8 +44,6 @@ drop table Alumnos
 ALTER TABLE Alumnos
 ADD baja BIT DEFAULT 0;  -- 0 falso 1 verdadero, el default es 0 para decir que estan dados de alta
 
-ALTER TABLE Alumnos
-ADD año int
 
 create table Estado_De_Alumno(
 	id_estado_alumno int identity primary key,
@@ -96,8 +96,10 @@ create table ExamenesXAlumno(
 );
 
 INSERT INTO ExamenesXAlumno VALUES(
-11,1,10
+20,1,10
 );
+
+select * from Alumnos
 
 SELECT 
     exa.id_examenxalumno, 
@@ -204,6 +206,20 @@ create table Perfiles(
 	tipo varchar(30)
 );
 
+select * from Perfiles
+
+INSERT INTO Perfiles VALUES(
+'Personal Administrativo'
+);
+
+INSERT INTO Perfiles VALUES(
+'Profesor'
+);
+
+INSERT INTO Perfiles VALUES(
+'Alumno'
+);
+
 drop table Perfiles
 
 create table Permisos(
@@ -228,13 +244,20 @@ create table PerfilxAlumno(
 	foreign key (matricula) references Alumnos(matricula),
 );
 
+select * from PerfilxAlumno
+
 create table PerfilxPersona(
-	id_perfilxpers int identity primary key,
-	id_perfil int,
-	nombre_usuario varchar(35),
-	contrasenia varchar(35),
-	foreign key (id_perfil) references Perfiles(id_perfil)
-); 
+    id_perfilxpers int identity primary key,
+    id_perfil int,
+    id_empleado int,  -- Relacionamos el perfil con el empleado
+    nombre_usuario varchar(35),
+    contrasenia varchar(35),
+    foreign key (id_perfil) references Perfiles(id_perfil),
+    foreign key (id_empleado) references Empleados(id_empleado)  -- Relación con la tabla Empleados
+);
+
+DROP TABLE PerfilxPersona
+
 
 create table Empleados(
 	id_empleado int identity primary key,
@@ -283,53 +306,28 @@ select * from Empleados
 
 
 CREATE PROCEDURE SP_AgregarAlumno
-    @nombre VARCHAR(20),
-    @apellido VARCHAR(20),
+    @Nombre VARCHAR(20),
+    @Apellido VARCHAR(20),
     @direccion_calle VARCHAR(15),
     @direccion_numero INT,
     @telefono VARCHAR(15),
-    @dni VARCHAR(15),
+    @dni VARCHAR(15),  -- El DNI será usado como nombre de usuario y contraseña
     @email VARCHAR(50),
     @fecha_nacimiento DATE,
     @id_carrera INT,
-	@año INT
+    @año INT
 AS
 BEGIN
     INSERT INTO Alumnos (nombre, apellido, direccion_calle, direccion_numero, telefono, dni, email, fecha_nacimiento, id_carrera, año)
-    VALUES (@nombre, @apellido, @direccion_calle, @direccion_numero, @telefono, @dni, @email, @fecha_nacimiento, @id_carrera, @año);
+    VALUES (@Nombre, @Apellido, @direccion_calle, @direccion_numero, @telefono, @dni, @email, @fecha_nacimiento, @id_carrera, @año);
+
+    DECLARE @Matricula INT;
+    SET @Matricula = SCOPE_IDENTITY();  -- SCOPE_IDENTITY() devuelve el último valor insertado en la tabla actual
+
+    INSERT INTO PerfilxAlumno (matricula, nombre_usuario, contrasenia)
+    VALUES (@Matricula, @dni, @dni); 
+
 END;
-
-
-CREATE PROCEDURE SP_ActualizarAlumno
-    @matricula INT,
-    @nombre VARCHAR(20),
-    @apellido VARCHAR(20),
-    @direccion_calle VARCHAR(15),
-    @direccion_numero INT,
-    @telefono VARCHAR(15),
-    @dni VARCHAR(15),
-    @email VARCHAR(50),
-    @fecha_nacimiento DATE,
-    @id_carrera INT,
-	@año INT
-AS
-BEGIN
-    UPDATE Alumnos
-    SET 
-        nombre = @nombre,
-        apellido = @apellido,
-        direccion_calle = @direccion_calle,
-        direccion_numero = @direccion_numero,
-        telefono = @telefono,
-        dni = @dni,
-        email = @email,
-        fecha_nacimiento = @fecha_nacimiento,
-        id_carrera = @id_carrera,
-		año = @año
-    WHERE matricula = @matricula;
-END;
-
-drop procedure SP_AgregarAlumno
 
 CREATE PROCEDURE SP_EliminarAlumno
     @matricula INT
@@ -339,6 +337,58 @@ BEGIN
 	SET baja = 1
 	WHERE matricula = @matricula;
 END;
+
+
+CREATE PROCEDURE SP_BuscarAlumnoPorNombreApellido
+    @NombreApellido VARCHAR(40)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT matricula, nombre, apellido, direccion_calle, direccion_numero,
+           telefono, dni, email, fecha_nacimiento, id_carrera, baja, año
+    FROM Alumnos
+    WHERE (nombre + ' ' + apellido LIKE '%' + @NombreApellido + '%'
+           OR apellido + ' ' + nombre LIKE '%' + @NombreApellido + '%')
+      AND baja = 0;  -- Incluye solo alumnos activos
+END;
+
+
+
+
+CREATE PROCEDURE SP_AgregarExamenXAlumno
+    @matricula INT,
+    @id_examen INT,
+    @calificacion DECIMAL
+AS
+BEGIN
+    INSERT INTO ExamenesXAlumno (matricula, id_examen, calificacion)
+    VALUES (@matricula, @id_examen, @calificacion);
+END
+
+
+CREATE PROCEDURE sp_ActualizarExamenXAlumno
+    @id_examenxalumno INT,
+    @id_examen INT,
+    @calificacion DECIMAL
+AS
+BEGIN
+    UPDATE ExamenesXAlumno
+    SET id_examen = @id_examen,
+        calificacion = @calificacion
+    WHERE id_examenxalumno = @id_examenxalumno;
+END
+
+
+CREATE PROCEDURE SP_EliminarExamenXAlumno
+    @id_examenxalumno INT
+AS
+BEGIN
+    DELETE FROM ExamenesXAlumno
+    WHERE id_examenxalumno = @id_examenxalumno;
+END
+
+
 
 
 --------------------------------------------------------Store Procedure Empleados--------------------------------------------------------
@@ -360,6 +410,7 @@ BEGIN
     INSERT INTO Empleados (nombre, apellido, direccion_calle, direccion_nro, telefono, dni, email, fecha_nacimiento, salario, tipo_perfil)
     VALUES (@nombre, @apellido, @direccion_calle, @direccion_nro, @telefono, @dni, @email, @fecha_nacimiento, @salario, @tipo_perfil);
 END;
+
 
 
 CREATE PROCEDURE SP_ModificarEmpleado

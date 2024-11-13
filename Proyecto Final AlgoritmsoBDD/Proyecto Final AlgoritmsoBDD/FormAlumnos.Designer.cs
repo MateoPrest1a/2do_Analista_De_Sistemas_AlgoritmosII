@@ -46,6 +46,7 @@
             cmbFiltros = new ComboBox();
             label2 = new Label();
             panel5 = new Panel();
+            btnRecargarTabla = new Button();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -89,11 +90,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(3, 9);
             label1.Name = "label1";
-            label1.Size = new Size(227, 56);
+            label1.Size = new Size(218, 55);
             label1.TabIndex = 1;
             label1.Text = "Alumnos";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -128,6 +129,7 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(33, 63, 96);
+            panel4.Controls.Add(btnRecargarTabla);
             panel4.Controls.Add(btnBuscar);
             panel4.Controls.Add(txtDni);
             panel4.Controls.Add(cmbCarrera);
@@ -149,6 +151,7 @@
             btnBuscar.TabIndex = 46;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtDni
             // 
@@ -195,11 +198,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Unicode MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(12, 19);
             label2.Name = "label2";
-            label2.Size = new Size(79, 20);
+            label2.Size = new Size(79, 18);
             label2.TabIndex = 40;
             label2.Text = "Filtrar por :";
             // 
@@ -209,6 +212,16 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(797, 59);
             panel5.TabIndex = 39;
+            // 
+            // btnRecargarTabla
+            // 
+            btnRecargarTabla.Location = new Point(744, 12);
+            btnRecargarTabla.Name = "btnRecargarTabla";
+            btnRecargarTabla.Size = new Size(44, 38);
+            btnRecargarTabla.TabIndex = 47;
+            btnRecargarTabla.Text = "Refrescar";
+            btnRecargarTabla.UseVisualStyleBackColor = true;
+            btnRecargarTabla.Click += btnRecargarTabla_Click;
             // 
             // FormAlumnos
             // 
@@ -250,5 +263,6 @@
         private ComboBox cmbCarrera;
         private TextBox txtDni;
         private Button btnBuscar;
+        private Button btnRecargarTabla;
     }
 }

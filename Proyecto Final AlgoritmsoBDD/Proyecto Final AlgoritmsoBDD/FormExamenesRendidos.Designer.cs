@@ -33,11 +33,15 @@
             btnSalir = new Button();
             dataGridView1 = new DataGridView();
             panel1 = new Panel();
+            btnHistorial = new Button();
             label1 = new Label();
-            btnAgregar = new Button();
             panel3 = new Panel();
+            txtCalificacion = new TextBox();
+            label5 = new Label();
+            txtIdExamen = new TextBox();
+            label4 = new Label();
+            txtAlumno = new TextBox();
             label3 = new Label();
-            textBox1 = new TextBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
@@ -58,11 +62,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label2.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(0, 9);
             label2.Name = "label2";
-            label2.Size = new Size(559, 56);
+            label2.Size = new Size(538, 55);
             label2.TabIndex = 1;
             label2.Text = "Examenes del Alumno ";
             // 
@@ -92,37 +96,41 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(33, 63, 96);
-            panel1.Controls.Add(btnAgregar);
+            panel1.Controls.Add(btnHistorial);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 381);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 69);
             panel1.TabIndex = 39;
             // 
+            // btnHistorial
+            // 
+            btnHistorial.Location = new Point(713, 6);
+            btnHistorial.Name = "btnHistorial";
+            btnHistorial.Size = new Size(75, 55);
+            btnHistorial.TabIndex = 8;
+            btnHistorial.Text = "Historial";
+            btnHistorial.UseVisualStyleBackColor = true;
+            btnHistorial.Click += btnHistorial_Click;
+            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial Unicode MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(18, 28);
+            label1.Location = new Point(38, 95);
             label1.Name = "label1";
-            label1.Size = new Size(67, 20);
+            label1.Size = new Size(66, 18);
             label1.TabIndex = 9;
             label1.Text = "Alumno :";
             // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(713, 6);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 55);
-            btnAgregar.TabIndex = 8;
-            btnAgregar.Text = "Historial";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
-            // 
             // panel3
             // 
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txtCalificacion);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(txtIdExamen);
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(txtAlumno);
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 69);
@@ -130,25 +138,62 @@
             panel3.Size = new Size(289, 312);
             panel3.TabIndex = 40;
             // 
+            // txtCalificacion
+            // 
+            txtCalificacion.Location = new Point(128, 168);
+            txtCalificacion.Name = "txtCalificacion";
+            txtCalificacion.Size = new Size(100, 23);
+            txtCalificacion.TabIndex = 13;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ControlText;
+            label5.Location = new Point(12, 173);
+            label5.Name = "label5";
+            label5.Size = new Size(92, 18);
+            label5.TabIndex = 12;
+            label5.Text = "Calificación :";
+            // 
+            // txtIdExamen
+            // 
+            txtIdExamen.Location = new Point(128, 130);
+            txtIdExamen.Name = "txtIdExamen";
+            txtIdExamen.ReadOnly = true;
+            txtIdExamen.Size = new Size(100, 23);
+            txtIdExamen.TabIndex = 11;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ControlText;
+            label4.Location = new Point(19, 130);
+            label4.Name = "label4";
+            label4.Size = new Size(85, 18);
+            label4.TabIndex = 10;
+            label4.Text = "Id Examen :";
+            // 
+            // txtAlumno
+            // 
+            txtAlumno.Location = new Point(128, 90);
+            txtAlumno.Name = "txtAlumno";
+            txtAlumno.ReadOnly = true;
+            txtAlumno.Size = new Size(100, 23);
+            txtAlumno.TabIndex = 0;
+            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ButtonHighlight;
-            label3.Font = new Font("Arial Unicode MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = SystemColors.ControlText;
             label3.Location = new Point(295, 74);
             label3.Name = "label3";
-            label3.Size = new Size(159, 20);
+            label3.Size = new Size(158, 18);
             label3.TabIndex = 11;
             label3.Text = "Listado de Examenes :";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(85, 27);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
             // 
             // FormExamenesRendidos
             // 
@@ -179,10 +224,14 @@
         private Button btnSalir;
         private DataGridView dataGridView1;
         private Panel panel1;
-        private Button btnAgregar;
+        private Button btnHistorial;
         private Label label1;
         private Panel panel3;
-        private TextBox textBox1;
+        private TextBox txtAlumno;
         private Label label3;
+        private TextBox txtIdExamen;
+        private Label label4;
+        private TextBox txtCalificacion;
+        private Label label5;
     }
 }

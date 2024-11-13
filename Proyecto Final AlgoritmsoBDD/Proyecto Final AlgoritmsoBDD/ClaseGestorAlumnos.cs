@@ -86,5 +86,26 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
                 }
             }
         }
+
+
+        //Metodo para buscar por nombre y apellido
+        public DataTable BuscarAlumno(string nombreApellido)
+        {
+            using (SqlCommand command = new SqlCommand("SP_BuscarAlumnoPorNombreApellido"))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@NombreApellido", nombreApellido);
+
+                try
+                {
+                    return EjecutarConsulta(command);  // EjecutarConsulta es el método de ClaseGestorBase que devuelve un DataTable
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al buscar el alumno: {ex.Message}");
+                    return null;  // Devuelve null en caso de error
+                }
+            }
+        }
     }
 }

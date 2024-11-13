@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
@@ -22,6 +23,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             InitializeComponent();
             Matricula = idmatricula;
+            txtAlumno.Text = nombre;
             CargarTablaExamenes(idcarrera);
         }
 
@@ -75,14 +77,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
         }
-            
-        
 
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -90,35 +87,25 @@ namespace Proyecto_Final_AlgoritmsoBDD
             {
                 try
                 {
-                    int idexamenxalumno = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examenxalumno"].Value);
-                    string nombre = dataGridView1.Rows[e.RowIndex].Cells["Alumno"].Value.ToString();
-                    int idexamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examen"].Value);
-                    DateTime fechaexamen = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells["Fecha"].Value);
-                    int idmateria = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_materia"].Value);
-                    int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
-                    int año = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Año"].Value);
-                    decimal calificacion = Convert.ToDecimal(dataGridView1.Rows[e.RowIndex].Cells["calificacion"].Value);
+                    if (e.RowIndex >= 0)
+                    {
 
+                        string valor = dataGridView1.Rows[e.RowIndex].Cells["id_examen"].Value.ToString();
 
-                    FormHistorialExamenAlumno formExamenesRendidosModal = new FormHistorialExamenAlumno(idcarrera);
-                    formExamenesRendidosModal.ShowDialog();
+                        txtIdExamen.Text = valor;
+                    }
                 }
-                catch 
+                catch
                 {
-                    int idexamenxalumno = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_examenxalumno"].Value);
-                    string nombre = dataGridView1.Rows[e.RowIndex].Cells["Alumno"].Value.ToString();
-                    int idexamen = 0;
-                    DateTime fechaexamen = DateTime.Now;
-                    int idmateria = 0;
-                    int idcarrera = 1;
-                    int año = 0;
-                    decimal calificacion = 0;
 
-
-                    FormHistorialExamenAlumno formExamenesRendidosModal = new FormHistorialExamenAlumno(idcarrera);
-                    formExamenesRendidosModal.ShowDialog();
                 }
             }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            FormHistorialExamenAlumno formulario = new FormHistorialExamenAlumno(Matricula);
+            formulario.ShowDialog();
         }
     }
 }
