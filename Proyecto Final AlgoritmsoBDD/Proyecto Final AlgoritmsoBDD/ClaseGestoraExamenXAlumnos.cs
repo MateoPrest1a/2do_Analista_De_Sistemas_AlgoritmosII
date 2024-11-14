@@ -13,7 +13,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         // Método para insertar un nuevo registro en ExamenesXAlumno
         public void InsertarExamenXAlumno(int matricula, int idExamen, decimal calificacion)
         {
-            using (SqlCommand command = new SqlCommand("SP_InsertarExamenXAlumno"))
+            using (SqlCommand command = new SqlCommand("SP_AgregarExamenXAlumno"))
             {
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@matricula", matricula);

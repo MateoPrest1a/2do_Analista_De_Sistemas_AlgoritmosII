@@ -183,6 +183,8 @@ create table MateriasxAlumno(
 	foreign key (id_materia) references Materias(id_materia)
 );
 
+SELECT * From MateriasxAlumno
+
 create table MateriasxCarrera(
 	id_matxcarr int identity primary key,
 	id_carrera int,
@@ -207,6 +209,8 @@ create table Perfiles(
 );
 
 select * from Perfiles
+
+select * from empleados
 
 INSERT INTO Perfiles VALUES(
 'Personal Administrativo'
@@ -258,6 +262,7 @@ create table PerfilxPersona(
 
 DROP TABLE PerfilxPersona
 
+SELECt * from PerfilxPersona
 
 create table Empleados(
 	id_empleado int identity primary key,
@@ -356,6 +361,10 @@ END;
 
 
 
+
+--------------------------------------------------------Store Procedure Examen X Alumno--------------------------------------------------------
+
+
 CREATE PROCEDURE SP_AgregarExamenXAlumno
     @matricula INT,
     @id_examen INT,
@@ -367,7 +376,7 @@ BEGIN
 END
 
 
-CREATE PROCEDURE sp_ActualizarExamenXAlumno
+CREATE PROCEDURE SP_ActualizarExamenXAlumno
     @id_examenxalumno INT,
     @id_examen INT,
     @calificacion DECIMAL
@@ -409,7 +418,16 @@ AS
 BEGIN
     INSERT INTO Empleados (nombre, apellido, direccion_calle, direccion_nro, telefono, dni, email, fecha_nacimiento, salario, tipo_perfil)
     VALUES (@nombre, @apellido, @direccion_calle, @direccion_nro, @telefono, @dni, @email, @fecha_nacimiento, @salario, @tipo_perfil);
+
+	DECLARE @id_empleado INT;
+    SET @id_empleado = SCOPE_IDENTITY();  -- SCOPE_IDENTITY() devuelve el último valor insertado en la tabla actual
+
+    INSERT INTO PerfilXPersona (id_perfil, id_empleado, nombre_usuario, contrasenia)
+    VALUES (@tipo_perfil, @id_empleado, @dni, @dni); 
+
 END;
+
+DROP PROCEDURE SP_AgregarEmpleado
 
 
 

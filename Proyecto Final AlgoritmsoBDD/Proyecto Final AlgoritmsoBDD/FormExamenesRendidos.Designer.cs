@@ -36,6 +36,9 @@
             btnHistorial = new Button();
             label1 = new Label();
             panel3 = new Panel();
+            btnBorrar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
             txtCalificacion = new TextBox();
             label5 = new Label();
             txtIdExamen = new TextBox();
@@ -118,7 +121,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(38, 95);
+            label1.Location = new Point(41, 70);
             label1.Name = "label1";
             label1.Size = new Size(66, 18);
             label1.TabIndex = 9;
@@ -126,6 +129,9 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(btnBorrar);
+            panel3.Controls.Add(btnModificar);
+            panel3.Controls.Add(btnAgregar);
             panel3.Controls.Add(txtCalificacion);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(txtIdExamen);
@@ -138,9 +144,39 @@
             panel3.Size = new Size(289, 312);
             panel3.TabIndex = 40;
             // 
+            // btnBorrar
+            // 
+            btnBorrar.Location = new Point(188, 222);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new Size(71, 48);
+            btnBorrar.TabIndex = 15;
+            btnBorrar.Text = "Borrar";
+            btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.Click += btnBorrar_Click;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(102, 222);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(71, 48);
+            btnModificar.TabIndex = 14;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(22, 222);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(63, 48);
+            btnAgregar.TabIndex = 9;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // txtCalificacion
             // 
-            txtCalificacion.Location = new Point(128, 168);
+            txtCalificacion.Location = new Point(131, 143);
             txtCalificacion.Name = "txtCalificacion";
             txtCalificacion.Size = new Size(100, 23);
             txtCalificacion.TabIndex = 13;
@@ -150,7 +186,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.ControlText;
-            label5.Location = new Point(12, 173);
+            label5.Location = new Point(15, 148);
             label5.Name = "label5";
             label5.Size = new Size(92, 18);
             label5.TabIndex = 12;
@@ -158,7 +194,7 @@
             // 
             // txtIdExamen
             // 
-            txtIdExamen.Location = new Point(128, 130);
+            txtIdExamen.Location = new Point(131, 105);
             txtIdExamen.Name = "txtIdExamen";
             txtIdExamen.ReadOnly = true;
             txtIdExamen.Size = new Size(100, 23);
@@ -169,7 +205,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlText;
-            label4.Location = new Point(19, 130);
+            label4.Location = new Point(22, 105);
             label4.Name = "label4";
             label4.Size = new Size(85, 18);
             label4.TabIndex = 10;
@@ -177,7 +213,7 @@
             // 
             // txtAlumno
             // 
-            txtAlumno.Location = new Point(128, 90);
+            txtAlumno.Location = new Point(131, 65);
             txtAlumno.Name = "txtAlumno";
             txtAlumno.ReadOnly = true;
             txtAlumno.Size = new Size(100, 23);
@@ -233,5 +269,8 @@
         private Label label4;
         private TextBox txtCalificacion;
         private Label label5;
+        private Button btnAgregar;
+        private Button btnModificar;
+        private Button btnBorrar;
     }
 }

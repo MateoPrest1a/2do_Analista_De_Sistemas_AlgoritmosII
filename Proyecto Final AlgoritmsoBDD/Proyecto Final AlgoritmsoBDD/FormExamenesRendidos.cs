@@ -16,15 +16,17 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormExamenesRendidos : Form
     {
-        GestorExamenes Gestorexamenes = new GestorExamenes();
+        ClaseGestoraExamenXAlumnos Gestorexamenesalumnos = new ClaseGestoraExamenXAlumnos();
 
         public int Matricula;
+        public int IdCarrera;
         public FormExamenesRendidos(int idmatricula, string nombre, int idcarrera)
         {
             InitializeComponent();
             Matricula = idmatricula;
             txtAlumno.Text = nombre;
-            CargarTablaExamenes(idcarrera);
+            IdCarrera = idcarrera;
+            CargarTablaExamenes(IdCarrera, Matricula);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -32,12 +34,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
             this.Close();
         }
 
-        private void CargarTablaExamenes(int idCarrera)
+        private DataTable CargarTablaExamenes(int idCarrera, int matricula)
         {
             string consulta = @"
                         SELECT 
                             e.id_examen,
-                            c.id_carrera, -- Esta columna se incluye pero no se mostrará
+                            c.id_carrera, 
                             c.nombre_carrera AS Carrera,
                             m.id_materia, 
                             m.nombre_materia AS Materia,
@@ -57,13 +59,21 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         JOIN 
                             TipoExamen te ON e.tipo_examen = te.id_tipoexamen
                         WHERE 
-                            c.id_carrera = @idCarrera;";
+                            c.id_carrera = @idCarrera
+                        AND 
+                            NOT EXISTS (
+                                SELECT 1
+                                FROM ExamenesXAlumno exa
+                                WHERE exa.matricula = @matricula
+                                AND exa.id_examen = e.id_examen
+                            );";
 
             try
             {
                 SqlCommand comando = new SqlCommand(consulta);
                 comando.Parameters.AddWithValue("@idCarrera", idCarrera); // Agrega el parámetro de carrera
-                DataTable dt = Gestorexamenes.EjecutarConsulta(comando); // Usa la clase gestora para ejecutar la consulta
+                comando.Parameters.AddWithValue("@matricula", matricula);
+                DataTable dt = Gestorexamenesalumnos.EjecutarConsulta(comando); // Usa la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
 
                 // Ocultar la columna de ids
@@ -71,10 +81,22 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 dataGridView1.Columns["id_materia"].Visible = false;
                 dataGridView1.Columns["id_tipoexamen"].Visible = false;
                 dataGridView1.Columns["id_examen"].Visible = false;
+
+                // Verificar si el DataTable está vacío
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("El alumno ya rindió todos los examenes posibles para esta carrera.");
+                }
+
+                
+
+                return dt;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
+                return new DataTable();
             }
         }
 
@@ -106,6 +128,51 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             FormHistorialExamenAlumno formulario = new FormHistorialExamenAlumno(Matricula);
             formulario.ShowDialog();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                int idExamen = Convert.ToInt32(txtIdExamen.Text);  
+                decimal calificacion = Convert.ToDecimal(txtCalificacion.Text);  
+
+                Gestorexamenesalumnos.InsertarExamenXAlumno(Matricula, idExamen, calificacion);
+
+                // Actualiza el DataGridView
+                DataTable dt = CargarTablaExamenes(IdCarrera, Matricula);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar examen: {ex.Message}");
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el ID del examen asignado y la nueva calificación
+                int idExamenXAlumno = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["id_examenxalumno"].Value);  
+                int idExamen = Convert.ToInt32(txtIdExamen.Text);  
+                decimal calificacion = Convert.ToDecimal(txtCalificacion.Text);  
+
+                Gestorexamenesalumnos.ActualizarExamenXAlumno(idExamenXAlumno, idExamen, calificacion);
+
+                // Actualizo la grilla
+                CargarTablaExamenes(IdCarrera, Matricula); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al modificar examen: {ex.Message}");
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
