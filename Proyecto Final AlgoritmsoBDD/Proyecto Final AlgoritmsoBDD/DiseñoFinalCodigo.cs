@@ -9,13 +9,17 @@ namespace DiseñoFinal
         Conexionbdd conectar;
 
         int Id_Persona = 0;
+        string Perfil;
 
         public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
         {
             InitializeComponent();
             lblUsuario.Text = nombre + " " + apellido;
             lblPerfil.Text = perfil;
+            
             Id_Persona = idPerfil;
+            Perfil = perfil; //Cargo el perfil de la persona
+            //Cargo datos alumno
             lblUsuarioAlumno.Text = nombre + " " + apellido;
             lblPerfilAlumno.Text = perfil;
 
@@ -79,7 +83,7 @@ namespace DiseñoFinal
 
         private void btnABMAlumnos_Click_1(object sender, EventArgs e)
         {
-            FormAlumnos formalumnos = new FormAlumnos();
+            FormAlumnos formalumnos = new FormAlumnos(Perfil);
             formalumnos.ShowDialog();
         }
 
@@ -120,7 +124,7 @@ namespace DiseñoFinal
                 int año = Convert.ToInt32(row["año"]);
 
                 // Llama al método para abrir el formulario con los datos del alumno
-                FormAlumnosModal formulario = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechanacimientoalumno, idcarrera, año);
+                FormAlumnosModal formulario = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechanacimientoalumno, idcarrera, año, Perfil);
                 formulario.ShowDialog();
             }
             else
