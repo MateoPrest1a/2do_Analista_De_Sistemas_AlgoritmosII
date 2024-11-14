@@ -96,6 +96,7 @@ namespace DiseñoFinal
             btnExamenesProfesor = new Button();
             btnCarrerasProfesor = new Button();
             btnMateriasProfesor = new Button();
+            pictureBox2 = new PictureBox();
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -112,6 +113,7 @@ namespace DiseñoFinal
             panel11.SuspendLayout();
             tabPerfilProfesores.SuspendLayout();
             panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -727,9 +729,9 @@ namespace DiseñoFinal
             panel12.Controls.Add(label33);
             panel12.Controls.Add(label34);
             panel12.Dock = DockStyle.Bottom;
-            panel12.Location = new Point(195, 530);
+            panel12.Location = new Point(195, 524);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1013, 43);
+            panel12.Size = new Size(1013, 49);
             panel12.TabIndex = 7;
             // 
             // lblUsuarioAlumno
@@ -774,6 +776,7 @@ namespace DiseñoFinal
             // 
             // panel11
             // 
+            panel11.Controls.Add(pictureBox2);
             panel11.Controls.Add(btnExamenesAlumnos);
             panel11.Controls.Add(btnDatosAlumnos);
             panel11.Controls.Add(btnMateriasAlumnos);
@@ -794,9 +797,9 @@ namespace DiseñoFinal
             btnExamenesAlumnos.ForeColor = SystemColors.ButtonHighlight;
             btnExamenesAlumnos.Location = new Point(0, 380);
             btnExamenesAlumnos.Name = "btnExamenesAlumnos";
-            btnExamenesAlumnos.Size = new Size(195, 193);
+            btnExamenesAlumnos.Size = new Size(195, 144);
             btnExamenesAlumnos.TabIndex = 3;
-            btnExamenesAlumnos.Text = "EXAMENES";
+            btnExamenesAlumnos.Text = "EXAMENES RENDIDOS";
             btnExamenesAlumnos.UseVisualStyleBackColor = false;
             btnExamenesAlumnos.Click += btnExamenesAlumnos_Click;
             // 
@@ -939,6 +942,19 @@ namespace DiseñoFinal
             btnMateriasProfesor.Text = "MATERIAS";
             btnMateriasProfesor.UseVisualStyleBackColor = false;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
+            pictureBox2.Location = new Point(0, 524);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(195, 49);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 4;
+            pictureBox2.TabStop = false;
+            // 
             // DiseñoFinalCodigo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -969,6 +985,7 @@ namespace DiseñoFinal
             panel11.ResumeLayout(false);
             tabPerfilProfesores.ResumeLayout(false);
             panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -1046,5 +1063,6 @@ namespace DiseñoFinal
         private Label lblPerfilAlumno;
         private Label label33;
         private Label label34;
+        private PictureBox pictureBox2;
     }
 }
