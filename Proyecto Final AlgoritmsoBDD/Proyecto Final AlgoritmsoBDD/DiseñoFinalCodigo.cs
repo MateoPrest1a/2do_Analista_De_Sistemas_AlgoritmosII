@@ -7,6 +7,8 @@ namespace DiseñoFinal
     public partial class DiseñoFinalCodigo : Form
     {
         Conexionbdd conectar;
+        private List<string> imagenes;
+        private int indiceImagenActual;
 
 
         public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
@@ -14,6 +16,21 @@ namespace DiseñoFinal
             InitializeComponent();
             lblUsuario.Text = nombre + " " + apellido;
             lblPerfil.Text = perfil;
+
+            imagenes = new List<string>
+        {
+            @"C:\Ruta\A\Imagen1.jpg",  
+            @"C:\Ruta\A\Imagen2.jpg",
+            @"C:\Ruta\A\Imagen3.jpg",
+            @"C:\Ruta\A\Imagen4.jpg"
+        };
+
+            indiceImagenActual = 0;          
+                    
+            timerFotos.Interval = 15000;  // Cambiar cada 2 segundos (2000 ms)            
+            timerFotos.Start();
+            
+            CargarImagen();
         }
 
         private void CargarLabel()
@@ -33,17 +50,17 @@ namespace DiseñoFinal
             formempleados.ShowDialog();
         }
 
-        private void btnABMPermisos_Click(object sender, EventArgs e)   
+        private void btnABMPermisos_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void btnABMProfesores_Click(object sender, EventArgs e)   
+        private void btnABMProfesores_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void btnABMMaterias_Click(object sender, EventArgs e)  
+        private void btnABMMaterias_Click(object sender, EventArgs e)
         {
             FormMaterias formmaterias = new FormMaterias();
             formmaterias.ShowDialog();
@@ -75,6 +92,28 @@ namespace DiseñoFinal
         {
             FormCarreras formcarreras = new FormCarreras();
             formcarreras.ShowDialog();
+        }
+
+        private void CargarImagen()
+        {
+            if (imagenes.Count > 0 && indiceImagenActual >= 0 && indiceImagenActual < imagenes.Count)
+            {
+                pictureBox1.Image = Image.FromFile(imagenes[indiceImagenActual]);
+            }
+        }
+
+        private void timerFotos_Tick(object sender, EventArgs e)
+        {
+            indiceImagenActual++;
+
+            // Si hemos llegado al final de la lista, reiniciar el índice
+            if (indiceImagenActual >= imagenes.Count)
+            {
+                indiceImagenActual = 0;  // Reiniciar a la primera imagen
+            }
+
+            // Cargar la nueva imagen en el PictureBox
+            CargarImagen();
         }
     }
 }

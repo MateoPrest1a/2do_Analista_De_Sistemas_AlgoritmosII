@@ -29,6 +29,8 @@ namespace DiseñoFinal
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiseñoFinalCodigo));
             tabControl1 = new TabControl();
             tabMenuPrincipal = new TabPage();
             panel8 = new Panel();
@@ -90,6 +92,9 @@ namespace DiseñoFinal
             btnExamenesProfesor = new Button();
             btnCarrerasProfesor = new Button();
             btnMateriasProfesor = new Button();
+            panel12 = new Panel();
+            pictureBox2 = new PictureBox();
+            timerFotos = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -105,6 +110,8 @@ namespace DiseñoFinal
             panel11.SuspendLayout();
             tabPerfilProfesores.SuspendLayout();
             panel9.SuspendLayout();
+            panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -704,6 +711,7 @@ namespace DiseñoFinal
             // 
             // panel10
             // 
+            panel10.Controls.Add(panel12);
             panel10.Controls.Add(panel11);
             panel10.Dock = DockStyle.Fill;
             panel10.Location = new Point(0, 0);
@@ -860,6 +868,30 @@ namespace DiseñoFinal
             btnMateriasProfesor.Text = "MATERIAS";
             btnMateriasProfesor.UseVisualStyleBackColor = false;
             // 
+            // panel12
+            // 
+            panel12.Controls.Add(pictureBox2);
+            panel12.Dock = DockStyle.Fill;
+            panel12.Location = new Point(195, 0);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(1013, 573);
+            panel12.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1013, 573);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            // 
+            // timerFotos
+            // 
+            timerFotos.Tick += timerFotos_Tick;
+            // 
             // DiseñoFinalCodigo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -888,6 +920,8 @@ namespace DiseñoFinal
             panel11.ResumeLayout(false);
             tabPerfilProfesores.ResumeLayout(false);
             panel9.ResumeLayout(false);
+            panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -959,5 +993,8 @@ namespace DiseñoFinal
         private Button btnCursosAlumnos;
         private Button btnMateriasAlumnos;
         private Button button1;
+        private Panel panel12;
+        private PictureBox pictureBox2;
+        private System.Windows.Forms.Timer timerFotos;
     }
 }
