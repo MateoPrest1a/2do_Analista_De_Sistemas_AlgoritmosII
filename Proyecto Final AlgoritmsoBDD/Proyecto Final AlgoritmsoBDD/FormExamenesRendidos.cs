@@ -9,17 +9,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormExamenesRendidos : Form
     {
-        Conexionbdd conectarBDD = new Conexionbdd();
+        GestorExamenes Gestorexamenes = new GestorExamenes();
 
-        public FormExamenesRendidos(int idmatricula)
+        public int Matricula;
+        public FormExamenesRendidos(int idmatricula, string nombre, int idcarrera)
         {
             InitializeComponent();
-            CargarTabla(idmatricula);
+            Matricula = idmatricula;
+            txtAlumno.Text = nombre;
+            CargarTablaExamenes(idcarrera);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -27,69 +32,80 @@ namespace Proyecto_Final_AlgoritmsoBDD
             this.Close();
         }
 
-        //Arreglar todo esto
-
-        private void CargarTabla(int Matricula)
+        private void CargarTablaExamenes(int idCarrera)
         {
             string consulta = @"
-                                SELECT 
-                                    e.id_examenxalumno,
-                                    e.fecha,
-                                    e.calificacion,
-                                    a.nombre AS Alumno,
-                                    m.nombre_materia AS Materia,
-                                    c.nombre_carrera AS Carrera,
-                                    ex.tipo_examen AS [Tipo Examen]
-                                FROM 
-                                    ExamenxAlumno AS e
-                                JOIN 
-                                    Alumnos AS a ON a.matricula = e.id_alumno
-                                JOIN 
-                                    Materias AS m ON m.id_materia = e.id_materia
-                                JOIN 
-                                    Carreras AS c ON c.id_carrera = e.id_carrera
-                                JOIN 
-                                    Examenes AS ex ON ex.id_examen = e.id_examen
-                                WHERE 
-                                    e.id_alumno = @matricula;";
+                        SELECT 
+                            e.id_examen,
+                            c.id_carrera, -- Esta columna se incluye pero no se mostrará
+                            c.nombre_carrera AS Carrera,
+                            m.id_materia, 
+                            m.nombre_materia AS Materia,
+                            m.anio_cursada AS Año, 
+                            e.fecha_examen AS Fecha,
+                            e.hora_examen AS [Hora Examen],
+                            te.id_tipoexamen,
+                            te.descripcion AS [Tipo de Examen],
+                            e.libro,
+                            e.folio
+                        FROM 
+                            Examenes e
+                        JOIN 
+                            Carreras c ON e.id_carrera = c.id_carrera
+                        JOIN 
+                            Materias m ON e.id_materia = m.id_materia
+                        JOIN 
+                            TipoExamen te ON e.tipo_examen = te.id_tipoexamen
+                        WHERE 
+                            c.id_carrera = @idCarrera;";
 
-            using (SqlCommand command = new SqlCommand(consulta, conectarBDD.conectarbdd))
+            try
             {
-                command.Parameters.AddWithValue("@matricula", Matricula); // Reemplaza con el valor correcto
+                SqlCommand comando = new SqlCommand(consulta);
+                comando.Parameters.AddWithValue("@idCarrera", idCarrera); // Agrega el parámetro de carrera
+                DataTable dt = Gestorexamenes.EjecutarConsulta(comando); // Usa la clase gestora para ejecutar la consulta
+                dataGridView1.DataSource = dt;
 
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable dt = new DataTable();
-
-
-                try
-                {
-                    conectarBDD.abrir();
-                    adapter.Fill(dt);
-                    dataGridView1.DataSource = dt;
-                    dataGridView1.Columns["id_examenxalumno"].Visible = false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar la tabla de exámenes: " + ex.Message);
-                }
+                // Ocultar la columna de ids
+                dataGridView1.Columns["id_carrera"].Visible = false; // Oculta la columna
+                dataGridView1.Columns["id_materia"].Visible = false;
+                dataGridView1.Columns["id_tipoexamen"].Visible = false;
+                dataGridView1.Columns["id_examen"].Visible = false;
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la tabla: " + ex.Message);
+            }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
 
-        }
+
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                string nombre = dataGridView1.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-                int materia;
+                try
+                {
+                    if (e.RowIndex >= 0)
+                    {
 
+                        string valor = dataGridView1.Rows[e.RowIndex].Cells["id_examen"].Value.ToString();
 
+                        txtIdExamen.Text = valor;
+                    }
+                }
+                catch
+                {
+
+                }
             }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            FormHistorialExamenAlumno formulario = new FormHistorialExamenAlumno(Matricula);
+            formulario.ShowDialog();
         }
     }
 }

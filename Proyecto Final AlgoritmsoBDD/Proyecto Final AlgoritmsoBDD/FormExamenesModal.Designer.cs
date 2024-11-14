@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             label1 = new Label();
             btnSalir = new Button();
             panel2 = new Panel();
+            btnEliminar = new Button();
+            btnModificar = new Button();
+            btnAgregar = new Button();
             panel3 = new Panel();
             cmbTipoExamen = new ComboBox();
             dtpFechaExamen = new DateTimePicker();
@@ -48,18 +52,17 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            label6 = new Label();
-            btnEliminar = new Button();
-            btnModificar = new Button();
-            btnAgregar = new Button();
+            lblExamenID = new Label();
+            error1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)error1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(33, 72, 163);
+            panel1.BackColor = Color.FromArgb(33, 63, 96);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnSalir);
             panel1.Dock = DockStyle.Top;
@@ -71,10 +74,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 25F);
-            label1.Location = new Point(311, 20);
+            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(3, 13);
             label1.Name = "label1";
-            label1.Size = new Size(178, 39);
+            label1.Size = new Size(265, 56);
             label1.TabIndex = 46;
             label1.Text = "Examenes";
             // 
@@ -103,6 +107,36 @@
             panel2.Size = new Size(800, 371);
             panel2.TabIndex = 1;
             // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(643, 216);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 12;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(643, 161);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(75, 23);
+            btnModificar.TabIndex = 11;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(643, 111);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.TabIndex = 10;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // panel3
             // 
             panel3.Controls.Add(cmbTipoExamen);
@@ -120,23 +154,23 @@
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(label6);
-            panel3.Location = new Point(122, 47);
+            panel3.Controls.Add(lblExamenID);
+            panel3.Location = new Point(112, 47);
             panel3.Name = "panel3";
-            panel3.Size = new Size(438, 305);
+            panel3.Size = new Size(448, 305);
             panel3.TabIndex = 0;
             // 
             // cmbTipoExamen
             // 
             cmbTipoExamen.FormattingEnabled = true;
-            cmbTipoExamen.Location = new Point(132, 191);
+            cmbTipoExamen.Location = new Point(147, 191);
             cmbTipoExamen.Name = "cmbTipoExamen";
             cmbTipoExamen.Size = new Size(129, 23);
             cmbTipoExamen.TabIndex = 25;
             // 
             // dtpFechaExamen
             // 
-            dtpFechaExamen.Location = new Point(132, 162);
+            dtpFechaExamen.Location = new Point(147, 162);
             dtpFechaExamen.Name = "dtpFechaExamen";
             dtpFechaExamen.Size = new Size(239, 23);
             dtpFechaExamen.TabIndex = 24;
@@ -145,32 +179,34 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 12F);
-            label9.Location = new Point(12, 162);
+            label9.Location = new Point(15, 164);
             label9.Name = "label9";
-            label9.Size = new Size(114, 20);
+            label9.Size = new Size(124, 20);
             label9.TabIndex = 23;
-            label9.Text = "Hora Examen :";
+            label9.Text = "Fecha Examen :";
             // 
             // lblIDExamen
             // 
             lblIDExamen.AutoSize = true;
             lblIDExamen.Font = new Font("Microsoft Sans Serif", 12F);
-            lblIDExamen.Location = new Point(132, 34);
+            lblIDExamen.Location = new Point(147, 34);
             lblIDExamen.Name = "lblIDExamen";
             lblIDExamen.Size = new Size(0, 20);
             lblIDExamen.TabIndex = 22;
             // 
             // txtExamenHora
             // 
-            txtExamenHora.Location = new Point(132, 129);
+            txtExamenHora.Location = new Point(147, 129);
             txtExamenHora.Name = "txtExamenHora";
             txtExamenHora.Size = new Size(129, 23);
             txtExamenHora.TabIndex = 19;
+            txtExamenHora.TextChanged += txtExamenHora_TextChanged;
+            txtExamenHora.KeyPress += txtExamenHora_KeyPress;
             // 
             // cmbIDMaterias
             // 
             cmbIDMaterias.FormattingEnabled = true;
-            cmbIDMaterias.Location = new Point(132, 97);
+            cmbIDMaterias.Location = new Point(147, 97);
             cmbIDMaterias.Name = "cmbIDMaterias";
             cmbIDMaterias.Size = new Size(129, 23);
             cmbIDMaterias.TabIndex = 18;
@@ -178,21 +214,22 @@
             // cmbIDCarrera
             // 
             cmbIDCarrera.FormattingEnabled = true;
-            cmbIDCarrera.Location = new Point(132, 64);
+            cmbIDCarrera.Location = new Point(147, 65);
             cmbIDCarrera.Name = "cmbIDCarrera";
             cmbIDCarrera.Size = new Size(129, 23);
             cmbIDCarrera.TabIndex = 17;
+            cmbIDCarrera.SelectedIndexChanged += cmbIDCarrera_SelectedIndexChanged_1;
             // 
             // txtLibro
             // 
-            txtLibro.Location = new Point(132, 225);
+            txtLibro.Location = new Point(147, 225);
             txtLibro.Name = "txtLibro";
             txtLibro.Size = new Size(129, 23);
             txtLibro.TabIndex = 15;
             // 
             // txtFolio
             // 
-            txtFolio.Location = new Point(132, 255);
+            txtFolio.Location = new Point(147, 255);
             txtFolio.Name = "txtFolio";
             txtFolio.Size = new Size(129, 23);
             txtFolio.TabIndex = 14;
@@ -201,7 +238,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 12F);
-            label8.Location = new Point(75, 254);
+            label8.Location = new Point(90, 254);
             label8.Name = "label8";
             label8.Size = new Size(51, 20);
             label8.TabIndex = 13;
@@ -211,7 +248,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F);
-            label7.Location = new Point(74, 224);
+            label7.Location = new Point(89, 224);
             label7.Name = "label7";
             label7.Size = new Size(52, 20);
             label7.TabIndex = 12;
@@ -221,7 +258,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 12F);
-            label5.Location = new Point(17, 194);
+            label5.Location = new Point(32, 194);
             label5.Name = "label5";
             label5.Size = new Size(109, 20);
             label5.TabIndex = 11;
@@ -231,7 +268,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F);
-            label4.Location = new Point(12, 128);
+            label4.Location = new Point(27, 128);
             label4.Name = "label4";
             label4.Size = new Size(114, 20);
             label4.TabIndex = 10;
@@ -241,7 +278,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F);
-            label3.Location = new Point(56, 96);
+            label3.Location = new Point(71, 96);
             label3.Name = "label3";
             label3.Size = new Size(70, 20);
             label3.TabIndex = 9;
@@ -251,49 +288,25 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F);
-            label2.Location = new Point(56, 63);
+            label2.Location = new Point(71, 63);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
             label2.TabIndex = 8;
             label2.Text = "Carrera :";
             // 
-            // label6
+            // lblExamenID
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 12F);
-            label6.Location = new Point(30, 34);
-            label6.Name = "label6";
-            label6.Size = new Size(96, 20);
-            label6.TabIndex = 7;
-            label6.Text = "ID Examen :";
+            lblExamenID.AutoSize = true;
+            lblExamenID.Font = new Font("Microsoft Sans Serif", 12F);
+            lblExamenID.Location = new Point(45, 34);
+            lblExamenID.Name = "lblExamenID";
+            lblExamenID.Size = new Size(96, 20);
+            lblExamenID.TabIndex = 7;
+            lblExamenID.Text = "ID Examen :";
             // 
-            // btnEliminar
+            // error1
             // 
-            btnEliminar.Location = new Point(643, 216);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
-            btnEliminar.TabIndex = 12;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Location = new Point(643, 161);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(75, 23);
-            btnModificar.TabIndex = 11;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(643, 111);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 10;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
+            error1.ContainerControl = this;
             // 
             // FormExamenesModal
             // 
@@ -303,6 +316,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormExamenesModal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormExamenesModal";
             Load += FormExamenesModal_Load;
             panel1.ResumeLayout(false);
@@ -310,6 +324,7 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)error1).EndInit();
             ResumeLayout(false);
         }
 
@@ -323,7 +338,7 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label6;
+        private Label lblExamenID;
         private Label label8;
         private Label label7;
         private Label label5;
@@ -339,5 +354,6 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
+        private ErrorProvider error1;
     }
 }

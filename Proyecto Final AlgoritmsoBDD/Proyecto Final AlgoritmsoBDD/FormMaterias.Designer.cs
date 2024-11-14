@@ -50,7 +50,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(48, 94, 214);
+            panel1.BackColor = Color.FromArgb(33, 63, 96);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnSalir);
             panel1.Dock = DockStyle.Top;
@@ -62,10 +62,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Schadow BT", 25F);
-            label1.Location = new Point(312, 9);
+            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(0, 3);
             label1.Name = "label1";
-            label1.Size = new Size(147, 41);
+            label1.Size = new Size(226, 56);
             label1.TabIndex = 2;
             label1.Text = "Materias";
             // 
@@ -73,7 +74,7 @@
             // 
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(734, 3);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(63, 57);

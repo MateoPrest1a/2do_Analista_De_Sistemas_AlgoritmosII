@@ -4,7 +4,7 @@
     <Compile Update="DiseñoFinalCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormAgregarExamenAlumno.cs">
+    <Compile Update="FormHistorialExamenAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormAlumnos.cs">

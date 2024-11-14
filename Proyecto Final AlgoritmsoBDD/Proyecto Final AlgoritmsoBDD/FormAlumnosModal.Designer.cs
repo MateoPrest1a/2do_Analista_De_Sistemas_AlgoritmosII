@@ -39,6 +39,8 @@
             btnModificar = new Button();
             btnAgregar = new Button();
             panel3 = new Panel();
+            label1 = new Label();
+            cmbAñoAlumno = new ComboBox();
             lblMatriculaAlumno = new Label();
             lblMatricula = new Label();
             pictureBox1 = new PictureBox();
@@ -94,7 +96,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(48, 94, 214);
+            panel2.BackColor = Color.FromArgb(33, 63, 96);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(btnSalir);
             panel2.Dock = DockStyle.Top;
@@ -106,10 +108,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Schadow BT", 25F);
-            label2.Location = new Point(283, 15);
+            label2.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(3, 9);
             label2.Name = "label2";
-            label2.Size = new Size(145, 41);
+            label2.Size = new Size(227, 56);
             label2.TabIndex = 1;
             label2.Text = "Alumnos";
             // 
@@ -118,7 +121,7 @@
             btnSalir.BackgroundImageLayout = ImageLayout.None;
             btnSalir.FlatAppearance.BorderSize = 0;
             btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.Location = new Point(673, 12);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(59, 44);
@@ -133,7 +136,7 @@
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 9;
-            btnEliminar.Text = "Eliminar";
+            btnEliminar.Text = "Baja";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
@@ -160,6 +163,8 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.None;
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(cmbAñoAlumno);
             panel3.Controls.Add(lblMatriculaAlumno);
             panel3.Controls.Add(lblMatricula);
             panel3.Controls.Add(pictureBox1);
@@ -186,23 +191,41 @@
             panel3.Size = new Size(499, 322);
             panel3.TabIndex = 6;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 12F);
+            label1.Location = new Point(301, 273);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 20);
+            label1.TabIndex = 38;
+            label1.Text = "Año :";
+            // 
+            // cmbAñoAlumno
+            // 
+            cmbAñoAlumno.FormattingEnabled = true;
+            cmbAñoAlumno.Location = new Point(349, 271);
+            cmbAñoAlumno.Name = "cmbAñoAlumno";
+            cmbAñoAlumno.Size = new Size(47, 23);
+            cmbAñoAlumno.TabIndex = 37;
+            // 
             // lblMatriculaAlumno
             // 
             lblMatriculaAlumno.AutoSize = true;
-            lblMatriculaAlumno.Font = new Font("Schadow BT", 12F);
+            lblMatriculaAlumno.Font = new Font("Microsoft Sans Serif", 12F);
             lblMatriculaAlumno.Location = new Point(152, 40);
             lblMatriculaAlumno.Name = "lblMatriculaAlumno";
-            lblMatriculaAlumno.Size = new Size(0, 19);
+            lblMatriculaAlumno.Size = new Size(0, 20);
             lblMatriculaAlumno.TabIndex = 36;
             // 
             // lblMatricula
             // 
             lblMatricula.AutoSize = true;
-            lblMatricula.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMatricula.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMatricula.ImageAlign = ContentAlignment.BottomLeft;
             lblMatricula.Location = new Point(62, 40);
             lblMatricula.Name = "lblMatricula";
-            lblMatricula.Size = new Size(82, 19);
+            lblMatricula.Size = new Size(81, 20);
             lblMatricula.TabIndex = 35;
             lblMatricula.Text = "Matricula :";
             lblMatricula.TextAlign = ContentAlignment.MiddleCenter;
@@ -220,10 +243,10 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Schadow BT", 12F);
+            label11.Font = new Font("Microsoft Sans Serif", 12F);
             label11.Location = new Point(75, 270);
             label11.Name = "label11";
-            label11.Size = new Size(69, 19);
+            label11.Size = new Size(70, 20);
             label11.TabIndex = 33;
             label11.Text = "Carrera :";
             // 
@@ -239,81 +262,81 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Schadow BT", 12F);
+            label10.Font = new Font("Microsoft Sans Serif", 12F);
             label10.Location = new Point(4, 244);
             label10.Name = "label10";
-            label10.Size = new Size(140, 19);
+            label10.Size = new Size(145, 20);
             label10.TabIndex = 31;
             label10.Text = "Fecha Nacimiento :";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Schadow BT", 12F);
+            label9.Font = new Font("Microsoft Sans Serif", 12F);
             label9.Location = new Point(88, 212);
             label9.Name = "label9";
-            label9.Size = new Size(56, 19);
+            label9.Size = new Size(56, 20);
             label9.TabIndex = 30;
             label9.Text = "Email :";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Schadow BT", 12F);
+            label8.Font = new Font("Microsoft Sans Serif", 12F);
             label8.Location = new Point(48, 183);
             label8.Name = "label8";
-            label8.Size = new Size(96, 19);
+            label8.Size = new Size(100, 20);
             label8.TabIndex = 29;
             label8.Text = "Documento :";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Schadow BT", 12F);
+            label7.Font = new Font("Microsoft Sans Serif", 12F);
             label7.Location = new Point(68, 154);
             label7.Name = "label7";
-            label7.Size = new Size(76, 19);
+            label7.Size = new Size(79, 20);
             label7.TabIndex = 28;
             label7.Text = "Telefono :";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Schadow BT", 12F);
+            label6.Font = new Font("Microsoft Sans Serif", 12F);
             label6.Location = new Point(281, 125);
             label6.Name = "label6";
-            label6.Size = new Size(72, 19);
+            label6.Size = new Size(73, 20);
             label6.TabIndex = 27;
             label6.Text = "Numero :";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Schadow BT", 12F);
+            label5.Font = new Font("Microsoft Sans Serif", 12F);
             label5.Location = new Point(25, 125);
             label5.Name = "label5";
-            label5.Size = new Size(121, 19);
+            label5.Size = new Size(122, 20);
             label5.TabIndex = 26;
             label5.Text = "Dirección Calle :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Schadow BT", 12F);
+            label4.Font = new Font("Microsoft Sans Serif", 12F);
             label4.Location = new Point(73, 96);
             label4.Name = "label4";
-            label4.Size = new Size(73, 19);
+            label4.Size = new Size(73, 20);
             label4.TabIndex = 25;
             label4.Text = "Apellido :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Schadow BT", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ImageAlign = ContentAlignment.BottomLeft;
             label3.Location = new Point(73, 67);
             label3.Name = "label3";
-            label3.Size = new Size(71, 19);
+            label3.Size = new Size(73, 20);
             label3.TabIndex = 24;
             label3.Text = "Nombre :";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -322,7 +345,7 @@
             // 
             dtpFechaNacimientoAlumno.Location = new Point(152, 241);
             dtpFechaNacimientoAlumno.Name = "dtpFechaNacimientoAlumno";
-            dtpFechaNacimientoAlumno.Size = new Size(239, 23);
+            dtpFechaNacimientoAlumno.Size = new Size(244, 23);
             dtpFechaNacimientoAlumno.TabIndex = 22;
             // 
             // txtEmailAlumno
@@ -431,5 +454,7 @@
         private Button btnSalir;
         private Button btnExamenesRendidos;
         private ErrorProvider error1;
+        private Label label1;
+        private ComboBox cmbAñoAlumno;
     }
 }
