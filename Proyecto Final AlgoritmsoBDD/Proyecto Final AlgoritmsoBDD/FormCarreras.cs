@@ -17,34 +17,28 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         public event Action<string> CarreraAgregada;
 
-        Conexionbdd conectarBDD;
+        private GestorCarreras gestorCarreras = new GestorCarreras(); // Instancia de la clase gestora
+
 
         public FormCarreras()
         {
             InitializeComponent();
-
-            conectarBDD = new Conexionbdd();
         }
 
         public void Cargar_Tabla()
         {
             string consulta = "SELECT * FROM Carreras";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
+            SqlCommand command = new SqlCommand(consulta);
 
             try
             {
-                adapter.Fill(dt);
+                DataTable dt = gestorCarreras.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
             }
             catch (Exception ex)
             {
                 // Manejar excepciones, por ejemplo, mostrar un mensaje de error
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
-            }
-            finally
-            {
-                conectarBDD.cerrar(); // Cerrar la conexión después de usarla
             }
         }
 
@@ -100,11 +94,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void ActualizarDataGridView()
         {
-            string consulta = "SELECT * FROM Carreras";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
+            Cargar_Tabla();
         }
     }
 }

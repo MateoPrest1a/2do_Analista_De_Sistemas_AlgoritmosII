@@ -30,78 +30,92 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             panel1 = new Panel();
-            checkBox1 = new CheckBox();
-            btnAcceder = new Button();
-            txtContraseña = new TextBox();
+            panel2 = new Panel();
             txtUsuario = new TextBox();
+            checkBox1 = new CheckBox();
+            txtContraseña = new TextBox();
+            btnAcceder = new Button();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(checkBox1);
-            panel1.Controls.Add(btnAcceder);
-            panel1.Controls.Add(txtContraseña);
-            panel1.Controls.Add(txtUsuario);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(47, 45);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(460, 322);
+            panel1.Size = new Size(823, 432);
             panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(txtUsuario);
+            panel2.Controls.Add(checkBox1);
+            panel2.Controls.Add(txtContraseña);
+            panel2.Controls.Add(btnAcceder);
+            panel2.Location = new Point(249, 190);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(309, 181);
+            panel2.TabIndex = 5;
+            // 
+            // txtUsuario
+            // 
+            txtUsuario.Font = new Font("HoloLens MDL2 Assets", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsuario.ForeColor = SystemColors.WindowText;
+            txtUsuario.Location = new Point(47, 14);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.PlaceholderText = " Usuario";
+            txtUsuario.Size = new Size(248, 27);
+            txtUsuario.TabIndex = 1;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(103, 254);
+            checkBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox1.ImageAlign = ContentAlignment.TopLeft;
+            checkBox1.Location = new Point(47, 94);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(130, 19);
-            checkBox1.TabIndex = 1;
+            checkBox1.Size = new Size(143, 20);
+            checkBox1.TabIndex = 3;
             checkBox1.Text = "Mostrar Contraseña";
+            checkBox1.TextAlign = ContentAlignment.TopLeft;
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // txtContraseña
+            // 
+            txtContraseña.Font = new Font("HoloLens MDL2 Assets", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtContraseña.Location = new Point(47, 61);
+            txtContraseña.Name = "txtContraseña";
+            txtContraseña.PasswordChar = '*';
+            txtContraseña.PlaceholderText = " Contraseña";
+            txtContraseña.Size = new Size(248, 27);
+            txtContraseña.TabIndex = 2;
             // 
             // btnAcceder
             // 
             btnAcceder.BackColor = Color.FromArgb(64, 55, 223);
-            btnAcceder.Font = new Font("Microsoft Sans Serif", 12F);
+            btnAcceder.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAcceder.ForeColor = SystemColors.ButtonHighlight;
-            btnAcceder.Location = new Point(103, 279);
+            btnAcceder.Location = new Point(12, 131);
             btnAcceder.Name = "btnAcceder";
-            btnAcceder.Size = new Size(248, 34);
+            btnAcceder.Size = new Size(283, 34);
             btnAcceder.TabIndex = 4;
             btnAcceder.Text = "Acceder";
             btnAcceder.UseVisualStyleBackColor = false;
             btnAcceder.Click += btnAcceder_Click;
             // 
-            // txtContraseña
-            // 
-            txtContraseña.Font = new Font("Segoe UI", 15F);
-            txtContraseña.Location = new Point(103, 205);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.PasswordChar = '*';
-            txtContraseña.PlaceholderText = " Contraseña";
-            txtContraseña.Size = new Size(248, 34);
-            txtContraseña.TabIndex = 2;
-            // 
-            // txtUsuario
-            // 
-            txtUsuario.Font = new Font("Segoe UI", 15F);
-            txtUsuario.Location = new Point(103, 144);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.PlaceholderText = " Usuario";
-            txtUsuario.Size = new Size(248, 34);
-            txtUsuario.TabIndex = 0;
-            txtUsuario.TextChanged += txtUsuario_TextChanged;
-            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(103, 24);
+            pictureBox1.Location = new Point(185, 46);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(248, 89);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.Size = new Size(508, 103);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -109,16 +123,16 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(551, 431);
+            ClientSize = new Size(823, 432);
             Controls.Add(panel1);
-            MaximumSize = new Size(567, 470);
-            MinimumSize = new Size(567, 470);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ingresar";
+            FormClosing += Login_FormClosing;
             Load += Login_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -131,5 +145,6 @@
         private TextBox txtUsuario;
         private Button btnAcceder;
         private CheckBox checkBox1;
+        private Panel panel2;
     }
 }

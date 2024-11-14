@@ -14,15 +14,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormExamenes : Form
     {
-
-
-
-        Conexionbdd conectarBDD;
+        private GestorExamenes gestorExamenes = new GestorExamenes(); // Instancia de la clase gestora
         public FormExamenes()
         {
             InitializeComponent();
-
-            conectarBDD = new Conexionbdd();
         }
 
         private void CargarTablaExamenes()
@@ -50,12 +45,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                 JOIN 
                                     TipoExamen te ON e.tipo_examen = te.id_tipoexamen;";
 
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-
             try
             {
-                adapter.Fill(dt);
+                DataTable dt = gestorExamenes.EjecutarConsulta(new SqlCommand(consulta)); // Usa la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
 
                 // Ocultar la columna de ids
@@ -78,32 +70,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void Actualizar_DataGridView()
         {
-            string consulta = @"
-                                SELECT 
-                                    e.id_examen,
-                                    c.id_carrera, -- Esta columna se incluye pero no se mostrará
-                                    c.nombre_carrera AS Carrera,
-                                    m.id_materia, 
-                                    m.nombre_materia AS Materia,
-                                    m.anio_cursada AS Año, 
-                                    e.fecha_examen AS Fecha,
-                                    e.hora_examen AS [Hora Examen],
-                                    te.id_tipoexamen,
-                                    te.descripcion AS [Tipo de Examen],
-                                    e.libro,
-                                    e.folio
-                                FROM 
-                                    Examenes e
-                                JOIN 
-                                    Carreras c ON e.id_carrera = c.id_carrera
-                                JOIN 
-                                    Materias m ON e.id_materia = m.id_materia
-                                JOIN 
-                                    TipoExamen te ON e.tipo_examen = te.id_tipoexamen;";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
+            CargarTablaExamenes();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -117,9 +84,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             {
                 try
                 {
-
-
-
                     // Obtener los valores de las celdas
                     int idExamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
                     int idCarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value); // Asegúrate de que el nombre es correcto

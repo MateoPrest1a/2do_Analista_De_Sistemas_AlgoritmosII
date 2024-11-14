@@ -34,6 +34,12 @@ public class Empleado : Persona
     public int DiasTrabajadosMensuales { get; set; }
 }
 
+public class Especialidad
+{
+    public int IdEspecialidad { get; set; }
+    public string especialidad { get; set; }
+}
+
 public class Materia
 {
     public int ID_Materia { get; set; } //PRIMARY KEY
@@ -124,6 +130,15 @@ class PerfilXPersona
     public int ID_Empleado { get; set; } //Foreing key de Empleados
     public string NombreUsuario { get; set; }
     public string Constraseña { get; set; }
+}
+
+
+public class TipoExamen     // Clase para cargar los tipo examen en los combo box.
+{
+    public int Id { get; set; }
+    public string Descripcion { get; set; }
+
+    public override string ToString() => Descripcion; // Para que se muestre correctamente en el ComboBox
 }
 
 /*

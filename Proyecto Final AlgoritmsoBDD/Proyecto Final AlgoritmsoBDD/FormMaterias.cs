@@ -14,12 +14,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
 {
     public partial class FormMaterias : Form
     {
-        Conexionbdd conectarBDD;
+        GestorMaterias GestorMaterias = new GestorMaterias();
 
         public FormMaterias()
         {
             InitializeComponent();
-            conectarBDD = new Conexionbdd();
         }
         private void FormMaterias_Load(object sender, EventArgs e)
         {
@@ -71,26 +70,18 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     Materias as m
                                 JOIN MateriasxCarrera as mc ON m.id_materia = mc.id_materia
                                 JOIN Carreras as c ON mc.id_carrera = c.id_carrera;";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-            
-            
-            
+
+            SqlCommand command = new SqlCommand(consulta);
+
             try
             {
-                adapter.Fill(dt);
+                DataTable dt = GestorMaterias.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
                 dataGridView1.DataSource = dt;
-                //Oculto la columna que no quiero que se vea
                 dataGridView1.Columns["id_carrera"].Visible = false;
             }
             catch (Exception ex)
             {
-                // Manejar excepciones
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
-            }
-            finally
-            {
-                conectarBDD.cerrar(); // Cerrar la conexión después de usarla
             }
         }
 
@@ -101,23 +92,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void ActualizarDataGridView()
         {
-            string consulta = @"SELECT  
-                                    m.id_materia as ID, 
-                                    m.anio_cursada as Año, 
-                                    m.nombre_materia as Materia,
-                                    c.nombre_carrera AS Carrera,
-                                    c.id_carrera
-                                FROM 
-                                    Materias as m
-                                JOIN MateriasxCarrera as mc ON m.id_materia = mc.id_materia
-                                JOIN Carreras as c ON mc.id_carrera = c.id_carrera;";
-            SqlDataAdapter adapter = new SqlDataAdapter(consulta, conectarBDD.conectarbdd);
-            DataTable dt = new DataTable();
-
-            
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            dataGridView1.Columns["id_carrera"].Visible = false;
+            CargarTabla();
         }
     }
 }
