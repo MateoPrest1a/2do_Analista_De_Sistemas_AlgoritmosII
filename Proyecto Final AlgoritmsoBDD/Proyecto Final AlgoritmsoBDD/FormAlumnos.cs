@@ -26,6 +26,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
             InitializeComponent();
             Cargar_Filtros();
             CargarCarreras();
+
+            Perfil = perfil;
         }
 
         private void CargarCarreras()

@@ -184,6 +184,10 @@ create table MateriasxAlumno(
 	foreign key (id_materia) references Materias(id_materia)
 );
 
+drop table MateriasxAlumno
+
+select * from Perfiles
+
 SELECT * From MateriasxAlumno
 
 create table MateriasxCarrera(
@@ -277,10 +281,19 @@ create table Empleados(
 	fecha_nacimiento date,
 	salario int,
 	tipo_perfil int,
-	foreign key (tipo_perfil) references Perfiles(id_perfil)
+    FOREIGN KEY (tipo_perfil) REFERENCES Perfiles(id_perfil)
 );
 
-drop table Empleados
+
+CREATE TABLE MateriasxProfesor (
+    id_materiasxprofesor INT IDENTITY PRIMARY KEY,
+    id_profesor INT,                
+    id_materia INT,                 
+    FOREIGN KEY (id_profesor) REFERENCES Empleados(id_empleado),  
+    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
+);
+
+select * from Empleados
 
 INSERT INTO Empleados (nombre, apellido, direccion_calle, direccion_nro, telefono, dni, email, fecha_nacimiento, salario, tipo_perfil)
 VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmail.com', 'ramirosansi@gmail.com', '1969-10-10', 240000, 1);
@@ -515,7 +528,8 @@ END;
 CREATE PROCEDURE SP_AgregarMateria
     @anio_cursada INT,
     @nombre_materia VARCHAR(30),
-    @id_carrera INT
+    @id_carrera INT,
+	@id_empleado INT --El id del empleado para la tabla MateriasXProfesor
 AS
 BEGIN
     
@@ -529,25 +543,41 @@ BEGIN
     -- Insertar el registro en la tabla MateriasxCarrera
     INSERT INTO MateriasxCarrera (id_carrera, id_materia)
     VALUES (@id_carrera, @id_materia);
+
+	INSERT INTO MateriasxProfesor (id_profesor, id_materia)
+    VALUES (@id_empleado, @id_materia);
 END;
 
-
+drop procedure SP_AgregarMateria
 
 
 CREATE PROCEDURE SP_ActualizarMateria
     @id_materia INT,
     @anio_cursada INT,
-    @nombre_materia VARCHAR(30)
+    @nombre_materia VARCHAR(30),
+    @id_carrera INT,  -- El id de la carrera con la que se debe actualizar la materia
+    @id_empleado INT  -- El id del profesor que se debe asociar con la materia
 AS
 BEGIN
+    -- Actualizar la materia en la tabla Materias
     UPDATE Materias
     SET 
         anio_cursada = @anio_cursada,
         nombre_materia = @nombre_materia
     WHERE id_materia = @id_materia;
+
+    -- Actualizar la relación de la materia con la carrera en MateriasxCarrera
+    UPDATE MateriasxCarrera
+    SET id_carrera = @id_carrera
+    WHERE id_materia = @id_materia;
+
+    -- Actualizar la relación de la materia con el profesor en MateriasxProfesor
+    UPDATE MateriasxProfesor
+    SET id_profesor = @id_empleado
+    WHERE id_materia = @id_materia;
 END;
 
-
+drop procedure SP_ActualizarMateria
 
 
 CREATE PROCEDURE SP_EliminarMateria
@@ -557,6 +587,9 @@ BEGIN
     -- Eliminar la relación en la tabla MateriasxCarrera
     DELETE FROM MateriasxCarrera
     WHERE id_materia = @id_materia;
+
+	DELETE FROM MateriasxProfesor
+	WHERE id_materia = @id_materia;
 
     -- Eliminar la materia de la tabla Materias
     DELETE FROM Materias

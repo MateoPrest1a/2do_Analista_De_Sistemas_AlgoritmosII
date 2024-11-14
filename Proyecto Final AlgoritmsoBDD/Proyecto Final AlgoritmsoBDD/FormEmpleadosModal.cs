@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Proyecto_Final_AlgoritmsoBDD
@@ -18,8 +19,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private GestorEmpleados gestorEmpleados = new GestorEmpleados();
 
         public event Action EmpleadoEvento; //Evento para actualizar el datagridview
-       
 
+        SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
         private void CargarEspecialidades()
         {
@@ -37,7 +38,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
         public FormEmpleadosModal(int idprofesor, string nombre, string apellido, string direccioncalle, int direccionnumero, string telefono, string dni, string email, DateTime fechanacimiento, decimal salario, int especialidad)
         {
             InitializeComponent();
-
             CargarEspecialidades();
 
 
@@ -87,7 +87,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-
+        
 
 
         private void ValidarCampo(TextBox textBox, string mensaje)
