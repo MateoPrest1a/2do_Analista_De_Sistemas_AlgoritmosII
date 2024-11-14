@@ -29,6 +29,8 @@ namespace DiseñoFinal
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiseñoFinalCodigo));
             tabControl1 = new TabControl();
             tabMenuPrincipal = new TabPage();
             panel8 = new Panel();
@@ -80,12 +82,14 @@ namespace DiseñoFinal
             btnABMEmpleados = new Button();
             tabPerfilAlumno = new TabPage();
             panel10 = new Panel();
+            AlumnoImagenes = new PictureBox();
             panel12 = new Panel();
             lblUsuarioAlumno = new Label();
             lblPerfilAlumno = new Label();
             label33 = new Label();
             label34 = new Label();
             panel11 = new Panel();
+            pictureBox2 = new PictureBox();
             btnExamenesAlumnos = new Button();
             btnDatosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
@@ -96,7 +100,7 @@ namespace DiseñoFinal
             btnExamenesProfesor = new Button();
             btnCarrerasProfesor = new Button();
             btnMateriasProfesor = new Button();
-            pictureBox2 = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -109,11 +113,12 @@ namespace DiseñoFinal
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPerfilAlumno.SuspendLayout();
             panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AlumnoImagenes).BeginInit();
             panel12.SuspendLayout();
             panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabPerfilProfesores.SuspendLayout();
             panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -713,6 +718,7 @@ namespace DiseñoFinal
             // 
             // panel10
             // 
+            panel10.Controls.Add(AlumnoImagenes);
             panel10.Controls.Add(panel12);
             panel10.Controls.Add(panel11);
             panel10.Dock = DockStyle.Fill;
@@ -720,6 +726,17 @@ namespace DiseñoFinal
             panel10.Name = "panel10";
             panel10.Size = new Size(1208, 573);
             panel10.TabIndex = 0;
+            // 
+            // AlumnoImagenes
+            // 
+            AlumnoImagenes.Dock = DockStyle.Fill;
+            AlumnoImagenes.Image = (Image)resources.GetObject("AlumnoImagenes.Image");
+            AlumnoImagenes.Location = new Point(195, 0);
+            AlumnoImagenes.Name = "AlumnoImagenes";
+            AlumnoImagenes.Size = new Size(1013, 524);
+            AlumnoImagenes.SizeMode = PictureBoxSizeMode.StretchImage;
+            AlumnoImagenes.TabIndex = 8;
+            AlumnoImagenes.TabStop = false;
             // 
             // panel12
             // 
@@ -785,6 +802,19 @@ namespace DiseñoFinal
             panel11.Name = "panel11";
             panel11.Size = new Size(195, 573);
             panel11.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
+            pictureBox2.Location = new Point(0, 524);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(195, 49);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 4;
+            pictureBox2.TabStop = false;
             // 
             // btnExamenesAlumnos
             // 
@@ -942,18 +972,9 @@ namespace DiseñoFinal
             btnMateriasProfesor.Text = "MATERIAS";
             btnMateriasProfesor.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // timer1
             // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
-            pictureBox2.Location = new Point(0, 524);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(195, 49);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 4;
-            pictureBox2.TabStop = false;
+            timer1.Tick += timer1_Tick;
             // 
             // DiseñoFinalCodigo
             // 
@@ -962,7 +983,7 @@ namespace DiseñoFinal
             ClientSize = new Size(1216, 601);
             Controls.Add(tabControl1);
             Name = "DiseñoFinalCodigo";
-            Text = "Form1";
+            Text = "HILET";
             tabControl1.ResumeLayout(false);
             tabMenuPrincipal.ResumeLayout(false);
             panel8.ResumeLayout(false);
@@ -980,12 +1001,13 @@ namespace DiseñoFinal
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabPerfilAlumno.ResumeLayout(false);
             panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AlumnoImagenes).EndInit();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tabPerfilProfesores.ResumeLayout(false);
             panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -1064,5 +1086,7 @@ namespace DiseñoFinal
         private Label label33;
         private Label label34;
         private PictureBox pictureBox2;
+        private PictureBox AlumnoImagenes;
+        private System.Windows.Forms.Timer timer1;
     }
 }

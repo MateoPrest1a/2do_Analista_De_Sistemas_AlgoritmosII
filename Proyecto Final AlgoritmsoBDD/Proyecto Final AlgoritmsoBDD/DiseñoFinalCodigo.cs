@@ -11,12 +11,27 @@ namespace DiseñoFinal
         int Id_Persona = 0;
         string Perfil;
 
+        private List<string> imgs;
+        private int indiceImagen = 0;
+
         public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
         {
             InitializeComponent();
+            
+            imgs = new List<string>()
+            {
+                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\renz y nico.jpg",
+                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto2.jpg",
+                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg",
+                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto4.jpg"
+            };
+
+            timer1.Interval = 3000;
+            timer1.Start();
+
             lblUsuario.Text = nombre + " " + apellido;
             lblPerfil.Text = perfil;
-            
+
             Id_Persona = idPerfil;
             Perfil = perfil; //Cargo el perfil de la persona
             //Cargo datos alumno
@@ -149,6 +164,26 @@ namespace DiseñoFinal
         {
             FormMateriasXAlumno formMateriasXAlumno = new FormMateriasXAlumno(Id_Persona);
             formMateriasXAlumno.ShowDialog();
+        }
+
+        private void CargarImagen()
+        {
+            if (imgs.Count > 0 && indiceImagen >= 0 && indiceImagen < imgs.Count)
+            {
+                AlumnoImagenes.Image = Image.FromFile(imgs[indiceImagen]);
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            indiceImagen++;
+
+            if (indiceImagen > imgs.Count)
+            {
+                indiceImagen = 0;
+            }
+
+            CargarImagen();           
         }
     }
 }
