@@ -88,7 +88,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-        public FormAlumnosModal(int matricula, string nombre, string apellido, string direcalle, string direnum, string telefono, string documento, string email, DateTime fechanacimientoalumno, int idcarrera, int año)
+        public FormAlumnosModal(int matricula, string nombre, string apellido, string direcalle, string direnum, string telefono, string documento, string email, DateTime fechanacimientoalumno, int idcarrera, int año, string perfil) //perfil para mostrar que puede hacer dependiendo el perfil del usuario
         {
             InitializeComponent();
 
@@ -127,9 +127,45 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 }
             }
 
+            //Perfiles
+            AjustarVisibilidadPerfil(perfil);
         }
 
+        private void AjustarVisibilidadPerfil(string perfil)
+        {
 
+            if (perfil == "Alumno")
+            {
+                //Oculto Botones
+                btnAgregar.Visible = false;
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+                btnAsignarMaterias.Visible = false;
+                btnExamenesRendidos.Visible = false;
+
+                //Deshabilito edicion de atributos
+                txtNombreAlumno.Enabled = false;
+                txtApellidoAlumno.Enabled = false;
+                txtDireCalleAlumno.Enabled = false;
+                txtDireNumeroAlumno.Enabled = false;
+                txtEmailAlumno.Enabled = false;
+                txtDocumentoAlumno.Enabled = false;
+                cmbAñoAlumno.Enabled = false;
+                cmbCarrerasAlumnos.Enabled = false;
+                txtTelefonoAlumno.Enabled = false;
+                dtpFechaNacimientoAlumno.Enabled = false;
+            }
+            else if (perfil == "Profesor")
+            {
+                btnAgregar.Visible = false;
+                btnModificar.Visible = false;
+                btnEliminar.Visible = false;
+            }
+            else if (perfil == "Personal Administrativo")
+            {
+                
+            }
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string NombreAlumno = "";

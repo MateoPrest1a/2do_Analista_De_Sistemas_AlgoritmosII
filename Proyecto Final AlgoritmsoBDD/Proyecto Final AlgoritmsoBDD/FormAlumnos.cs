@@ -20,7 +20,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos(); // Instancia de la clase gestora
 
-        public FormAlumnos()
+        string Perfil; //Para determinar que podra ver dependiendo cada perfil
+        public FormAlumnos(string perfil)
         {
             InitializeComponent();
             Cargar_Filtros();
@@ -156,7 +157,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
                     int año = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["año"].Value);
 
-                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, idcarrera, año);
+                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, idcarrera, año, Perfil);
                     formalumnosmodal.AlumnoEvento += ActualizarDataGridView;
                     formalumnosmodal.ShowDialog();
                 }
@@ -174,7 +175,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     int carrera = 0;
                     int año = 0;
 
-                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, carrera, año);
+                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, carrera, año, Perfil);
                     formalumnosmodal.AlumnoEvento += ActualizarDataGridView;  //Me suscribo al evento para que se actualice al agregar un alumno
                     formalumnosmodal.ShowDialog();
                 }

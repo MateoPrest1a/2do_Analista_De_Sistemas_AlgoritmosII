@@ -7,40 +7,24 @@ namespace DiseñoFinal
     public partial class DiseñoFinalCodigo : Form
     {
         Conexionbdd conectar;
-        private List<string> imagenes;
-        private int indiceImagenActual;
 
         int Id_Persona = 0;
+        string Perfil;
 
         public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
         {
             InitializeComponent();
             lblUsuario.Text = nombre + " " + apellido;
             lblPerfil.Text = perfil;
-<<<<<<< HEAD
-
-            imagenes = new List<string>
-        {
-            @"C:\Ruta\A\Imagen1.jpg",  
-            @"C:\Ruta\A\Imagen2.jpg",
-            @"C:\Ruta\A\Imagen3.jpg",
-            @"C:\Ruta\A\Imagen4.jpg"
-        };
-
-            indiceImagenActual = 0;          
-                    
-            timerFotos.Interval = 15000;  // Cambiar cada 2 segundos (2000 ms)            
-            timerFotos.Start();
             
-            CargarImagen();
-=======
             Id_Persona = idPerfil;
+            Perfil = perfil; //Cargo el perfil de la persona
+            //Cargo datos alumno
             lblUsuarioAlumno.Text = nombre + " " + apellido;
             lblPerfilAlumno.Text = perfil;
 
 
             AjustarVisibilidadPerfil(perfil);
->>>>>>> dev
         }
 
         private void AjustarVisibilidadPerfil(string perfil)
@@ -99,7 +83,7 @@ namespace DiseñoFinal
 
         private void btnABMAlumnos_Click_1(object sender, EventArgs e)
         {
-            FormAlumnos formalumnos = new FormAlumnos();
+            FormAlumnos formalumnos = new FormAlumnos(Perfil);
             formalumnos.ShowDialog();
         }
 
@@ -117,28 +101,6 @@ namespace DiseñoFinal
             formcarreras.ShowDialog();
         }
 
-<<<<<<< HEAD
-        private void CargarImagen()
-        {
-            if (imagenes.Count > 0 && indiceImagenActual >= 0 && indiceImagenActual < imagenes.Count)
-            {
-                pictureBox1.Image = Image.FromFile(imagenes[indiceImagenActual]);
-            }
-        }
-
-        private void timerFotos_Tick(object sender, EventArgs e)
-        {
-            indiceImagenActual++;
-
-            // Si hemos llegado al final de la lista, reiniciar el índice
-            if (indiceImagenActual >= imagenes.Count)
-            {
-                indiceImagenActual = 0;  // Reiniciar a la primera imagen
-            }
-
-            // Cargar la nueva imagen en el PictureBox
-            CargarImagen();
-=======
         //Botones para el Alumno
 
         //Funcion Buscar Alumno
@@ -162,7 +124,7 @@ namespace DiseñoFinal
                 int año = Convert.ToInt32(row["año"]);
 
                 // Llama al método para abrir el formulario con los datos del alumno
-                FormAlumnosModal formulario = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechanacimientoalumno, idcarrera, año);
+                FormAlumnosModal formulario = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechanacimientoalumno, idcarrera, año, Perfil);
                 formulario.ShowDialog();
             }
             else
@@ -187,7 +149,6 @@ namespace DiseñoFinal
         {
             FormMateriasXAlumno formMateriasXAlumno = new FormMateriasXAlumno(Id_Persona);
             formMateriasXAlumno.ShowDialog();
->>>>>>> dev
         }
     }
 }

@@ -179,6 +179,7 @@ create table MateriasxAlumno(
 	id_materiasxalumno int identity primary key,
 	matricula int,
 	id_materia int,
+	estado nvarchar,
 	foreign key (matricula) references Alumnos(matricula),
 	foreign key (id_materia) references Materias(id_materia)
 );

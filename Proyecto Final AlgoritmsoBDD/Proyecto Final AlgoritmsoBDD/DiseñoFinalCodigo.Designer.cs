@@ -29,8 +29,6 @@ namespace DiseñoFinal
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiseñoFinalCodigo));
             tabControl1 = new TabControl();
             tabMenuPrincipal = new TabPage();
             panel8 = new Panel();
@@ -92,14 +90,13 @@ namespace DiseñoFinal
             btnDatosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
             tabPerfilProfesores = new TabPage();
+            button2 = new Button();
             panel9 = new Panel();
             button1 = new Button();
             btnExamenesProfesor = new Button();
             btnCarrerasProfesor = new Button();
             btnMateriasProfesor = new Button();
-            panel12 = new Panel();
             pictureBox2 = new PictureBox();
-            timerFotos = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -116,7 +113,6 @@ namespace DiseñoFinal
             panel11.SuspendLayout();
             tabPerfilProfesores.SuspendLayout();
             panel9.SuspendLayout();
-            panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -733,9 +729,9 @@ namespace DiseñoFinal
             panel12.Controls.Add(label33);
             panel12.Controls.Add(label34);
             panel12.Dock = DockStyle.Bottom;
-            panel12.Location = new Point(195, 530);
+            panel12.Location = new Point(195, 524);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1013, 43);
+            panel12.Size = new Size(1013, 49);
             panel12.TabIndex = 7;
             // 
             // lblUsuarioAlumno
@@ -780,6 +776,7 @@ namespace DiseñoFinal
             // 
             // panel11
             // 
+            panel11.Controls.Add(pictureBox2);
             panel11.Controls.Add(btnExamenesAlumnos);
             panel11.Controls.Add(btnDatosAlumnos);
             panel11.Controls.Add(btnMateriasAlumnos);
@@ -800,9 +797,9 @@ namespace DiseñoFinal
             btnExamenesAlumnos.ForeColor = SystemColors.ButtonHighlight;
             btnExamenesAlumnos.Location = new Point(0, 380);
             btnExamenesAlumnos.Name = "btnExamenesAlumnos";
-            btnExamenesAlumnos.Size = new Size(195, 193);
+            btnExamenesAlumnos.Size = new Size(195, 144);
             btnExamenesAlumnos.TabIndex = 3;
-            btnExamenesAlumnos.Text = "EXAMENES";
+            btnExamenesAlumnos.Text = "EXAMENES RENDIDOS";
             btnExamenesAlumnos.UseVisualStyleBackColor = false;
             btnExamenesAlumnos.Click += btnExamenesAlumnos_Click;
             // 
@@ -842,6 +839,7 @@ namespace DiseñoFinal
             // 
             // tabPerfilProfesores
             // 
+            tabPerfilProfesores.Controls.Add(button2);
             tabPerfilProfesores.Controls.Add(panel9);
             tabPerfilProfesores.Location = new Point(4, 24);
             tabPerfilProfesores.Name = "tabPerfilProfesores";
@@ -850,6 +848,21 @@ namespace DiseñoFinal
             tabPerfilProfesores.TabIndex = 1;
             tabPerfilProfesores.Text = "Mi Perfil";
             tabPerfilProfesores.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(33, 63, 96);
+            button2.BackgroundImageLayout = ImageLayout.None;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ButtonHighlight;
+            button2.Location = new Point(313, 64);
+            button2.Name = "button2";
+            button2.Size = new Size(195, 193);
+            button2.TabIndex = 2;
+            button2.Text = "asignar materia";
+            button2.UseVisualStyleBackColor = false;
             // 
             // panel9
             // 
@@ -929,29 +942,18 @@ namespace DiseñoFinal
             btnMateriasProfesor.Text = "MATERIAS";
             btnMateriasProfesor.UseVisualStyleBackColor = false;
             // 
-            // panel12
-            // 
-            panel12.Controls.Add(pictureBox2);
-            panel12.Dock = DockStyle.Fill;
-            panel12.Location = new Point(195, 0);
-            panel12.Name = "panel12";
-            panel12.Size = new Size(1013, 573);
-            panel12.TabIndex = 3;
-            // 
             // pictureBox2
             // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
+            pictureBox2.Location = new Point(0, 524);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1013, 573);
+            pictureBox2.Size = new Size(195, 49);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 0;
+            pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
-            // 
-            // timerFotos
-            // 
-            timerFotos.Tick += timerFotos_Tick;
             // 
             // DiseñoFinalCodigo
             // 
@@ -983,7 +985,6 @@ namespace DiseñoFinal
             panel11.ResumeLayout(false);
             tabPerfilProfesores.ResumeLayout(false);
             panel9.ResumeLayout(false);
-            panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
@@ -1055,11 +1056,6 @@ namespace DiseñoFinal
         private Button btnExamenesAlumnos;
         private Button btnMateriasAlumnos;
         private Button button1;
-<<<<<<< HEAD
-        private Panel panel12;
-        private PictureBox pictureBox2;
-        private System.Windows.Forms.Timer timerFotos;
-=======
         private Button button2;
         private Button btnDatosAlumnos;
         private Panel panel12;
@@ -1067,6 +1063,6 @@ namespace DiseñoFinal
         private Label lblPerfilAlumno;
         private Label label33;
         private Label label34;
->>>>>>> dev
+        private PictureBox pictureBox2;
     }
 }
