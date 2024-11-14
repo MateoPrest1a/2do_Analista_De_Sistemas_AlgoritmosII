@@ -25,8 +25,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             var especialidades = new List<Especialidad>
             {
-                new Especialidad { IdEspecialidad = 1, especialidad = "Profesor" },
-                new Especialidad { IdEspecialidad = 2, especialidad = "Personal Administrativo" }
+                new Especialidad { IdEspecialidad = 1, especialidad = "Personal Administrativo" },
+                new Especialidad { IdEspecialidad = 2, especialidad = "Profesor" }
             };
 
             cmbEspecialidadEmpleado.DataSource = especialidades;

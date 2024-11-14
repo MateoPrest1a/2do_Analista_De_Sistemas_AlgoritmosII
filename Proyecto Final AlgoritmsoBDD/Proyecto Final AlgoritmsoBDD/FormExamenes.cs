@@ -84,9 +84,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             {
                 try
                 {
-
-
-
                     // Obtener los valores de las celdas
                     int idExamen = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
                     int idCarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value); // Asegúrate de que el nombre es correcto

@@ -464,7 +464,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else
             {
-                año = Convert.ToInt32(cmbAñoAlumno.SelectedText);
+                año = Convert.ToInt32(cmbAñoAlumno.SelectedItem);
             }
 
             gestorAlumnos.ActualizarAlumno(matricula, NombreAlumno, ApellidoAlumno, Direcalle, Direnum, TelefonoAlumno, DocumentoAlumno, EmailAlumno, FechaNacimientoAlumno, carreraId, año); AlumnoEvento?.Invoke();

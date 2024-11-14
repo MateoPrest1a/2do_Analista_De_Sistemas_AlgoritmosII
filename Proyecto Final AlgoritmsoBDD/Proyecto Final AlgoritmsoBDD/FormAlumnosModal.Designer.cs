@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAlumnosModal));
             panel1 = new Panel();
+            btnAsignarMaterias = new Button();
             btnExamenesRendidos = new Button();
             panel2 = new Panel();
             label2 = new Label();
@@ -72,6 +73,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnAsignarMaterias);
             panel1.Controls.Add(btnExamenesRendidos);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnEliminar);
@@ -83,6 +85,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(744, 450);
             panel1.TabIndex = 0;
+            // 
+            // btnAsignarMaterias
+            // 
+            btnAsignarMaterias.Location = new Point(622, 293);
+            btnAsignarMaterias.Name = "btnAsignarMaterias";
+            btnAsignarMaterias.Size = new Size(92, 40);
+            btnAsignarMaterias.TabIndex = 12;
+            btnAsignarMaterias.Text = "Asignar Materias";
+            btnAsignarMaterias.UseVisualStyleBackColor = true;
             // 
             // btnExamenesRendidos
             // 
@@ -108,11 +119,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label2.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(3, 9);
             label2.Name = "label2";
-            label2.Size = new Size(227, 56);
+            label2.Size = new Size(218, 55);
             label2.TabIndex = 1;
             label2.Text = "Alumnos";
             // 
@@ -456,5 +467,6 @@
         private ErrorProvider error1;
         private Label label1;
         private ComboBox cmbAñoAlumno;
+        private Button btnAsignarMaterias;
     }
 }

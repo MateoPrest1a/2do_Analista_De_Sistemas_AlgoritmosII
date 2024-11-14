@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Numerics;
 using System.Windows.Forms;
 
 namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestora base ya que tengo
@@ -87,6 +88,36 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
             }
         }
 
+        //Buscar el alumno por matricula
+        public DataTable ObtenerDatosAlumno(int matricula)
+        {
+            string query = @"
+                            SELECT 
+                                a.nombre, 
+                                a.apellido, 
+                                a.direccion_calle, 
+                                a.direccion_numero, 
+                                a.telefono, 
+                                a.dni, 
+                                a.email, 
+                                a.fecha_nacimiento, 
+                                a.id_carrera, 
+                                a.año
+                            FROM 
+                                Alumnos AS a
+                            WHERE 
+                                a.matricula = @Matricula";
+
+            using (SqlCommand command = new SqlCommand(query))
+            {
+                command.Parameters.AddWithValue("@Matricula", matricula);
+                return EjecutarConsulta(command); 
+            }
+        }
+
+       
+
+        // Filtros
 
         //Metodo para buscar por nombre y apellido
         public DataTable BuscarAlumno(string nombreApellido)

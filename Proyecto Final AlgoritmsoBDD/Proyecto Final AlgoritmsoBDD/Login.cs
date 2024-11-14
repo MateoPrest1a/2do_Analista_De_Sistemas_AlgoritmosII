@@ -2,6 +2,7 @@ using DiseñoFinal;
 using Proyecto_Final;
 using System;
 using System.Data.SqlClient;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Proyecto_Final_AlgoritmsoBDD
@@ -62,30 +63,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 string perfil = string.Empty;
                 int idPerfil = -1;  // Usaremos este valor para el ID de perfil
 
-                string query = @"
-                                -- Para obtener el perfil de un alumno
-                                SELECT 
-                                    p.tipo,
-                                    a.nombre,
-                                    a.apellido,
-                                    p.id_perfil
-                                FROM 
-                                    Perfiles AS p
-                                JOIN 
-                                    PerfilxAlumno AS pa ON pa.nombre_usuario = @Usuario AND pa.contrasenia = @Contrasena
-                                JOIN 
-                                    Alumnos AS a ON a.matricula = pa.matricula
-                                WHERE 
-                                    pa.nombre_usuario = @Usuario AND pa.contrasenia = @Contrasena
-
-                                UNION
-
+                string query = @" 
                                 -- Para obtener el perfil de un empleado (profesor, administrativo, etc.)
                                 SELECT 
-                                    p.tipo,
+                                    p.tipo,  -- Tipo de perfil (Profesor, Personal Administrativo)
                                     e.nombre,
                                     e.apellido,
-                                    p.id_perfil
+                                    e.id_empleado AS id_perfil  -- Devolvemos el id_empleado para el personal
                                 FROM 
                                     Perfiles AS p
                                 JOIN 
@@ -93,7 +77,25 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                 JOIN 
                                     Empleados AS e ON e.id_empleado = pp.id_empleado
                                 WHERE 
-                                    pp.nombre_usuario = @Usuario AND pp.contrasenia = @Contrasena";
+                                    pp.nombre_usuario = @Usuario AND pp.contrasenia = @Contrasena
+                                    AND p.id_perfil = e.tipo_perfil  -- Relación entre el tipo de perfil en Empleados y Perfiles
+
+                                UNION ALL
+
+                                -- Para obtener el perfil de un alumno
+                                SELECT 
+                                    'Alumno' AS tipo,
+                                    a.nombre,
+                                    a.apellido,
+                                    pa.matricula AS id_perfil-- Devolvemos la matricula como id_perfil desde PerfilxAlumno
+                                FROM
+                                    Perfiles AS p
+                                JOIN
+                                    PerfilxAlumno AS pa ON pa.nombre_usuario = @Usuario AND pa.contrasenia = @Contrasena
+                                JOIN
+                                    Alumnos AS a ON a.matricula = pa.matricula
+                                WHERE
+                                    pa.nombre_usuario = @Usuario AND pa.contrasenia = @Contrasena";
 
                 using (SqlCommand command = new SqlCommand(query))
                 {
@@ -109,9 +111,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                         perfil = result.Rows[0]["tipo"].ToString();
                         nombre = result.Rows[0]["nombre"].ToString();
                         apellido = result.Rows[0]["apellido"].ToString();
-                        idPerfil = Convert.ToInt32(result.Rows[0]["id_perfil"]);  // Asigna el id_perfil
+                        idPerfil = Convert.ToInt32(result.Rows[0]["id_perfil"]);
 
-                        // Ahora pasamos estos valores al formulario modal
                         AbrirFormularioModal(nombre,apellido,perfil,idPerfil);
                     }
                     else
@@ -135,9 +136,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
 
         private void btnAcceder_Click(object sender, EventArgs e)
-        {
-            //string perfil = "kjsadkjas";
-            
+        {           
             string usuario = txtUsuario.Text;
             string contrasena = txtContraseña.Text;
 
