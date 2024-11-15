@@ -127,6 +127,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 }
             }
 
+            MessageBox.Show(""+ perfil);
+
             //Perfiles
             AjustarVisibilidadPerfil(perfil);
         }
@@ -160,6 +162,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 btnAgregar.Visible = false;
                 btnModificar.Visible = false;
                 btnEliminar.Visible = false;
+
+
             }
             else if (perfil == "Personal Administrativo")
             {

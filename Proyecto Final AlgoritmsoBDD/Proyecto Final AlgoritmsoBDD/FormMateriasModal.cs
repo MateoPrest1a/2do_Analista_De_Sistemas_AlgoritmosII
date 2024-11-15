@@ -28,6 +28,42 @@ namespace Proyecto_Final_AlgoritmsoBDD
             gestorMaterias = new GestorMaterias();
         }
 
+        //Constructor
+        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera)
+        {
+            InitializeComponent();
+            CargarCarreras();
+            CargarAños();
+            CargarProfesores();
+
+            lblMateriaID.Text = ID.ToString();
+            cmbAñoCursada.SelectedItem = Año.ToString();
+            txtNombreMateria.Text = Nombre;
+
+            // Asignar la carrera seleccionada
+            foreach (Carrera carrera in cmbCarreras.Items)
+            {
+                if (carrera.ID_Carrera == idcarrera)
+                {
+                    cmbCarreras.SelectedItem = carrera;
+                    break;
+                }
+            }
+
+            if (ID == 0)
+            {
+                lblMateria.Visible = false;
+                lblMateriaID.Visible = false;
+                btnModificarMateria.Visible = false;
+                btnEliminarMateria.Visible = false;
+            }
+            else
+            {
+                btnAgregarMateria.Visible = false;
+            }
+
+        }
+
         private void CargarAños()
         {
             cmbAñoCursada.Items.Add("1");
@@ -73,54 +109,50 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
-        //Constructor
-        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera)
+        private void CargarProfesores()
         {
-            InitializeComponent();
-            CargarCarreras();
-            CargarAños();
+            string query = "SELECT id_empleado, nombre, apellido " +
+                           "FROM Empleados e " +
+                           "JOIN Perfiles p ON e.tipo_perfil = p.id_perfil " +
+                           "WHERE p.tipo = 'profesor'";
 
-            lblMateriaID.Text = ID.ToString();
-            cmbAñoCursada.SelectedItem = Año.ToString();
-            txtNombreMateria.Text = Nombre;
-
-            // Asignar la carrera seleccionada
-            foreach (Carrera carrera in cmbCarreras.Items)
+            try
             {
-                if (carrera.ID_Carrera == idcarrera)
+                using (SqlCommand command = new SqlCommand(query, conexion))
                 {
-                    cmbCarreras.SelectedItem = carrera;
-                    break;
+                    DataTable profesoresTable = gestorMaterias.EjecutarConsulta(command);
+
+                    cmbProfesores.Items.Clear();  // Limpiar ComboBox
+
+                    foreach (DataRow row in profesoresTable.Rows)
+                    {
+                        Empleado profesor = new Empleado
+                        {
+                            ID_Empleado = Convert.ToInt32(row["id_empleado"]),
+                            Nombre = row["nombre"].ToString(),
+                            Apellido = row["apellido"].ToString()
+                        };
+
+                        cmbProfesores.Items.Add(profesor);
+                    }
+
+                    cmbProfesores.DisplayMember = "NombreCompleto";  // Mostrar nombre completo
+                    cmbProfesores.ValueMember = "ID_Empleado";       // Usar el ID como valor
                 }
             }
-
-            if (ID == 0)
+            catch (Exception ex)
             {
-                lblMateria.Visible = false;
-                lblMateriaID.Visible = false;
-                btnModificarMateria.Visible = false;
-                btnEliminarMateria.Visible = false;
+                MessageBox.Show($"Error al cargar los profesores: {ex.Message}");
             }
-            else
-            {
-                btnAgregarMateria.Visible = false;
-            }
-
         }
 
 
-        private void cmbProfesores_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        
         private void btnAgregarMateria_Click(object sender, EventArgs e)
 {
             int idCarrera = 0;
             int anioCursada = 0;
             string nombreMateria = "";
+            int idempleado = 0;
 
             if (cmbCarreras.SelectedItem == null)
             {
@@ -156,11 +188,20 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 nombreMateria = txtNombreMateria.Text;
             }
             
-            
+            if(cmbProfesores.SelectedItem == null)
+            {
+                error1.SetError(cmbProfesores, "Elija un profesor válido");
+                cmbProfesores.Focus();
+                return;
+            }
+            else
+            {
+                idempleado = ((Empleado)cmbCarreras.SelectedItem).ID_Empleado; // Esto da error :(
+            }
             
 
             // Usar la clase GestorMaterias para agregar la materia
-            gestorMaterias.CargarMateria(anioCursada, nombreMateria,idCarrera);
+            gestorMaterias.CargarMateria(anioCursada, nombreMateria,idCarrera,idempleado);
 
             // Invocar el evento y cerrar el formulario
             MateriaEvento?.Invoke();
@@ -175,6 +216,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             int anioCursada = 0;
             string nombreMateria = "";
             int idCarrera = 0;
+            int idempleado = 0;
 
             // Validaciones
             if (cmbCarreras.SelectedItem == null)
@@ -213,10 +255,22 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
 
 
+            if (cmbProfesores.SelectedItem == null)
+            {
+                error1.SetError(cmbProfesores, "Elija un profesor válido");
+                cmbProfesores.Focus();
+                return;
+            }
+            else
+            {
+                idempleado = ((Empleado)cmbCarreras.SelectedItem).ID_Empleado;
+            }
+
+
             int idMateria = Convert.ToInt32(lblMateriaID.Text); //no hace falta verificar ya que si no esta el boton actualizar no 
 
             // Usar la clase GestorMaterias para modificar la materia
-            gestorMaterias.ModificarMateria(idMateria, anioCursada, nombreMateria);
+            gestorMaterias.ModificarMateria(idMateria, anioCursada, nombreMateria, idCarrera, idempleado);
 
             // Invocar el evento y cerrar el formulario
             MateriaEvento?.Invoke();

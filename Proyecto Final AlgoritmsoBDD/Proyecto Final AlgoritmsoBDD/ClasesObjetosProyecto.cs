@@ -13,6 +13,16 @@ public abstract class Persona  // CLASE BASE DE ALUMNO Y EMPLEADOS
     public string Email { get; set; }
     public DateTime Fecha_Nacimiento { get; set; }
 
+    //Devuelvo el nombre completo
+    public string NombreCompleto
+    {
+        get { return $"{Nombre} {Apellido}"; }
+    }
+
+    public override string ToString()
+    {
+        return NombreCompleto;
+    }
 }
 
 public class Alumno : Persona

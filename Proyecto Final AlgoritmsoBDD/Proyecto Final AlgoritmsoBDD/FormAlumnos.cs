@@ -21,11 +21,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos(); // Instancia de la clase gestora
 
         string Perfil; //Para determinar que podra ver dependiendo cada perfil
-        public FormAlumnos(string perfil)
+        public FormAlumnos(string perfil,int idpersona)
         {
             InitializeComponent();
             Cargar_Filtros();
             CargarCarreras();
+
+            Perfil = perfil;
         }
 
         private void CargarCarreras()
