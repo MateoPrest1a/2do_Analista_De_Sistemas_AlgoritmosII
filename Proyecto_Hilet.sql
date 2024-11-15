@@ -635,3 +635,111 @@ BEGIN
     FROM Empleados
     WHERE nombre LIKE '%' + @Nombre + '%' AND apellido LIKE '%' + @Apellido + '%'
 END;
+
+--------------------------------------------------------Funciones Estadisticas--------------------------------------------------------
+
+CREATE FUNCTION F_CantEmplTot()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(id_empleado) from Empleados;
+	RETURN @CantTot;
+END;
+
+/*
+CREATE FUNCTION F_CantProfADS()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+		SELECT @CantTot = COUNT(id_empleado) 
+		FROM Empleados AS e 
+		inner join 
+		Perfiles as p 
+		ON 
+		e.tipo_perfil = p.id_perfil
+		WHERE
+
+	RETURN
+END;*/
+
+CREATE FUNCTION F_CantProf()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+		SELECT @CantTot = COUNT(id_empleado) 
+		FROM Empleados e
+		inner join
+		Perfiles as p
+		ON
+		e.tipo_perfil = p.id_perfil
+		WHERE
+		p.id_perfil = 2;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantMateTotADS()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(id_materia) 
+	FROM Materias m
+	inner join
+	Carreras c
+	ON
+	m.id_carrera = c.id_carrera
+	WHERE c.id_carrera = 1;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantMateTotPub()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(id_materia) 
+	FROM Materias m
+	inner join
+	Carreras c
+	ON
+	m.id_carrera = c.id_carrera
+	WHERE c.id_carrera = 2;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantAlumTotADS()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(matricula) 
+	FROM Alumnos
+	WHERE
+	id_carrera = 1;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantAlumTotPub()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(matricula)
+	FROM Alumnos
+	WHERE
+	id_carrera = 2;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantAlum()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(matricula)
+	FROM Alumnos;
+	RETURN @CantTot;
+END;

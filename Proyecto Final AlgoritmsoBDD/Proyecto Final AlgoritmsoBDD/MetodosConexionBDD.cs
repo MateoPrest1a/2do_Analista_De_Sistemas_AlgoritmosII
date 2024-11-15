@@ -503,7 +503,173 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
+        public int CantidadAlumnosTotal()
+        {
+            int CantTot = 0;
 
+            using (conectarbdd)
+            {
+                string query = "SELECT F_CantAlum()";
+
+                SqlCommand cm = new SqlCommand (query, conectarbdd);  
+                cm.CommandType = CommandType.Text;
+
+                try
+                {                    
+                    abrir();                    
+                    CantTot = (int)cm.ExecuteScalar();                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }      
+            return CantTot;
+        }
+
+        public int CantidadEmpleadosTotal()
+        {
+            int CantTot = 0;
+
+            using (conectarbdd)
+            {
+                string query = "SELECT F_CantEmplTot()";
+
+                SqlCommand cm = new SqlCommand(query, conectarbdd);
+                cm.CommandType = CommandType.Text;
+
+                try
+                {
+                    abrir();
+                    CantTot = (int)cm.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+            return CantTot;
+        }
+
+        public int CantidadProfesoresTotal()
+        {
+            int CantTot = 0;
+
+            using (conectarbdd)
+            {
+                string query = "SELECT F_CantProfTot()";
+
+                SqlCommand cm = new SqlCommand(query, conectarbdd);
+                cm.CommandType = CommandType.Text;
+
+                try
+                {
+                    abrir();
+                    CantTot = (int)cm.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+            return CantTot;
+        }
+
+        public int CantidadMateriasTotalesADS()
+        {
+            int CantTot = 0;
+
+            using (conectarbdd)
+            {
+                string query = "SELECT F_CantMatETotADS()";
+
+                SqlCommand cm = new SqlCommand(query, conectarbdd);
+                cm.CommandType = CommandType.Text;
+
+                try
+                {
+                    abrir();
+                    CantTot = (int)cm.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+            return CantTot;
+        }
+
+        public int CantidadMateriasTotalPublicidad()
+        {
+            int CantTot = 0;
+
+            using (conectarbdd)
+            {
+                string query = "SELECT F_CantMateTotPub()";
+
+                SqlCommand cm = new SqlCommand(query, conectarbdd);
+                cm.CommandType = CommandType.Text;
+
+                try
+                {
+                    abrir();
+                    CantTot = (int)cm.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+            return CantTot;
+        }
+
+        public int CantidadAlumnosTotalADS()
+        {
+            int CantTot = 0;
+
+            using (conectarbdd)
+            {
+                string query = "SELECT F_CantAlumTotADS()";
+
+                SqlCommand cm = new SqlCommand(query, conectarbdd);
+                cm.CommandType = CommandType.Text;
+
+                try
+                {
+                    abrir();
+                    CantTot = (int)cm.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+            return CantTot;
+        }
+
+        public int CantidadAlumnosTotalPublicidad()
+        {
+            int CantTot = 0;
+
+            using (conectarbdd)
+            {
+                string query = "SELECT F_CantAlumTotPub()";
+
+                SqlCommand cm = new SqlCommand(query, conectarbdd);
+                cm.CommandType = CommandType.Text;
+
+                try
+                {
+                    abrir();
+                    CantTot = (int)cm.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}");
+                }
+            }
+            return CantTot;
+        }        
 
         public void cerrar()
         {
@@ -511,3 +677,5 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
     }
 }
+
+

@@ -39,23 +39,19 @@ namespace DiseñoFinal
             label14 = new Label();
             label13 = new Label();
             panel7 = new Panel();
-            label7 = new Label();
-            label35 = new Label();
+            lblCantTotAlumPub = new Label();
+            lblCantTotAlumADS = new Label();
             label4 = new Label();
-            label5 = new Label();
-            label21 = new Label();
-            label23 = new Label();
-            label20 = new Label();
+            lblAlumTot = new Label();
             label1 = new Label();
             label3 = new Label();
-            label22 = new Label();
             panel6 = new Panel();
-            label31 = new Label();
-            label30 = new Label();
+            lblMatTotPub = new Label();
+            lblMatTotADS = new Label();
             label29 = new Label();
             label28 = new Label();
             panel5 = new Panel();
-            label19 = new Label();
+            lblCantProfesores = new Label();
             label27 = new Label();
             label12 = new Label();
             label26 = new Label();
@@ -64,11 +60,11 @@ namespace DiseñoFinal
             panel4 = new Panel();
             panel3 = new Panel();
             label18 = new Label();
-            label17 = new Label();
+            lblCantEmpleadosProf = new Label();
             label2 = new Label();
-            label16 = new Label();
+            lblCantPersonalAdmin = new Label();
             label8 = new Label();
-            label15 = new Label();
+            lblCantEmpleadosTot = new Label();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
@@ -207,39 +203,35 @@ namespace DiseñoFinal
             // panel7
             // 
             panel7.BackColor = Color.Gainsboro;
-            panel7.Controls.Add(label7);
-            panel7.Controls.Add(label35);
+            panel7.Controls.Add(lblCantTotAlumPub);
+            panel7.Controls.Add(lblCantTotAlumADS);
             panel7.Controls.Add(label4);
-            panel7.Controls.Add(label5);
-            panel7.Controls.Add(label21);
-            panel7.Controls.Add(label23);
-            panel7.Controls.Add(label20);
+            panel7.Controls.Add(lblAlumTot);
             panel7.Controls.Add(label1);
             panel7.Controls.Add(label3);
-            panel7.Controls.Add(label22);
             panel7.Dock = DockStyle.Top;
             panel7.Location = new Point(197, 423);
             panel7.Name = "panel7";
             panel7.Size = new Size(1008, 111);
             panel7.TabIndex = 5;
             // 
-            // label7
+            // lblCantTotAlumPub
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(348, 69);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 15);
-            label7.TabIndex = 6;
-            label7.Text = "label7";
+            lblCantTotAlumPub.AutoSize = true;
+            lblCantTotAlumPub.Location = new Point(804, 31);
+            lblCantTotAlumPub.Name = "lblCantTotAlumPub";
+            lblCantTotAlumPub.Size = new Size(38, 15);
+            lblCantTotAlumPub.TabIndex = 6;
+            lblCantTotAlumPub.Text = "label7";
             // 
-            // label35
+            // lblCantTotAlumADS
             // 
-            label35.AutoSize = true;
-            label35.Location = new Point(376, 31);
-            label35.Name = "label35";
-            label35.Size = new Size(44, 15);
-            label35.TabIndex = 32;
-            label35.Text = "label35";
+            lblCantTotAlumADS.AutoSize = true;
+            lblCantTotAlumADS.Location = new Point(376, 31);
+            lblCantTotAlumADS.Name = "lblCantTotAlumADS";
+            lblCantTotAlumADS.Size = new Size(44, 15);
+            lblCantTotAlumADS.TabIndex = 32;
+            lblCantTotAlumADS.Text = "label35";
             // 
             // label4
             // 
@@ -247,53 +239,20 @@ namespace DiseñoFinal
             label4.BackColor = Color.FromArgb(33, 63, 96);
             label4.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(51, 64);
+            label4.Location = new Point(507, 26);
             label4.Name = "label4";
             label4.Size = new Size(278, 22);
             label4.TabIndex = 3;
             label4.Text = "Cantidad de Alumnos de Publicidad:";
             // 
-            // label5
+            // lblAlumTot
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(672, 31);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 4;
-            label5.Text = "label5";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.BackColor = Color.FromArgb(33, 63, 96);
-            label21.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.ForeColor = SystemColors.ControlLightLight;
-            label21.Location = new Point(727, 26);
-            label21.Name = "label21";
-            label21.Size = new Size(197, 22);
-            label21.TabIndex = 18;
-            label21.Text = "Egresados de Publicidad:";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new Point(930, 31);
-            label23.Name = "label23";
-            label23.Size = new Size(44, 15);
-            label23.TabIndex = 20;
-            label23.Text = "label23";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.BackColor = Color.FromArgb(33, 63, 96);
-            label20.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.ForeColor = SystemColors.ControlLightLight;
-            label20.Location = new Point(435, 69);
-            label20.Name = "label20";
-            label20.Size = new Size(272, 22);
-            label20.TabIndex = 17;
-            label20.Text = "Egresados de Analista de Sistemas:";
+            lblAlumTot.AutoSize = true;
+            lblAlumTot.Location = new Point(545, 82);
+            lblAlumTot.Name = "lblAlumTot";
+            lblAlumTot.Size = new Size(38, 15);
+            lblAlumTot.TabIndex = 4;
+            lblAlumTot.Text = "label5";
             // 
             // label1
             // 
@@ -301,7 +260,7 @@ namespace DiseñoFinal
             label1.BackColor = Color.FromArgb(33, 63, 96);
             label1.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(435, 24);
+            label1.Location = new Point(308, 75);
             label1.Name = "label1";
             label1.Size = new Size(231, 22);
             label1.TabIndex = 0;
@@ -319,19 +278,10 @@ namespace DiseñoFinal
             label3.TabIndex = 2;
             label3.Text = "Cantidad de Alumnos de Analista de Sistemas:";
             // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(713, 76);
-            label22.Name = "label22";
-            label22.Size = new Size(44, 15);
-            label22.TabIndex = 19;
-            label22.Text = "label22";
-            // 
             // panel6
             // 
-            panel6.Controls.Add(label31);
-            panel6.Controls.Add(label30);
+            panel6.Controls.Add(lblMatTotPub);
+            panel6.Controls.Add(lblMatTotADS);
             panel6.Controls.Add(label29);
             panel6.Controls.Add(label28);
             panel6.Dock = DockStyle.Top;
@@ -340,23 +290,23 @@ namespace DiseñoFinal
             panel6.Size = new Size(1008, 105);
             panel6.TabIndex = 4;
             // 
-            // label31
+            // lblMatTotPub
             // 
-            label31.AutoSize = true;
-            label31.Location = new Point(801, 47);
-            label31.Name = "label31";
-            label31.Size = new Size(44, 15);
-            label31.TabIndex = 28;
-            label31.Text = "label31";
+            lblMatTotPub.AutoSize = true;
+            lblMatTotPub.Location = new Point(801, 47);
+            lblMatTotPub.Name = "lblMatTotPub";
+            lblMatTotPub.Size = new Size(44, 15);
+            lblMatTotPub.TabIndex = 28;
+            lblMatTotPub.Text = "label31";
             // 
-            // label30
+            // lblMatTotADS
             // 
-            label30.AutoSize = true;
-            label30.Location = new Point(426, 47);
-            label30.Name = "label30";
-            label30.Size = new Size(44, 15);
-            label30.TabIndex = 27;
-            label30.Text = "label30";
+            lblMatTotADS.AutoSize = true;
+            lblMatTotADS.Location = new Point(426, 47);
+            lblMatTotADS.Name = "lblMatTotADS";
+            lblMatTotADS.Size = new Size(44, 15);
+            lblMatTotADS.TabIndex = 27;
+            lblMatTotADS.Text = "label30";
             // 
             // label29
             // 
@@ -385,7 +335,7 @@ namespace DiseñoFinal
             // panel5
             // 
             panel5.BackColor = Color.Gainsboro;
-            panel5.Controls.Add(label19);
+            panel5.Controls.Add(lblCantProfesores);
             panel5.Controls.Add(label27);
             panel5.Controls.Add(label12);
             panel5.Controls.Add(label26);
@@ -397,14 +347,14 @@ namespace DiseñoFinal
             panel5.Size = new Size(1008, 105);
             panel5.TabIndex = 3;
             // 
-            // label19
+            // lblCantProfesores
             // 
-            label19.AutoSize = true;
-            label19.Location = new Point(751, 47);
-            label19.Name = "label19";
-            label19.Size = new Size(44, 15);
-            label19.TabIndex = 16;
-            label19.Text = "label19";
+            lblCantProfesores.AutoSize = true;
+            lblCantProfesores.Location = new Point(751, 47);
+            lblCantProfesores.Name = "lblCantProfesores";
+            lblCantProfesores.Size = new Size(44, 15);
+            lblCantProfesores.TabIndex = 16;
+            lblCantProfesores.Text = "label19";
             // 
             // label27
             // 
@@ -472,11 +422,11 @@ namespace DiseñoFinal
             // 
             panel3.BackColor = Color.Gainsboro;
             panel3.Controls.Add(label18);
-            panel3.Controls.Add(label17);
+            panel3.Controls.Add(lblCantEmpleadosProf);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(label16);
+            panel3.Controls.Add(lblCantPersonalAdmin);
             panel3.Controls.Add(label8);
-            panel3.Controls.Add(label15);
+            panel3.Controls.Add(lblCantEmpleadosTot);
             panel3.Controls.Add(label11);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(label9);
@@ -495,14 +445,14 @@ namespace DiseñoFinal
             label18.TabIndex = 15;
             label18.Text = "label18";
             // 
-            // label17
+            // lblCantEmpleadosProf
             // 
-            label17.AutoSize = true;
-            label17.Location = new Point(778, 69);
-            label17.Name = "label17";
-            label17.Size = new Size(44, 15);
-            label17.TabIndex = 14;
-            label17.Text = "label17";
+            lblCantEmpleadosProf.AutoSize = true;
+            lblCantEmpleadosProf.Location = new Point(778, 69);
+            lblCantEmpleadosProf.Name = "lblCantEmpleadosProf";
+            lblCantEmpleadosProf.Size = new Size(44, 15);
+            lblCantEmpleadosProf.TabIndex = 14;
+            lblCantEmpleadosProf.Text = "label17";
             // 
             // label2
             // 
@@ -512,14 +462,14 @@ namespace DiseñoFinal
             label2.Size = new Size(0, 15);
             label2.TabIndex = 1;
             // 
-            // label16
+            // lblCantPersonalAdmin
             // 
-            label16.AutoSize = true;
-            label16.Location = new Point(454, 69);
-            label16.Name = "label16";
-            label16.Size = new Size(44, 15);
-            label16.TabIndex = 13;
-            label16.Text = "label16";
+            lblCantPersonalAdmin.AutoSize = true;
+            lblCantPersonalAdmin.Location = new Point(454, 69);
+            lblCantPersonalAdmin.Name = "lblCantPersonalAdmin";
+            lblCantPersonalAdmin.Size = new Size(44, 15);
+            lblCantPersonalAdmin.TabIndex = 13;
+            lblCantPersonalAdmin.Text = "label16";
             // 
             // label8
             // 
@@ -533,14 +483,14 @@ namespace DiseñoFinal
             label8.TabIndex = 7;
             label8.Text = "Cantidad de Empleados Totales:";
             // 
-            // label15
+            // lblCantEmpleadosTot
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(426, 21);
-            label15.Name = "label15";
-            label15.Size = new Size(44, 15);
-            label15.TabIndex = 12;
-            label15.Text = "label15";
+            lblCantEmpleadosTot.AutoSize = true;
+            lblCantEmpleadosTot.Location = new Point(426, 21);
+            lblCantEmpleadosTot.Name = "lblCantEmpleadosTot";
+            lblCantEmpleadosTot.Size = new Size(44, 15);
+            lblCantEmpleadosTot.TabIndex = 12;
+            lblCantEmpleadosTot.Text = "label15";
             // 
             // label11
             // 
@@ -1047,31 +997,27 @@ namespace DiseñoFinal
         private Label label10;
         private Label label9;
         private Label label8;
-        private Label label7;
-        private Label label5;
+        private Label lblCantTotAlumPub;
+        private Label lblAlumTot;
         private Label lblUsuario;
         private Label lblPerfil;
         private Label label14;
         private Label label13;
         private Label label24;
-        private Label label23;
-        private Label label22;
-        private Label label21;
-        private Label label20;
-        private Label label19;
+        private Label lblCantProfesores;
         private Label label18;
-        private Label label17;
-        private Label label16;
-        private Label label15;
+        private Label lblCantEmpleadosProf;
+        private Label lblCantPersonalAdmin;
+        private Label lblCantEmpleadosTot;
         private Label label27;
         private Label label26;
         private Label label25;
         private Label label29;
         private Label label28;
-        private Label label31;
-        private Label label30;
+        private Label lblMatTotPub;
+        private Label lblMatTotADS;
         private TabPage tabPerfilAlumno;
-        private Label label35;
+        private Label lblCantTotAlumADS;
         private Button btnABMAlumnos;
         private Panel panel10;
         private Panel panel11;

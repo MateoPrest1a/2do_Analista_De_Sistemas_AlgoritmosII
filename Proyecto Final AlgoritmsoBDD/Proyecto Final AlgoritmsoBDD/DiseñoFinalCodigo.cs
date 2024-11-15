@@ -13,6 +13,7 @@ namespace DiseñoFinal
 
         private List<string> imgs;
         private int indiceImagen = 0;
+        MetodosConexionBDD mcb = new MetodosConexionBDD(); 
 
         public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
         {
@@ -31,6 +32,18 @@ namespace DiseñoFinal
 
             lblUsuario.Text = nombre + " " + apellido;
             lblPerfil.Text = perfil;
+
+            //LBLESTADISTICOS
+            lblAlumTot.Text = Convert.ToString(mcb.CantidadAlumnosTotal());            
+            lblCantTotAlumADS.Text = Convert.ToString(mcb.CantidadAlumnosTotalADS());
+            lblCantTotAlumPub.Text = Convert.ToString(mcb.CantidadAlumnosTotalPublicidad());
+
+            lblCantProfesores.Text = Convert.ToString(mcb.CantidadProfesoresTotal());
+            lblCantEmpleadosTot.Text = Convert.ToString(mcb.CantidadEmpleadosTotal());
+
+            lblMatTotADS.Text = Convert.ToString(mcb.CantidadMateriasTotalesADS());
+            lblMatTotPub.Text = Convert.ToString(mcb.CantidadMateriasTotalPublicidad());            
+
 
             Id_Persona = idPerfil;
             Perfil = perfil; //Cargo el perfil de la persona
