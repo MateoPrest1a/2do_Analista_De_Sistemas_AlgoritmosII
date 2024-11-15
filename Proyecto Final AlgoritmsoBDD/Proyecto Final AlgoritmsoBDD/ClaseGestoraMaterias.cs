@@ -103,5 +103,43 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 }
             }
         }
+
+        //Filtros Materias
+        public DataTable FiltrarPorAño(int año)
+        {
+            SqlCommand command = new SqlCommand("SP_FiltrarMateriasPorAño");
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@año", año);
+
+            try
+            {
+                return EjecutarConsulta(command);  // EjecutarConsulta es el método de ClaseGestorBase que devuelve un DataTable
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar el alumno: {ex.Message}");
+                return null;  // Devuelve null en caso de error
+            }
+        }
+
+        public DataTable FiltrarPorCarrera(int idCarrera)
+        {
+            SqlCommand command = new SqlCommand("SP_FiltrarMateriasPorCarrera");
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.AddWithValue("@id_carrera", idCarrera);
+
+            try
+            {
+                return EjecutarConsulta(command);  // EjecutarConsulta es el método de ClaseGestorBase que devuelve un DataTable
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar el alumno: {ex.Message}");
+                return null;  // Devuelve null en caso de error
+            }
+        }
+
     }
 }

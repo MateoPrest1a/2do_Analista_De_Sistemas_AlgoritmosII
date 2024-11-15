@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -15,7 +16,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
     public partial class FormEmpleados : Form
     {
         private GestorEmpleados gestorEmpleados = new GestorEmpleados(); // Instancia de la clase gestora
-        
+
         string Perfil; //Para determinar que podra ver dependiendo cada perfil
         public FormEmpleados(string perfil)
         {
@@ -27,10 +28,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void Cargar_Filtros()
         {
             cmbFiltros.Items.Clear();
-            cmbFiltros.Items.Add("Nombre y Apellido");
-            cmbFiltros.Items.Add("Especialidad");
-            cmbFiltros.Items.Add("Carrera");
-            cmbFiltros.Items.Add("Dni");
+            cmbFiltros.Items.Add("Nombre"); //no se llego :(
+
         }
         private void CargarEspecialidades()
         {
@@ -140,36 +139,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-        private void cmbFiltros_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            txtNombreApellido.Visible = false;
-            cmbCarrera.Visible = false;
-            txtDni.Visible = false;
-            cmbEspecialidad.Visible = false;
 
-            // Muestra el control correspondiente según la selección.
-            switch (cmbFiltros.SelectedItem.ToString())
-            {
-                case "Nombre y Apellido":
-                    txtNombreApellido.Visible = true;
-                    break;
-                case "Carrera":
-                    cmbCarrera.Visible = true;
-                    break;
-                case "Especialidad":
-                    cmbEspecialidad.Visible = true;
-                    break;
-                case "Dni":
-                    txtDni.Visible = true;
-                    break;
-            }
-        }
-        private void Filtrar_tablaEspecialidad()
+        public void Cargar_Tabla_PorNombre(string nombre)
         {
 
-            string consulta = "SELECT * FROM Empleados";
+            string consulta = "SELECT * FROM Empleados WHERE nombre = @nombre";
             SqlCommand command = new SqlCommand(consulta);
-
+            command.Parameters.AddWithValue("@nombre", nombre);
             try
             {
                 DataTable dt = gestorEmpleados.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
@@ -178,6 +154,30 @@ namespace Proyecto_Final_AlgoritmsoBDD
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
+            }
+        }
+
+        private void cmbFiltros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtNombreApellido.Visible = false;
+            
+
+            // Muestra el control correspondiente según la selección.
+            switch (cmbFiltros.SelectedItem.ToString())
+            {
+                case "Nombre":
+                    txtNombreApellido.Visible = true;
+                    break;                     
+            }
+        }
+        
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if(txtNombreApellido.Visible)
+            {
+                string nombre = txtNombreApellido.Text;
+                Cargar_Tabla_PorNombre(nombre);
             }
         }
     }

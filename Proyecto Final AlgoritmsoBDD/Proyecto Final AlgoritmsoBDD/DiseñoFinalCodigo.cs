@@ -74,6 +74,10 @@ namespace DiseñoFinal
             {
                 tabControl1.TabPages.RemoveAt(1);
             }
+            else if(perfil == "Administrador")
+            {
+                tabControl1.TabPages.RemoveAt(1);
+            }
         }
 
 

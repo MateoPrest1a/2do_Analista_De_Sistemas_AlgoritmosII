@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestora base ya que tengo
 {                                                       //los metodos de conexion y para ejecutar comandos SQL
-    internal class ClaseGestorAlumnos : ClaseGestorBase 
+    internal class ClaseGestorAlumnos : ClaseGestorBase
     {
         // Método para eliminar un alumno
         public void EliminarAlumno(int matricula)
@@ -111,7 +111,7 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
             using (SqlCommand command = new SqlCommand(query))
             {
                 command.Parameters.AddWithValue("@Matricula", matricula);
-                return EjecutarConsulta(command); 
+                return EjecutarConsulta(command);
             }
         }
 
@@ -136,6 +136,47 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
                     MessageBox.Show($"Error al buscar el alumno: {ex.Message}");
                     return null;  // Devuelve null en caso de error
                 }
+            }
+        }
+
+
+        //Metodo Buscar por año
+        public DataTable CargarAlumnosPorAño(int año)
+        {
+            string consulta = "SP_FiltrarAlumnosPorAño";
+
+            SqlCommand command = new SqlCommand(consulta);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@Año", año);
+
+            try
+            {
+                return EjecutarConsulta(command);  // EjecutarConsulta es el método de ClaseGestorBase que devuelve un DataTable
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar el alumno: {ex.Message}");
+                return null;  // Devuelve null en caso de error
+            }
+        }
+
+
+        public DataTable CargarAlumnosPorCarrera(int idCarrera)
+        {
+            string consulta = "SP_FiltrarAlumnosPorCarrera";
+
+            SqlCommand command = new SqlCommand(consulta);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@IdCarrera", idCarrera);
+
+            try
+            {
+                return EjecutarConsulta(command);  // EjecutarConsulta es el método de ClaseGestorBase que devuelve un DataTable
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar el alumno: {ex.Message}");
+                return null;  // Devuelve null en caso de error
             }
         }
     }

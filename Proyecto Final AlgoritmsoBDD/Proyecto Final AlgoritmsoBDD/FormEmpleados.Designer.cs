@@ -74,11 +74,11 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label12.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label12.ForeColor = SystemColors.ButtonHighlight;
             label12.Location = new Point(0, 4);
             label12.Name = "label12";
-            label12.Size = new Size(286, 56);
+            label12.Size = new Size(274, 55);
             label12.TabIndex = 2;
             label12.Text = "Empleados";
             // 
@@ -130,6 +130,7 @@
             btnBuscar.TabIndex = 46;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtDni
             // 
@@ -176,11 +177,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Arial Unicode MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(12, 19);
             label2.Name = "label2";
-            label2.Size = new Size(79, 20);
+            label2.Size = new Size(79, 18);
             label2.TabIndex = 40;
             label2.Text = "Filtrar por :";
             // 

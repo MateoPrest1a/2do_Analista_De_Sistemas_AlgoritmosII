@@ -697,6 +697,34 @@ BEGIN
       AND baja = 0;  -- Incluye solo alumnos activos
 END;
 
+
+CREATE PROCEDURE SP_FiltrarAlumnosPorAño
+    @Año INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT matricula, nombre, apellido, direccion_calle, direccion_numero,
+           telefono, dni, email, fecha_nacimiento, id_carrera, baja, año
+    FROM Alumnos
+    WHERE año = @Año
+    AND baja = 0;  -- Incluye solo alumnos activos
+END;
+
+
+CREATE PROCEDURE SP_FiltrarAlumnosPorCarrera
+    @IdCarrera INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT matricula, nombre, apellido, direccion_calle, direccion_numero,
+           telefono, dni, email, fecha_nacimiento, id_carrera, baja, año
+    FROM Alumnos
+    WHERE id_carrera = @IdCarrera
+    AND baja = 0;  -- Incluye solo alumnos activos
+END;
+
 --------------------------------------------------------Store Procedure Busqueda Empleados--------------------------------------------------------
 
 CREATE PROCEDURE SP_BuscarEmpleadosPorNombre
@@ -707,6 +735,63 @@ BEGIN
     SELECT *
     FROM Empleados
     WHERE nombre LIKE '%' + @Nombre + '%' AND apellido LIKE '%' + @Apellido + '%'
+END;
+
+
+--------------------------------------------------------Filtro por Materia--------------------------------------------------------
+CREATE PROCEDURE SP_FiltrarMateriasPorAño
+    @año INT
+AS
+BEGIN
+    SELECT  
+        m.id_materia AS ID, 
+        m.anio_cursada AS Año, 
+        m.nombre_materia AS Materia,
+        c.nombre_carrera AS Carrera,
+        c.id_carrera,
+        CONCAT(e.apellido, ', ', e.nombre) AS Profesor,
+        e.id_empleado AS ID_Empleado
+    FROM 
+        Materias AS m
+    JOIN 
+        MateriasxCarrera AS mc ON m.id_materia = mc.id_materia
+    JOIN 
+        Carreras AS c ON mc.id_carrera = c.id_carrera
+    LEFT JOIN 
+        MateriasxProfesor AS mp ON m.id_materia = mp.id_materia
+    LEFT JOIN 
+        Empleados AS e ON mp.id_profesor = e.id_empleado
+    WHERE
+        m.anio_cursada = @año;  -- Filtra solo por año
+END;
+
+
+
+
+CREATE PROCEDURE SP_FiltrarMateriasPorCarrera
+    @id_carrera INT
+AS
+BEGIN
+    SELECT  
+        m.id_materia AS ID, 
+        m.anio_cursada AS Año, 
+        m.nombre_materia AS Materia,
+        c.nombre_carrera AS Carrera,
+        c.id_carrera,
+        CONCAT(e.apellido, ', ', e.nombre) AS Profesor,
+        e.id_empleado AS ID_Empleado
+    FROM 
+        Materias AS m
+    JOIN 
+        MateriasxCarrera AS mc ON m.id_materia = mc.id_materia
+    JOIN 
+        Carreras AS c ON mc.id_carrera = c.id_carrera
+    LEFT JOIN 
+        MateriasxProfesor AS mp ON m.id_materia = mp.id_materia
+    LEFT JOIN 
+        Empleados AS e ON mp.id_profesor = e.id_empleado
+    WHERE
+        c.id_carrera = @id_carrera;  -- Filtra solo por carrera
 END;
 
 --------------------------------------------------------Funciones Estadisticas--------------------------------------------------------

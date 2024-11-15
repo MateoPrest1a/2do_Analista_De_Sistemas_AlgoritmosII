@@ -75,7 +75,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             cmbFiltros.Items.Clear();
             cmbFiltros.Items.Add("Nombre y Apellido");
-           
+            cmbFiltros.Items.Add("Carrera");
+            cmbFiltros.Items.Add("Año");
+
 
             cmbAño.Items.Clear();
             cmbAño.Items.Add("1");
@@ -220,9 +222,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 case "Carrera":
                     cmbCarrera.Visible = true;
                     break;
-                case "Dni":
-                    txtDni.Visible = true;
-                    break;
             }
         }
 
@@ -255,11 +254,63 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     MessageBox.Show("Por favor ingrese un nombre y apellido.");
                 }
             }
+            else if(cmbAño.Visible)
+            {
+                // Obtiene el valor seleccionado en el ComboBox de Año
+                int añoSeleccionado = Convert.ToInt32(cmbAño.SelectedItem);
+
+                // Verifica que el valor del año seleccionado sea válido
+                if (añoSeleccionado > 0)
+                {
+                    // Llama al método de búsqueda con solo el filtro de Año
+                    ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos();
+                    DataTable resultados = gestorAlumnos.CargarAlumnosPorAño(añoSeleccionado);
+
+                    if (resultados != null && resultados.Rows.Count > 0)
+                    {
+                        // Si se encuentran resultados, mostrar en un DataGridView
+                        dataGridView1.DataSource = resultados;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron alumnos para el año seleccionado.");
+                    }
+                }
+
+            }
+            else if (cmbCarrera.Visible)
+            {
+                // Obtiene el objeto Carrera seleccionado en el ComboBox
+                Carrera carreraSeleccionada = (Carrera)cmbCarrera.SelectedItem;
+
+                // Verifica que la carrera seleccionada no sea nula
+                if (carreraSeleccionada != null && carreraSeleccionada.ID_Carrera > 0)
+                {
+                    // Llama al método de búsqueda con el filtro de carrera
+                    ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos();
+                    DataTable resultados = gestorAlumnos.CargarAlumnosPorCarrera(carreraSeleccionada.ID_Carrera);
+
+                    if (resultados != null && resultados.Rows.Count > 0)
+                    {
+                        // Si se encuentran resultados, mostrar en un DataGridView
+                        dataGridView1.DataSource = resultados;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron alumnos para la carrera seleccionada.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor seleccione una carrera válida.");
+                }
+            }
             else
             {
-                // Si no se está usando el filtro de nombre y apellido, podrías manejar los otros casos
-                MessageBox.Show("Seleccione un filtro válido para buscar.");
+                MessageBox.Show("Seleccione un filtro de carrera válido para buscar.");
             }
+
+
         }
 
         private void btnRecargarTabla_Click(object sender, EventArgs e)
