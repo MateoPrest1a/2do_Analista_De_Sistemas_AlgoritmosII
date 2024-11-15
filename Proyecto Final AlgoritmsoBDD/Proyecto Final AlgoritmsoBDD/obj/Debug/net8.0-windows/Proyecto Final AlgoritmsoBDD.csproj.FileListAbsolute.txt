@@ -207,3 +207,4 @@ D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Pro
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormHistorialExamenAlumno.resources
 C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormHistorialExamenAlumno.resources
 C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormMateriasXAlumno.resources
+D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormMateriasXAlumno.resources

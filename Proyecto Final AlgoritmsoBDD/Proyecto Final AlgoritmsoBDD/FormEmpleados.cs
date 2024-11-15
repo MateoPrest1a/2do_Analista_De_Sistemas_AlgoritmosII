@@ -76,7 +76,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     string nombre = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
                     string apellido = dataGridView1.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
                     string direcalle = dataGridView1.Rows[e.RowIndex].Cells["direccion_calle"].Value.ToString();
-                    int direnum = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["direccion_nro"].Value);
+                    string direnum = dataGridView1.Rows[e.RowIndex].Cells["direccion_nro"].ToString();
                     string telefono = dataGridView1.Rows[e.RowIndex].Cells["Telefono"].Value?.ToString();
                     string documento = dataGridView1.Rows[e.RowIndex].Cells["dni"].Value?.ToString();
                     string email = dataGridView1.Rows[e.RowIndex].Cells["Email"].Value?.ToString();
@@ -96,7 +96,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     string nombre = "";
                     string apellido = "";
                     string direcalle = "";
-                    int direnum = 0;
+                    string direnum = "";
                     string telefono = "";
                     string documento = "";
                     string email = "";

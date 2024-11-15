@@ -1,5 +1,5 @@
-create database Proyecto_Hilet;
-use Proyecto_Hilet;
+create database Proyecto_Hilet2;
+use Proyecto_Hilet2;
 
 create table Carreras( 
 id_carrera int identity primary key,
@@ -225,12 +225,10 @@ INSERT INTO Perfiles VALUES(
 'Profesor'
 );
 
-INSERT INTO Perfiles VALUES(
-'Alumno'
-);
-
 drop table Perfiles
 
+
+--Capaz eliminar estos
 create table Permisos(
 	id_permiso int identity primary key,
 	descripcion nvarchar,
@@ -244,6 +242,8 @@ create table PermisosxPerfil(
 	foreign key (id_permiso) references Permisos(id_permiso),
 	foreign key (id_perfil) references Perfiles(id_perfil)
 );
+------------------------------------------------------------------------------------
+
 
 create table PerfilxAlumno(
 	id_perfilxalumno int primary key identity,
@@ -264,6 +264,12 @@ create table PerfilxPersona(
     foreign key (id_perfil) references Perfiles(id_perfil),
     foreign key (id_empleado) references Empleados(id_empleado)  -- Relación con la tabla Empleados
 );
+
+INSERT INTO PerfilxPersona VALUES(
+1,1,'20009283','20009283'
+);
+
+select * from empleados
 
 DROP TABLE PerfilxPersona
 
@@ -293,6 +299,14 @@ CREATE TABLE MateriasxProfesor (
     FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
 );
 
+CREATE TABLE CarrerasxProfesor (
+	id_carrerasxprofesor INT IDENTITY PRIMARY KEY,
+	id_profesor INT,
+	id_carrera INT,
+	FOREIGN KEY (id_profesor) REFERENCES Empleados(id_empleado),  
+    FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera)
+);
+
 select * from Empleados
 
 INSERT INTO Empleados (nombre, apellido, direccion_calle, direccion_nro, telefono, dni, email, fecha_nacimiento, salario, tipo_perfil)
@@ -300,21 +314,12 @@ VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmai
 
 insert into Alumnos values 
 (
-'Jose','Hernandez','Olazabal',134,'2232232233','40203040','josekpogenio@gmail.com','2024-09-30',1,0
+'Jose','Hernandez','Olazabal',134,'2232232233','40203040','josekpogenio@gmail.com','2024-09-30',1,0,2
 );
 
 select * from Alumnos;
 select * from Carreras
 
-UPDATE Carreras
-SET anio_plan_estudio = 2024
-WHERE id_carrera = 2;
-
-insert into Perfiles values
-('Profesor')
-
-insert into Perfiles values
-('Empleado Administrativo')
 
 select * from Perfiles
 
@@ -356,23 +361,6 @@ BEGIN
 	SET baja = 1
 	WHERE matricula = @matricula;
 END;
-
-
-CREATE PROCEDURE SP_BuscarAlumnoPorNombreApellido
-    @NombreApellido VARCHAR(40)
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    SELECT matricula, nombre, apellido, direccion_calle, direccion_numero,
-           telefono, dni, email, fecha_nacimiento, id_carrera, baja, año
-    FROM Alumnos
-    WHERE (nombre + ' ' + apellido LIKE '%' + @NombreApellido + '%'
-           OR apellido + ' ' + nombre LIKE '%' + @NombreApellido + '%')
-      AND baja = 0;  -- Incluye solo alumnos activos
-END;
-
-
 
 
 
@@ -647,14 +635,19 @@ END;
 
 --------------------------------------------------------Store Procedure Busqueda Alumnos--------------------------------------------------------
 
-CREATE PROCEDURE SP_BuscarAlumnosPorNombre
-    @Nombre NVARCHAR,
-	@Apellido NVARCHAR
+
+CREATE PROCEDURE SP_BuscarAlumnoPorNombreApellido
+    @NombreApellido VARCHAR(40)
 AS
 BEGIN
-    SELECT *
+    SET NOCOUNT ON;
+
+    SELECT matricula, nombre, apellido, direccion_calle, direccion_numero,
+           telefono, dni, email, fecha_nacimiento, id_carrera, baja, año
     FROM Alumnos
-    WHERE nombre LIKE '%' + @Nombre + '%' AND Apellido LIKE '%' + @Apellido + '%'
+    WHERE (nombre + ' ' + apellido LIKE '%' + @NombreApellido + '%'
+           OR apellido + ' ' + nombre LIKE '%' + @NombreApellido + '%')
+      AND baja = 0;  -- Incluye solo alumnos activos
 END;
 
 --------------------------------------------------------Store Procedure Busqueda Empleados--------------------------------------------------------

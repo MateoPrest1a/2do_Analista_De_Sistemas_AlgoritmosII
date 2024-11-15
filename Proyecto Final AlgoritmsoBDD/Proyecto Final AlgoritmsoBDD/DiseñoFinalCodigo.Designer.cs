@@ -76,7 +76,7 @@ namespace DiseñoFinal
             pictureBox1 = new PictureBox();
             btnABMMaterias = new Button();
             btnABMProfesores = new Button();
-            btnABMPermisos = new Button();
+            btnABMCarreras = new Button();
             btnABMEmpleados = new Button();
             tabPerfilAlumno = new TabPage();
             panel10 = new Panel();
@@ -86,17 +86,21 @@ namespace DiseñoFinal
             label33 = new Label();
             label34 = new Label();
             panel11 = new Panel();
+            pictureBox2 = new PictureBox();
             btnExamenesAlumnos = new Button();
             btnDatosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
             tabPerfilProfesores = new TabPage();
-            button2 = new Button();
+            panel13 = new Panel();
+            lblUsuarioEmpleado = new Label();
+            lblPerfilEmpleado = new Label();
+            label36 = new Label();
+            label37 = new Label();
             panel9 = new Panel();
-            button1 = new Button();
+            pictureBox3 = new PictureBox();
             btnExamenesProfesor = new Button();
             btnCarrerasProfesor = new Button();
             btnMateriasProfesor = new Button();
-            pictureBox2 = new PictureBox();
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -111,9 +115,11 @@ namespace DiseñoFinal
             panel10.SuspendLayout();
             panel12.SuspendLayout();
             panel11.SuspendLayout();
-            tabPerfilProfesores.SuspendLayout();
-            panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            tabPerfilProfesores.SuspendLayout();
+            panel13.SuspendLayout();
+            panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -580,7 +586,7 @@ namespace DiseñoFinal
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnABMMaterias);
             panel1.Controls.Add(btnABMProfesores);
-            panel1.Controls.Add(btnABMPermisos);
+            panel1.Controls.Add(btnABMCarreras);
             panel1.Controls.Add(btnABMEmpleados);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 3);
@@ -665,23 +671,23 @@ namespace DiseñoFinal
             btnABMProfesores.UseVisualStyleBackColor = false;
             btnABMProfesores.Click += btnABMProfesores_Click;
             // 
-            // btnABMPermisos
+            // btnABMCarreras
             // 
-            btnABMPermisos.BackColor = Color.FromArgb(33, 63, 96);
-            btnABMPermisos.BackgroundImageLayout = ImageLayout.None;
-            btnABMPermisos.Cursor = Cursors.Hand;
-            btnABMPermisos.Dock = DockStyle.Top;
-            btnABMPermisos.FlatAppearance.BorderSize = 0;
-            btnABMPermisos.FlatStyle = FlatStyle.Flat;
-            btnABMPermisos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnABMPermisos.ForeColor = Color.White;
-            btnABMPermisos.Location = new Point(0, 105);
-            btnABMPermisos.Name = "btnABMPermisos";
-            btnABMPermisos.Size = new Size(194, 105);
-            btnABMPermisos.TabIndex = 2;
-            btnABMPermisos.Text = "PERMISOS";
-            btnABMPermisos.UseVisualStyleBackColor = false;
-            btnABMPermisos.Click += btnABMPermisos_Click;
+            btnABMCarreras.BackColor = Color.FromArgb(33, 63, 96);
+            btnABMCarreras.BackgroundImageLayout = ImageLayout.None;
+            btnABMCarreras.Cursor = Cursors.Hand;
+            btnABMCarreras.Dock = DockStyle.Top;
+            btnABMCarreras.FlatAppearance.BorderSize = 0;
+            btnABMCarreras.FlatStyle = FlatStyle.Flat;
+            btnABMCarreras.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnABMCarreras.ForeColor = Color.White;
+            btnABMCarreras.Location = new Point(0, 105);
+            btnABMCarreras.Name = "btnABMCarreras";
+            btnABMCarreras.Size = new Size(194, 105);
+            btnABMCarreras.TabIndex = 2;
+            btnABMCarreras.Text = "CARRERAS";
+            btnABMCarreras.UseVisualStyleBackColor = false;
+            btnABMCarreras.Click += btnabmCarreras_Click;
             // 
             // btnABMEmpleados
             // 
@@ -786,6 +792,19 @@ namespace DiseñoFinal
             panel11.Size = new Size(195, 573);
             panel11.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
+            pictureBox2.Location = new Point(0, 524);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(195, 49);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 4;
+            pictureBox2.TabStop = false;
+            // 
             // btnExamenesAlumnos
             // 
             btnExamenesAlumnos.BackColor = Color.FromArgb(33, 63, 96);
@@ -839,7 +858,7 @@ namespace DiseñoFinal
             // 
             // tabPerfilProfesores
             // 
-            tabPerfilProfesores.Controls.Add(button2);
+            tabPerfilProfesores.Controls.Add(panel13);
             tabPerfilProfesores.Controls.Add(panel9);
             tabPerfilProfesores.Location = new Point(4, 24);
             tabPerfilProfesores.Name = "tabPerfilProfesores";
@@ -849,24 +868,62 @@ namespace DiseñoFinal
             tabPerfilProfesores.Text = "Mi Perfil";
             tabPerfilProfesores.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // panel13
             // 
-            button2.BackColor = Color.FromArgb(33, 63, 96);
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(313, 64);
-            button2.Name = "button2";
-            button2.Size = new Size(195, 193);
-            button2.TabIndex = 2;
-            button2.Text = "asignar materia";
-            button2.UseVisualStyleBackColor = false;
+            panel13.BackColor = Color.Transparent;
+            panel13.Controls.Add(lblUsuarioEmpleado);
+            panel13.Controls.Add(lblPerfilEmpleado);
+            panel13.Controls.Add(label36);
+            panel13.Controls.Add(label37);
+            panel13.Dock = DockStyle.Bottom;
+            panel13.Location = new Point(198, 521);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(1007, 49);
+            panel13.TabIndex = 8;
+            // 
+            // lblUsuarioEmpleado
+            // 
+            lblUsuarioEmpleado.AutoSize = true;
+            lblUsuarioEmpleado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUsuarioEmpleado.Location = new Point(51, 13);
+            lblUsuarioEmpleado.Name = "lblUsuarioEmpleado";
+            lblUsuarioEmpleado.Size = new Size(69, 21);
+            lblUsuarioEmpleado.TabIndex = 3;
+            lblUsuarioEmpleado.Text = "Usuario";
+            // 
+            // lblPerfilEmpleado
+            // 
+            lblPerfilEmpleado.AutoSize = true;
+            lblPerfilEmpleado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPerfilEmpleado.Location = new Point(841, 13);
+            lblPerfilEmpleado.Name = "lblPerfilEmpleado";
+            lblPerfilEmpleado.Size = new Size(135, 21);
+            lblPerfilEmpleado.TabIndex = 2;
+            lblPerfilEmpleado.Text = "(Aca va el perfil)";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label36.Location = new Point(757, 13);
+            label36.Name = "label36";
+            label36.Size = new Size(78, 21);
+            label36.TabIndex = 1;
+            label36.Text = "Usted es:";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label37.Location = new Point(6, 13);
+            label37.Name = "label37";
+            label37.Size = new Size(54, 21);
+            label37.TabIndex = 0;
+            label37.Text = "Hola, ";
             // 
             // panel9
             // 
-            panel9.Controls.Add(button1);
+            panel9.Controls.Add(pictureBox3);
             panel9.Controls.Add(btnExamenesProfesor);
             panel9.Controls.Add(btnCarrerasProfesor);
             panel9.Controls.Add(btnMateriasProfesor);
@@ -876,21 +933,18 @@ namespace DiseñoFinal
             panel9.Size = new Size(195, 567);
             panel9.TabIndex = 0;
             // 
-            // button1
+            // pictureBox3
             // 
-            button1.BackColor = Color.FromArgb(33, 63, 96);
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(0, 573);
-            button1.Name = "button1";
-            button1.Size = new Size(195, 193);
-            button1.TabIndex = 4;
-            button1.Text = "MATERIAS";
-            button1.UseVisualStyleBackColor = false;
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox3.Dock = DockStyle.Fill;
+            pictureBox3.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
+            pictureBox3.Location = new Point(0, 520);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(195, 47);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 5;
+            pictureBox3.TabStop = false;
             // 
             // btnExamenesProfesor
             // 
@@ -901,9 +955,9 @@ namespace DiseñoFinal
             btnExamenesProfesor.FlatStyle = FlatStyle.Flat;
             btnExamenesProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExamenesProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnExamenesProfesor.Location = new Point(0, 380);
+            btnExamenesProfesor.Location = new Point(0, 372);
             btnExamenesProfesor.Name = "btnExamenesProfesor";
-            btnExamenesProfesor.Size = new Size(195, 193);
+            btnExamenesProfesor.Size = new Size(195, 148);
             btnExamenesProfesor.TabIndex = 3;
             btnExamenesProfesor.Text = "EXAMENES";
             btnExamenesProfesor.UseVisualStyleBackColor = false;
@@ -920,9 +974,9 @@ namespace DiseñoFinal
             btnCarrerasProfesor.ForeColor = SystemColors.ButtonHighlight;
             btnCarrerasProfesor.Location = new Point(0, 193);
             btnCarrerasProfesor.Name = "btnCarrerasProfesor";
-            btnCarrerasProfesor.Size = new Size(195, 187);
+            btnCarrerasProfesor.Size = new Size(195, 179);
             btnCarrerasProfesor.TabIndex = 2;
-            btnCarrerasProfesor.Text = "CARRERAS";
+            btnCarrerasProfesor.Text = "MIS DATOS";
             btnCarrerasProfesor.UseVisualStyleBackColor = false;
             btnCarrerasProfesor.Click += btnCarrerasProfesor_Click;
             // 
@@ -939,21 +993,9 @@ namespace DiseñoFinal
             btnMateriasProfesor.Name = "btnMateriasProfesor";
             btnMateriasProfesor.Size = new Size(195, 193);
             btnMateriasProfesor.TabIndex = 1;
-            btnMateriasProfesor.Text = "MATERIAS";
+            btnMateriasProfesor.Text = "ALUMNOS";
             btnMateriasProfesor.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
-            pictureBox2.Location = new Point(0, 524);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(195, 49);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 4;
-            pictureBox2.TabStop = false;
+            btnMateriasProfesor.Click += btnMateriasProfesor_Click;
             // 
             // DiseñoFinalCodigo
             // 
@@ -983,9 +1025,12 @@ namespace DiseñoFinal
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             panel11.ResumeLayout(false);
-            tabPerfilProfesores.ResumeLayout(false);
-            panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            tabPerfilProfesores.ResumeLayout(false);
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -1002,7 +1047,7 @@ namespace DiseñoFinal
         private TabPage tabPerfilProfesores;
         private Button btnABMMaterias;
         private Button btnABMProfesores;
-        private Button btnABMPermisos;
+        private Button btnABMCarreras;
         private Button btnABMEmpleados;
         private Panel panel2;
         private PictureBox pictureBox1;
@@ -1055,8 +1100,6 @@ namespace DiseñoFinal
         private Panel panel11;
         private Button btnExamenesAlumnos;
         private Button btnMateriasAlumnos;
-        private Button button1;
-        private Button button2;
         private Button btnDatosAlumnos;
         private Panel panel12;
         private Label lblUsuarioAlumno;
@@ -1064,5 +1107,11 @@ namespace DiseñoFinal
         private Label label33;
         private Label label34;
         private PictureBox pictureBox2;
+        private Panel panel13;
+        private Label lblUsuarioEmpleado;
+        private Label lblPerfilEmpleado;
+        private Label label36;
+        private Label label37;
+        private PictureBox pictureBox3;
     }
 }

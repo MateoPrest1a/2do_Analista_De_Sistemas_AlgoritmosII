@@ -35,7 +35,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             cmbEspecialidadEmpleado.ValueMember = "IdEspecialidad"; // El valor que necesitas
         }
 
-        public FormEmpleadosModal(int idprofesor, string nombre, string apellido, string direccioncalle, int direccionnumero, string telefono, string dni, string email, DateTime fechanacimiento, decimal salario, int especialidad)
+        public FormEmpleadosModal(int idprofesor, string nombre, string apellido, string direccioncalle, string direccionnumero, string telefono, string dni, string email, DateTime fechanacimiento, decimal salario, int especialidad)
         {
             InitializeComponent();
             CargarEspecialidades();

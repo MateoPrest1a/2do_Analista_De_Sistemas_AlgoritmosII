@@ -1,25 +1,77 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\",
+  "WorkspaceRootPath": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|c:\\users\\hilet.hilet\\documents\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\dise\u00F1ofinalcodigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\dise\u00F1ofinalcodigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\dise\u00F1ofinalcodigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|c:\\users\\hilet.hilet\\documents\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\dise\u00F1ofinalcodigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\dise\u00F1ofinalcodigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\dise\u00F1ofinalcodigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formempleadosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formempleadosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formalumnosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\clasegestorexamenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\clasegestorexamenes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\clasegestorempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\clasegestorempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\clasegestoralumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\clasegestoralumnos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formempleadosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formempleadosmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\clasesobjetosproyecto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\clasesobjetosproyecto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\formmateriasmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formmateriasmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formmateriasmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formmateriasmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\clasegestoramaterias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\clasegestoramaterias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|c:\\users\\hilet.hilet\\documents\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\formmateriasxalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\formmateriasxalumno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\proyecto final algoritmsobdd\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|d:\\github\\2do_analista_de_sistemas_algoritmosii\\proyecto final algoritmsobdd\\proyecto final algoritmsobdd\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7424C9B6-9BF5-40A8-88F9-D23587838550}|Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD.csproj|solutionrelative:proyecto final algoritmsobdd\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -35,23 +87,200 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FormAlumnos.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwCIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:59:20.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormAlumnos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnos.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:59:18.911Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormEmpleados.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormEmpleados.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormEmpleados.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormEmpleados.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormEmpleados.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAIAwwGIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:42:16.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClaseGestorExamenes.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestorExamenes.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\ClaseGestorExamenes.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestorExamenes.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\ClaseGestorExamenes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:40:05.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ClaseGestorEmpleados.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestorEmpleados.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\ClaseGestorEmpleados.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestorEmpleados.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\ClaseGestorEmpleados.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:38:04.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ClaseGestorAlumnos.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestorAlumnos.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\ClaseGestorAlumnos.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestorAlumnos.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\ClaseGestorAlumnos.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAswHQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:23:14.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FormAlumnosModal.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAQwK4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:22:15.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormAlumnosModal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormAlumnosModal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:22:13.826Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormEmpleadosModal.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAiwCUAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:22:06.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FormEmpleadosModal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormEmpleadosModal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T00:21:59.907Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ClasesObjetosProyecto.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClasesObjetosProyecto.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\ClasesObjetosProyecto.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClasesObjetosProyecto.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\ClasesObjetosProyecto.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA4wBgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T17:13:34.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ClaseGestoraMaterias.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestoraMaterias.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\ClaseGestoraMaterias.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\ClaseGestoraMaterias.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\ClaseGestoraMaterias.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwFAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T17:00:05.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FormMateriasModal.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs",
+              "ViewState": "AgIAALMAAAAAAAAAAAAgwMYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T16:52:01.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FormMateriasModal.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs",
+              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormMateriasModal.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T16:51:22.218Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Dise\u00F1oFinalCodigo.cs",
-              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
               "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
-              "ToolTip": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
               "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAywBMAAAAbAAAA",
+              "ViewState": "AgIAAJMAAAAAAAAAAAA2wFsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T15:30:52.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Dise\u00F1oFinalCodigo.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
               "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs",
-              "ToolTip": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs [Dise\u00F1o]",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs [Dise\u00F1o]",
               "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\Dise\u00F1oFinalCodigo.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T15:30:17.236Z",
@@ -59,40 +288,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormMateriasXAlumno.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormMateriasXAlumno.cs",
-              "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\FormMateriasXAlumno.cs",
-              "ToolTip": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\FormMateriasXAlumno.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\FormMateriasXAlumno.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T15:17:07.7Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 16,
               "Title": "Login.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Login.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Login.cs",
               "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\Login.cs",
               "ToolTip": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Login.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\Login.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T13:51:54.357Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-11-13T13:51:54.357Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 17,
               "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Login.cs",
+              "DocumentMoniker": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Login.cs",
               "RelativeDocumentMoniker": "Proyecto Final AlgoritmsoBDD\\Login.cs",
-              "ToolTip": "C:\\Users\\hilet.HILET\\Documents\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Login.cs",
+              "ToolTip": "D:\\GitHub\\2do_Analista_De_Sistemas_AlgoritmosII\\Proyecto Final AlgoritmsoBDD\\Proyecto Final AlgoritmsoBDD\\Login.cs",
               "RelativeToolTip": "Proyecto Final AlgoritmsoBDD\\Login.cs",
               "ViewState": "AQIAAFgAAAAAAAAAAAAAAEIAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T13:51:56.199Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T13:51:56.199Z"
             }
           ]
         }
