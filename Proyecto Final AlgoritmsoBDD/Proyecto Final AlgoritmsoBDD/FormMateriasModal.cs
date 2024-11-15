@@ -196,7 +196,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else
             {
-                idempleado = ((Empleado)cmbCarreras.SelectedItem).ID_Empleado; // Esto da error :(
+                Empleado profesorSeleccionado = (Empleado)cmbProfesores.SelectedItem;
+                int idEmpleado = profesorSeleccionado.ID_Empleado;
             }
             
 

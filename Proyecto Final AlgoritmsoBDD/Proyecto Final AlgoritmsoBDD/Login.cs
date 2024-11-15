@@ -97,6 +97,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                 WHERE
                                     pa.nombre_usuario = @Usuario AND pa.contrasenia = @Contrasena";
 
+
                 using (SqlCommand command = new SqlCommand(query))
                 {
                     command.Parameters.AddWithValue("@Usuario", usuario);

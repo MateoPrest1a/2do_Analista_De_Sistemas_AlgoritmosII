@@ -75,9 +75,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         {
             cmbFiltros.Items.Clear();
             cmbFiltros.Items.Add("Nombre y Apellido");
-            cmbFiltros.Items.Add("Año");
-            cmbFiltros.Items.Add("Carrera");
-            cmbFiltros.Items.Add("Dni");
+           
 
             cmbAño.Items.Clear();
             cmbAño.Items.Add("1");

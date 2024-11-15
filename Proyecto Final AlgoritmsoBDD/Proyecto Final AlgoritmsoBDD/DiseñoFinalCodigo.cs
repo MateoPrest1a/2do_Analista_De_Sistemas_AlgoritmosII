@@ -35,17 +35,6 @@ namespace DiseñoFinal
             lblUsuario.Text = nombre + " " + apellido;
             lblPerfil.Text = perfil;
 
-            //LBLESTADISTICOS
-            lblAlumTot.Text = Convert.ToString(mcb.CantidadAlumnosTotal());
-            lblCantTotAlumADS.Text = Convert.ToString(mcb.CantidadAlumnosTotalADS());
-            lblCantTotAlumPub.Text = Convert.ToString(mcb.CantidadAlumnosTotalPublicidad());
-
-            lblCantProfesores.Text = Convert.ToString(mcb.CantidadProfesoresTotal());
-            lblCantEmpleadosTot.Text = Convert.ToString(mcb.CantidadEmpleadosTotal());
-
-            lblMatTotADS.Text = Convert.ToString(mcb.CantidadMateriasTotalesADS());
-            lblMatTotPub.Text = Convert.ToString(mcb.CantidadMateriasTotalPublicidad());
-
 
             //Cargo datos pantalla principal
             lblUsuario.Text = nombre + " " + apellido;
