@@ -15,11 +15,14 @@ namespace Proyecto_Final_AlgoritmsoBDD
     public partial class FormEmpleados : Form
     {
         private GestorEmpleados gestorEmpleados = new GestorEmpleados(); // Instancia de la clase gestora
-        public FormEmpleados()
+        
+        string Perfil; //Para determinar que podra ver dependiendo cada perfil
+        public FormEmpleados(string perfil)
         {
             InitializeComponent();
             CargarEspecialidades();
             Cargar_Filtros();
+            Perfil = perfil;
         }
         private void Cargar_Filtros()
         {
@@ -86,7 +89,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
 
 
-                    FormEmpleadosModal formempleadosmodal = new FormEmpleadosModal(idprofesor, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, salario, especialidad);
+                    FormEmpleadosModal formempleadosmodal = new FormEmpleadosModal(idprofesor, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, salario, especialidad, Perfil);
                     formempleadosmodal.EmpleadoEvento += FormAgregar_EmpleadoEvento;
                     formempleadosmodal.ShowDialog();
                 }
@@ -104,7 +107,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     int salario = 0;
                     int especialidad = 1;
 
-                    FormEmpleadosModal formempleadosmodal = new FormEmpleadosModal(idprofesor, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, salario, especialidad);
+                    FormEmpleadosModal formempleadosmodal = new FormEmpleadosModal(idprofesor, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, salario, especialidad, Perfil);
                     formempleadosmodal.EmpleadoEvento += FormAgregar_EmpleadoEvento;
                     formempleadosmodal.ShowDialog();
                 }

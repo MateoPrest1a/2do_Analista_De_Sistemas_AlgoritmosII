@@ -127,8 +127,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 }
             }
 
-            MessageBox.Show(""+ perfil);
-
             //Perfiles
             AjustarVisibilidadPerfil(perfil);
         }
@@ -167,7 +165,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else if (perfil == "Personal Administrativo")
             {
-                
+
             }
         }
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -321,7 +319,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
 
             // AÑO
-            if(cmbAñoAlumno.SelectedItem == null)
+            if (cmbAñoAlumno.SelectedItem == null)
             {
                 error1.SetError(cmbAñoAlumno, "Seleccione un año valido");
                 cmbAñoAlumno.Focus();
@@ -586,7 +584,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
 
 
-            FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(matricula,NombreAlumno,idcarrera);
+            FormExamenesRendidos formexamenesrendidos = new FormExamenesRendidos(matricula, NombreAlumno, idcarrera);
             formexamenesrendidos.ShowDialog();
 
         }
@@ -599,6 +597,51 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAsignarMaterias_Click(object sender, EventArgs e)
+        {
+            int idcarrera;
+            int año;
+            int matricula;
+
+            //Matricula
+            if (int.TryParse(lblMatriculaAlumno.Text, out matricula))
+            {
+                // devuelve matricula en caso de que este bien
+            }
+            else
+            {
+                MessageBox.Show("El valor de matrícula no es válido.");
+            }
+
+            // CARRERA 
+            if (cmbCarrerasAlumnos.SelectedItem == null)
+            {
+                error1.SetError(cmbCarrerasAlumnos, "Carrera Inválida");
+                cmbCarrerasAlumnos.Focus();
+                return;
+            }
+            else
+            {
+                idcarrera = ((Carrera)cmbCarrerasAlumnos.SelectedItem).Id;
+                error1.Clear();
+            }
+
+            // AÑO
+            if (cmbAñoAlumno.SelectedItem == null)
+            {
+                error1.SetError(cmbAñoAlumno, "Seleccione un año valido");
+                cmbAñoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                año = Convert.ToInt32(cmbAñoAlumno.SelectedItem);
+            }
+
+            FormAsignarMateriaAlumno formulario = new FormAsignarMateriaAlumno(matricula, idcarrera, año);
+            formulario.ShowDialog();
         }
     }
 }

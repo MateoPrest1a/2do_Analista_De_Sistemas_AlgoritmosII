@@ -223,3 +223,5 @@ C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyect
 C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto Final AlgoritmsoBDD.genruntimeconfig.cache
 C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\ref\Proyecto Final AlgoritmsoBDD.dll
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormMateriasXAlumno.resources
+C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormAlumnosXProfesor.resources
+C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormAsignarMateriaAlumno.resources

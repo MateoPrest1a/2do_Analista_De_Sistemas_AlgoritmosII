@@ -29,7 +29,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
 
         //Constructor
-        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera)
+        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera, int idprofesor)
         {
             InitializeComponent();
             CargarCarreras();
@@ -61,6 +61,24 @@ namespace Proyecto_Final_AlgoritmsoBDD
             {
                 btnAgregarMateria.Visible = false;
             }
+
+
+
+            if (idprofesor > 0)
+            {
+                // Buscar el empleado por el ID en el ComboBox
+                Empleado empleadoSeleccionado = cmbProfesores.Items.Cast<Empleado>().FirstOrDefault(e => e.ID_Empleado == idprofesor);
+
+                if (empleadoSeleccionado != null)
+                {
+                    cmbProfesores.SelectedItem = empleadoSeleccionado; // Selecciona el empleado
+                }
+            }
+            else
+            {
+                cmbProfesores.SelectedIndex = -1; // Si no hay profesor, no selecciona nada
+            }
+
 
         }
 
@@ -111,10 +129,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private void CargarProfesores()
         {
-            string query = "SELECT id_empleado, nombre, apellido " +
-                           "FROM Empleados e " +
-                           "JOIN Perfiles p ON e.tipo_perfil = p.id_perfil " +
-                           "WHERE p.tipo = 'profesor'";
+            string query = "SELECT id_empleado, nombre, apellido FROM Empleados WHERE tipo_perfil = 2";  // Puedes agregar un filtro de 'perfil'
 
             try
             {
@@ -137,7 +152,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                     }
 
                     cmbProfesores.DisplayMember = "NombreCompleto";  // Mostrar nombre completo
-                    cmbProfesores.ValueMember = "ID_Empleado";       // Usar el ID como valor
+                    cmbProfesores.ValueMember = "ID_Empleado";      // Usar el ID como valor
                 }
             }
             catch (Exception ex)
@@ -148,12 +163,13 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
 
         private void btnAgregarMateria_Click(object sender, EventArgs e)
-{
+        {
             int idCarrera = 0;
             int anioCursada = 0;
             string nombreMateria = "";
-            int idempleado = 0;
+            int idEmpleado = 0;
 
+            // Validar carrera seleccionada
             if (cmbCarreras.SelectedItem == null)
             {
                 error1.SetError(cmbCarreras, "Elija una carrera válida");
@@ -165,18 +181,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 idCarrera = ((Carrera)cmbCarreras.SelectedItem).ID_Carrera;
             }
 
-
-            if (txtNombreMateria.Text == null)
-            {
-                error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
-                txtNombreMateria.Focus();
-                return;
-            }
-            else
-            {
-                anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
-            }
-
+            // Validar año de cursada
             if (cmbAñoCursada.SelectedItem == null)
             {
                 error1.SetError(cmbAñoCursada, "Elija un año de cursada válido");
@@ -185,10 +190,23 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else
             {
-                nombreMateria = txtNombreMateria.Text;
+                anioCursada = Convert.ToInt32(cmbAñoCursada.SelectedItem);
             }
-            
-            if(cmbProfesores.SelectedItem == null)
+
+            // Validar nombre de la materia
+            if (string.IsNullOrWhiteSpace(txtNombreMateria.Text))
+            {
+                error1.SetError(txtNombreMateria, "Ingrese un nombre a la materia");
+                txtNombreMateria.Focus();
+                return;
+            }
+            else
+            {
+                nombreMateria = txtNombreMateria.Text.Trim();
+            }
+
+            // Validar profesor seleccionado
+            if (cmbProfesores.SelectedItem == null)
             {
                 error1.SetError(cmbProfesores, "Elija un profesor válido");
                 cmbProfesores.Focus();
@@ -197,12 +215,19 @@ namespace Proyecto_Final_AlgoritmsoBDD
             else
             {
                 Empleado profesorSeleccionado = (Empleado)cmbProfesores.SelectedItem;
-                int idEmpleado = profesorSeleccionado.ID_Empleado;
+                idEmpleado = profesorSeleccionado.ID_Empleado;
             }
-            
 
-            // Usar la clase GestorMaterias para agregar la materia
-            gestorMaterias.CargarMateria(anioCursada, nombreMateria,idCarrera,idempleado);
+            
+            try
+            {
+                GestorMaterias gestor = new GestorMaterias();
+                gestor.CargarMateria(anioCursada, nombreMateria, idCarrera, idEmpleado);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar la materia: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             // Invocar el evento y cerrar el formulario
             MateriaEvento?.Invoke();
@@ -256,6 +281,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
 
 
+            // Validar profesor seleccionado
             if (cmbProfesores.SelectedItem == null)
             {
                 error1.SetError(cmbProfesores, "Elija un profesor válido");
@@ -264,7 +290,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else
             {
-                idempleado = ((Empleado)cmbCarreras.SelectedItem).ID_Empleado;
+                Empleado profesorSeleccionado = (Empleado)cmbProfesores.SelectedItem;
+                idempleado = profesorSeleccionado.ID_Empleado;
             }
 
 

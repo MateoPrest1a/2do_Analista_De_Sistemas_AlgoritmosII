@@ -36,6 +36,13 @@ año INT,
 foreign key (id_carrera) references Carreras(id_carrera)
 );
 
+create table Materias(
+	id_materia int identity primary key,
+	anio_cursada int,
+	nombre_materia varchar(30),
+	id_carrera int,
+	foreign key (id_carrera) references Carreras(id_carrera)
+);
 
 select * from Alumnos
 
@@ -225,23 +232,12 @@ INSERT INTO Perfiles VALUES(
 'Profesor'
 );
 
+INSERT INTO Perfiles VALUES(
+'Administrador'
+);
+
 drop table Perfiles
 
-
---Capaz eliminar estos
-create table Permisos(
-	id_permiso int identity primary key,
-	descripcion nvarchar,
-	tipo_de_permiso int
-);
-
-create table PermisosxPerfil(
-	id_permisoxperfil int identity primary key,
-	id_permiso int,
-	id_perfil int,
-	foreign key (id_permiso) references Permisos(id_permiso),
-	foreign key (id_perfil) references Perfiles(id_perfil)
-);
 ------------------------------------------------------------------------------------
 
 
@@ -266,7 +262,7 @@ create table PerfilxPersona(
 );
 
 INSERT INTO PerfilxPersona VALUES(
-1,1,'20009283','20009283'
+4,9,'20009283','20009283'
 );
 
 select * from empleados
@@ -291,6 +287,8 @@ create table Empleados(
 );
 
 
+select * from perfiles
+
 CREATE TABLE MateriasxProfesor (
     id_materiasxprofesor INT IDENTITY PRIMARY KEY,
     id_profesor INT,                
@@ -309,8 +307,10 @@ CREATE TABLE CarrerasxProfesor (
 
 select * from Empleados
 
+select * from perfiles
+
 INSERT INTO Empleados (nombre, apellido, direccion_calle, direccion_nro, telefono, dni, email, fecha_nacimiento, salario, tipo_perfil)
-VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmail.com', 'ramirosansi@gmail.com', '1969-10-10', 240000, 1);
+VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmail.com', 'ramirosansi@gmail.com', '1969-10-10', 240000, 4);
 
 insert into Alumnos values 
 (
@@ -325,6 +325,7 @@ select * from Perfiles
 
 select * from Empleados
 
+select * from 
 
 --------------------------------------------------------Store Procedure Alumnos--------------------------------------------------------
 
@@ -536,6 +537,8 @@ BEGIN
     VALUES (@id_empleado, @id_materia);
 END;
 
+select * from MateriasxProfesor
+
 drop procedure SP_AgregarMateria
 
 
@@ -585,6 +588,50 @@ BEGIN
 END;
 
 
+--------------------------------------------------------Store Procedure Materias x Alumnos--------------------------------------------------------
+
+CREATE PROCEDURE SP_AgregarMateriasxAlumno
+    @matricula INT,
+    @id_materia INT,
+    @estado NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO MateriasxAlumno (matricula, id_materia, estado)
+    VALUES (@matricula, @id_materia, @estado);
+	
+	-- Retorna el ID recién insertado (ID de MateriasxAlumno)
+    SELECT SCOPE_IDENTITY() AS id_materiasxalumno;
+END;
+
+
+drop procedure SP_AgregarMateriasxAlumno
+
+
+CREATE PROCEDURE SP_ModificarMateriasxAlumno
+    @id_materiasxalumno INT,
+    @matricula INT,
+    @id_materia INT,
+    @estado NVARCHAR(50)
+AS
+BEGIN
+    UPDATE MateriasxAlumno
+    SET 
+        matricula = @matricula,
+        id_materia = @id_materia,
+        estado = @estado
+    WHERE id_materiasxalumno = @id_materiasxalumno;
+    
+END;
+
+
+
+CREATE PROCEDURE SP_EliminarMateriasxAlumno
+    @id_materiasxalumno INT
+AS
+BEGIN
+    DELETE FROM MateriasxAlumno
+    WHERE id_materiasxalumno = @id_materiasxalumno;
+END;
 --------------------------------------------------------Store Procedure Examenes--------------------------------------------------------
 
 CREATE PROCEDURE SP_AgregarExamen

@@ -94,6 +94,7 @@
             btnAsignarMaterias.TabIndex = 12;
             btnAsignarMaterias.Text = "Asignar Materias";
             btnAsignarMaterias.UseVisualStyleBackColor = true;
+            btnAsignarMaterias.Click += btnAsignarMaterias_Click;
             // 
             // btnExamenesRendidos
             // 

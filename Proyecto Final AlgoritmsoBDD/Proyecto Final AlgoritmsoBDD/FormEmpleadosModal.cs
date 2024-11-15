@@ -35,7 +35,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             cmbEspecialidadEmpleado.ValueMember = "IdEspecialidad"; // El valor que necesitas
         }
 
-        public FormEmpleadosModal(int idprofesor, string nombre, string apellido, string direccioncalle, string direccionnumero, string telefono, string dni, string email, DateTime fechanacimiento, decimal salario, int especialidad)
+        public FormEmpleadosModal(int idprofesor, string nombre, string apellido, string direccioncalle, string direccionnumero, string telefono, string dni, string email, DateTime fechanacimiento, decimal salario, int especialidad, string perfil)
         {
             InitializeComponent();
             CargarEspecialidades();
@@ -62,8 +62,45 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 txtDireNumeroEmpleados.Clear();
                 txtSalarioEmpleados.Clear();
             }
+
+            AjustarVisibilidadPerfil(perfil);
         }
 
+        private void AjustarVisibilidadPerfil(string perfil)
+        {
+
+            if (perfil == "Alumno")
+            {
+                //Oculto Botones
+
+
+                //Deshabilito edicion de atributos
+
+            }
+            else if (perfil == "Profesor")
+            {
+                btnAgregarEmpleado.Visible = false;
+                btnModificarEmpleado.Visible = false;
+                btnEliminarEmpleado.Visible = false;
+
+                txtNombreEmpleados.Enabled = false;
+                txtApellidoEmpleados.Enabled = false;
+                txtDireCalleEmpleados.Enabled = false;
+                txtDireNumeroEmpleados.Enabled = false;
+                txtDireNumeroEmpleados.Enabled = false;
+                txtDocumentoEmpleados.Enabled = false;
+                txtEmailEmpleados.Enabled = false;
+                txtSalarioEmpleados.Enabled = false;
+                txtTelefonoEmpleados.Enabled = false;
+                cmbEspecialidadEmpleado.Enabled = false;
+                dtpFechaNacimientoEmpleado.Enabled = false;
+
+            }
+            else if (perfil == "Personal Administrativo")
+            {
+
+            }
+        }
 
 
         private void FormEmpleadosModal_Load(object sender, EventArgs e)

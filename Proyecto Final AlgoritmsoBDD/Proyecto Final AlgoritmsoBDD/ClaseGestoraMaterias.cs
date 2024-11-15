@@ -79,5 +79,29 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 }
             }
         }
+
+        // Método para agregar una materia a un alumno
+        public void AgregarMateriaAAlumno(int matricula, int idMateria, string estado)
+        {
+            using (SqlCommand command = new SqlCommand("SP_AgregarMateriasxAlumno"))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Agregar los parámetros
+                command.Parameters.AddWithValue("@matricula", matricula);
+                command.Parameters.AddWithValue("@id_materia", idMateria);
+                command.Parameters.AddWithValue("@estado", estado);
+
+                try
+                {
+                    EjecutarComando(command); // Ejecuta el procedimiento almacenado
+                    MessageBox.Show("Materia asignada al alumno con éxito.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al asignar la materia al alumno: {ex.Message}");
+                }
+            }
+        }
     }
 }

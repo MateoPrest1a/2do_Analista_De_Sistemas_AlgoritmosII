@@ -65,6 +65,7 @@ namespace DiseñoFinal
             btnDatosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
             tabPerfilProfesores = new TabPage();
+            ImagenesProfes = new PictureBox();
             panel13 = new Panel();
             lblUsuarioEmpleado = new Label();
             lblPerfilEmpleado = new Label();
@@ -89,6 +90,7 @@ namespace DiseñoFinal
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabPerfilProfesores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ImagenesProfes).BeginInit();
             panel13.SuspendLayout();
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -511,6 +513,7 @@ namespace DiseñoFinal
             // 
             // tabPerfilProfesores
             // 
+            tabPerfilProfesores.Controls.Add(ImagenesProfes);
             tabPerfilProfesores.Controls.Add(panel13);
             tabPerfilProfesores.Controls.Add(panel9);
             tabPerfilProfesores.Location = new Point(4, 24);
@@ -520,6 +523,17 @@ namespace DiseñoFinal
             tabPerfilProfesores.TabIndex = 1;
             tabPerfilProfesores.Text = "Mi Perfil";
             tabPerfilProfesores.UseVisualStyleBackColor = true;
+            // 
+            // ImagenesProfes
+            // 
+            ImagenesProfes.Dock = DockStyle.Fill;
+            ImagenesProfes.Image = (Image)resources.GetObject("ImagenesProfes.Image");
+            ImagenesProfes.Location = new Point(198, 3);
+            ImagenesProfes.Name = "ImagenesProfes";
+            ImagenesProfes.Size = new Size(1007, 518);
+            ImagenesProfes.SizeMode = PictureBoxSizeMode.StretchImage;
+            ImagenesProfes.TabIndex = 9;
+            ImagenesProfes.TabStop = false;
             // 
             // panel13
             // 
@@ -631,6 +645,7 @@ namespace DiseñoFinal
             btnCarrerasProfesor.TabIndex = 2;
             btnCarrerasProfesor.Text = "MIS DATOS";
             btnCarrerasProfesor.UseVisualStyleBackColor = false;
+            btnCarrerasProfesor.Click += btnCarrerasProfesor_Click;
             // 
             // btnMateriasProfesor
             // 
@@ -675,6 +690,7 @@ namespace DiseñoFinal
             panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tabPerfilProfesores.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ImagenesProfes).EndInit();
             panel13.ResumeLayout(false);
             panel13.PerformLayout();
             panel9.ResumeLayout(false);
@@ -735,5 +751,6 @@ namespace DiseñoFinal
         private Label label36;
         private Label label37;
         private PictureBox pictureBox3;
+        private PictureBox ImagenesProfes;
     }
 }

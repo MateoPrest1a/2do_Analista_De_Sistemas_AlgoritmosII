@@ -4,6 +4,12 @@
     <Compile Update="DiseñoFinalCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormAlumnosXProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormAsignarMateriaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormHistorialExamenAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
