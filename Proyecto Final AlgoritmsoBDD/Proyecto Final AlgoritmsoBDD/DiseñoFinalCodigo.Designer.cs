@@ -946,7 +946,7 @@ namespace DiseñoFinal
             btnCarrerasProfesor.TabIndex = 2;
             btnCarrerasProfesor.Text = "MIS DATOS";
             btnCarrerasProfesor.UseVisualStyleBackColor = false;
-            btnCarrerasProfesor.Click += btnCarrerasProfesor_Click;
+            //btnCarrerasProfesor.Click += btnCarrerasProfesor_Click;
             // 
             // btnMateriasProfesor
             // 
@@ -967,7 +967,7 @@ namespace DiseñoFinal
             // timer1
             // 
             timer1.Tick += timer1_Tick;
-            btnMateriasProfesor.Click += btnMateriasProfesor_Click;
+            //btnMateriasProfesor.Click += btnMateriasProfesor_Click;
             // 
             // DiseñoFinalCodigo
             // 

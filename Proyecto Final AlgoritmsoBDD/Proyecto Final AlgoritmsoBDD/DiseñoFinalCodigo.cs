@@ -23,10 +23,10 @@ namespace DiseñoFinal
 
             imgs = new List<string>()
             {
-                $"{cadenaUrl}foto2.jpg",
-                $"{cadenaUrl}foto3.jpg",
-                $"{cadenaUrl}foto4.jpg",
-                $"{cadenaUrl}renz%20y%20nico.jpg"
+                @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto1.jpg",
+                @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto2.jpg",
+                @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg",
+                @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto4.jpg"
             };
 
             timer1.Interval = 3000;
@@ -122,7 +122,7 @@ namespace DiseñoFinal
 
         private void btnABMAlumnos_Click_1(object sender, EventArgs e)
         {
-            FormAlumnos formalumnos = new FormAlumnos(Perfil);
+            FormAlumnos formalumnos = new FormAlumnos(Perfil, Id_Persona);
             formalumnos.ShowDialog();
         }
 
@@ -193,7 +193,7 @@ namespace DiseñoFinal
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {            
+        {
 
             if (indiceImagen > imgs.Count)
             {
@@ -209,47 +209,49 @@ namespace DiseñoFinal
         private void button2_Click(object sender, EventArgs e)
         {
 
-        // Botones Empleados
+            // Botones Empleados
 
-        public void CargarDatosEmpleado(int idEmpleado)
-        {
-            GestorEmpleados gestorEmpleados = new GestorEmpleados();
-            var result = gestorEmpleados.ObtenerDatosEmpleado(idEmpleado);
-
-            if (result.Rows.Count > 0)
+            void CargarDatosEmpleado(int idEmpleado)
             {
-                var row = result.Rows[0];
-                string nombre = row["nombre"].ToString();
-                string apellido = row["apellido"].ToString();
-                string direcalle = row["direccion_calle"].ToString();
-                string direnum = row["direccion_nro"].ToString();
-                string telefono = row["telefono"].ToString();
-                string documento = row["dni"].ToString();
-                string email = row["email"].ToString();
-                DateTime fechaNacimientoEmpleado = Convert.ToDateTime(row["fecha_nacimiento"]);
-                int salario = Convert.ToInt32(row["salario"]);
-                int tipoPerfil = Convert.ToInt32(row["tipo_perfil"]);
+                GestorEmpleados gestorEmpleados = new GestorEmpleados();
+                var result = gestorEmpleados.ObtenerDatosEmpleado(idEmpleado);
 
-                // Llama al formulario con los datos del empleado
-                FormEmpleadosModal formulario = new FormEmpleadosModal(idEmpleado, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimientoEmpleado, salario, tipoPerfil);
-                formulario.ShowDialog();
+                if (result.Rows.Count > 0)
+                {
+                    var row = result.Rows[0];
+                    string nombre = row["nombre"].ToString();
+                    string apellido = row["apellido"].ToString();
+                    string direcalle = row["direccion_calle"].ToString();
+                    string direnum = row["direccion_nro"].ToString();
+                    string telefono = row["telefono"].ToString();
+                    string documento = row["dni"].ToString();
+                    string email = row["email"].ToString();
+                    DateTime fechaNacimientoEmpleado = Convert.ToDateTime(row["fecha_nacimiento"]);
+                    int salario = Convert.ToInt32(row["salario"]);
+                    int tipoPerfil = Convert.ToInt32(row["tipo_perfil"]);
+
+                    // Llama al formulario con los datos del empleado
+                    FormEmpleadosModal formulario = new FormEmpleadosModal(idEmpleado, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimientoEmpleado, salario, tipoPerfil);
+                    formulario.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Empleado no encontrado");
+                }
             }
-            else
+
+            /*
+            private void btnCarrerasProfesor_Click(object sender, EventArgs e)
             {
-                MessageBox.Show("Empleado no encontrado");
+                CargarDatosEmpleado(Id_Persona);
             }
-        }
 
-
-        private void btnCarrerasProfesor_Click(object sender, EventArgs e)
-        {
-            CargarDatosEmpleado(Id_Persona);
-        }
-
-        private void btnMateriasProfesor_Click(object sender, EventArgs e)
-        {
-            FormAlumnos formalumnos = new FormAlumnos(Id_Persona);
-            formalumnos.ShowDialog();
+            private void btnMateriasProfesor_Click(object sender, EventArgs e)
+            {
+                FormAlumnos formalumnos = new FormAlumnos(Perfil,Id_Persona);
+                formalumnos.ShowDialog();
+            }
+            */
         }
     }
 }
