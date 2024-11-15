@@ -1,6 +1,7 @@
 using Proyecto_Final;
 using Proyecto_Final_AlgoritmsoBDD;
 using System.Data.SqlClient;
+using System.Security.Policy;
 
 namespace DiseñoFinal
 {
@@ -10,21 +11,22 @@ namespace DiseñoFinal
 
         int Id_Persona = 0;
         string Perfil;
+        string cadenaUrl = "https://github.com/MateoPrest1a/2do_Analista_De_Sistemas_AlgoritmosII/blob/main/Imagenes/";
 
         private List<string> imgs;
         private int indiceImagen = 0;
-        MetodosConexionBDD mcb = new MetodosConexionBDD(); 
+        MetodosConexionBDD mcb = new MetodosConexionBDD();
 
         public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
         {
             InitializeComponent();
-            
+
             imgs = new List<string>()
             {
-                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\renz y nico.jpg",
-                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto2.jpg",
-                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg",
-                @"C:\Users\Usuario1\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto4.jpg"
+                $"{cadenaUrl}foto2.jpg",
+                $"{cadenaUrl}foto3.jpg",
+                $"{cadenaUrl}foto4.jpg",
+                $"{cadenaUrl}renz%20y%20nico.jpg"
             };
 
             timer1.Interval = 3000;
@@ -34,7 +36,7 @@ namespace DiseñoFinal
             lblPerfil.Text = perfil;
 
             //LBLESTADISTICOS
-            lblAlumTot.Text = Convert.ToString(mcb.CantidadAlumnosTotal());            
+            lblAlumTot.Text = Convert.ToString(mcb.CantidadAlumnosTotal());
             lblCantTotAlumADS.Text = Convert.ToString(mcb.CantidadAlumnosTotalADS());
             lblCantTotAlumPub.Text = Convert.ToString(mcb.CantidadAlumnosTotalPublicidad());
 
@@ -42,7 +44,7 @@ namespace DiseñoFinal
             lblCantEmpleadosTot.Text = Convert.ToString(mcb.CantidadEmpleadosTotal());
 
             lblMatTotADS.Text = Convert.ToString(mcb.CantidadMateriasTotalesADS());
-            lblMatTotPub.Text = Convert.ToString(mcb.CantidadMateriasTotalPublicidad());            
+            lblMatTotPub.Text = Convert.ToString(mcb.CantidadMateriasTotalPublicidad());
 
 
             Id_Persona = idPerfil;
@@ -188,15 +190,22 @@ namespace DiseñoFinal
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            indiceImagen++;
+        {            
 
             if (indiceImagen > imgs.Count)
             {
                 indiceImagen = 0;
+            } else
+            {
+                indiceImagen++;
             }
 
-            CargarImagen();           
+            CargarImagen();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
