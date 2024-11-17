@@ -87,8 +87,8 @@ namespace DiseñoFinal
             }
             else if (perfil == "Profesor")
             {
-                tabControl1.TabPages.RemoveAt(0);
-                tabControl1.TabPages.RemoveAt(0);
+               // tabControl1.TabPages.RemoveAt(0);
+               // tabControl1.TabPages.RemoveAt(0);
             }
             else if (perfil == "Personal Administrativo")
             {
@@ -534,6 +534,42 @@ namespace DiseñoFinal
             {
                 MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
+        }
+
+        private void dataGridViewMaterias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+                    int ID = Convert.ToInt32(dataGridViewMaterias.Rows[e.RowIndex].Cells["ID"].Value);
+                    int Año = Convert.ToInt32(dataGridViewMaterias.Rows[e.RowIndex].Cells["Año"].Value);
+                    string Nombre = dataGridViewMaterias.Rows[e.RowIndex].Cells["Materia"].Value.ToString();
+                    int idcarrera = Convert.ToInt32(dataGridViewMaterias.Rows[e.RowIndex].Cells["id_carrera"].Value);
+                    int idempleado = Convert.ToInt32(dataGridViewMaterias.Rows[e.RowIndex].Cells["ID_Empleado"].Value);
+
+
+                    FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre, idcarrera, idempleado);
+                    formmateriasmodal.MateriaEvento += ActualizarDataGridView;
+                    formmateriasmodal.ShowDialog();
+                }
+                catch
+                {
+                    int ID = 0;
+                    int Año = 0;
+                    string Nombre = "";
+                    int idcarrera = 0;
+                    int idprofesor = 0;
+
+                    FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre, idcarrera, idprofesor);
+                    formmateriasmodal.MateriaEvento += ActualizarDataGridView;
+                    formmateriasmodal.ShowDialog();
+                }
+            }
+        }
+        private void ActualizarDataGridView()
+        {
+            Cargar_Tabla_Materias();
         }
     }
 }

@@ -598,9 +598,6 @@ AS
 BEGIN
     INSERT INTO MateriasxAlumno (matricula, id_materia, estado)
     VALUES (@matricula, @id_materia, @estado);
-	
-	-- Retorna el ID recién insertado (ID de MateriasxAlumno)
-    SELECT SCOPE_IDENTITY() AS id_materiasxalumno;
 END;
 
 

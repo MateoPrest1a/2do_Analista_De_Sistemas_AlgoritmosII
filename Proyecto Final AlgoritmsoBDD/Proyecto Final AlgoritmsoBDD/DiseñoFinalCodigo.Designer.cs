@@ -92,22 +92,22 @@ namespace DiseñoFinal
             panel14 = new Panel();
             panel15 = new Panel();
             label1 = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
             TabPageMaterias = new TabPage();
-            panel20 = new Panel();
-            label3 = new Label();
+            dataGridViewMaterias = new DataGridView();
+            panel24 = new Panel();
+            panel23 = new Panel();
             panel21 = new Panel();
+            cmbProfesoresMaterias = new ComboBox();
+            btnRecargarMaterias = new Button();
             cmbAñoMaterias = new ComboBox();
             btnFiltrarMaterias = new Button();
             cmbCarreraMaterias = new ComboBox();
             cmbFiltrosMaterias = new ComboBox();
             label4 = new Label();
             panel22 = new Panel();
-            panel23 = new Panel();
-            panel24 = new Panel();
-            dataGridViewMaterias = new DataGridView();
-            btnRecargarMaterias = new Button();
-            cmbProfesoresMaterias = new ComboBox();
+            panel20 = new Panel();
+            label3 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -130,9 +130,9 @@ namespace DiseñoFinal
             panel16.SuspendLayout();
             panel14.SuspendLayout();
             TabPageMaterias.SuspendLayout();
-            panel20.SuspendLayout();
-            panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).BeginInit();
+            panel21.SuspendLayout();
+            panel20.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -866,10 +866,6 @@ namespace DiseñoFinal
             label1.Text = "Alumnos";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // timer1
-            // 
-            timer1.Tick += timer1_Tick;
-            // 
             // TabPageMaterias
             // 
             TabPageMaterias.Controls.Add(dataGridViewMaterias);
@@ -885,26 +881,33 @@ namespace DiseñoFinal
             TabPageMaterias.Text = "Materias";
             TabPageMaterias.UseVisualStyleBackColor = true;
             // 
-            // panel20
+            // dataGridViewMaterias
             // 
-            panel20.BackColor = Color.FromArgb(33, 63, 96);
-            panel20.Controls.Add(label3);
-            panel20.Dock = DockStyle.Top;
-            panel20.Location = new Point(3, 3);
-            panel20.Name = "panel20";
-            panel20.Size = new Size(1202, 63);
-            panel20.TabIndex = 40;
+            dataGridViewMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMaterias.Dock = DockStyle.Fill;
+            dataGridViewMaterias.Location = new Point(94, 66);
+            dataGridViewMaterias.Name = "dataGridViewMaterias";
+            dataGridViewMaterias.Size = new Size(1020, 443);
+            dataGridViewMaterias.TabIndex = 46;
+            dataGridViewMaterias.CellContentDoubleClick += dataGridViewMaterias_CellContentDoubleClick;
             // 
-            // label3
+            // panel24
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
-            label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(0, 3);
-            label3.Name = "label3";
-            label3.Size = new Size(216, 55);
-            label3.TabIndex = 2;
-            label3.Text = "Materias";
+            panel24.BackColor = Color.FromArgb(33, 63, 96);
+            panel24.Dock = DockStyle.Right;
+            panel24.Location = new Point(1114, 66);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(91, 443);
+            panel24.TabIndex = 45;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.FromArgb(33, 63, 96);
+            panel23.Dock = DockStyle.Left;
+            panel23.Location = new Point(3, 66);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(91, 443);
+            panel23.TabIndex = 44;
             // 
             // panel21
             // 
@@ -922,6 +925,24 @@ namespace DiseñoFinal
             panel21.Name = "panel21";
             panel21.Size = new Size(1202, 61);
             panel21.TabIndex = 43;
+            // 
+            // cmbProfesoresMaterias
+            // 
+            cmbProfesoresMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProfesoresMaterias.FormattingEnabled = true;
+            cmbProfesoresMaterias.Location = new Point(224, 21);
+            cmbProfesoresMaterias.Name = "cmbProfesoresMaterias";
+            cmbProfesoresMaterias.Size = new Size(121, 23);
+            cmbProfesoresMaterias.TabIndex = 49;
+            // 
+            // btnRecargarMaterias
+            // 
+            btnRecargarMaterias.Location = new Point(1122, 12);
+            btnRecargarMaterias.Name = "btnRecargarMaterias";
+            btnRecargarMaterias.Size = new Size(75, 38);
+            btnRecargarMaterias.TabIndex = 48;
+            btnRecargarMaterias.Text = "Recargar";
+            btnRecargarMaterias.UseVisualStyleBackColor = true;
             // 
             // cmbAñoMaterias
             // 
@@ -977,50 +998,30 @@ namespace DiseñoFinal
             panel22.Size = new Size(797, 59);
             panel22.TabIndex = 39;
             // 
-            // panel23
+            // panel20
             // 
-            panel23.BackColor = Color.FromArgb(33, 63, 96);
-            panel23.Dock = DockStyle.Left;
-            panel23.Location = new Point(3, 66);
-            panel23.Name = "panel23";
-            panel23.Size = new Size(91, 443);
-            panel23.TabIndex = 44;
+            panel20.BackColor = Color.FromArgb(33, 63, 96);
+            panel20.Controls.Add(label3);
+            panel20.Dock = DockStyle.Top;
+            panel20.Location = new Point(3, 3);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(1202, 63);
+            panel20.TabIndex = 40;
             // 
-            // panel24
+            // label3
             // 
-            panel24.BackColor = Color.FromArgb(33, 63, 96);
-            panel24.Dock = DockStyle.Right;
-            panel24.Location = new Point(1114, 66);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(91, 443);
-            panel24.TabIndex = 45;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(0, 3);
+            label3.Name = "label3";
+            label3.Size = new Size(216, 55);
+            label3.TabIndex = 2;
+            label3.Text = "Materias";
             // 
-            // dataGridViewMaterias
+            // timer1
             // 
-            dataGridViewMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMaterias.Dock = DockStyle.Fill;
-            dataGridViewMaterias.Location = new Point(94, 66);
-            dataGridViewMaterias.Name = "dataGridViewMaterias";
-            dataGridViewMaterias.Size = new Size(1020, 443);
-            dataGridViewMaterias.TabIndex = 46;
-            // 
-            // btnRecargarMaterias
-            // 
-            btnRecargarMaterias.Location = new Point(1122, 12);
-            btnRecargarMaterias.Name = "btnRecargarMaterias";
-            btnRecargarMaterias.Size = new Size(75, 38);
-            btnRecargarMaterias.TabIndex = 48;
-            btnRecargarMaterias.Text = "Recargar";
-            btnRecargarMaterias.UseVisualStyleBackColor = true;
-            // 
-            // cmbProfesoresMaterias
-            // 
-            cmbProfesoresMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbProfesoresMaterias.FormattingEnabled = true;
-            cmbProfesoresMaterias.Location = new Point(224, 21);
-            cmbProfesoresMaterias.Name = "cmbProfesoresMaterias";
-            cmbProfesoresMaterias.Size = new Size(121, 23);
-            cmbProfesoresMaterias.TabIndex = 49;
+            timer1.Tick += timer1_Tick;
             // 
             // DiseñoFinalCodigo
             // 
@@ -1057,11 +1058,11 @@ namespace DiseñoFinal
             panel14.ResumeLayout(false);
             panel14.PerformLayout();
             TabPageMaterias.ResumeLayout(false);
-            panel20.ResumeLayout(false);
-            panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).EndInit();
             panel21.ResumeLayout(false);
             panel21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).EndInit();
+            panel20.ResumeLayout(false);
+            panel20.PerformLayout();
             ResumeLayout(false);
         }
 
