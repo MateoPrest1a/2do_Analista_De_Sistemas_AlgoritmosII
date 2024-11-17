@@ -262,7 +262,7 @@ create table PerfilxPersona(
 );
 
 INSERT INTO PerfilxPersona VALUES(
-4,9,'20009283','20009283'
+3,4,'admin','admin'
 );
 
 select * from empleados
@@ -310,7 +310,7 @@ select * from Empleados
 select * from perfiles
 
 INSERT INTO Empleados (nombre, apellido, direccion_calle, direccion_nro, telefono, dni, email, fecha_nacimiento, salario, tipo_perfil)
-VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmail.com', 'ramirosansi@gmail.com', '1969-10-10', 240000, 4);
+VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmail.com', 'ramirosansi@gmail.com', '1969-10-10', 240000, 3);
 
 insert into Alumnos values 
 (
