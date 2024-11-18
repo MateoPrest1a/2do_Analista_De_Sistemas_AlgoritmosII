@@ -82,26 +82,28 @@ namespace Proyecto_Final_AlgoritmsoBDD
             {
                 try
                 {
+                    // Obtener los valores de las celdas de la fila seleccionada
                     int ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value);
                     int Año = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["Año"].Value);
                     string Nombre = dataGridView1.Rows[e.RowIndex].Cells["Materia"].Value.ToString();
                     int idcarrera = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id_carrera"].Value);
-                    int idempleado = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID_Empleado"].Value);
+                    int idempleado = 0;
 
+                    // Verificar si el profesor está asignado o no
+                    var idEmpleadoCell = dataGridView1.Rows[e.RowIndex].Cells["ID_Empleado"].Value;
+                    if (idEmpleadoCell != DBNull.Value)
+                    {
+                        idempleado = Convert.ToInt32(idEmpleadoCell);
+                    }
 
+                    // Abrir el formulario de MateriasModal con los datos correctos
                     FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre, idcarrera, idempleado);
                     formmateriasmodal.MateriaEvento += ActualizarDataGridView;
                     formmateriasmodal.ShowDialog();
                 }
                 catch
                 {
-                    int ID = 0;
-                    int Año = 0;
-                    string Nombre = "";
-                    int idcarrera = 0;
-                    int idprofesor = 0;
-
-                    FormMateriasModal formmateriasmodal = new FormMateriasModal(ID, Año, Nombre, idcarrera, idprofesor);
+                    FormMateriasModal formmateriasmodal = new FormMateriasModal(0, 0, string.Empty, 0, null);
                     formmateriasmodal.MateriaEvento += ActualizarDataGridView;
                     formmateriasmodal.ShowDialog();
                 }
@@ -120,19 +122,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     m.anio_cursada AS Año, 
                                     m.nombre_materia AS Materia,
                                     c.nombre_carrera AS Carrera,
-                                    c.id_carrera,
-                                    CONCAT(e.apellido, ', ', e.nombre) AS Profesor,
-                                    e.id_empleado AS ID_Empleado
+                                    m.id_carrera,
+                                    c.nombre_carrera,
+                                    CONCAT(e.apellido, ' ', e.nombre) AS Profesor,
+                                    m.id_empleado AS ID_Empleado
                                 FROM 
                                     Materias AS m
                                 JOIN 
-                                    MateriasxCarrera AS mc ON m.id_materia = mc.id_materia
-                                JOIN 
-                                    Carreras AS c ON mc.id_carrera = c.id_carrera
-                                LEFT JOIN 
-                                    MateriasxProfesor AS mp ON m.id_materia = mp.id_materia --LEFT JOIN para que incluso muestre materias si no tienen profesor(no puede pasar)
-                                LEFT JOIN 
-                                    Empleados AS e ON mp.id_profesor = e.id_empleado;";
+                                    Carreras AS c ON m.id_carrera = c.id_carrera
+                                LEFT JOIN                                               --LEFT ya que devuelve todas las materias aunque no tengan profesor
+                                    Empleados AS e ON e.id_empleado = m.id_empleado";
 
             SqlCommand command = new SqlCommand(consulta);
 

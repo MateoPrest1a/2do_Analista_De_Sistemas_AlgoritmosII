@@ -51,7 +51,7 @@ namespace DiseñoFinal
             lblUsuario.Text = nombre + " " + apellido;
             lblPerfil.Text = perfil;
 
-            Id_Persona = idPerfil;
+            Id_Persona = idPerfil; //Guardo el id Persona para utilizarlo despues
             Perfil = perfil; //Cargo el perfil de la persona
 
             //Cargo datos alumno
@@ -62,16 +62,19 @@ namespace DiseñoFinal
             lblUsuarioEmpleado.Text = nombre + " " + apellido;
             lblPerfilEmpleado.Text = perfil;
 
-            AjustarVisibilidadPerfil(perfil);
+            
 
 
             //Tab Page Alumnos
             Cargar_Tabla_Alumnos();
             Cargar_Filtros_Alumnos();
             CargarCarreras(); //Carga las carreras al combobox en Alumnos
+            CargarProfesores();
 
             //Tab Page Materias
             Cargar_Tabla_Materias();
+
+            AjustarVisibilidadPerfil(perfil); //Por ultimo ajusto los formularios dependiendo el perfil
         }
 
         private void AjustarVisibilidadPerfil(string perfil)
@@ -87,8 +90,9 @@ namespace DiseñoFinal
             }
             else if (perfil == "Profesor")
             {
-               // tabControl1.TabPages.RemoveAt(0);
-               // tabControl1.TabPages.RemoveAt(0);
+                // tabControl1.TabPages.RemoveAt(0);
+                // tabControl1.TabPages.RemoveAt(0);
+                Cargar_Tabla_AlumnosPorProfesor(Id_Persona);
             }
             else if (perfil == "Personal Administrativo")
             {
@@ -230,22 +234,6 @@ namespace DiseñoFinal
 
         // Botones Empleados
 
-
-
-        /*
-        private void btnCarrerasProfesor_Click(object sender, EventArgs e)
-        {
-            CargarDatosEmpleado(Id_Persona);
-        }
-
-        private void btnMateriasProfesor_Click(object sender, EventArgs e)
-        {
-            FormAlumnos formalumnos = new FormAlumnos(Perfil,Id_Persona);
-            formalumnos.ShowDialog();
-        }
-        */
-
-
         public void CargarDatosEmpleado(int idEmpleado)
         {
             GestorEmpleados gestorEmpleados = new GestorEmpleados();
@@ -296,6 +284,7 @@ namespace DiseñoFinal
             cmbFiltrosAlumnos.Items.Add("Nombre y Apellido");
             cmbFiltrosAlumnos.Items.Add("Carrera");
             cmbFiltrosAlumnos.Items.Add("Año");
+            cmbFiltrosAlumnos.Items.Add("Profesores");
 
 
             cmbAñoAlumno.Items.Clear();
@@ -309,6 +298,7 @@ namespace DiseñoFinal
             txtNombreApellidoAlumno.Visible = false;
             cmbAñoAlumno.Visible = false;
             cmbCarreraAlumno.Visible = false;
+            cmbProfesoresAlumno.Visible = false;
 
             // Muestra el control correspondiente según la selección.
             switch (cmbFiltrosAlumnos.SelectedItem.ToString())
@@ -321,6 +311,9 @@ namespace DiseñoFinal
                     break;
                 case "Carrera":
                     cmbCarreraAlumno.Visible = true;
+                    break;
+                case "Profesores":
+                    cmbProfesoresAlumno.Visible = true;
                     break;
             }
         }
@@ -362,6 +355,93 @@ namespace DiseñoFinal
             Cargar_Tabla_Alumnos();
         }
 
+
+        //Filtro alumnos por profesores
+        private void Cargar_Tabla_AlumnosPorProfesor(int idEmpleado)
+        {
+            // Consulta SQL con el parámetro @id_empleado
+            string consulta = @"
+                                SELECT 
+                                    a.matricula,
+                                    a.nombre AS Nombre_Alumno,
+                                    a.apellido AS Apellido_Alumno,
+                                    a.direccion_calle,
+                                    a.direccion_numero,
+                                    a.telefono,
+                                    a.dni,
+                                    a.email,
+                                    a.fecha_nacimiento,
+                                    a.id_carrera,
+                                    a.año,
+                                    m.nombre_materia AS Materia,
+                                    ma.estado AS Estado_Alumno
+                                FROM 
+                                    Alumnos a
+                                JOIN 
+                                    MateriasxAlumno ma ON a.matricula = ma.matricula
+                                JOIN 
+                                    Materias m ON ma.id_materia = m.id_materia
+                                WHERE 
+                                    m.id_empleado = @id_empleado AND a.baja = 0;";  // solo alumnos activos
+
+            SqlCommand command = new SqlCommand(consulta);
+            command.Parameters.AddWithValue("@id_empleado", idEmpleado);
+
+            try
+            {
+                // Ejecutar la consulta y llenar el DataTable
+                DataTable dt = gestoralumnos.EjecutarConsulta(command);
+
+                // Asignar el DataTable al DataGridView
+                dataGridViewAlumnos.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones, por ejemplo, mostrar un mensaje de error
+                MessageBox.Show("Error al cargar la tabla de alumnos: " + ex.Message);
+            }
+        }
+
+        //Cargo Combo Box Profesores Alumnos
+        private void CargarProfesores()
+        {
+            string query = "SELECT id_empleado, nombre, apellido FROM Empleados WHERE tipo_perfil = 2"; // Filtramos por tipo_perfil = 2 para obtener solo profesores
+
+            try
+            {
+                // Crear el comando SQL
+                using (SqlCommand command = new SqlCommand(query, conexion))
+                {
+                    // Usar la clase gestora para ejecutar la consulta
+                    DataTable cmbProfesoresTabla = gestoralumnos.EjecutarConsulta(command);
+
+                    // Limpiar el ComboBox antes de llenarlo
+                    cmbProfesoresAlumno.Items.Clear();
+
+                    foreach (DataRow row in cmbProfesoresTabla.Rows)
+                    {
+                        // Crear un nuevo objeto para almacenar el profesor
+                        var profesor = new Empleado
+                        {
+                            ID_Empleado = Convert.ToInt32(row["id_empleado"]), // id_empleado
+                            Nombre = row["nombre"].ToString(), // nombre
+                            Apellido = row["apellido"].ToString() // apellido
+                        };
+
+                        // Agregar el profesor al ComboBox
+                        cmbProfesoresAlumno.Items.Add(profesor);
+                    }
+
+                    // Configura DisplayMember y ValueMember
+                    cmbProfesoresAlumno.DisplayMember = "NombreCompleto"; // Lo que se muestra en el ComboBox
+                    cmbProfesoresAlumno.ValueMember = "ID_Empleado"; // El valor que se utilizará
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los profesores: {ex.Message}");
+            }
+        }
 
         //Cargo Combo box Carreras Alumnos
         private void CargarCarreras()
@@ -458,10 +538,9 @@ namespace DiseñoFinal
             }
             else if (cmbCarreraAlumno.Visible)
             {
-                // Obtiene el objeto Carrera seleccionado en el ComboBox
                 Carrera carreraSeleccionada = (Carrera)cmbCarreraAlumno.SelectedItem;
 
-                // Verifica que la carrera seleccionada no sea nula
+                // Verifico que la carrera seleccionada no sea nula
                 if (carreraSeleccionada != null && carreraSeleccionada.ID_Carrera > 0)
                 {
                     // Llama al método de búsqueda con el filtro de carrera
@@ -483,6 +562,31 @@ namespace DiseñoFinal
                     MessageBox.Show("Por favor seleccione una carrera válida.");
                 }
             }
+            else if (cmbProfesoresAlumno.Visible)
+            {
+                Empleado profesorSeleccionado = (Empleado)cmbProfesoresAlumno.SelectedItem;
+
+                // Verifico que el profesor seleccionado no sea nulo
+                if (profesorSeleccionado != null)
+                {
+                    // Llamo al método de búsqueda de alumnos para ese profesor
+                    ClaseGestorAlumnos gestorAlumnos = new ClaseGestorAlumnos();
+                    DataTable resultados = gestorAlumnos.CargarAlumnosPorProfesor(profesorSeleccionado.ID_Empleado);
+
+                    // Mostrar los resultados en el DataGridView
+                    dataGridViewAlumnos.DataSource = resultados;
+
+                    // Si no hay resultados, mostrar un mensaje
+                    if (resultados.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No se encontraron alumnos para el profesor seleccionado.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor seleccione un profesor.");
+                }
+            }
             else
             {
                 MessageBox.Show("Seleccione un filtro de carrera válido para buscar.");
@@ -496,24 +600,22 @@ namespace DiseñoFinal
         private void Cargar_Tabla_Materias()
         {
             string consulta = @"
-                                SELECT  
+                               SELECT  
                                     m.id_materia AS ID, 
                                     m.anio_cursada AS Año, 
                                     m.nombre_materia AS Materia,
                                     c.nombre_carrera AS Carrera,
-                                    c.id_carrera,
-                                    CONCAT(e.apellido, ', ', e.nombre) AS Profesor,
-                                    e.id_empleado AS ID_Empleado
+                                    m.id_carrera,
+                                    c.nombre_carrera,
+                                    CONCAT(e.apellido, ' ', e.nombre) AS Profesor,
+                                    m.id_empleado AS ID_Empleado
                                 FROM 
                                     Materias AS m
                                 JOIN 
-                                    MateriasxCarrera AS mc ON m.id_materia = mc.id_materia
-                                JOIN 
-                                    Carreras AS c ON mc.id_carrera = c.id_carrera
-                                LEFT JOIN 
-                                    MateriasxProfesor AS mp ON m.id_materia = mp.id_materia --LEFT JOIN para que incluso muestre materias si no tienen profesor(no puede pasar)
-                                LEFT JOIN 
-                                    Empleados AS e ON mp.id_profesor = e.id_empleado;";
+                                    Carreras AS c ON m.id_carrera = c.id_carrera
+                                LEFT JOIN                                               --LEFT ya que devuelve todas las materias aunque no tengan profesor
+                                    Empleados AS e ON e.id_empleado = m.id_empleado";
+
 
             SqlCommand command = new SqlCommand(consulta);
 

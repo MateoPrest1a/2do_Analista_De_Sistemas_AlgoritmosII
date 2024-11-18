@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Proyecto_Final_AlgoritmsoBDD.FormHistorialExamenAlumno;
 using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Proyecto_Final_AlgoritmsoBDD
 {
@@ -29,15 +30,17 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
 
         //Constructor
-        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera, int idprofesor)
+        public FormMateriasModal(int ID, int Año, string Nombre, int idcarrera, int? idprofesor)
         {
             InitializeComponent();
             CargarCarreras();
             CargarAños();
             CargarProfesores();
 
-            lblMateriaID.Text = ID.ToString();
-            cmbAñoCursada.SelectedItem = Año.ToString();
+
+
+            lblMateriaID.Text = ID.ToString(); // Siempre cargará un número
+            cmbAñoCursada.Text = Año > 0 ? Año.ToString() : string.Empty; // Dejo vacío si no hay año
             txtNombreMateria.Text = Nombre;
 
             // Asignar la carrera seleccionada
@@ -64,14 +67,18 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
 
 
-            if (idprofesor > 0)
+            if (idprofesor.HasValue && idprofesor.Value > 0)
             {
                 // Buscar el empleado por el ID en el ComboBox
-                Empleado empleadoSeleccionado = cmbProfesores.Items.Cast<Empleado>().FirstOrDefault(e => e.ID_Empleado == idprofesor);
+                Empleado empleadoSeleccionado = cmbProfesores.Items.Cast<Empleado>().FirstOrDefault(e => e.ID_Empleado == idprofesor.Value);
 
                 if (empleadoSeleccionado != null)
                 {
                     cmbProfesores.SelectedItem = empleadoSeleccionado; // Selecciona el empleado
+                }
+                else
+                {
+                    cmbProfesores.SelectedIndex = -1; // Si no se encuentra, dejar vacío
                 }
             }
             else
@@ -167,7 +174,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             int idCarrera = 0;
             int anioCursada = 0;
             string nombreMateria = "";
-            int idEmpleado = 0;
+            int? idEmpleado = null; // permito que sea nulo
 
             // Validar carrera seleccionada
             if (cmbCarreras.SelectedItem == null)
@@ -205,18 +212,12 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 nombreMateria = txtNombreMateria.Text.Trim();
             }
 
-            // Validar profesor seleccionado
-            if (cmbProfesores.SelectedItem == null)
-            {
-                error1.SetError(cmbProfesores, "Elija un profesor válido");
-                cmbProfesores.Focus();
-                return;
-            }
-            else
+            if (cmbProfesores.SelectedItem != null)
             {
                 Empleado profesorSeleccionado = (Empleado)cmbProfesores.SelectedItem;
                 idEmpleado = profesorSeleccionado.ID_Empleado;
             }
+            
 
             
             try

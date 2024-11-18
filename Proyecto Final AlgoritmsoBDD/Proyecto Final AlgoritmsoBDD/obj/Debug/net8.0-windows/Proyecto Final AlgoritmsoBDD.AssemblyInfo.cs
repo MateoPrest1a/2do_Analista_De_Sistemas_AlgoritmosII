@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Proyecto Final AlgoritmsoBDD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a20bae3747237f212e4795634ba6c8ba253889f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ed508e307012c3ef9786ad5162261788d90e069")]
 [assembly: System.Reflection.AssemblyProductAttribute("Proyecto Final AlgoritmsoBDD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Proyecto Final AlgoritmsoBDD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

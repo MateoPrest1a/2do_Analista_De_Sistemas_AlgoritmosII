@@ -81,6 +81,7 @@ namespace DiseñoFinal
             panel18 = new Panel();
             dataGridViewAlumnos = new DataGridView();
             panel16 = new Panel();
+            cmbProfesoresAlumno = new ComboBox();
             btnRecargarTablaAlumnos = new Button();
             btnBuscar = new Button();
             cmbCarreraAlumno = new ComboBox();
@@ -749,6 +750,7 @@ namespace DiseñoFinal
             // panel16
             // 
             panel16.BackColor = Color.FromArgb(33, 63, 96);
+            panel16.Controls.Add(cmbProfesoresAlumno);
             panel16.Controls.Add(btnRecargarTablaAlumnos);
             panel16.Controls.Add(btnBuscar);
             panel16.Controls.Add(cmbCarreraAlumno);
@@ -763,9 +765,18 @@ namespace DiseñoFinal
             panel16.Size = new Size(1202, 61);
             panel16.TabIndex = 40;
             // 
+            // cmbProfesoresAlumno
+            // 
+            cmbProfesoresAlumno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProfesoresAlumno.FormattingEnabled = true;
+            cmbProfesoresAlumno.Location = new Point(233, 20);
+            cmbProfesoresAlumno.Name = "cmbProfesoresAlumno";
+            cmbProfesoresAlumno.Size = new Size(127, 23);
+            cmbProfesoresAlumno.TabIndex = 48;
+            // 
             // btnRecargarTablaAlumnos
             // 
-            btnRecargarTablaAlumnos.Location = new Point(1111, 12);
+            btnRecargarTablaAlumnos.Location = new Point(458, 12);
             btnRecargarTablaAlumnos.Name = "btnRecargarTablaAlumnos";
             btnRecargarTablaAlumnos.Size = new Size(75, 38);
             btnRecargarTablaAlumnos.TabIndex = 47;
@@ -787,7 +798,7 @@ namespace DiseñoFinal
             // 
             cmbCarreraAlumno.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCarreraAlumno.FormattingEnabled = true;
-            cmbCarreraAlumno.Location = new Point(233, 19);
+            cmbCarreraAlumno.Location = new Point(233, 21);
             cmbCarreraAlumno.Name = "cmbCarreraAlumno";
             cmbCarreraAlumno.Size = new Size(127, 23);
             cmbCarreraAlumno.TabIndex = 44;
@@ -1151,5 +1162,6 @@ namespace DiseñoFinal
         private DataGridView dataGridViewMaterias;
         private Button btnRecargarMaterias;
         private ComboBox cmbProfesoresMaterias;
+        private ComboBox cmbProfesoresAlumno;
     }
 }

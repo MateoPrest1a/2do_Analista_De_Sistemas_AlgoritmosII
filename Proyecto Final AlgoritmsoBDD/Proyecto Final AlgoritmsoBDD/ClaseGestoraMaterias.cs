@@ -8,7 +8,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
     internal class GestorMaterias : ClaseGestorBase
     {
         // Método para cargar una nueva materia
-        public void CargarMateria(int anioCursada, string nombreMateria, int idCarrera, int idEmpleado)
+        public void CargarMateria(int anioCursada, string nombreMateria, int idCarrera, int? idEmpleado)
         {
             using (SqlCommand command = new SqlCommand("SP_AgregarMateria"))
             {

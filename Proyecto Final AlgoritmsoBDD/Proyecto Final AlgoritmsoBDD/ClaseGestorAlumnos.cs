@@ -179,5 +179,25 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
                 return null;  // Devuelve null en caso de error
             }
         }
+
+        // Filtro profesores
+        public DataTable CargarAlumnosPorProfesor(int idEmpleado)
+        {
+            string consulta = @"
+                                SELECT 
+                                    a.matricula, a.nombre, a.apellido
+                                FROM 
+                                    Alumnos a
+                                INNER JOIN 
+                                    MateriasxAlumno ma ON a.matricula = ma.matricula
+                                INNER JOIN 
+                                    Materias m ON ma.id_materia = m.id_materia
+                                WHERE m.id_empleado = @idEmpleado";
+
+            SqlCommand command = new SqlCommand(consulta);
+            command.Parameters.AddWithValue("@idEmpleado", idEmpleado);
+
+            return EjecutarConsulta(command); // Método para ejecutar la consulta
+        }
     }
 }

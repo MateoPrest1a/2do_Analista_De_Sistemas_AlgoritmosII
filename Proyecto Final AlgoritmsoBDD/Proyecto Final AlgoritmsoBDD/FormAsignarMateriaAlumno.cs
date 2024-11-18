@@ -20,6 +20,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             cmbEstado.Items.Add("Cursando");
             cmbEstado.Items.Add("Cursada Aprobada");
+            cmbEstado.Items.Add("Final Aprobado");
             cmbEstado.Items.Add("Cursada Desaprobada");
 
             CargarTablaMateriasPorCarrera(idcarrera, año);
@@ -92,14 +93,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
             {
 
                 int matricula = Convert.ToInt32(txtAlumno.Text);
-                int idMateria = Convert.ToInt32(txtIdMateria.Text);  
-                string estado = cmbEstado.SelectedItem.ToString();
+                int idMateria = Convert.ToInt32(txtIdMateria.Text);
+                string estado = cmbEstado.SelectedItem?.ToString();
 
-                if (estado.Length > 50)
-                {
-                    MessageBox.Show("El valor de estado es demasiado largo. Debe tener 50 caracteres o menos.");
-                    return;
-                }
+                MessageBox.Show(""+ estado);
+
 
                 // Crear instancia del gestor y llamar al método
                 GestorMaterias gestor = new GestorMaterias();

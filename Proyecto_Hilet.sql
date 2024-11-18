@@ -55,17 +55,22 @@ ADD baja BIT DEFAULT 0;  -- 0 falso 1 verdadero, el default es 0 para decir que 
 create table Estado_De_Alumno(
 	id_estado_alumno int identity primary key,
 	matricula int,
-	estado_cursada varchar(15),
+	estado_cursada nvarchar,
 	foreign key (matricula) references Alumnos(matricula)
 );
+
 
 create table Materias(
 	id_materia int identity primary key,
 	anio_cursada int,
 	nombre_materia varchar(30),
 	id_carrera int,
-	foreign key (id_carrera) references Carreras(id_carrera)
+	id_empleado INT NULL,
+	FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera),
+	FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
 );
+
+
 
 DROP TABLE Materias
 
@@ -186,24 +191,17 @@ create table MateriasxAlumno(
 	id_materiasxalumno int identity primary key,
 	matricula int,
 	id_materia int,
-	estado nvarchar,
+	estado nvarchar(50),
 	foreign key (matricula) references Alumnos(matricula),
 	foreign key (id_materia) references Materias(id_materia)
 );
+
 
 drop table MateriasxAlumno
 
 select * from Perfiles
 
 SELECT * From MateriasxAlumno
-
-create table MateriasxCarrera(
-	id_matxcarr int identity primary key,
-	id_carrera int,
-	id_materia int,
-	foreign key (id_carrera) references Carreras(id_carrera),
-	foreign key (id_materia) references Materias(id_materia)
-);
 
 create table AlumnosxCarrera(
 	id_aluxcarr int identity primary key,
@@ -289,6 +287,8 @@ create table Empleados(
 
 select * from perfiles
 
+--No lo hago con esta tabla sino que simplemente hago que en la tabla materias el profesor pueda ser null
+/*
 CREATE TABLE MateriasxProfesor (
     id_materiasxprofesor INT IDENTITY PRIMARY KEY,
     id_profesor INT,                
@@ -297,6 +297,10 @@ CREATE TABLE MateriasxProfesor (
     FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
 );
 
+drop table MateriasxProfesor
+*/
+
+------------------------------------------------------------------------------------------
 CREATE TABLE CarrerasxProfesor (
 	id_carrerasxprofesor INT IDENTITY PRIMARY KEY,
 	id_profesor INT,
@@ -518,26 +522,14 @@ CREATE PROCEDURE SP_AgregarMateria
     @anio_cursada INT,
     @nombre_materia VARCHAR(30),
     @id_carrera INT,
-	@id_empleado INT --El id del empleado para la tabla MateriasXProfesor
+	@id_empleado INT = NULL 
 AS
 BEGIN
     
-    INSERT INTO Materias (anio_cursada, nombre_materia)
-    VALUES (@anio_cursada, @nombre_materia);
+    INSERT INTO Materias (anio_cursada, nombre_materia, id_carrera, id_empleado)
+    VALUES (@anio_cursada, @nombre_materia,@id_carrera,@id_empleado);
 
-    --id_materia recién insertado
-    DECLARE @id_materia INT;
-    SET @id_materia = SCOPE_IDENTITY();
-
-    -- Insertar el registro en la tabla MateriasxCarrera
-    INSERT INTO MateriasxCarrera (id_carrera, id_materia)
-    VALUES (@id_carrera, @id_materia);
-
-	INSERT INTO MateriasxProfesor (id_profesor, id_materia)
-    VALUES (@id_empleado, @id_materia);
 END;
-
-select * from MateriasxProfesor
 
 drop procedure SP_AgregarMateria
 
@@ -554,18 +546,11 @@ BEGIN
     UPDATE Materias
     SET 
         anio_cursada = @anio_cursada,
-        nombre_materia = @nombre_materia
+        nombre_materia = @nombre_materia,
+		id_carrera = @id_carrera,
+		id_empleado = @id_empleado
     WHERE id_materia = @id_materia;
 
-    -- Actualizar la relación de la materia con la carrera en MateriasxCarrera
-    UPDATE MateriasxCarrera
-    SET id_carrera = @id_carrera
-    WHERE id_materia = @id_materia;
-
-    -- Actualizar la relación de la materia con el profesor en MateriasxProfesor
-    UPDATE MateriasxProfesor
-    SET id_profesor = @id_empleado
-    WHERE id_materia = @id_materia;
 END;
 
 drop procedure SP_ActualizarMateria
@@ -575,18 +560,12 @@ CREATE PROCEDURE SP_EliminarMateria
     @id_materia INT
 AS
 BEGIN
-    -- Eliminar la relación en la tabla MateriasxCarrera
-    DELETE FROM MateriasxCarrera
-    WHERE id_materia = @id_materia;
-
-	DELETE FROM MateriasxProfesor
-	WHERE id_materia = @id_materia;
-
     -- Eliminar la materia de la tabla Materias
     DELETE FROM Materias
     WHERE id_materia = @id_materia;
 END;
 
+drop procedure SP_EliminarMateria
 
 --------------------------------------------------------Store Procedure Materias x Alumnos--------------------------------------------------------
 
@@ -600,6 +579,7 @@ BEGIN
     VALUES (@matricula, @id_materia, @estado);
 END;
 
+select * from MateriasxAlumno
 
 drop procedure SP_AgregarMateriasxAlumno
 
@@ -608,7 +588,7 @@ CREATE PROCEDURE SP_ModificarMateriasxAlumno
     @id_materiasxalumno INT,
     @matricula INT,
     @id_materia INT,
-    @estado NVARCHAR(50)
+    @estado NVARCHAR
 AS
 BEGIN
     UPDATE MateriasxAlumno

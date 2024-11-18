@@ -35,24 +35,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             txtContraseña.PasswordChar = checkBox1.Checked ? '\0' : '*';    // Oculta Contraseña
         }
 
-        private string ObtenerNombreUsuario(string usuario)
-        {
-            string nombre = string.Empty;
-            string query = @"SELECT 
-                                nombre_usuario 
-                             FROM
-                                PerfilxAlumno 
-                            WHERE 
-                                nombre_usuario = @Usuario";
-
-            using (SqlCommand command = new SqlCommand(query))
-            {
-                command.Parameters.AddWithValue("@Usuario", usuario);
-                nombre = gestor.EjecutarConsulta(command).Rows.Count > 0 ? usuario : "Not Found";
-            }
-
-            return nombre;
-        }
 
         private string ObtenerPerfilDeUsuario(string usuario, string contrasena)
         {
