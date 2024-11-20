@@ -86,5 +86,33 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 }
             }
         }
+
+
+        // Metodo para buscar empleado por Id_Empleado
+        public DataTable ObtenerDatosEmpleado(int idEmpleado)
+        {
+            string query = @"
+                        SELECT 
+                            nombre, 
+                            apellido, 
+                            direccion_calle, 
+                            direccion_nro, 
+                            telefono, 
+                            dni, 
+                            email, 
+                            fecha_nacimiento, 
+                            salario, 
+                            tipo_perfil
+                        FROM 
+                            Empleados
+                        WHERE 
+                            id_empleado = @IdEmpleado";
+
+            using (SqlCommand command = new SqlCommand(query))
+            {
+                command.Parameters.AddWithValue("@IdEmpleado", idEmpleado);
+                return EjecutarConsulta(command);
+            }
+        }
     }
 }

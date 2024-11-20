@@ -8,7 +8,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
     internal class GestorMaterias : ClaseGestorBase
     {
         // Método para cargar una nueva materia
-        public void CargarMateria(int anioCursada, string nombreMateria, int idCarrera)
+        public void CargarMateria(int anioCursada, string nombreMateria, int idCarrera, int idEmpleado)
         {
             using (SqlCommand command = new SqlCommand("SP_AgregarMateria"))
             {
@@ -18,6 +18,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 command.Parameters.AddWithValue("@anio_cursada", anioCursada);
                 command.Parameters.AddWithValue("@nombre_materia", nombreMateria);
                 command.Parameters.AddWithValue("@id_carrera", idCarrera);
+                command.Parameters.AddWithValue("@id_empleado", idEmpleado);  // Parámetro para el profesor
+
                 try
                 {
                     EjecutarComando(command); // Ejecuta el procedimiento almacenado
@@ -31,7 +33,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         }
 
         // Método para modificar una materia existente
-        public void ModificarMateria(int idMateria, int anioCursada, string nombreMateria)
+        public void ModificarMateria(int idMateria, int anioCursada, string nombreMateria, int idCarrera, int idEmpleado)
         {
             using (SqlCommand command = new SqlCommand("SP_ActualizarMateria"))
             {
@@ -41,6 +43,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 command.Parameters.AddWithValue("@id_materia", idMateria);
                 command.Parameters.AddWithValue("@anio_cursada", anioCursada);
                 command.Parameters.AddWithValue("@nombre_materia", nombreMateria);
+                command.Parameters.AddWithValue("@id_carrera", idCarrera);  // Actualiza la carrera
+                command.Parameters.AddWithValue("@id_empleado", idEmpleado);  // Actualiza el profesor
 
                 try
                 {
@@ -72,29 +76,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error al eliminar la materia: {ex.Message}");
-                }
-            }
-        }
-
-        // Método para cargar la relación Materia-Carrera
-        public void CargarMatxCarr(int idCarrera, int idMateria)
-        {
-            using (SqlCommand command = new SqlCommand("SP_AgregarMatxCarrera"))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-
-                // Agregar los parámetros
-                command.Parameters.AddWithValue("@id_carrera", idCarrera);
-                command.Parameters.AddWithValue("@id_materia", idMateria);
-
-                try
-                {
-                    EjecutarComando(command); // Ejecuta el procedimiento almacenado
-                    
-                }
-                catch 
-                {
-      
                 }
             }
         }

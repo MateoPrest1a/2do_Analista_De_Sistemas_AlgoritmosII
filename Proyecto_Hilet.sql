@@ -1,5 +1,5 @@
-create database Proyecto_Hilet;
-use Proyecto_Hilet;
+create database Proyecto_Hilet2;
+use Proyecto_Hilet2;
 
 create table Carreras( 
 id_carrera int identity primary key,
@@ -179,9 +179,14 @@ create table MateriasxAlumno(
 	id_materiasxalumno int identity primary key,
 	matricula int,
 	id_materia int,
+	estado nvarchar,
 	foreign key (matricula) references Alumnos(matricula),
 	foreign key (id_materia) references Materias(id_materia)
 );
+
+drop table MateriasxAlumno
+
+select * from Perfiles
 
 SELECT * From MateriasxAlumno
 
@@ -220,12 +225,10 @@ INSERT INTO Perfiles VALUES(
 'Profesor'
 );
 
-INSERT INTO Perfiles VALUES(
-'Alumno'
-);
-
 drop table Perfiles
 
+
+--Capaz eliminar estos
 create table Permisos(
 	id_permiso int identity primary key,
 	descripcion nvarchar,
@@ -239,6 +242,8 @@ create table PermisosxPerfil(
 	foreign key (id_permiso) references Permisos(id_permiso),
 	foreign key (id_perfil) references Perfiles(id_perfil)
 );
+------------------------------------------------------------------------------------
+
 
 create table PerfilxAlumno(
 	id_perfilxalumno int primary key identity,
@@ -260,6 +265,12 @@ create table PerfilxPersona(
     foreign key (id_empleado) references Empleados(id_empleado)  -- Relación con la tabla Empleados
 );
 
+INSERT INTO PerfilxPersona VALUES(
+1,1,'20009283','20009283'
+);
+
+select * from empleados
+
 DROP TABLE PerfilxPersona
 
 SELECt * from PerfilxPersona
@@ -276,31 +287,39 @@ create table Empleados(
 	fecha_nacimiento date,
 	salario int,
 	tipo_perfil int,
-	foreign key (tipo_perfil) references Perfiles(id_perfil)
+    FOREIGN KEY (tipo_perfil) REFERENCES Perfiles(id_perfil)
 );
 
-drop table Empleados
+
+CREATE TABLE MateriasxProfesor (
+    id_materiasxprofesor INT IDENTITY PRIMARY KEY,
+    id_profesor INT,                
+    id_materia INT,                 
+    FOREIGN KEY (id_profesor) REFERENCES Empleados(id_empleado),  
+    FOREIGN KEY (id_materia) REFERENCES Materias(id_materia)
+);
+
+CREATE TABLE CarrerasxProfesor (
+	id_carrerasxprofesor INT IDENTITY PRIMARY KEY,
+	id_profesor INT,
+	id_carrera INT,
+	FOREIGN KEY (id_profesor) REFERENCES Empleados(id_empleado),  
+    FOREIGN KEY (id_carrera) REFERENCES Carreras(id_carrera)
+);
+
+select * from Empleados
 
 INSERT INTO Empleados (nombre, apellido, direccion_calle, direccion_nro, telefono, dni, email, fecha_nacimiento, salario, tipo_perfil)
 VALUES ('Ramiro', 'Sansillena', 'Av. Colon', 1824, '20009283', 'ramirosansi@gmail.com', 'ramirosansi@gmail.com', '1969-10-10', 240000, 1);
 
 insert into Alumnos values 
 (
-'Jose','Hernandez','Olazabal',134,'2232232233','40203040','josekpogenio@gmail.com','2024-09-30',1,0
+'Jose','Hernandez','Olazabal',134,'2232232233','40203040','josekpogenio@gmail.com','2024-09-30',1,0,2
 );
 
 select * from Alumnos;
 select * from Carreras
 
-UPDATE Carreras
-SET anio_plan_estudio = 2024
-WHERE id_carrera = 2;
-
-insert into Perfiles values
-('Profesor')
-
-insert into Perfiles values
-('Empleado Administrativo')
 
 select * from Perfiles
 
@@ -342,23 +361,6 @@ BEGIN
 	SET baja = 1
 	WHERE matricula = @matricula;
 END;
-
-
-CREATE PROCEDURE SP_BuscarAlumnoPorNombreApellido
-    @NombreApellido VARCHAR(40)
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    SELECT matricula, nombre, apellido, direccion_calle, direccion_numero,
-           telefono, dni, email, fecha_nacimiento, id_carrera, baja, año
-    FROM Alumnos
-    WHERE (nombre + ' ' + apellido LIKE '%' + @NombreApellido + '%'
-           OR apellido + ' ' + nombre LIKE '%' + @NombreApellido + '%')
-      AND baja = 0;  -- Incluye solo alumnos activos
-END;
-
-
 
 
 
@@ -514,7 +516,8 @@ END;
 CREATE PROCEDURE SP_AgregarMateria
     @anio_cursada INT,
     @nombre_materia VARCHAR(30),
-    @id_carrera INT
+    @id_carrera INT,
+	@id_empleado INT --El id del empleado para la tabla MateriasXProfesor
 AS
 BEGIN
     
@@ -528,25 +531,41 @@ BEGIN
     -- Insertar el registro en la tabla MateriasxCarrera
     INSERT INTO MateriasxCarrera (id_carrera, id_materia)
     VALUES (@id_carrera, @id_materia);
+
+	INSERT INTO MateriasxProfesor (id_profesor, id_materia)
+    VALUES (@id_empleado, @id_materia);
 END;
 
-
+drop procedure SP_AgregarMateria
 
 
 CREATE PROCEDURE SP_ActualizarMateria
     @id_materia INT,
     @anio_cursada INT,
-    @nombre_materia VARCHAR(30)
+    @nombre_materia VARCHAR(30),
+    @id_carrera INT,  -- El id de la carrera con la que se debe actualizar la materia
+    @id_empleado INT  -- El id del profesor que se debe asociar con la materia
 AS
 BEGIN
+    -- Actualizar la materia en la tabla Materias
     UPDATE Materias
     SET 
         anio_cursada = @anio_cursada,
         nombre_materia = @nombre_materia
     WHERE id_materia = @id_materia;
+
+    -- Actualizar la relación de la materia con la carrera en MateriasxCarrera
+    UPDATE MateriasxCarrera
+    SET id_carrera = @id_carrera
+    WHERE id_materia = @id_materia;
+
+    -- Actualizar la relación de la materia con el profesor en MateriasxProfesor
+    UPDATE MateriasxProfesor
+    SET id_profesor = @id_empleado
+    WHERE id_materia = @id_materia;
 END;
 
-
+drop procedure SP_ActualizarMateria
 
 
 CREATE PROCEDURE SP_EliminarMateria
@@ -556,6 +575,9 @@ BEGIN
     -- Eliminar la relación en la tabla MateriasxCarrera
     DELETE FROM MateriasxCarrera
     WHERE id_materia = @id_materia;
+
+	DELETE FROM MateriasxProfesor
+	WHERE id_materia = @id_materia;
 
     -- Eliminar la materia de la tabla Materias
     DELETE FROM Materias
@@ -613,14 +635,19 @@ END;
 
 --------------------------------------------------------Store Procedure Busqueda Alumnos--------------------------------------------------------
 
-CREATE PROCEDURE SP_BuscarAlumnosPorNombre
-    @Nombre NVARCHAR,
-	@Apellido NVARCHAR
+
+CREATE PROCEDURE SP_BuscarAlumnoPorNombreApellido
+    @NombreApellido VARCHAR(40)
 AS
 BEGIN
-    SELECT *
+    SET NOCOUNT ON;
+
+    SELECT matricula, nombre, apellido, direccion_calle, direccion_numero,
+           telefono, dni, email, fecha_nacimiento, id_carrera, baja, año
     FROM Alumnos
-    WHERE nombre LIKE '%' + @Nombre + '%' AND Apellido LIKE '%' + @Apellido + '%'
+    WHERE (nombre + ' ' + apellido LIKE '%' + @NombreApellido + '%'
+           OR apellido + ' ' + nombre LIKE '%' + @NombreApellido + '%')
+      AND baja = 0;  -- Incluye solo alumnos activos
 END;
 
 --------------------------------------------------------Store Procedure Busqueda Empleados--------------------------------------------------------
@@ -633,4 +660,112 @@ BEGIN
     SELECT *
     FROM Empleados
     WHERE nombre LIKE '%' + @Nombre + '%' AND apellido LIKE '%' + @Apellido + '%'
+END;
+
+--------------------------------------------------------Funciones Estadisticas--------------------------------------------------------
+
+CREATE FUNCTION F_CantEmplTot()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(id_empleado) from Empleados;
+	RETURN @CantTot;
+END;
+
+/*
+CREATE FUNCTION F_CantProfADS()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+		SELECT @CantTot = COUNT(id_empleado) 
+		FROM Empleados AS e 
+		inner join 
+		Perfiles as p 
+		ON 
+		e.tipo_perfil = p.id_perfil
+		WHERE
+
+	RETURN
+END;*/
+
+CREATE FUNCTION F_CantProf()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+		SELECT @CantTot = COUNT(id_empleado) 
+		FROM Empleados e
+		inner join
+		Perfiles as p
+		ON
+		e.tipo_perfil = p.id_perfil
+		WHERE
+		p.id_perfil = 2;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantMateTotADS()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(id_materia) 
+	FROM Materias m
+	inner join
+	Carreras c
+	ON
+	m.id_carrera = c.id_carrera
+	WHERE c.id_carrera = 1;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantMateTotPub()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(id_materia) 
+	FROM Materias m
+	inner join
+	Carreras c
+	ON
+	m.id_carrera = c.id_carrera
+	WHERE c.id_carrera = 2;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantAlumTotADS()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(matricula) 
+	FROM Alumnos
+	WHERE
+	id_carrera = 1;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantAlumTotPub()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(matricula)
+	FROM Alumnos
+	WHERE
+	id_carrera = 2;
+	RETURN @CantTot;
+END;
+
+CREATE FUNCTION F_CantAlum()
+RETURNS INT
+AS
+BEGIN
+	DECLARE @CantTot INT;
+	SELECT @CantTot = COUNT(matricula)
+	FROM Alumnos;
+	RETURN @CantTot;
 END;

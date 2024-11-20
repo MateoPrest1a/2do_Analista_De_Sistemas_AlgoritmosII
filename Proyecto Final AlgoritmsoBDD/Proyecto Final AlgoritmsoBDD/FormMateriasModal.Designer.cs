@@ -48,6 +48,8 @@
             label3 = new Label();
             txtNombreMateria = new TextBox();
             error1 = new ErrorProvider(components);
+            label5 = new Label();
+            cmbProfesores = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -112,11 +114,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(0, 4);
             label1.Name = "label1";
-            label1.Size = new Size(226, 56);
+            label1.Size = new Size(216, 55);
             label1.TabIndex = 2;
             label1.Text = "Materias";
             // 
@@ -136,6 +138,8 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.None;
+            panel3.Controls.Add(cmbProfesores);
+            panel3.Controls.Add(label5);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(cmbCarreras);
             panel3.Controls.Add(cmbAñoCursada);
@@ -244,6 +248,25 @@
             // 
             error1.ContainerControl = this;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 12F);
+            label5.Location = new Point(59, 157);
+            label5.Name = "label5";
+            label5.Size = new Size(77, 20);
+            label5.TabIndex = 40;
+            label5.Text = "Profesor :";
+            // 
+            // cmbProfesores
+            // 
+            cmbProfesores.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProfesores.FormattingEnabled = true;
+            cmbProfesores.Location = new Point(152, 154);
+            cmbProfesores.Name = "cmbProfesores";
+            cmbProfesores.Size = new Size(123, 23);
+            cmbProfesores.TabIndex = 41;
+            // 
             // FormMateriasModal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -284,5 +307,7 @@
         private Label label2;
         private ComboBox cmbCarreras;
         private ErrorProvider error1;
+        private ComboBox cmbProfesores;
+        private Label label5;
     }
 }

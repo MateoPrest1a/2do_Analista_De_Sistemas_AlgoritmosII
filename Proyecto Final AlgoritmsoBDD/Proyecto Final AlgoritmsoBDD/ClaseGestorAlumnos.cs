@@ -115,7 +115,7 @@ namespace Proyecto_Final_AlgoritmsoBDD                  //Heredo la clase gestor
             }
         }
 
-       
+
 
         // Filtros
 
