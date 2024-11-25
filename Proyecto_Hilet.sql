@@ -731,13 +731,9 @@ BEGIN
     FROM 
         Materias AS m
     JOIN 
-        MateriasxCarrera AS mc ON m.id_materia = mc.id_materia
-    JOIN 
-        Carreras AS c ON mc.id_carrera = c.id_carrera
+        Carreras AS c ON m.id_carrera = c.id_carrera
     LEFT JOIN 
-        MateriasxProfesor AS mp ON m.id_materia = mp.id_materia
-    LEFT JOIN 
-        Empleados AS e ON mp.id_profesor = e.id_empleado
+        Empleados AS e ON m.id_empleado = e.id_empleado
     WHERE
         m.anio_cursada = @año;  -- Filtra solo por año
 END;
@@ -760,16 +756,13 @@ BEGIN
     FROM 
         Materias AS m
     JOIN 
-        MateriasxCarrera AS mc ON m.id_materia = mc.id_materia
-    JOIN 
-        Carreras AS c ON mc.id_carrera = c.id_carrera
+        Carreras AS c ON m.id_carrera = c.id_carrera
     LEFT JOIN 
-        MateriasxProfesor AS mp ON m.id_materia = mp.id_materia
-    LEFT JOIN 
-        Empleados AS e ON mp.id_profesor = e.id_empleado
+        Empleados AS e ON m.id_empleado = e.id_empleado
     WHERE
         c.id_carrera = @id_carrera;  -- Filtra solo por carrera
 END;
+
 
 --------------------------------------------------------Funciones Estadisticas--------------------------------------------------------
 

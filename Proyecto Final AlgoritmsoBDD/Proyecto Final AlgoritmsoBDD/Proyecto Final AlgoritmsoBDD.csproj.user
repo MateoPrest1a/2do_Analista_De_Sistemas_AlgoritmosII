@@ -13,9 +13,6 @@
     <Compile Update="FormHistorialExamenAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormAlumnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormAlumnosModal.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -38,6 +38,8 @@
             label1 = new Label();
             btnSalir = new Button();
             panel3 = new Panel();
+            cmbProfesores = new ComboBox();
+            label5 = new Label();
             label2 = new Label();
             cmbCarreras = new ComboBox();
             cmbAñoCursada = new ComboBox();
@@ -48,8 +50,6 @@
             label3 = new Label();
             txtNombreMateria = new TextBox();
             error1 = new ErrorProvider(components);
-            label5 = new Label();
-            cmbProfesores = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -59,9 +59,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnEliminarMateria);
-            panel1.Controls.Add(btnModificarMateria);
-            panel1.Controls.Add(btnAgregarMateria);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Fill;
@@ -72,7 +69,7 @@
             // 
             // btnEliminarMateria
             // 
-            btnEliminarMateria.Location = new Point(668, 257);
+            btnEliminarMateria.Location = new Point(639, 257);
             btnEliminarMateria.Name = "btnEliminarMateria";
             btnEliminarMateria.Size = new Size(75, 23);
             btnEliminarMateria.TabIndex = 48;
@@ -82,7 +79,7 @@
             // 
             // btnModificarMateria
             // 
-            btnModificarMateria.Location = new Point(668, 202);
+            btnModificarMateria.Location = new Point(639, 202);
             btnModificarMateria.Name = "btnModificarMateria";
             btnModificarMateria.Size = new Size(75, 23);
             btnModificarMateria.TabIndex = 47;
@@ -92,7 +89,7 @@
             // 
             // btnAgregarMateria
             // 
-            btnAgregarMateria.Location = new Point(668, 152);
+            btnAgregarMateria.Location = new Point(639, 152);
             btnAgregarMateria.Name = "btnAgregarMateria";
             btnAgregarMateria.Size = new Size(75, 23);
             btnAgregarMateria.TabIndex = 46;
@@ -137,9 +134,11 @@
             // 
             // panel3
             // 
-            panel3.Anchor = AnchorStyles.None;
+            panel3.Controls.Add(btnEliminarMateria);
             panel3.Controls.Add(cmbProfesores);
+            panel3.Controls.Add(btnModificarMateria);
             panel3.Controls.Add(label5);
+            panel3.Controls.Add(btnAgregarMateria);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(cmbCarreras);
             panel3.Controls.Add(cmbAñoCursada);
@@ -149,16 +148,37 @@
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(txtNombreMateria);
-            panel3.Location = new Point(78, 89);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(499, 322);
+            panel3.Size = new Size(800, 450);
             panel3.TabIndex = 7;
+            panel3.Paint += panel3_Paint;
+            // 
+            // cmbProfesores
+            // 
+            cmbProfesores.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProfesores.FormattingEnabled = true;
+            cmbProfesores.Location = new Point(245, 292);
+            cmbProfesores.Name = "cmbProfesores";
+            cmbProfesores.Size = new Size(123, 23);
+            cmbProfesores.TabIndex = 41;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 12F);
+            label5.Location = new Point(152, 295);
+            label5.Name = "label5";
+            label5.Size = new Size(77, 20);
+            label5.TabIndex = 40;
+            label5.Text = "Profesor :";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F);
-            label2.Location = new Point(66, 125);
+            label2.Location = new Point(159, 263);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
             label2.TabIndex = 39;
@@ -168,7 +188,7 @@
             // 
             cmbCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCarreras.FormattingEnabled = true;
-            cmbCarreras.Location = new Point(152, 125);
+            cmbCarreras.Location = new Point(245, 263);
             cmbCarreras.Name = "cmbCarreras";
             cmbCarreras.Size = new Size(123, 23);
             cmbCarreras.TabIndex = 38;
@@ -177,7 +197,7 @@
             // 
             cmbAñoCursada.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAñoCursada.FormattingEnabled = true;
-            cmbAñoCursada.Location = new Point(152, 67);
+            cmbAñoCursada.Location = new Point(245, 205);
             cmbAñoCursada.Name = "cmbAñoCursada";
             cmbAñoCursada.Size = new Size(123, 23);
             cmbAñoCursada.TabIndex = 37;
@@ -187,7 +207,7 @@
             lblMateriaID.AutoSize = true;
             lblMateriaID.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMateriaID.ImageAlign = ContentAlignment.BottomLeft;
-            lblMateriaID.Location = new Point(152, 40);
+            lblMateriaID.Location = new Point(245, 178);
             lblMateriaID.Name = "lblMateriaID";
             lblMateriaID.Size = new Size(0, 20);
             lblMateriaID.TabIndex = 36;
@@ -198,7 +218,7 @@
             lblMateria.AutoSize = true;
             lblMateria.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMateria.ImageAlign = ContentAlignment.BottomLeft;
-            lblMateria.Location = new Point(46, 40);
+            lblMateria.Location = new Point(139, 178);
             lblMateria.Name = "lblMateria";
             lblMateria.Size = new Size(91, 20);
             lblMateria.TabIndex = 35;
@@ -208,7 +228,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(373, 14);
+            pictureBox1.Location = new Point(466, 152);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(86, 86);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -219,7 +239,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F);
-            label4.Location = new Point(8, 96);
+            label4.Location = new Point(101, 234);
             label4.Name = "label4";
             label4.Size = new Size(130, 20);
             label4.TabIndex = 25;
@@ -230,7 +250,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ImageAlign = ContentAlignment.BottomLeft;
-            label3.Location = new Point(29, 67);
+            label3.Location = new Point(122, 205);
             label3.Name = "label3";
             label3.Size = new Size(110, 20);
             label3.TabIndex = 24;
@@ -239,7 +259,7 @@
             // 
             // txtNombreMateria
             // 
-            txtNombreMateria.Location = new Point(152, 96);
+            txtNombreMateria.Location = new Point(245, 234);
             txtNombreMateria.Name = "txtNombreMateria";
             txtNombreMateria.Size = new Size(123, 23);
             txtNombreMateria.TabIndex = 15;
@@ -247,25 +267,6 @@
             // error1
             // 
             error1.ContainerControl = this;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 12F);
-            label5.Location = new Point(59, 157);
-            label5.Name = "label5";
-            label5.Size = new Size(77, 20);
-            label5.TabIndex = 40;
-            label5.Text = "Profesor :";
-            // 
-            // cmbProfesores
-            // 
-            cmbProfesores.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbProfesores.FormattingEnabled = true;
-            cmbProfesores.Location = new Point(152, 154);
-            cmbProfesores.Name = "cmbProfesores";
-            cmbProfesores.Size = new Size(123, 23);
-            cmbProfesores.TabIndex = 41;
             // 
             // FormMateriasModal
             // 

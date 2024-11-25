@@ -65,25 +65,51 @@ namespace DiseñoFinal
             btnDatosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
             tabPerfilProfesores = new TabPage();
-            ImagenesProfes = new PictureBox();
-            panel13 = new Panel();
-            lblUsuarioEmpleado = new Label();
-            lblPerfilEmpleado = new Label();
-            label36 = new Label();
-            label37 = new Label();
             panel9 = new Panel();
-            pictureBox3 = new PictureBox();
-            btnExamenesProfesor = new Button();
-            btnCarrerasProfesor = new Button();
-            btnMateriasProfesor = new Button();
+            panel28 = new Panel();
+            lblUsuarioEmpleado = new Label();
+            label23 = new Label();
+            label37 = new Label();
+            button1 = new Button();
+            panel29 = new Panel();
+            panel27 = new Panel();
+            panel26 = new Panel();
+            panel25 = new Panel();
+            btnSalir = new Button();
+            label21 = new Label();
+            cmbEspecialidadEmpleado = new ComboBox();
+            lblEmpleado = new Label();
+            lblEmpleado2 = new Label();
+            label12 = new Label();
+            txtSalarioEmpleados = new TextBox();
+            label9 = new Label();
+            pictureBox4 = new PictureBox();
+            label10 = new Label();
+            label11 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            dtpFechaNacimientoEmpleado = new DateTimePicker();
+            txtEmailEmpleados = new TextBox();
+            txtDocumentoEmpleados = new TextBox();
+            txtDireNumeroEmpleados = new TextBox();
+            txtTelefonoEmpleados = new TextBox();
+            txtDireCalleEmpleados = new TextBox();
+            txtApellidoEmpleados = new TextBox();
+            txtNombreEmpleados = new TextBox();
             TabPageAlumnos = new TabPage();
             panel19 = new Panel();
             panel18 = new Panel();
             dataGridViewAlumnos = new DataGridView();
             panel16 = new Panel();
+            label6 = new Label();
+            label5 = new Label();
             cmbProfesoresAlumno = new ComboBox();
             btnRecargarTablaAlumnos = new Button();
-            btnBuscar = new Button();
+            btnFiltrarAlumnos = new Button();
             cmbCarreraAlumno = new ComboBox();
             cmbAñoAlumno = new ComboBox();
             txtNombreApellidoAlumno = new TextBox();
@@ -98,16 +124,32 @@ namespace DiseñoFinal
             panel24 = new Panel();
             panel23 = new Panel();
             panel21 = new Panel();
-            cmbProfesoresMaterias = new ComboBox();
-            btnRecargarMaterias = new Button();
-            cmbAñoMaterias = new ComboBox();
+            label8 = new Label();
+            btnRecargarTablaMaterias = new Button();
+            label7 = new Label();
             btnFiltrarMaterias = new Button();
+            cmbProfesoresMaterias = new ComboBox();
+            cmbAñoMaterias = new ComboBox();
             cmbCarreraMaterias = new ComboBox();
             cmbFiltrosMaterias = new ComboBox();
             label4 = new Label();
             panel22 = new Panel();
             panel20 = new Panel();
             label3 = new Label();
+            TabPageEmpleados = new TabPage();
+            dataGridViewEmpleados = new DataGridView();
+            panel33 = new Panel();
+            panel32 = new Panel();
+            panel30 = new Panel();
+            btnBuscar = new Button();
+            cmbCarreraEmpleados = new ComboBox();
+            cmbEspecialidadEmpleados = new ComboBox();
+            txtNombreApellidoEmpleado = new TextBox();
+            cmbFiltrosEmpleados = new ComboBox();
+            label24 = new Label();
+            panel31 = new Panel();
+            panel13 = new Panel();
+            label22 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
@@ -122,10 +164,10 @@ namespace DiseñoFinal
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabPerfilProfesores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ImagenesProfes).BeginInit();
-            panel13.SuspendLayout();
             panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel28.SuspendLayout();
+            panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             TabPageAlumnos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAlumnos).BeginInit();
             panel16.SuspendLayout();
@@ -134,6 +176,10 @@ namespace DiseñoFinal
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).BeginInit();
             panel21.SuspendLayout();
             panel20.SuspendLayout();
+            TabPageEmpleados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpleados).BeginInit();
+            panel30.SuspendLayout();
+            panel13.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -143,6 +189,7 @@ namespace DiseñoFinal
             tabControl1.Controls.Add(tabPerfilProfesores);
             tabControl1.Controls.Add(TabPageAlumnos);
             tabControl1.Controls.Add(TabPageMaterias);
+            tabControl1.Controls.Add(TabPageEmpleados);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -555,8 +602,6 @@ namespace DiseñoFinal
             // 
             // tabPerfilProfesores
             // 
-            tabPerfilProfesores.Controls.Add(ImagenesProfes);
-            tabPerfilProfesores.Controls.Add(panel13);
             tabPerfilProfesores.Controls.Add(panel9);
             tabPerfilProfesores.Location = new Point(4, 24);
             tabPerfilProfesores.Name = "tabPerfilProfesores";
@@ -566,145 +611,361 @@ namespace DiseñoFinal
             tabPerfilProfesores.Text = "Mi Perfil";
             tabPerfilProfesores.UseVisualStyleBackColor = true;
             // 
-            // ImagenesProfes
+            // panel9
             // 
-            ImagenesProfes.Dock = DockStyle.Fill;
-            ImagenesProfes.Image = (Image)resources.GetObject("ImagenesProfes.Image");
-            ImagenesProfes.Location = new Point(198, 3);
-            ImagenesProfes.Name = "ImagenesProfes";
-            ImagenesProfes.Size = new Size(1007, 518);
-            ImagenesProfes.SizeMode = PictureBoxSizeMode.StretchImage;
-            ImagenesProfes.TabIndex = 9;
-            ImagenesProfes.TabStop = false;
+            panel9.Controls.Add(panel28);
+            panel9.Controls.Add(panel27);
+            panel9.Controls.Add(panel26);
+            panel9.Controls.Add(panel25);
+            panel9.Controls.Add(cmbEspecialidadEmpleado);
+            panel9.Controls.Add(lblEmpleado);
+            panel9.Controls.Add(lblEmpleado2);
+            panel9.Controls.Add(label12);
+            panel9.Controls.Add(txtSalarioEmpleados);
+            panel9.Controls.Add(label9);
+            panel9.Controls.Add(pictureBox4);
+            panel9.Controls.Add(label10);
+            panel9.Controls.Add(label11);
+            panel9.Controls.Add(label15);
+            panel9.Controls.Add(label16);
+            panel9.Controls.Add(label17);
+            panel9.Controls.Add(label18);
+            panel9.Controls.Add(label19);
+            panel9.Controls.Add(label20);
+            panel9.Controls.Add(dtpFechaNacimientoEmpleado);
+            panel9.Controls.Add(txtEmailEmpleados);
+            panel9.Controls.Add(txtDocumentoEmpleados);
+            panel9.Controls.Add(txtDireNumeroEmpleados);
+            panel9.Controls.Add(txtTelefonoEmpleados);
+            panel9.Controls.Add(txtDireCalleEmpleados);
+            panel9.Controls.Add(txtApellidoEmpleados);
+            panel9.Controls.Add(txtNombreEmpleados);
+            panel9.Dock = DockStyle.Fill;
+            panel9.Location = new Point(3, 3);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(1202, 567);
+            panel9.TabIndex = 0;
             // 
-            // panel13
+            // panel28
             // 
-            panel13.BackColor = Color.Transparent;
-            panel13.Controls.Add(lblUsuarioEmpleado);
-            panel13.Controls.Add(lblPerfilEmpleado);
-            panel13.Controls.Add(label36);
-            panel13.Controls.Add(label37);
-            panel13.Dock = DockStyle.Bottom;
-            panel13.Location = new Point(198, 521);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(1007, 49);
-            panel13.TabIndex = 8;
+            panel28.BackColor = Color.FromArgb(33, 63, 96);
+            panel28.Controls.Add(lblUsuarioEmpleado);
+            panel28.Controls.Add(label23);
+            panel28.Controls.Add(label37);
+            panel28.Controls.Add(button1);
+            panel28.Controls.Add(panel29);
+            panel28.Dock = DockStyle.Bottom;
+            panel28.Location = new Point(91, 506);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(1020, 61);
+            panel28.TabIndex = 69;
             // 
             // lblUsuarioEmpleado
             // 
             lblUsuarioEmpleado.AutoSize = true;
             lblUsuarioEmpleado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUsuarioEmpleado.Location = new Point(51, 13);
+            lblUsuarioEmpleado.ForeColor = SystemColors.ButtonHighlight;
+            lblUsuarioEmpleado.Location = new Point(71, 22);
             lblUsuarioEmpleado.Name = "lblUsuarioEmpleado";
             lblUsuarioEmpleado.Size = new Size(69, 21);
             lblUsuarioEmpleado.TabIndex = 3;
             lblUsuarioEmpleado.Text = "Usuario";
             // 
-            // lblPerfilEmpleado
+            // label23
             // 
-            lblPerfilEmpleado.AutoSize = true;
-            lblPerfilEmpleado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPerfilEmpleado.Location = new Point(841, 13);
-            lblPerfilEmpleado.Name = "lblPerfilEmpleado";
-            lblPerfilEmpleado.Size = new Size(135, 21);
-            lblPerfilEmpleado.TabIndex = 2;
-            lblPerfilEmpleado.Text = "(Aca va el perfil)";
-            // 
-            // label36
-            // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label36.Location = new Point(757, 13);
-            label36.Name = "label36";
-            label36.Size = new Size(78, 21);
-            label36.TabIndex = 1;
-            label36.Text = "Usted es:";
+            label23.AutoSize = true;
+            label23.ForeColor = SystemColors.ButtonHighlight;
+            label23.Location = new Point(1111, 44);
+            label23.Name = "label23";
+            label23.Size = new Size(83, 15);
+            label23.TabIndex = 49;
+            label23.Text = "Recargar Tabla";
             // 
             // label37
             // 
             label37.AutoSize = true;
             label37.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label37.Location = new Point(6, 13);
+            label37.ForeColor = SystemColors.ButtonHighlight;
+            label37.Location = new Point(26, 22);
             label37.Name = "label37";
             label37.Size = new Size(54, 21);
             label37.TabIndex = 0;
             label37.Text = "Hola, ";
             // 
-            // panel9
+            // button1
             // 
-            panel9.Controls.Add(pictureBox3);
-            panel9.Controls.Add(btnExamenesProfesor);
-            panel9.Controls.Add(btnCarrerasProfesor);
-            panel9.Controls.Add(btnMateriasProfesor);
-            panel9.Dock = DockStyle.Left;
-            panel9.Location = new Point(3, 3);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(195, 567);
-            panel9.TabIndex = 0;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(1132, 5);
+            button1.Name = "button1";
+            button1.Size = new Size(40, 38);
+            button1.TabIndex = 47;
+            button1.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // panel29
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox3.Dock = DockStyle.Fill;
-            pictureBox3.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
-            pictureBox3.Location = new Point(0, 520);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(195, 47);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 5;
-            pictureBox3.TabStop = false;
+            panel29.Location = new Point(3, 84);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(797, 59);
+            panel29.TabIndex = 39;
             // 
-            // btnExamenesProfesor
+            // panel27
             // 
-            btnExamenesProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnExamenesProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnExamenesProfesor.Dock = DockStyle.Top;
-            btnExamenesProfesor.FlatAppearance.BorderSize = 0;
-            btnExamenesProfesor.FlatStyle = FlatStyle.Flat;
-            btnExamenesProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExamenesProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnExamenesProfesor.Location = new Point(0, 372);
-            btnExamenesProfesor.Name = "btnExamenesProfesor";
-            btnExamenesProfesor.Size = new Size(195, 148);
-            btnExamenesProfesor.TabIndex = 3;
-            btnExamenesProfesor.Text = "EXAMENES";
-            btnExamenesProfesor.UseVisualStyleBackColor = false;
-            btnExamenesProfesor.Click += btnExamenesProfesor_Click;
+            panel27.BackColor = Color.FromArgb(33, 63, 96);
+            panel27.Dock = DockStyle.Right;
+            panel27.Location = new Point(1111, 70);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(91, 497);
+            panel27.TabIndex = 68;
             // 
-            // btnCarrerasProfesor
+            // panel26
             // 
-            btnCarrerasProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnCarrerasProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnCarrerasProfesor.Dock = DockStyle.Top;
-            btnCarrerasProfesor.FlatAppearance.BorderSize = 0;
-            btnCarrerasProfesor.FlatStyle = FlatStyle.Flat;
-            btnCarrerasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCarrerasProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnCarrerasProfesor.Location = new Point(0, 193);
-            btnCarrerasProfesor.Name = "btnCarrerasProfesor";
-            btnCarrerasProfesor.Size = new Size(195, 179);
-            btnCarrerasProfesor.TabIndex = 2;
-            btnCarrerasProfesor.Text = "MIS DATOS";
-            btnCarrerasProfesor.UseVisualStyleBackColor = false;
-            btnCarrerasProfesor.Click += btnCarrerasProfesor_Click;
+            panel26.BackColor = Color.FromArgb(33, 63, 96);
+            panel26.Dock = DockStyle.Left;
+            panel26.Location = new Point(0, 70);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(91, 497);
+            panel26.TabIndex = 67;
             // 
-            // btnMateriasProfesor
+            // panel25
             // 
-            btnMateriasProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnMateriasProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnMateriasProfesor.Dock = DockStyle.Top;
-            btnMateriasProfesor.FlatAppearance.BorderSize = 0;
-            btnMateriasProfesor.FlatStyle = FlatStyle.Flat;
-            btnMateriasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMateriasProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnMateriasProfesor.Location = new Point(0, 0);
-            btnMateriasProfesor.Name = "btnMateriasProfesor";
-            btnMateriasProfesor.Size = new Size(195, 193);
-            btnMateriasProfesor.TabIndex = 1;
-            btnMateriasProfesor.Text = "ALUMNOS";
-            btnMateriasProfesor.UseVisualStyleBackColor = false;
-            btnMateriasProfesor.Click += btnMateriasProfesor_Click;
+            panel25.BackColor = Color.FromArgb(33, 63, 96);
+            panel25.Controls.Add(btnSalir);
+            panel25.Controls.Add(label21);
+            panel25.Dock = DockStyle.Top;
+            panel25.Location = new Point(0, 0);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(1202, 70);
+            panel25.TabIndex = 66;
+            // 
+            // btnSalir
+            // 
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Location = new Point(725, 5);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(63, 57);
+            btnSalir.TabIndex = 43;
+            btnSalir.Text = "X";
+            btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
+            label21.ForeColor = SystemColors.ButtonHighlight;
+            label21.Location = new Point(0, 6);
+            label21.Name = "label21";
+            label21.Size = new Size(249, 55);
+            label21.TabIndex = 0;
+            label21.Text = "Empleado";
+            // 
+            // cmbEspecialidadEmpleado
+            // 
+            cmbEspecialidadEmpleado.FormattingEnabled = true;
+            cmbEspecialidadEmpleado.Location = new Point(502, 412);
+            cmbEspecialidadEmpleado.Name = "cmbEspecialidadEmpleado";
+            cmbEspecialidadEmpleado.Size = new Size(182, 23);
+            cmbEspecialidadEmpleado.TabIndex = 65;
+            // 
+            // lblEmpleado
+            // 
+            lblEmpleado.AutoSize = true;
+            lblEmpleado.Font = new Font("Microsoft Sans Serif", 12F);
+            lblEmpleado.Location = new Point(507, 151);
+            lblEmpleado.Name = "lblEmpleado";
+            lblEmpleado.Size = new Size(0, 20);
+            lblEmpleado.TabIndex = 64;
+            // 
+            // lblEmpleado2
+            // 
+            lblEmpleado2.AutoSize = true;
+            lblEmpleado2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmpleado2.ImageAlign = ContentAlignment.BottomLeft;
+            lblEmpleado2.Location = new Point(390, 151);
+            lblEmpleado2.Name = "lblEmpleado2";
+            lblEmpleado2.Size = new Size(110, 20);
+            lblEmpleado2.TabIndex = 63;
+            lblEmpleado2.Text = "ID Empleado :";
+            lblEmpleado2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Microsoft Sans Serif", 12F);
+            label12.Location = new Point(390, 412);
+            label12.Name = "label12";
+            label12.Size = new Size(107, 20);
+            label12.TabIndex = 62;
+            label12.Text = "Especialidad :";
+            // 
+            // txtSalarioEmpleados
+            // 
+            txtSalarioEmpleados.Location = new Point(502, 383);
+            txtSalarioEmpleados.Name = "txtSalarioEmpleados";
+            txtSalarioEmpleados.Size = new Size(182, 23);
+            txtSalarioEmpleados.TabIndex = 61;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 12F);
+            label9.Location = new Point(432, 385);
+            label9.Name = "label9";
+            label9.Size = new Size(66, 20);
+            label9.TabIndex = 60;
+            label9.Text = "Salario :";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(739, 149);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(86, 86);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 59;
+            pictureBox4.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 12F);
+            label10.Location = new Point(354, 357);
+            label10.Name = "label10";
+            label10.Size = new Size(145, 20);
+            label10.TabIndex = 58;
+            label10.Text = "Fecha Nacimiento :";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 12F);
+            label11.Location = new Point(438, 325);
+            label11.Name = "label11";
+            label11.Size = new Size(56, 20);
+            label11.TabIndex = 57;
+            label11.Text = "Email :";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft Sans Serif", 12F);
+            label15.Location = new Point(398, 296);
+            label15.Name = "label15";
+            label15.Size = new Size(100, 20);
+            label15.TabIndex = 56;
+            label15.Text = "Documento :";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Microsoft Sans Serif", 12F);
+            label16.Location = new Point(418, 267);
+            label16.Name = "label16";
+            label16.Size = new Size(79, 20);
+            label16.TabIndex = 55;
+            label16.Text = "Telefono :";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Microsoft Sans Serif", 12F);
+            label17.Location = new Point(631, 238);
+            label17.Name = "label17";
+            label17.Size = new Size(73, 20);
+            label17.TabIndex = 54;
+            label17.Text = "Numero :";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Microsoft Sans Serif", 12F);
+            label18.Location = new Point(375, 238);
+            label18.Name = "label18";
+            label18.Size = new Size(122, 20);
+            label18.TabIndex = 53;
+            label18.Text = "Dirección Calle :";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Microsoft Sans Serif", 12F);
+            label19.Location = new Point(423, 209);
+            label19.Name = "label19";
+            label19.Size = new Size(73, 20);
+            label19.TabIndex = 52;
+            label19.Text = "Apellido :";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label20.ImageAlign = ContentAlignment.BottomLeft;
+            label20.Location = new Point(423, 180);
+            label20.Name = "label20";
+            label20.Size = new Size(73, 20);
+            label20.TabIndex = 51;
+            label20.Text = "Nombre :";
+            label20.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // dtpFechaNacimientoEmpleado
+            // 
+            dtpFechaNacimientoEmpleado.Location = new Point(502, 353);
+            dtpFechaNacimientoEmpleado.Name = "dtpFechaNacimientoEmpleado";
+            dtpFechaNacimientoEmpleado.Size = new Size(239, 23);
+            dtpFechaNacimientoEmpleado.TabIndex = 50;
+            // 
+            // txtEmailEmpleados
+            // 
+            txtEmailEmpleados.Location = new Point(502, 325);
+            txtEmailEmpleados.Name = "txtEmailEmpleados";
+            txtEmailEmpleados.Size = new Size(182, 23);
+            txtEmailEmpleados.TabIndex = 49;
+            // 
+            // txtDocumentoEmpleados
+            // 
+            txtDocumentoEmpleados.Location = new Point(502, 296);
+            txtDocumentoEmpleados.Name = "txtDocumentoEmpleados";
+            txtDocumentoEmpleados.Size = new Size(157, 23);
+            txtDocumentoEmpleados.TabIndex = 48;
+            // 
+            // txtDireNumeroEmpleados
+            // 
+            txtDireNumeroEmpleados.Location = new Point(710, 239);
+            txtDireNumeroEmpleados.Name = "txtDireNumeroEmpleados";
+            txtDireNumeroEmpleados.Size = new Size(100, 23);
+            txtDireNumeroEmpleados.TabIndex = 47;
+            // 
+            // txtTelefonoEmpleados
+            // 
+            txtTelefonoEmpleados.Location = new Point(502, 267);
+            txtTelefonoEmpleados.Name = "txtTelefonoEmpleados";
+            txtTelefonoEmpleados.Size = new Size(157, 23);
+            txtTelefonoEmpleados.TabIndex = 46;
+            // 
+            // txtDireCalleEmpleados
+            // 
+            txtDireCalleEmpleados.Location = new Point(502, 238);
+            txtDireCalleEmpleados.Name = "txtDireCalleEmpleados";
+            txtDireCalleEmpleados.Size = new Size(123, 23);
+            txtDireCalleEmpleados.TabIndex = 45;
+            // 
+            // txtApellidoEmpleados
+            // 
+            txtApellidoEmpleados.Location = new Point(502, 209);
+            txtApellidoEmpleados.Name = "txtApellidoEmpleados";
+            txtApellidoEmpleados.Size = new Size(123, 23);
+            txtApellidoEmpleados.TabIndex = 44;
+            // 
+            // txtNombreEmpleados
+            // 
+            txtNombreEmpleados.Location = new Point(502, 180);
+            txtNombreEmpleados.Name = "txtNombreEmpleados";
+            txtNombreEmpleados.Size = new Size(123, 23);
+            txtNombreEmpleados.TabIndex = 43;
             // 
             // TabPageAlumnos
             // 
@@ -744,15 +1005,20 @@ namespace DiseñoFinal
             dataGridViewAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewAlumnos.Location = new Point(92, 76);
             dataGridViewAlumnos.Name = "dataGridViewAlumnos";
+            dataGridViewAlumnos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewAlumnos.Size = new Size(1025, 433);
             dataGridViewAlumnos.TabIndex = 41;
+            dataGridViewAlumnos.CellContentDoubleClick += dataGridViewAlumnos_CellContentDoubleClick;
+            dataGridViewAlumnos.CellDoubleClick += dataGridViewAlumnos_CellDoubleClick;
             // 
             // panel16
             // 
             panel16.BackColor = Color.FromArgb(33, 63, 96);
+            panel16.Controls.Add(label6);
+            panel16.Controls.Add(label5);
             panel16.Controls.Add(cmbProfesoresAlumno);
             panel16.Controls.Add(btnRecargarTablaAlumnos);
-            panel16.Controls.Add(btnBuscar);
+            panel16.Controls.Add(btnFiltrarAlumnos);
             panel16.Controls.Add(cmbCarreraAlumno);
             panel16.Controls.Add(cmbAñoAlumno);
             panel16.Controls.Add(txtNombreApellidoAlumno);
@@ -765,6 +1031,26 @@ namespace DiseñoFinal
             panel16.Size = new Size(1202, 61);
             panel16.TabIndex = 40;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = SystemColors.ButtonHighlight;
+            label6.Location = new Point(381, 43);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 15);
+            label6.TabIndex = 50;
+            label6.Text = "Filtrar";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(1111, 44);
+            label5.Name = "label5";
+            label5.Size = new Size(83, 15);
+            label5.TabIndex = 49;
+            label5.Text = "Recargar Tabla";
+            // 
             // cmbProfesoresAlumno
             // 
             cmbProfesoresAlumno.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -776,23 +1062,30 @@ namespace DiseñoFinal
             // 
             // btnRecargarTablaAlumnos
             // 
-            btnRecargarTablaAlumnos.Location = new Point(458, 12);
+            btnRecargarTablaAlumnos.BackgroundImage = (Image)resources.GetObject("btnRecargarTablaAlumnos.BackgroundImage");
+            btnRecargarTablaAlumnos.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRecargarTablaAlumnos.FlatAppearance.BorderSize = 0;
+            btnRecargarTablaAlumnos.FlatStyle = FlatStyle.Flat;
+            btnRecargarTablaAlumnos.Location = new Point(1132, 5);
             btnRecargarTablaAlumnos.Name = "btnRecargarTablaAlumnos";
-            btnRecargarTablaAlumnos.Size = new Size(75, 38);
+            btnRecargarTablaAlumnos.Size = new Size(40, 38);
             btnRecargarTablaAlumnos.TabIndex = 47;
-            btnRecargarTablaAlumnos.Text = "Recargar";
             btnRecargarTablaAlumnos.UseVisualStyleBackColor = true;
             btnRecargarTablaAlumnos.Click += btnRecargarTablaAlumnos_Click;
             // 
-            // btnBuscar
+            // btnFiltrarAlumnos
             // 
-            btnBuscar.Location = new Point(366, 20);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(70, 23);
-            btnBuscar.TabIndex = 46;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Click += btnBuscar_Click;
+            btnFiltrarAlumnos.BackgroundImage = (Image)resources.GetObject("btnFiltrarAlumnos.BackgroundImage");
+            btnFiltrarAlumnos.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrarAlumnos.FlatAppearance.BorderSize = 0;
+            btnFiltrarAlumnos.FlatStyle = FlatStyle.Flat;
+            btnFiltrarAlumnos.ImageAlign = ContentAlignment.TopLeft;
+            btnFiltrarAlumnos.Location = new Point(380, 5);
+            btnFiltrarAlumnos.Name = "btnFiltrarAlumnos";
+            btnFiltrarAlumnos.Size = new Size(40, 38);
+            btnFiltrarAlumnos.TabIndex = 46;
+            btnFiltrarAlumnos.UseVisualStyleBackColor = true;
+            btnFiltrarAlumnos.Click += btnFiltrarAlumnos_Click;
             // 
             // cmbCarreraAlumno
             // 
@@ -898,6 +1191,7 @@ namespace DiseñoFinal
             dataGridViewMaterias.Dock = DockStyle.Fill;
             dataGridViewMaterias.Location = new Point(94, 66);
             dataGridViewMaterias.Name = "dataGridViewMaterias";
+            dataGridViewMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewMaterias.Size = new Size(1020, 443);
             dataGridViewMaterias.TabIndex = 46;
             dataGridViewMaterias.CellContentDoubleClick += dataGridViewMaterias_CellContentDoubleClick;
@@ -923,10 +1217,12 @@ namespace DiseñoFinal
             // panel21
             // 
             panel21.BackColor = Color.FromArgb(33, 63, 96);
-            panel21.Controls.Add(cmbProfesoresMaterias);
-            panel21.Controls.Add(btnRecargarMaterias);
-            panel21.Controls.Add(cmbAñoMaterias);
+            panel21.Controls.Add(label8);
+            panel21.Controls.Add(btnRecargarTablaMaterias);
+            panel21.Controls.Add(label7);
             panel21.Controls.Add(btnFiltrarMaterias);
+            panel21.Controls.Add(cmbProfesoresMaterias);
+            panel21.Controls.Add(cmbAñoMaterias);
             panel21.Controls.Add(cmbCarreraMaterias);
             panel21.Controls.Add(cmbFiltrosMaterias);
             panel21.Controls.Add(label4);
@@ -937,41 +1233,68 @@ namespace DiseñoFinal
             panel21.Size = new Size(1202, 61);
             panel21.TabIndex = 43;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = SystemColors.ButtonHighlight;
+            label8.Location = new Point(1110, 42);
+            label8.Name = "label8";
+            label8.Size = new Size(83, 15);
+            label8.TabIndex = 54;
+            label8.Text = "Recargar Tabla";
+            // 
+            // btnRecargarTablaMaterias
+            // 
+            btnRecargarTablaMaterias.BackgroundImage = (Image)resources.GetObject("btnRecargarTablaMaterias.BackgroundImage");
+            btnRecargarTablaMaterias.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRecargarTablaMaterias.FlatAppearance.BorderSize = 0;
+            btnRecargarTablaMaterias.FlatStyle = FlatStyle.Flat;
+            btnRecargarTablaMaterias.Location = new Point(1131, 3);
+            btnRecargarTablaMaterias.Name = "btnRecargarTablaMaterias";
+            btnRecargarTablaMaterias.Size = new Size(40, 38);
+            btnRecargarTablaMaterias.TabIndex = 53;
+            btnRecargarTablaMaterias.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = SystemColors.ButtonHighlight;
+            label7.Location = new Point(366, 42);
+            label7.Name = "label7";
+            label7.Size = new Size(37, 15);
+            label7.TabIndex = 52;
+            label7.Text = "Filtrar";
+            // 
+            // btnFiltrarMaterias
+            // 
+            btnFiltrarMaterias.BackgroundImage = (Image)resources.GetObject("btnFiltrarMaterias.BackgroundImage");
+            btnFiltrarMaterias.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrarMaterias.FlatAppearance.BorderSize = 0;
+            btnFiltrarMaterias.FlatStyle = FlatStyle.Flat;
+            btnFiltrarMaterias.ImageAlign = ContentAlignment.TopLeft;
+            btnFiltrarMaterias.Location = new Point(365, 4);
+            btnFiltrarMaterias.Name = "btnFiltrarMaterias";
+            btnFiltrarMaterias.Size = new Size(40, 38);
+            btnFiltrarMaterias.TabIndex = 51;
+            btnFiltrarMaterias.UseVisualStyleBackColor = true;
+            // 
             // cmbProfesoresMaterias
             // 
             cmbProfesoresMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProfesoresMaterias.FormattingEnabled = true;
-            cmbProfesoresMaterias.Location = new Point(224, 21);
+            cmbProfesoresMaterias.Location = new Point(224, 20);
             cmbProfesoresMaterias.Name = "cmbProfesoresMaterias";
             cmbProfesoresMaterias.Size = new Size(121, 23);
             cmbProfesoresMaterias.TabIndex = 49;
-            // 
-            // btnRecargarMaterias
-            // 
-            btnRecargarMaterias.Location = new Point(1122, 12);
-            btnRecargarMaterias.Name = "btnRecargarMaterias";
-            btnRecargarMaterias.Size = new Size(75, 38);
-            btnRecargarMaterias.TabIndex = 48;
-            btnRecargarMaterias.Text = "Recargar";
-            btnRecargarMaterias.UseVisualStyleBackColor = true;
             // 
             // cmbAñoMaterias
             // 
             cmbAñoMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAñoMaterias.FormattingEnabled = true;
-            cmbAñoMaterias.Location = new Point(224, 21);
+            cmbAñoMaterias.Location = new Point(224, 20);
             cmbAñoMaterias.Name = "cmbAñoMaterias";
             cmbAñoMaterias.Size = new Size(121, 23);
             cmbAñoMaterias.TabIndex = 47;
-            // 
-            // btnFiltrarMaterias
-            // 
-            btnFiltrarMaterias.Location = new Point(366, 20);
-            btnFiltrarMaterias.Name = "btnFiltrarMaterias";
-            btnFiltrarMaterias.Size = new Size(70, 23);
-            btnFiltrarMaterias.TabIndex = 46;
-            btnFiltrarMaterias.Text = "Buscar";
-            btnFiltrarMaterias.UseVisualStyleBackColor = true;
             // 
             // cmbCarreraMaterias
             // 
@@ -1030,6 +1353,148 @@ namespace DiseñoFinal
             label3.TabIndex = 2;
             label3.Text = "Materias";
             // 
+            // TabPageEmpleados
+            // 
+            TabPageEmpleados.Controls.Add(dataGridViewEmpleados);
+            TabPageEmpleados.Controls.Add(panel33);
+            TabPageEmpleados.Controls.Add(panel32);
+            TabPageEmpleados.Controls.Add(panel30);
+            TabPageEmpleados.Controls.Add(panel13);
+            TabPageEmpleados.Location = new Point(4, 24);
+            TabPageEmpleados.Name = "TabPageEmpleados";
+            TabPageEmpleados.Padding = new Padding(3);
+            TabPageEmpleados.Size = new Size(1208, 573);
+            TabPageEmpleados.TabIndex = 5;
+            TabPageEmpleados.Text = "Empleados";
+            TabPageEmpleados.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewEmpleados
+            // 
+            dataGridViewEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEmpleados.Dock = DockStyle.Fill;
+            dataGridViewEmpleados.Location = new Point(94, 66);
+            dataGridViewEmpleados.Name = "dataGridViewEmpleados";
+            dataGridViewEmpleados.Size = new Size(1020, 443);
+            dataGridViewEmpleados.TabIndex = 47;
+            dataGridViewEmpleados.CellDoubleClick += dataGridViewEmpleados_CellDoubleClick;
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.FromArgb(33, 63, 96);
+            panel33.Dock = DockStyle.Right;
+            panel33.Location = new Point(1114, 66);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(91, 443);
+            panel33.TabIndex = 46;
+            // 
+            // panel32
+            // 
+            panel32.BackColor = Color.FromArgb(33, 63, 96);
+            panel32.Dock = DockStyle.Left;
+            panel32.Location = new Point(3, 66);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(91, 443);
+            panel32.TabIndex = 45;
+            // 
+            // panel30
+            // 
+            panel30.BackColor = Color.FromArgb(33, 63, 96);
+            panel30.Controls.Add(btnBuscar);
+            panel30.Controls.Add(cmbCarreraEmpleados);
+            panel30.Controls.Add(cmbEspecialidadEmpleados);
+            panel30.Controls.Add(txtNombreApellidoEmpleado);
+            panel30.Controls.Add(cmbFiltrosEmpleados);
+            panel30.Controls.Add(label24);
+            panel30.Controls.Add(panel31);
+            panel30.Dock = DockStyle.Bottom;
+            panel30.Location = new Point(3, 509);
+            panel30.Name = "panel30";
+            panel30.Size = new Size(1202, 61);
+            panel30.TabIndex = 41;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(366, 20);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(70, 23);
+            btnBuscar.TabIndex = 46;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // cmbCarreraEmpleados
+            // 
+            cmbCarreraEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCarreraEmpleados.FormattingEnabled = true;
+            cmbCarreraEmpleados.Location = new Point(233, 20);
+            cmbCarreraEmpleados.Name = "cmbCarreraEmpleados";
+            cmbCarreraEmpleados.Size = new Size(127, 23);
+            cmbCarreraEmpleados.TabIndex = 44;
+            // 
+            // cmbEspecialidadEmpleados
+            // 
+            cmbEspecialidadEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEspecialidadEmpleados.FormattingEnabled = true;
+            cmbEspecialidadEmpleados.Location = new Point(233, 19);
+            cmbEspecialidadEmpleados.Name = "cmbEspecialidadEmpleados";
+            cmbEspecialidadEmpleados.Size = new Size(127, 23);
+            cmbEspecialidadEmpleados.TabIndex = 43;
+            // 
+            // txtNombreApellidoEmpleado
+            // 
+            txtNombreApellidoEmpleado.Location = new Point(233, 20);
+            txtNombreApellidoEmpleado.Name = "txtNombreApellidoEmpleado";
+            txtNombreApellidoEmpleado.Size = new Size(127, 23);
+            txtNombreApellidoEmpleado.TabIndex = 42;
+            // 
+            // cmbFiltrosEmpleados
+            // 
+            cmbFiltrosEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltrosEmpleados.FormattingEnabled = true;
+            cmbFiltrosEmpleados.Location = new Point(97, 20);
+            cmbFiltrosEmpleados.Name = "cmbFiltrosEmpleados";
+            cmbFiltrosEmpleados.Size = new Size(121, 23);
+            cmbFiltrosEmpleados.TabIndex = 41;
+            cmbFiltrosEmpleados.SelectedIndexChanged += cmbFiltrosEmpleados_SelectedIndexChanged;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label24.ForeColor = SystemColors.ButtonHighlight;
+            label24.Location = new Point(12, 19);
+            label24.Name = "label24";
+            label24.Size = new Size(79, 18);
+            label24.TabIndex = 40;
+            label24.Text = "Filtrar por :";
+            // 
+            // panel31
+            // 
+            panel31.Location = new Point(3, 84);
+            panel31.Name = "panel31";
+            panel31.Size = new Size(797, 59);
+            panel31.TabIndex = 39;
+            // 
+            // panel13
+            // 
+            panel13.BackColor = Color.FromArgb(33, 63, 96);
+            panel13.Controls.Add(label22);
+            panel13.Dock = DockStyle.Top;
+            panel13.Location = new Point(3, 3);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(1202, 63);
+            panel13.TabIndex = 37;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
+            label22.ForeColor = SystemColors.ButtonHighlight;
+            label22.Location = new Point(0, 4);
+            label22.Name = "label22";
+            label22.Size = new Size(274, 55);
+            label22.TabIndex = 2;
+            label22.Text = "Empleados";
+            // 
             // timer1
             // 
             timer1.Tick += timer1_Tick;
@@ -1057,11 +1522,13 @@ namespace DiseñoFinal
             panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tabPerfilProfesores.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ImagenesProfes).EndInit();
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
             panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel9.PerformLayout();
+            panel28.ResumeLayout(false);
+            panel28.PerformLayout();
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             TabPageAlumnos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewAlumnos).EndInit();
             panel16.ResumeLayout(false);
@@ -1074,6 +1541,12 @@ namespace DiseñoFinal
             panel21.PerformLayout();
             panel20.ResumeLayout(false);
             panel20.PerformLayout();
+            TabPageEmpleados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpleados).EndInit();
+            panel30.ResumeLayout(false);
+            panel30.PerformLayout();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1100,10 +1573,6 @@ namespace DiseñoFinal
         private Panel panel5;
         private Panel panel4;
         private Panel panel3;
-        private Panel panel9;
-        private Button btnExamenesProfesor;
-        private Button btnCarrerasProfesor;
-        private Button btnMateriasProfesor;
         private Label lblUsuario;
         private Label lblPerfil;
         private Label label14;
@@ -1123,21 +1592,13 @@ namespace DiseñoFinal
         private PictureBox pictureBox2;
         private PictureBox AlumnoImagenes;
         private System.Windows.Forms.Timer timer1;
-        private Panel panel13;
-        private Label lblUsuarioEmpleado;
-        private Label lblPerfilEmpleado;
-        private Label label36;
-        private Label label37;
-        private PictureBox pictureBox3;
-        private PictureBox ImagenesProfes;
         private TabPage TabPageAlumnos;
         private Panel panel14;
         private Panel panel15;
         private Label label1;
         private Panel panel16;
         private Button btnRecargarTablaAlumnos;
-        private Button btnBuscar;
-        private TextBox txtDni;
+        private Button btnFiltrarAlumnos;
         private ComboBox cmbCarreraAlumno;
         private ComboBox cmbAñoAlumno;
         private TextBox txtNombreApellidoAlumno;
@@ -1154,14 +1615,67 @@ namespace DiseñoFinal
         private Panel panel23;
         private Panel panel21;
         private ComboBox cmbAñoMaterias;
-        private Button btnFiltrarMaterias;
         private ComboBox cmbCarreraMaterias;
         private ComboBox cmbFiltrosMaterias;
         private Label label4;
         private Panel panel22;
         private DataGridView dataGridViewMaterias;
-        private Button btnRecargarMaterias;
         private ComboBox cmbProfesoresMaterias;
         private ComboBox cmbProfesoresAlumno;
+        private Label label6;
+        private Label label5;
+        private Label label7;
+        private Button btnFiltrarMaterias;
+        private Label label8;
+        private Button btnRecargarTablaMaterias;
+        private Panel panel9;
+        private Panel panel28;
+        private Label lblUsuarioEmpleado;
+        private Label label23;
+        private Label label37;
+        private Button button1;
+        private Panel panel29;
+        private Panel panel27;
+        private Panel panel26;
+        private Panel panel25;
+        private Button btnSalir;
+        private Label label21;
+        private ComboBox cmbEspecialidadEmpleado;
+        private Label lblEmpleado;
+        private Label lblEmpleado2;
+        private Label label12;
+        private TextBox txtSalarioEmpleados;
+        private Label label9;
+        private PictureBox pictureBox4;
+        private Label label10;
+        private Label label11;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private DateTimePicker dtpFechaNacimientoEmpleado;
+        private TextBox txtEmailEmpleados;
+        private TextBox txtDocumentoEmpleados;
+        private TextBox txtDireNumeroEmpleados;
+        private TextBox txtTelefonoEmpleados;
+        private TextBox txtDireCalleEmpleados;
+        private TextBox txtApellidoEmpleados;
+        private TextBox txtNombreEmpleados;
+        private TabPage TabPageEmpleados;
+        private Panel panel13;
+        private Label label22;
+        private Panel panel32;
+        private Panel panel30;
+        private Button btnBuscar;
+        private ComboBox cmbCarreraEmpleados;
+        private ComboBox cmbEspecialidadEmpleados;
+        private TextBox txtNombreApellidoEmpleado;
+        private ComboBox cmbFiltrosEmpleados;
+        private Label label24;
+        private Panel panel31;
+        private Panel panel33;
+        private DataGridView dataGridViewEmpleados;
     }
 }

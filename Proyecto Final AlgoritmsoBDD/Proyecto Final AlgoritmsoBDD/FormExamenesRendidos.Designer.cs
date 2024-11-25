@@ -33,7 +33,6 @@
             btnSalir = new Button();
             dataGridView1 = new DataGridView();
             panel1 = new Panel();
-            btnHistorial = new Button();
             label1 = new Label();
             panel3 = new Panel();
             btnBorrar = new Button();
@@ -47,7 +46,6 @@
             label3 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel1.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -99,22 +97,11 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(33, 63, 96);
-            panel1.Controls.Add(btnHistorial);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 381);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 69);
             panel1.TabIndex = 39;
-            // 
-            // btnHistorial
-            // 
-            btnHistorial.Location = new Point(713, 6);
-            btnHistorial.Name = "btnHistorial";
-            btnHistorial.Size = new Size(75, 55);
-            btnHistorial.TabIndex = 8;
-            btnHistorial.Text = "Historial";
-            btnHistorial.UseVisualStyleBackColor = true;
-            btnHistorial.Click += btnHistorial_Click;
             // 
             // label1
             // 
@@ -246,7 +233,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -260,7 +246,6 @@
         private Button btnSalir;
         private DataGridView dataGridView1;
         private Panel panel1;
-        private Button btnHistorial;
         private Label label1;
         private Panel panel3;
         private TextBox txtAlumno;

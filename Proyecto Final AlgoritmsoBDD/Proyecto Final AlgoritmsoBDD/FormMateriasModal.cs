@@ -21,7 +21,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
         public event Action MateriaEvento;
 
         GestorMaterias gestorMaterias = new GestorMaterias(); // Instancia de GestorMaterias
-        
+
         SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
         private void FormMateriasModal_Load(object sender, EventArgs e)
@@ -217,9 +217,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 Empleado profesorSeleccionado = (Empleado)cmbProfesores.SelectedItem;
                 idEmpleado = profesorSeleccionado.ID_Empleado;
             }
-            
 
-            
+
+
             try
             {
                 GestorMaterias gestor = new GestorMaterias();
@@ -234,7 +234,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             MateriaEvento?.Invoke();
             this.Close();
         }
-        
+
 
 
 
@@ -321,7 +321,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 this.Close();
             }
         }
-        
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -331,6 +331,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

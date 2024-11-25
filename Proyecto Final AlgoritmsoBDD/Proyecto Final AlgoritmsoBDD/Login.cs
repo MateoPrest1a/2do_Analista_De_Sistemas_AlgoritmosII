@@ -46,6 +46,17 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 int idPerfil = -1;  // Usaremos este valor para el ID de perfil
 
                 string query = @" 
+                                -- Caso especial para el administrador
+                                SELECT 
+                                    'Administrador' AS tipo,
+                                    'Admin' AS nombre,
+                                    '' AS apellido,
+                                    0 AS id_perfil  -- Uso 0 como ID ficticio para el administrador
+                                WHERE
+                                    @Usuario = 'admin' AND @Contrasena = 'admin'
+
+                                UNION ALL
+
                                 -- Para obtener el perfil de un empleado (profesor, administrativo, etc.)
                                 SELECT 
                                     p.tipo,  -- Tipo de perfil (Profesor, Personal Administrativo)

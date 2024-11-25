@@ -23,6 +23,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
+        int Matricula; // Declaro variable Matricula para asignarle la matricula del alumno
+
         public class Carrera
         {
             public int Id { get; set; }
@@ -35,6 +37,50 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
+        public FormAlumnosModal(int matricula, string nombre, string apellido, string direcalle, string direnum, string telefono, string documento, string email, DateTime fechanacimientoalumno, int idcarrera, int año, string perfil) //perfil para mostrar que puede hacer dependiendo el perfil del usuario
+        {
+            InitializeComponent();
+
+            //Cargo los combobox al iniciar cada formulario
+            CargarCarreras();
+            CargarAños();
+
+            Matricula = matricula;
+
+            if (matricula != 0)
+            {
+                lblMatriculaAlumno.Text = matricula.ToString();
+                btnAgregar.Visible = false;
+            }
+            else
+            {
+                lblMatriculaAlumno.Visible = false;
+                lblMatricula.Visible = false; //Hacemos invisible para que al agregar alumno nuevo no se vea el label "Matricula :"
+                btnExamenesRendidos.Visible = false;
+                btnEliminar.Visible = false;
+                btnModificar.Visible = false;
+            }
+            txtNombreAlumno.Text = nombre;
+            txtApellidoAlumno.Text = apellido;
+            txtDireCalleAlumno.Text = direcalle;
+            txtDireNumeroAlumno.Text = direnum;
+            txtTelefonoAlumno.Text = telefono;
+            txtDocumentoAlumno.Text = documento;
+            dtpFechaNacimientoAlumno.Value = fechanacimientoalumno;
+            txtEmailAlumno.Text = email;
+            cmbAñoAlumno.SelectedItem = año.ToString();
+            foreach (Carrera carrera in cmbCarrerasAlumnos.Items)
+            {
+                if (carrera.Id == idcarrera)
+                {
+                    cmbCarrerasAlumnos.SelectedItem = carrera;
+                    break;
+                }
+            }
+
+            //Perfiles
+            AjustarVisibilidadPerfil(perfil);
+        }
         private void CargarAños()
         {
             cmbAñoAlumno.Items.Clear();
@@ -88,48 +134,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-        public FormAlumnosModal(int matricula, string nombre, string apellido, string direcalle, string direnum, string telefono, string documento, string email, DateTime fechanacimientoalumno, int idcarrera, int año, string perfil) //perfil para mostrar que puede hacer dependiendo el perfil del usuario
-        {
-            InitializeComponent();
 
-            //Cargo los combobox al iniciar cada formulario
-            CargarCarreras();
-            CargarAños();
-
-            if (matricula != 0)
-            {
-                lblMatriculaAlumno.Text = matricula.ToString();
-                btnAgregar.Visible = false;
-            }
-            else
-            {
-                lblMatriculaAlumno.Visible = false;
-                lblMatricula.Visible = false; //Hacemos invisible para que al agregar alumno nuevo no se vea el label "Matricula :"
-                btnExamenesRendidos.Visible = false;
-                btnEliminar.Visible = false;
-                btnModificar.Visible = false;
-            }
-            txtNombreAlumno.Text = nombre;
-            txtApellidoAlumno.Text = apellido;
-            txtDireCalleAlumno.Text = direcalle;
-            txtDireNumeroAlumno.Text = direnum;
-            txtTelefonoAlumno.Text = telefono;
-            txtDocumentoAlumno.Text = documento;
-            dtpFechaNacimientoAlumno.Value = fechanacimientoalumno;
-            txtEmailAlumno.Text = email;
-            cmbAñoAlumno.SelectedItem = año.ToString();
-            foreach (Carrera carrera in cmbCarrerasAlumnos.Items)
-            {
-                if (carrera.Id == idcarrera)
-                {
-                    cmbCarrerasAlumnos.SelectedItem = carrera;
-                    break;
-                }
-            }
-
-            //Perfiles
-            AjustarVisibilidadPerfil(perfil);
-        }
 
         private void AjustarVisibilidadPerfil(string perfil)
         {
@@ -642,6 +647,81 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
             FormAsignarMateriaAlumno formulario = new FormAsignarMateriaAlumno(matricula, idcarrera, año);
             formulario.ShowDialog();
+        }
+
+        private void btnHistorialExamenes_Click(object sender, EventArgs e)
+        {
+            FormHistorialExamenAlumno formulario = new FormHistorialExamenAlumno(Matricula);
+            formulario.ShowDialog();
+        }
+
+        private void btnExamenesRendidos_Click_1(object sender, EventArgs e)
+        {
+            string NombreAlumno;
+            int idcarrera;
+
+            // Nombre Alumno
+            if (txtNombreAlumno.Text == "")
+            {
+                error1.SetError(txtNombreAlumno, "Nombre Inválido");
+                txtNombreAlumno.Focus();
+                return;
+            }
+            else
+            {
+                NombreAlumno = txtNombreAlumno.Text;
+                error1.Clear();
+            }
+
+            // CARRERA 
+            if (cmbCarrerasAlumnos.SelectedItem == null)
+            {
+                error1.SetError(cmbCarrerasAlumnos, "Carrera Inválida");
+                cmbCarrerasAlumnos.Focus();
+                return;
+            }
+            else
+            {
+                idcarrera = ((Carrera)cmbCarrerasAlumnos.SelectedItem).Id;
+                error1.Clear();
+            }
+
+            FormExamenesRendidos formexamenes = new FormExamenesRendidos(Matricula, NombreAlumno, idcarrera);
+            formexamenes.ShowDialog();
+        }
+
+        private void btnAsignarMaterias_Click_1(object sender, EventArgs e)
+        {
+            int idcarrera;
+            int año;
+
+            // CARRERA 
+            if (cmbCarrerasAlumnos.SelectedItem == null)
+            {
+                error1.SetError(cmbCarrerasAlumnos, "Carrera Inválida");
+                cmbCarrerasAlumnos.Focus();
+                return;
+            }
+            else
+            {
+                idcarrera = ((Carrera)cmbCarrerasAlumnos.SelectedItem).Id;
+                error1.Clear();
+            }
+
+            // AÑO
+            if (cmbAñoAlumno.SelectedItem == null)
+            {
+                error1.SetError(cmbAñoAlumno, "Seleccione un año valido");
+                cmbAñoAlumno.Focus();
+                return;
+            }
+            else
+            {
+                año = Convert.ToInt32(cmbAñoAlumno.SelectedItem);
+            }
+
+            FormAsignarMateriaAlumno formmaterias = new FormAsignarMateriaAlumno(Matricula, idcarrera, año);
+            formmaterias.ShowDialog();
         }
     }
 }
