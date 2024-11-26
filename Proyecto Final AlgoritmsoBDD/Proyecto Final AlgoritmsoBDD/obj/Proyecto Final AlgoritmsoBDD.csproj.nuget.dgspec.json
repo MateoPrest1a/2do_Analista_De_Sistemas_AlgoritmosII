@@ -49,9 +49,17 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "PDFsharp": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.6, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [

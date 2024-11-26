@@ -241,6 +241,7 @@
             btnAgregar.Size = new Size(75, 66);
             btnAgregar.TabIndex = 39;
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click_1;
             // 
             // label1
             // 

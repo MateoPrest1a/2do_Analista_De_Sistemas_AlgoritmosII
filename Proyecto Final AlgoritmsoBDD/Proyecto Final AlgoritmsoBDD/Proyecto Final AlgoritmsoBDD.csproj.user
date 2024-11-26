@@ -16,9 +16,6 @@
     <Compile Update="FormAlumnosModal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormCarreras.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormCarrerasModal.cs">
       <SubType>Form</SubType>
     </Compile>

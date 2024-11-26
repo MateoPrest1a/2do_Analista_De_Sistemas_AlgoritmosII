@@ -20,23 +20,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         private GestorCarreras gestorCarreras = new GestorCarreras(); // Instancia de la clase gestora
 
-        private void CargarAño()
-        {
-            cmbAño.Items.Add("1");
-            cmbAño.Items.Add("2");
-            cmbAño.Items.Add("3");
-        }
         public FormCarrerasModal(int idcarrera, string carrera, int resolucion, int añoplanestudio)
         {
             InitializeComponent();
-            CargarAño();
 
             if (idcarrera != 0)
             {
                 lblIDCarrera.Text = idcarrera.ToString();
                 txtCarrera.Text = carrera;
                 txtResolucion.Text = resolucion.ToString();
-                cmbAño.Text = añoplanestudio.ToString();
+                txtAñoPlan.Text = añoplanestudio.ToString();
                 btnAgregarCarreras.Visible = false;
             }
             else
@@ -82,16 +75,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             error1.Clear();
 
-            if (cmbAño.SelectedItem == null)
+            if (txtAñoPlan.Text == null)
             {
-                error1.SetError(cmbAño, "Año de plan de estudio inválido");
-                cmbAño.Focus();
+                error1.SetError(txtAñoPlan, "Año de plan de estudio inválido");
+                txtAñoPlan.Focus();
                 return;
             }
             error1.Clear();
 
             // Si todas las validaciones son correctas, carga la carrera
-            gestorCarreras.CargarCarrera(txtCarrera.Text, Convert.ToInt32(txtResolucion.Text), Convert.ToInt32(cmbAño.Text));
+            gestorCarreras.CargarCarrera(txtCarrera.Text, Convert.ToInt32(txtResolucion.Text), Convert.ToInt32(txtAñoPlan.Text));
             CarreraEvento?.Invoke();
             this.Close();
         }
@@ -130,10 +123,16 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             error1.Clear();
 
-            if (cmbAño.SelectedItem == null)
+            if (txtAñoPlan.Text == null)
             {
-                error1.SetError(cmbAño, "Año de plan de estudio inválido");
-                cmbAño.Focus();
+                error1.SetError(txtAñoPlan, "Año de plan de estudio inválido");
+                txtAñoPlan.Focus();
+                return;
+            }
+            else if(!int.TryParse(txtAñoPlan.Text, out _))
+            {
+                error1.SetError(txtAñoPlan, "Ingrese un año válido");
+                txtAñoPlan.Focus();
                 return;
             }
             error1.Clear();

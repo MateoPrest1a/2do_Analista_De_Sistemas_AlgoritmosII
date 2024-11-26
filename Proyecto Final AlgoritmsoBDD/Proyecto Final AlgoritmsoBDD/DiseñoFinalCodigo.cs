@@ -5,9 +5,21 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Numerics;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Windows.Forms;
+
+//Para generar pdf
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using System;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
+using iText.Kernel.Exceptions;
+
 
 namespace DiseñoFinal
 {
@@ -79,6 +91,9 @@ namespace DiseñoFinal
             //Tab Page Materias
             Cargar_Tabla_Materias();
 
+            //Tab Page Carreras
+            Cargar_Tabla_Carreras();
+
             AjustarVisibilidadPerfil(perfil); //Por ultimo ajusto los formularios dependiendo el perfil
         }
 
@@ -121,8 +136,7 @@ namespace DiseñoFinal
 
         private void btnabmCarreras_Click(object sender, EventArgs e)
         {
-            FormCarreras formcarreras = new FormCarreras();
-            formcarreras.ShowDialog();
+
         }
 
         private void btnABMProfesores_Click(object sender, EventArgs e)
@@ -161,7 +175,7 @@ namespace DiseñoFinal
         {
             if (imgs.Count > 0 && indiceImagen >= 0 && indiceImagen < imgs.Count)
             {
-                AlumnoImagenes.Image = Image.FromFile(imgs[indiceImagen]);
+                AlumnoImagenes.Image = System.Drawing.Image.FromFile(imgs[indiceImagen]);
             }
         }
 
@@ -295,8 +309,8 @@ namespace DiseñoFinal
             string consulta = @"
                                 SELECT 
                                     a.matricula,
-                                    a.nombre AS Nombre_Alumno,
-                                    a.apellido AS Apellido_Alumno,
+                                    a.nombre,
+                                    a.apellido,
                                     a.direccion_calle,
                                     a.direccion_numero,
                                     a.telefono,
@@ -304,6 +318,7 @@ namespace DiseñoFinal
                                     a.email,
                                     a.fecha_nacimiento,
                                     a.id_carrera,
+                                    c.nombre_carrera AS Carrera,
                                     a.año,
                                     m.nombre_materia AS Materia,
                                     ma.estado AS Estado_Alumno
@@ -313,6 +328,8 @@ namespace DiseñoFinal
                                     MateriasxAlumno ma ON a.matricula = ma.matricula
                                 JOIN 
                                     Materias m ON ma.id_materia = m.id_materia
+                                JOIN 
+                                    Carreras c ON a.id_carrera = c.id_carrera 
                                 WHERE 
                                     m.id_empleado = @id_empleado AND a.baja = 0;";  // solo alumnos activos
 
@@ -321,15 +338,13 @@ namespace DiseñoFinal
 
             try
             {
-                // Ejecutar la consulta y llenar el DataTable
                 DataTable dt = gestoralumnos.EjecutarConsulta(command);
-
-                // Asignar el DataTable al DataGridView
                 dataGridViewAlumnos.DataSource = dt;
+                dataGridViewAlumnos.Columns["id_carrera"].Visible = false;
+
             }
             catch (Exception ex)
             {
-                // Manejar excepciones, por ejemplo, mostrar un mensaje de error
                 MessageBox.Show("Error al cargar la tabla de alumnos: " + ex.Message);
             }
         }
@@ -521,19 +536,22 @@ namespace DiseñoFinal
         private void Cargar_Tabla_Alumnos()
         {
             string consulta = @"SELECT 
-                                    matricula, 
-                                    nombre, 
-                                    apellido, 
-                                    direccion_calle, 
-                                    direccion_numero, 
-                                    telefono, 
-                                    dni, 
-                                    email, 
-                                    fecha_nacimiento, 
-                                    id_carrera, 
-                                    año 
+                                    a.matricula, 
+                                    a.nombre, 
+                                    a.apellido, 
+                                    a.direccion_calle, 
+                                    a.direccion_numero, 
+                                    a.telefono, 
+                                    a.dni, 
+                                    a.email, 
+                                    a.fecha_nacimiento, 
+                                    a.id_carrera, 
+                                    c.nombre_carrera as Carrera,
+                                    a.año 
                                 FROM 
-                                    Alumnos 
+                                    Alumnos a
+                                JOIN 
+                                    Carreras c ON a.id_carrera = c.id_carrera 
                                 WHERE 
                                     baja = 0;";
             SqlCommand command = new SqlCommand(consulta);
@@ -542,6 +560,7 @@ namespace DiseñoFinal
             {
                 DataTable dt = gestoralumnos.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
                 dataGridViewAlumnos.DataSource = dt;
+                dataGridViewAlumnos.Columns["id_carrera"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -755,27 +774,35 @@ namespace DiseñoFinal
 
         }
 
-        // Evento donble click usuarios
+        // Evento donble click alumnos
         private void dataGridViewAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 try
                 {
-                    int matricula = Convert.ToInt32(dataGridViewAlumnos.Rows[e.RowIndex].Cells["Matricula"].Value);
-                    string nombre = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-                    string apellido = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Apellido"].Value.ToString();
+                    // Obtener los datos comunes que siempre estarán presentes
+                    int matricula = Convert.ToInt32(dataGridViewAlumnos.Rows[e.RowIndex].Cells["matricula"].Value);
+                    string nombre = dataGridViewAlumnos.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                    string apellido = dataGridViewAlumnos.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
                     string direcalle = dataGridViewAlumnos.Rows[e.RowIndex].Cells["direccion_calle"].Value.ToString();
                     string direnum = dataGridViewAlumnos.Rows[e.RowIndex].Cells["direccion_numero"].Value.ToString();
-                    string telefono = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
+                    string telefono = dataGridViewAlumnos.Rows[e.RowIndex].Cells["telefono"].Value.ToString();
                     string documento = dataGridViewAlumnos.Rows[e.RowIndex].Cells["dni"].Value.ToString();
-                    string email = dataGridViewAlumnos.Rows[e.RowIndex].Cells["Email"].Value.ToString();
+                    string email = dataGridViewAlumnos.Rows[e.RowIndex].Cells["email"].Value.ToString();
                     DateTime fechaNacimiento = Convert.ToDateTime(dataGridViewAlumnos.Rows[e.RowIndex].Cells["fecha_nacimiento"].Value);
                     int idcarrera = Convert.ToInt32(dataGridViewAlumnos.Rows[e.RowIndex].Cells["id_carrera"].Value);
                     int año = Convert.ToInt32(dataGridViewAlumnos.Rows[e.RowIndex].Cells["año"].Value);
 
-                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(matricula, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, idcarrera, año, Perfil);
+                    // Llamar al formulario modal, pasando solo los datos comunes
+                    FormAlumnosModal formalumnosmodal = new FormAlumnosModal(
+                        matricula, nombre, apellido, direcalle, direnum, telefono, documento, email,
+                        fechaNacimiento, idcarrera, año, Perfil);
+
+                    // Asignar el evento para actualizar el DataGridView cuando se cierre el formulario
                     formalumnosmodal.AlumnoEvento += ActualizarDataGridViewAlumnos;
+
+                    // Mostrar el formulario modal
                     formalumnosmodal.ShowDialog();
                 }
                 catch
@@ -803,6 +830,118 @@ namespace DiseñoFinal
         {
             Cargar_Tabla_Alumnos();
         }
+
+
+        //Generar pdf alumnos
+        private void GenerarReporteTXT(bool reporteEspecifico)
+        {
+            try
+            {
+                // Usar el SaveFileDialog para elegir dónde guardar el archivo TXT
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "Text Files|*.txt";
+                    saveFileDialog.Title = "Guardar reporte como";
+                    saveFileDialog.FileName = "reporte_alumnos.txt";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string rutaArchivo = saveFileDialog.FileName;
+
+                        // Crear el archivo TXT y escribir en él
+                        using (StreamWriter writer = new StreamWriter(rutaArchivo))
+                        {
+                            // Verificar si es un reporte específico o general
+                            if (reporteEspecifico)
+                            {
+                                // Si hay un alumno seleccionado, generar reporte de ese alumno
+                                DataGridViewRow filaSeleccionada = dataGridViewAlumnos.SelectedRows[0];
+                                writer.WriteLine("Reporte de Rendimiento - Alumno Específico");
+                                writer.WriteLine();
+
+                                // Recorrer las celdas de la fila seleccionada
+                                foreach (DataGridViewCell cell in filaSeleccionada.Cells)
+                                {
+                                    string header = dataGridViewAlumnos.Columns[cell.ColumnIndex].HeaderText;
+                                    string value = cell.Value?.ToString() ?? "N/A";
+                                    writer.WriteLine($"{header}: {value}");
+                                }
+                            }
+                            else
+                            {
+                                // Si no hay alumnos seleccionados, generar reporte de todos los alumnos
+                                writer.WriteLine("Reporte General de Alumnos");
+                                writer.WriteLine();
+
+                                // Escribir los encabezados de las columnas
+                                foreach (DataGridViewColumn col in dataGridViewAlumnos.Columns)
+                                {
+                                    writer.Write(col.HeaderText + "\t"); // Usamos tabulador para separar las columnas
+                                }
+                                writer.WriteLine();  // Salto de línea después de los encabezados
+
+                                // Escribir los datos de las filas
+                                foreach (DataGridViewRow row in dataGridViewAlumnos.Rows)
+                                {
+                                    // Solo procesamos filas no vacías (filas de datos)
+                                    if (!row.IsNewRow)
+                                    {
+                                        foreach (DataGridViewCell cell in row.Cells)
+                                        {
+                                            string cellValue = cell.Value?.ToString() ?? "";
+                                            writer.Write(cellValue + "\t");  // Usamos tabulador para separar las celdas
+                                        }
+                                        writer.WriteLine();  // Salto de línea después de cada fila
+                                    }
+                                }
+                            }
+
+                            MessageBox.Show("Reporte generado exitosamente en: " + rutaArchivo);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción
+                MessageBox.Show("Error al generar el reporte: " + ex.Message);
+            }
+        }
+
+        private void btnGenerarReporte_Click(object sender, EventArgs e) //Reporte por alumno
+        {
+            try
+            {
+                // Verificar si hay un alumno seleccionado
+                if (dataGridViewAlumnos.SelectedRows.Count > 0)
+                {
+                    // Llamar a la función para generar el reporte solo del alumno seleccionado
+                    GenerarReporteTXT(true); // true indica que es un reporte específico
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona un alumno.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el reporte: " + ex.Message);
+            }
+        }
+
+        private void btnReporteGeneral_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Llamar a la función para generar el reporte de todos los alumnos
+                GenerarReporteTXT(false); // false indica que es un reporte general
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el reporte: " + ex.Message);
+            }
+        }
+
 
 
         // Tab Page Materias
@@ -888,6 +1027,61 @@ namespace DiseñoFinal
         private void dataGridViewEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+
+        // Tab Page Carreras
+
+        GestorCarreras gestorcarreras = new GestorCarreras();
+        public void Cargar_Tabla_Carreras()
+        {
+            string consulta = "SELECT * FROM Carreras";
+            SqlCommand command = new SqlCommand(consulta);
+
+            try
+            {
+                DataTable dt = gestorcarreras.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
+                dataGridViewCarreras.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones, por ejemplo, mostrar un mensaje de error
+                MessageBox.Show("Error al cargar la tabla: " + ex.Message);
+            }
+        }
+        private void dataGridViewCarreras_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+                    int idcarrera = Convert.ToInt32(dataGridViewCarreras.Rows[e.RowIndex].Cells["id_carrera"].Value);
+                    string carrera = dataGridViewCarreras.Rows[e.RowIndex].Cells["nombre_carrera"].Value.ToString();
+                    int resolucion = Convert.ToInt32(dataGridViewCarreras.Rows[e.RowIndex].Cells["num_resolucion"].Value);
+                    int añoplan = Convert.ToInt32(dataGridViewCarreras.Rows[e.RowIndex].Cells["anio_plan_estudio"].Value);
+
+                    FormCarrerasModal formcarrerasmodal = new FormCarrerasModal(idcarrera, carrera, resolucion, añoplan);
+                    formcarrerasmodal.CarreraEvento += ActualizarDataGridViewCarreras;
+                    formcarrerasmodal.ShowDialog();
+                }
+                catch
+                {
+                    int idcarrera = 0;
+                    string carrera = "";
+                    int resolucion = 0;
+                    int añoplan = 0;
+
+                    FormCarrerasModal formcarrerasmodal = new FormCarrerasModal(idcarrera, carrera, resolucion, añoplan);
+                    formcarrerasmodal.CarreraEvento += ActualizarDataGridViewCarreras;
+                    formcarrerasmodal.ShowDialog();
+                }
+            }
+        }
+
+        //Evento para actualizar el data grid view al añadir, modificar o eliminar
+        private void ActualizarDataGridViewCarreras()
+        {
+            Cargar_Tabla_Carreras();
         }
 
         

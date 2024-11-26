@@ -105,6 +105,7 @@ namespace DiseñoFinal
             panel18 = new Panel();
             dataGridViewAlumnos = new DataGridView();
             panel16 = new Panel();
+            btnGenerarReporte = new Button();
             label6 = new Label();
             label5 = new Label();
             cmbProfesoresAlumno = new ComboBox();
@@ -150,7 +151,25 @@ namespace DiseñoFinal
             panel31 = new Panel();
             panel13 = new Panel();
             label22 = new Label();
+            TabPageCarreras = new TabPage();
+            panel38 = new Panel();
+            panel36 = new Panel();
+            label26 = new Label();
+            button2 = new Button();
+            label27 = new Label();
+            btnFiltrarCarreras = new Button();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            comboBox3 = new ComboBox();
+            comboBox4 = new ComboBox();
+            label28 = new Label();
+            panel37 = new Panel();
+            panel35 = new Panel();
+            panel34 = new Panel();
+            label25 = new Label();
+            dataGridViewCarreras = new DataGridView();
             timer1 = new System.Windows.Forms.Timer(components);
+            btnReporteGeneral = new Button();
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
@@ -180,6 +199,10 @@ namespace DiseñoFinal
             ((System.ComponentModel.ISupportInitialize)dataGridViewEmpleados).BeginInit();
             panel30.SuspendLayout();
             panel13.SuspendLayout();
+            TabPageCarreras.SuspendLayout();
+            panel36.SuspendLayout();
+            panel34.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCarreras).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -190,6 +213,7 @@ namespace DiseñoFinal
             tabControl1.Controls.Add(TabPageAlumnos);
             tabControl1.Controls.Add(TabPageMaterias);
             tabControl1.Controls.Add(TabPageEmpleados);
+            tabControl1.Controls.Add(TabPageCarreras);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -1014,6 +1038,8 @@ namespace DiseñoFinal
             // panel16
             // 
             panel16.BackColor = Color.FromArgb(33, 63, 96);
+            panel16.Controls.Add(btnReporteGeneral);
+            panel16.Controls.Add(btnGenerarReporte);
             panel16.Controls.Add(label6);
             panel16.Controls.Add(label5);
             panel16.Controls.Add(cmbProfesoresAlumno);
@@ -1030,6 +1056,16 @@ namespace DiseñoFinal
             panel16.Name = "panel16";
             panel16.Size = new Size(1202, 61);
             panel16.TabIndex = 40;
+            // 
+            // btnGenerarReporte
+            // 
+            btnGenerarReporte.Location = new Point(959, 10);
+            btnGenerarReporte.Name = "btnGenerarReporte";
+            btnGenerarReporte.Size = new Size(97, 40);
+            btnGenerarReporte.TabIndex = 51;
+            btnGenerarReporte.Text = "Generar Reporte";
+            btnGenerarReporte.UseVisualStyleBackColor = true;
+            btnGenerarReporte.Click += btnGenerarReporte_Click;
             // 
             // label6
             // 
@@ -1495,9 +1531,200 @@ namespace DiseñoFinal
             label22.TabIndex = 2;
             label22.Text = "Empleados";
             // 
+            // TabPageCarreras
+            // 
+            TabPageCarreras.Controls.Add(panel38);
+            TabPageCarreras.Controls.Add(panel36);
+            TabPageCarreras.Controls.Add(panel35);
+            TabPageCarreras.Controls.Add(panel34);
+            TabPageCarreras.Controls.Add(dataGridViewCarreras);
+            TabPageCarreras.Location = new Point(4, 24);
+            TabPageCarreras.Name = "TabPageCarreras";
+            TabPageCarreras.Padding = new Padding(3);
+            TabPageCarreras.Size = new Size(1208, 573);
+            TabPageCarreras.TabIndex = 6;
+            TabPageCarreras.Text = "Carreras";
+            TabPageCarreras.UseVisualStyleBackColor = true;
+            // 
+            // panel38
+            // 
+            panel38.BackColor = Color.FromArgb(33, 63, 96);
+            panel38.Dock = DockStyle.Right;
+            panel38.Location = new Point(1114, 66);
+            panel38.Name = "panel38";
+            panel38.Size = new Size(91, 443);
+            panel38.TabIndex = 48;
+            // 
+            // panel36
+            // 
+            panel36.BackColor = Color.FromArgb(33, 63, 96);
+            panel36.Controls.Add(label26);
+            panel36.Controls.Add(button2);
+            panel36.Controls.Add(label27);
+            panel36.Controls.Add(btnFiltrarCarreras);
+            panel36.Controls.Add(comboBox1);
+            panel36.Controls.Add(comboBox2);
+            panel36.Controls.Add(comboBox3);
+            panel36.Controls.Add(comboBox4);
+            panel36.Controls.Add(label28);
+            panel36.Controls.Add(panel37);
+            panel36.Dock = DockStyle.Bottom;
+            panel36.Location = new Point(94, 509);
+            panel36.Name = "panel36";
+            panel36.Size = new Size(1111, 61);
+            panel36.TabIndex = 47;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.ForeColor = SystemColors.ButtonHighlight;
+            label26.Location = new Point(1110, 42);
+            label26.Name = "label26";
+            label26.Size = new Size(83, 15);
+            label26.TabIndex = 54;
+            label26.Text = "Recargar Tabla";
+            // 
+            // button2
+            // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(1131, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(40, 38);
+            button2.TabIndex = 53;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.ForeColor = SystemColors.ButtonHighlight;
+            label27.Location = new Point(366, 42);
+            label27.Name = "label27";
+            label27.Size = new Size(37, 15);
+            label27.TabIndex = 52;
+            label27.Text = "Filtrar";
+            // 
+            // btnFiltrarCarreras
+            // 
+            btnFiltrarCarreras.BackgroundImage = (Image)resources.GetObject("btnFiltrarCarreras.BackgroundImage");
+            btnFiltrarCarreras.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrarCarreras.FlatAppearance.BorderSize = 0;
+            btnFiltrarCarreras.FlatStyle = FlatStyle.Flat;
+            btnFiltrarCarreras.ImageAlign = ContentAlignment.TopLeft;
+            btnFiltrarCarreras.Location = new Point(365, 4);
+            btnFiltrarCarreras.Name = "btnFiltrarCarreras";
+            btnFiltrarCarreras.Size = new Size(40, 38);
+            btnFiltrarCarreras.TabIndex = 51;
+            btnFiltrarCarreras.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(224, 20);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 49;
+            // 
+            // comboBox2
+            // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(224, 20);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(121, 23);
+            comboBox2.TabIndex = 47;
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(224, 19);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(121, 23);
+            comboBox3.TabIndex = 44;
+            // 
+            // comboBox4
+            // 
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(97, 20);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(121, 23);
+            comboBox4.TabIndex = 41;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label28.ForeColor = SystemColors.ButtonHighlight;
+            label28.Location = new Point(12, 19);
+            label28.Name = "label28";
+            label28.Size = new Size(79, 18);
+            label28.TabIndex = 40;
+            label28.Text = "Filtrar por :";
+            // 
+            // panel37
+            // 
+            panel37.Location = new Point(3, 84);
+            panel37.Name = "panel37";
+            panel37.Size = new Size(797, 59);
+            panel37.TabIndex = 39;
+            // 
+            // panel35
+            // 
+            panel35.BackColor = Color.FromArgb(33, 63, 96);
+            panel35.Dock = DockStyle.Left;
+            panel35.Location = new Point(3, 66);
+            panel35.Name = "panel35";
+            panel35.Size = new Size(91, 504);
+            panel35.TabIndex = 46;
+            // 
+            // panel34
+            // 
+            panel34.BackColor = Color.FromArgb(33, 63, 96);
+            panel34.Controls.Add(label25);
+            panel34.Dock = DockStyle.Top;
+            panel34.Location = new Point(3, 3);
+            panel34.Name = "panel34";
+            panel34.Size = new Size(1202, 63);
+            panel34.TabIndex = 38;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
+            label25.ForeColor = SystemColors.ButtonHighlight;
+            label25.Location = new Point(0, 4);
+            label25.Name = "label25";
+            label25.Size = new Size(220, 55);
+            label25.TabIndex = 2;
+            label25.Text = "Carreras";
+            // 
+            // dataGridViewCarreras
+            // 
+            dataGridViewCarreras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCarreras.Location = new Point(94, 66);
+            dataGridViewCarreras.Name = "dataGridViewCarreras";
+            dataGridViewCarreras.Size = new Size(1023, 443);
+            dataGridViewCarreras.TabIndex = 1;
+            dataGridViewCarreras.CellDoubleClick += dataGridViewCarreras_CellDoubleClick;
+            // 
             // timer1
             // 
             timer1.Tick += timer1_Tick;
+            // 
+            // btnReporteGeneral
+            // 
+            btnReporteGeneral.Location = new Point(856, 11);
+            btnReporteGeneral.Name = "btnReporteGeneral";
+            btnReporteGeneral.Size = new Size(97, 40);
+            btnReporteGeneral.TabIndex = 52;
+            btnReporteGeneral.Text = "Reporte General";
+            btnReporteGeneral.UseVisualStyleBackColor = true;
+            btnReporteGeneral.Click += btnReporteGeneral_Click;
             // 
             // DiseñoFinalCodigo
             // 
@@ -1547,6 +1774,12 @@ namespace DiseñoFinal
             panel30.PerformLayout();
             panel13.ResumeLayout(false);
             panel13.PerformLayout();
+            TabPageCarreras.ResumeLayout(false);
+            panel36.ResumeLayout(false);
+            panel36.PerformLayout();
+            panel34.ResumeLayout(false);
+            panel34.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCarreras).EndInit();
             ResumeLayout(false);
         }
 
@@ -1677,5 +1910,24 @@ namespace DiseñoFinal
         private Panel panel31;
         private Panel panel33;
         private DataGridView dataGridViewEmpleados;
+        private TabPage TabPageCarreras;
+        private Panel panel38;
+        private Panel panel36;
+        private Label label26;
+        private Button button2;
+        private Label label27;
+        private Button btnFiltrarCarreras;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private ComboBox comboBox3;
+        private ComboBox comboBox4;
+        private Label label28;
+        private Panel panel37;
+        private Panel panel35;
+        private Panel panel34;
+        private Label label25;
+        private DataGridView dataGridViewCarreras;
+        private Button btnGenerarReporte;
+        private Button btnReporteGeneral;
     }
 }

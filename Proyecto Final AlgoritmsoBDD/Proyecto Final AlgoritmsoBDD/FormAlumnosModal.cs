@@ -723,5 +723,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
             FormAsignarMateriaAlumno formmaterias = new FormAsignarMateriaAlumno(Matricula, idcarrera, año);
             formmaterias.ShowDialog();
         }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
