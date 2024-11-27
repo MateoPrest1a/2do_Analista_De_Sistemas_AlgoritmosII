@@ -182,7 +182,6 @@ D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Pro
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormCarrerasModal.resources
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormEmpleados.resources
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormEmpleadosModal.resources
-D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenes.resources
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenesModal.resources
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormExamenesRendidos.resources
 D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Proyecto Final AlgoritmsoBDD\Proyecto Final AlgoritmsoBDD\obj\Debug\net8.0-windows\Proyecto_Final_AlgoritmsoBDD.FormMaterias.resources

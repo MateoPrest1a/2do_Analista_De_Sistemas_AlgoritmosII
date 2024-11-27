@@ -123,7 +123,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     m.nombre_materia AS Materia,
                                     c.nombre_carrera AS Carrera,
                                     m.id_carrera,
-                                    c.nombre_carrera,
                                     CONCAT(e.apellido, ' ', e.nombre) AS Profesor,
                                     m.id_empleado AS ID_Empleado
                                 FROM 
