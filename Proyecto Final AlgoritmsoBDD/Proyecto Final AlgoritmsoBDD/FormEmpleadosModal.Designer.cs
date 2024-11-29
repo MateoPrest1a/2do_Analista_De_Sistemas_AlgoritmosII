@@ -226,6 +226,7 @@
             txtSalarioEmpleados.Name = "txtSalarioEmpleados";
             txtSalarioEmpleados.Size = new Size(182, 23);
             txtSalarioEmpleados.TabIndex = 36;
+            txtSalarioEmpleados.TextChanged += txtSalarioEmpleados_TextChanged;
             // 
             // label2
             // 

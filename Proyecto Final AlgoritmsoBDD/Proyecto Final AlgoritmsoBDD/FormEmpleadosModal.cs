@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
@@ -124,7 +125,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
 
         }
 
-        
+
 
 
         private void ValidarCampo(TextBox textBox, string mensaje)
@@ -136,8 +137,25 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 return;
             }
             error1.Clear();
-
         }
+        
+        //Validar si el Mail es valido
+        private bool ValidarMail(string email)
+        {
+            Regex regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return regex.IsMatch(email);
+        }
+
+        //Validar si el salario es valido, y que no sea negativo
+        private bool ValidarSalario(string sal)
+        {
+            if(decimal.TryParse(sal, out decimal salario))
+            {
+                return salario >= 1;
+            }
+           return false;
+        }
+
         private void btnAgregarEmpleado_Click(object sender, EventArgs e)
         {
             string NombreEmpleado = "";
@@ -456,6 +474,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSalarioEmpleados_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

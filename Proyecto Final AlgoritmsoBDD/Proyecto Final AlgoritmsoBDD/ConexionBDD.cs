@@ -12,7 +12,8 @@ namespace Proyecto_Final
 
         //private string cadena = "Data Source=192.168.0.100; Database=u11; User Id=u11; Password=u11";
 
-        private string cadena = @"Data Source=DESKTOP-D5URBLB\SQLEXPRESS01; Initial Catalog=Proyecto_Hilet2; Integrated Security=True;"; // Cadena de conexión
+        //private string cadena = @"Data Source=DESKTOP-D5URBLB\SQLEXPRESS01; Initial Catalog=Proyecto_Hilet2; Integrated Security=True;"; // Cadena de conexión
+        private string cadena = @"Server= (localDB)\MyBase; Database= Proyecto_Hilet2; Integrated Security=True"; //Cadena de Mate
 
         private Conexionbdd()   //Constructor privado para evitar instancias de la clase.
         {

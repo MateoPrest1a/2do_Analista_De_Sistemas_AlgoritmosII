@@ -39,6 +39,7 @@ namespace DiseñoFinal
         public DiseñoFinalCodigo(string nombre, string apellido, string perfil, int idPerfil)
         {
             InitializeComponent();
+           
             imgs = new List<string>()
             {
                 /*
@@ -47,6 +48,7 @@ namespace DiseñoFinal
                 @"C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg",
                 @"C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg"
                 */
+
                 @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto1.jpg",
                 @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto2.jpg",  // Fotos Renzo
                 @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg",
@@ -76,7 +78,6 @@ namespace DiseñoFinal
             lblUsuarioEmpleado.Text = nombre + " " + apellido;
 
 
-
             //Tab Page Empleados
             CargarEspecialidades();
             Cargar_Tabla_Empleados();
@@ -97,7 +98,7 @@ namespace DiseñoFinal
             //Tab Page Examenes
             Cargar_Tabla_Examenes();
 
-            AjustarVisibilidadPerfil(perfil); //Por ultimo ajusto los formularios dependiendo el perfil
+            AjustarVisibilidadPerfil(perfil); //Por ultimo ajustamos los formularios dependiendo el perfil
         }
 
         private void AjustarVisibilidadPerfil(string perfil)
@@ -127,7 +128,7 @@ namespace DiseñoFinal
             }
             else if (perfil == "Administrador")
             {
-                //tabControl1.TabPages.RemoveAt(1);
+                //tabControl1.TabPages.RemoveAt(1);                
             }
         }
 
@@ -165,13 +166,13 @@ namespace DiseñoFinal
         }
 
         //Carga de fotos
-        private void CargarImagen()
+        /*private void CargarImagen()
         {
             if (imgs.Count > 0 && indiceImagen >= 0 && indiceImagen < imgs.Count)
             {
                 AlumnoImagenes.Image = System.Drawing.Image.FromFile(imgs[indiceImagen]);
             }
-        }
+        }*/
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -185,9 +186,8 @@ namespace DiseñoFinal
                 indiceImagen++;
             }
 
-            CargarImagen();
+            //CargarImagen();
         }
-
 
         //Tab Page Empleados
 
