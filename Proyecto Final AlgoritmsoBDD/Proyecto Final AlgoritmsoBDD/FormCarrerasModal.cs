@@ -137,6 +137,15 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             error1.Clear();
 
+            int idCarrera = int.Parse(lblIDCarrera.Text);  // Asumimos que lblIDCarrera tiene el ID de la carrera
+            string nombreCarrera = txtCarrera.Text;
+            int numResolucion = int.Parse(txtResolucion.Text);
+            int anioPlanEstudio = int.Parse(txtAñoPlan.Text);
+
+            // Llamamos a la función ModificarCarrera, pasando los datos validados
+            gestorCarreras.ModificarCarrera(idCarrera, nombreCarrera, numResolucion, anioPlanEstudio);
+
+            this.Close();
         }
 
         private void btnEliminarCarreras_Click(object sender, EventArgs e)

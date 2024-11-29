@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExamenesRendidos));
             panel2 = new Panel();
             label2 = new Label();
             btnSalir = new Button();
@@ -129,11 +130,14 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(168, 220);
+            btnAgregar.BackgroundImage = (Image)resources.GetObject("btnAgregar.BackgroundImage");
+            btnAgregar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAgregar.FlatAppearance.BorderSize = 0;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.Location = new Point(154, 206);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(63, 48);
+            btnAgregar.Size = new Size(77, 62);
             btnAgregar.TabIndex = 9;
-            btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 

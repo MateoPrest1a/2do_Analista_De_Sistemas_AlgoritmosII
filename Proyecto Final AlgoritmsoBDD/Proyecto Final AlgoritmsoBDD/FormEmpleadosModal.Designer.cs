@@ -153,31 +153,40 @@
             // 
             // btnEliminarEmpleado
             // 
-            btnEliminarEmpleado.Location = new Point(670, 260);
+            btnEliminarEmpleado.BackgroundImage = (Image)resources.GetObject("btnEliminarEmpleado.BackgroundImage");
+            btnEliminarEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
+            btnEliminarEmpleado.FlatAppearance.BorderSize = 0;
+            btnEliminarEmpleado.FlatStyle = FlatStyle.Popup;
+            btnEliminarEmpleado.Location = new Point(670, 322);
             btnEliminarEmpleado.Name = "btnEliminarEmpleado";
-            btnEliminarEmpleado.Size = new Size(75, 23);
+            btnEliminarEmpleado.Size = new Size(87, 78);
             btnEliminarEmpleado.TabIndex = 45;
-            btnEliminarEmpleado.Text = "Eliminar";
             btnEliminarEmpleado.UseVisualStyleBackColor = true;
             btnEliminarEmpleado.Click += btnEliminarEmpleado_Click;
             // 
             // btnModificarEmpleado
             // 
-            btnModificarEmpleado.Location = new Point(670, 205);
+            btnModificarEmpleado.BackgroundImage = (Image)resources.GetObject("btnModificarEmpleado.BackgroundImage");
+            btnModificarEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
+            btnModificarEmpleado.FlatAppearance.BorderSize = 0;
+            btnModificarEmpleado.FlatStyle = FlatStyle.Flat;
+            btnModificarEmpleado.Location = new Point(670, 220);
             btnModificarEmpleado.Name = "btnModificarEmpleado";
-            btnModificarEmpleado.Size = new Size(75, 23);
+            btnModificarEmpleado.Size = new Size(87, 78);
             btnModificarEmpleado.TabIndex = 44;
-            btnModificarEmpleado.Text = "Modificar";
             btnModificarEmpleado.UseVisualStyleBackColor = true;
             btnModificarEmpleado.Click += btnModificarEmpleado_Click;
             // 
             // btnAgregarEmpleado
             // 
-            btnAgregarEmpleado.Location = new Point(670, 155);
+            btnAgregarEmpleado.BackgroundImage = (Image)resources.GetObject("btnAgregarEmpleado.BackgroundImage");
+            btnAgregarEmpleado.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAgregarEmpleado.FlatAppearance.BorderSize = 0;
+            btnAgregarEmpleado.FlatStyle = FlatStyle.Flat;
+            btnAgregarEmpleado.Location = new Point(670, 126);
             btnAgregarEmpleado.Name = "btnAgregarEmpleado";
-            btnAgregarEmpleado.Size = new Size(75, 23);
+            btnAgregarEmpleado.Size = new Size(87, 73);
             btnAgregarEmpleado.TabIndex = 43;
-            btnAgregarEmpleado.Text = "Agregar";
             btnAgregarEmpleado.UseVisualStyleBackColor = true;
             btnAgregarEmpleado.Click += btnAgregarEmpleado_Click;
             // 

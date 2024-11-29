@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
@@ -141,6 +142,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
             error1.Clear();
 
         }
+
+
         private void btnAgregarEmpleado_Click(object sender, EventArgs e)
         {
             string NombreEmpleado = "";
@@ -257,13 +260,10 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else
             {
-                if (int.TryParse(txtSalarioEmpleados.Text, out salario))
+                if (int.TryParse(txtSalarioEmpleados.Text, out salario) && Convert.ToInt32(txtSalarioEmpleados.Text) < 0 )
                 {
+
                     error1.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Ingrese un numero valido");
                 }
             }
             //ESPECIALIDAD
@@ -403,8 +403,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else
             {
-                if (int.TryParse(txtSalarioEmpleados.Text, out salario))
+                if (int.TryParse(txtSalarioEmpleados.Text, out salario) && Convert.ToInt32(txtSalarioEmpleados.Text) < 0)
                 {
+
                     error1.Clear();
                 }
                 else

@@ -150,11 +150,14 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(168, 214);
+            btnAgregar.BackgroundImage = (Image)resources.GetObject("btnAgregar.BackgroundImage");
+            btnAgregar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAgregar.FlatAppearance.BorderSize = 0;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.Location = new Point(162, 192);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(63, 48);
+            btnAgregar.Size = new Size(79, 63);
             btnAgregar.TabIndex = 9;
-            btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 

@@ -75,7 +75,6 @@ namespace DiseñoFinal
             panel27 = new Panel();
             panel26 = new Panel();
             panel25 = new Panel();
-            btnSalir = new Button();
             label21 = new Label();
             cmbEspecialidadEmpleado = new ComboBox();
             lblEmpleado = new Label();
@@ -763,7 +762,6 @@ namespace DiseñoFinal
             // panel25
             // 
             panel25.BackColor = Color.FromArgb(33, 63, 96);
-            panel25.Controls.Add(btnSalir);
             panel25.Controls.Add(label21);
             panel25.Dock = DockStyle.Top;
             panel25.Location = new Point(0, 0);
@@ -771,26 +769,14 @@ namespace DiseñoFinal
             panel25.Size = new Size(1202, 70);
             panel25.TabIndex = 66;
             // 
-            // btnSalir
-            // 
-            btnSalir.FlatAppearance.BorderSize = 0;
-            btnSalir.FlatStyle = FlatStyle.Flat;
-            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSalir.Location = new Point(725, 5);
-            btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(63, 57);
-            btnSalir.TabIndex = 43;
-            btnSalir.Text = "X";
-            btnSalir.UseVisualStyleBackColor = true;
-            // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label21.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label21.ForeColor = SystemColors.ButtonHighlight;
             label21.Location = new Point(0, 6);
             label21.Name = "label21";
-            label21.Size = new Size(260, 56);
+            label21.Size = new Size(249, 55);
             label21.TabIndex = 0;
             label21.Text = "Empleado";
             // 
@@ -1214,11 +1200,11 @@ namespace DiseñoFinal
             // lblAlumnos
             // 
             lblAlumnos.AutoSize = true;
-            lblAlumnos.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            lblAlumnos.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             lblAlumnos.ForeColor = SystemColors.ButtonHighlight;
             lblAlumnos.Location = new Point(3, 9);
             lblAlumnos.Name = "lblAlumnos";
-            lblAlumnos.Size = new Size(227, 56);
+            lblAlumnos.Size = new Size(218, 55);
             lblAlumnos.TabIndex = 1;
             lblAlumnos.Text = "Alumnos";
             lblAlumnos.TextAlign = ContentAlignment.MiddleLeft;
@@ -1248,6 +1234,7 @@ namespace DiseñoFinal
             dataGridViewMaterias.Size = new Size(1020, 443);
             dataGridViewMaterias.TabIndex = 46;
             dataGridViewMaterias.CellContentDoubleClick += dataGridViewMaterias_CellContentDoubleClick;
+            dataGridViewMaterias.CellDoubleClick += dataGridViewMaterias_CellDoubleClick;
             // 
             // panel24
             // 
@@ -1322,11 +1309,11 @@ namespace DiseñoFinal
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label3.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label3.ForeColor = SystemColors.ButtonHighlight;
             label3.Location = new Point(0, 3);
             label3.Name = "label3";
-            label3.Size = new Size(226, 56);
+            label3.Size = new Size(216, 55);
             label3.TabIndex = 2;
             label3.Text = "Materias";
             // 
@@ -1485,11 +1472,11 @@ namespace DiseñoFinal
             // label22
             // 
             label22.AutoSize = true;
-            label22.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label22.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label22.ForeColor = SystemColors.ButtonHighlight;
             label22.Location = new Point(0, 4);
             label22.Name = "label22";
-            label22.Size = new Size(286, 56);
+            label22.Size = new Size(274, 55);
             label22.TabIndex = 2;
             label22.Text = "Empleados";
             // 
@@ -1580,11 +1567,11 @@ namespace DiseñoFinal
             // label25
             // 
             label25.AutoSize = true;
-            label25.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label25.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label25.ForeColor = SystemColors.ButtonHighlight;
             label25.Location = new Point(0, 4);
             label25.Name = "label25";
-            label25.Size = new Size(223, 56);
+            label25.Size = new Size(220, 55);
             label25.TabIndex = 2;
             label25.Text = "Carreras";
             // 
@@ -1756,11 +1743,11 @@ namespace DiseñoFinal
             // label29
             // 
             label29.AutoSize = true;
-            label29.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label29.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label29.ForeColor = SystemColors.ButtonHighlight;
             label29.Location = new Point(3, 9);
             label29.Name = "label29";
-            label29.Size = new Size(265, 56);
+            label29.Size = new Size(260, 55);
             label29.TabIndex = 1;
             label29.Text = "Examenes";
             // 
@@ -1774,6 +1761,7 @@ namespace DiseñoFinal
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1216, 601);
             Controls.Add(tabControl1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DiseñoFinalCodigo";
             Text = "HILET";
             tabControl1.ResumeLayout(false);
@@ -1912,7 +1900,6 @@ namespace DiseñoFinal
         private Panel panel27;
         private Panel panel26;
         private Panel panel25;
-        private Button btnSalir;
         private Label label21;
         private ComboBox cmbEspecialidadEmpleado;
         private Label lblEmpleado;

@@ -36,13 +36,6 @@ año INT,
 foreign key (id_carrera) references Carreras(id_carrera)
 );
 
-create table Materias(
-	id_materia int identity primary key,
-	anio_cursada int,
-	nombre_materia varchar(30),
-	id_carrera int,
-	foreign key (id_carrera) references Carreras(id_carrera)
-);
 
 select * from Alumnos
 
@@ -60,6 +53,46 @@ create table Estado_De_Alumno(
 );
 
 
+select * from PerfilxPersona
+
+delete from PerfilxPersona where id_perfilxpers < 3
+
+
+select * from empleados
+
+DELETE FROM empleados WHERE id_empleado < 15
+
+select * from MateriasxProfesor
+
+delete from MateriasxProfesor where id_materiasxprofesor = 7
+
+select * from Alumnos
+
+select * from Materias
+
+delete from Materias where id_materia < 37
+
+select * from Examenes
+
+drop table MateriasxCarrera
+
+delete from Examenes Where id_examen < 14
+
+select * from MateriasxAlumno
+
+DELETE FROM MateriasxAlumno WHERE id_materiasxalumno = 3
+
+select * from ExamenXAlumno
+
+
+
+DELETE FROM ExamenXAlumno WHERE id_examenxalumno = 2
+
+select * from PerfilxAlumno
+
+delete from PerfilxAlumno WHERE id_perfilxalumno = 4
+
+
 create table Materias(
 	id_materia int identity primary key,
 	anio_cursada int,
@@ -70,6 +103,11 @@ create table Materias(
 	FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
 );
 
+ALTER TABLE Materias
+ADD id_empleado INT NULL;
+
+ALTER TABLE Materias
+ADD CONSTRAINT FK_Materias_Empleados FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado);
 
 
 DROP TABLE Materias
@@ -106,6 +144,8 @@ create table ExamenesXAlumno(
 	foreign key (matricula) references Alumnos(matricula),
 	foreign key (id_examen) references Examenes(id_examen)
 );
+
+drop table ExamenesXAlumno
 
 INSERT INTO ExamenesXAlumno VALUES(
 20,1,10
@@ -331,6 +371,21 @@ select * from Empleados
 
 select * from 
 
+DROP TABLE IF EXISTS ExamenesXAlumno;
+DROP TABLE  Examenes;
+DROP TABLE  MateriasxAlumno;
+DROP TABLE  Materias;
+DROP TABLE  Estado_De_Alumno;
+DROP TABLE PerfilxAlumno;
+DROP TABLE PerfilxPersona;
+DROP TABLE CarrerasxProfesor;
+DROP TABLE AlumnosxCarrera;
+DROP TABLE Alumnos;
+DROP TABLE Carreras;
+DROP TABLE Perfiles;
+DROP TABLE Empleados;
+DROP TABLE tipoexamen;
+
 --------------------------------------------------------Store Procedure Alumnos--------------------------------------------------------
 
 
@@ -357,6 +412,8 @@ BEGIN
     VALUES (@Matricula, @dni, @dni); 
 
 END;
+
+DROP PROCEDURE SP_AgregarAlumno
 
 CREATE PROCEDURE SP_EliminarAlumno
     @matricula INT
@@ -472,6 +529,9 @@ CREATE PROCEDURE SP_EliminarEmpleado
     @id_empleado INT
 AS
 BEGIN
+	DELETE FROM perfilxpersona
+	WHERE id_empleado = @id_empleado
+
     DELETE FROM Empleados
     WHERE id_empleado = @id_empleado;
 END;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExamenesModal));
             panel1 = new Panel();
             label1 = new Label();
             btnSalir = new Button();
@@ -74,11 +75,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(3, 13);
             label1.Name = "label1";
-            label1.Size = new Size(265, 56);
+            label1.Size = new Size(260, 55);
             label1.TabIndex = 46;
             label1.Text = "Examenes";
             // 
@@ -109,31 +110,40 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(643, 216);
+            btnEliminar.BackgroundImage = (Image)resources.GetObject("btnEliminar.BackgroundImage");
+            btnEliminar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Location = new Point(643, 272);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.Size = new Size(95, 80);
             btnEliminar.TabIndex = 12;
-            btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(643, 161);
+            btnModificar.BackgroundImage = (Image)resources.GetObject("btnModificar.BackgroundImage");
+            btnModificar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnModificar.FlatAppearance.BorderSize = 0;
+            btnModificar.FlatStyle = FlatStyle.Flat;
+            btnModificar.Location = new Point(643, 176);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(75, 23);
+            btnModificar.Size = new Size(95, 78);
             btnModificar.TabIndex = 11;
-            btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(643, 111);
+            btnAgregar.BackgroundImage = (Image)resources.GetObject("btnAgregar.BackgroundImage");
+            btnAgregar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAgregar.FlatAppearance.BorderSize = 0;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.Location = new Point(643, 71);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.Size = new Size(95, 84);
             btnAgregar.TabIndex = 10;
-            btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 

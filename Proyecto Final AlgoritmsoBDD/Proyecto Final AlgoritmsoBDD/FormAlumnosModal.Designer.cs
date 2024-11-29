@@ -217,6 +217,7 @@
             btnEliminar.Size = new Size(75, 69);
             btnEliminar.TabIndex = 41;
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click_1;
             // 
             // btnModificar
             // 
@@ -229,6 +230,7 @@
             btnModificar.Size = new Size(75, 69);
             btnModificar.TabIndex = 40;
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click_1;
             // 
             // btnAgregar
             // 

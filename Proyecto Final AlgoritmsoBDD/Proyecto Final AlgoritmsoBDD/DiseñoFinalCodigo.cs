@@ -42,16 +42,17 @@ namespace DiseñoFinal
             InitializeComponent();
             imgs = new List<string>()
             {
-                /*
+
                 @"C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto1.jpg",
-                @"C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto2.jpg",  Fotos Hilet
+                @"C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto2.jpg",
                 @"C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg",
                 @"C:\Users\hilet.HILET\Documents\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg"
-                */
+                /*
                 @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto1.jpg",
                 @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto2.jpg",  // Fotos Renzo
                 @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto3.jpg",
                 @"D:\GitHub\2do_Analista_De_Sistemas_AlgoritmosII\Imagenes\foto4.jpg",
+                */
 
             };
 
@@ -145,7 +146,9 @@ namespace DiseñoFinal
             }
             else if (perfil == "Administrador")
             {
-                //tabControl1.TabPages.RemoveAt(1);
+                tabControl1.TabPages.RemoveAt(2);
+                tabControl1.TabPages.RemoveAt(1);
+                tabControl1.TabPages.RemoveAt(0);
             }
         }
 
@@ -660,7 +663,14 @@ namespace DiseñoFinal
 
         private void btnRecargarTablaAlumnos_Click(object sender, EventArgs e)
         {
-            Cargar_Tabla_Alumnos();
+            if (Perfil == "Profesor")
+            {
+                Cargar_Tabla_AlumnosPorProfesor(Id_Persona);
+            }
+            else
+            {
+                Cargar_Tabla_Alumnos();
+            }
         }
 
 
@@ -705,7 +715,7 @@ namespace DiseñoFinal
             }
         }
 
-        
+
 
 
         //Cargo Combo box Carreras 
@@ -1080,6 +1090,11 @@ namespace DiseñoFinal
 
         private void dataGridViewMaterias_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void dataGridViewMaterias_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
                 try
@@ -1109,6 +1124,7 @@ namespace DiseñoFinal
                 }
             }
         }
+
         private void ActualizarDataGridView()
         {
             Cargar_Tabla_Materias();
@@ -1324,7 +1340,7 @@ namespace DiseñoFinal
             string procedimientoAlmacenado = "";
             SqlCommand command = new SqlCommand();
 
-            
+
             if (año.HasValue)
             {
                 procedimientoAlmacenado = "SP_BuscarExamenesPorAño";
@@ -1371,5 +1387,7 @@ namespace DiseñoFinal
             cmbFiltroExamenes.SelectedIndex = 0;
             Cargar_Tabla_Examenes();
         }
+
+       
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCarrerasModal));
             panel1 = new Panel();
             btnSalir = new Button();
             label1 = new Label();
@@ -37,6 +38,7 @@
             btnModificarCarreras = new Button();
             btnAgregarCarreras = new Button();
             panel3 = new Panel();
+            txtAñoPlan = new TextBox();
             lblIDCarrera = new Label();
             label6 = new Label();
             txtResolucion = new TextBox();
@@ -46,7 +48,6 @@
             label3 = new Label();
             lblCarrera = new Label();
             error1 = new ErrorProvider(components);
-            txtAñoPlan = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -80,11 +81,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(0, 9);
             label1.Name = "label1";
-            label1.Size = new Size(223, 56);
+            label1.Size = new Size(220, 55);
             label1.TabIndex = 1;
             label1.Text = "Carreras";
             // 
@@ -102,31 +103,40 @@
             // 
             // btnEliminarCarreras
             // 
-            btnEliminarCarreras.Location = new Point(649, 192);
+            btnEliminarCarreras.BackgroundImage = (Image)resources.GetObject("btnEliminarCarreras.BackgroundImage");
+            btnEliminarCarreras.BackgroundImageLayout = ImageLayout.Stretch;
+            btnEliminarCarreras.FlatAppearance.BorderSize = 0;
+            btnEliminarCarreras.FlatStyle = FlatStyle.Flat;
+            btnEliminarCarreras.Location = new Point(668, 238);
             btnEliminarCarreras.Name = "btnEliminarCarreras";
-            btnEliminarCarreras.Size = new Size(75, 23);
+            btnEliminarCarreras.Size = new Size(88, 81);
             btnEliminarCarreras.TabIndex = 12;
-            btnEliminarCarreras.Text = "Eliminar";
             btnEliminarCarreras.UseVisualStyleBackColor = true;
             btnEliminarCarreras.Click += btnEliminarCarreras_Click;
             // 
             // btnModificarCarreras
             // 
-            btnModificarCarreras.Location = new Point(649, 137);
+            btnModificarCarreras.BackgroundImage = (Image)resources.GetObject("btnModificarCarreras.BackgroundImage");
+            btnModificarCarreras.BackgroundImageLayout = ImageLayout.Stretch;
+            btnModificarCarreras.FlatAppearance.BorderSize = 0;
+            btnModificarCarreras.FlatStyle = FlatStyle.Flat;
+            btnModificarCarreras.Location = new Point(668, 138);
             btnModificarCarreras.Name = "btnModificarCarreras";
-            btnModificarCarreras.Size = new Size(75, 23);
+            btnModificarCarreras.Size = new Size(88, 78);
             btnModificarCarreras.TabIndex = 11;
-            btnModificarCarreras.Text = "Modificar";
             btnModificarCarreras.UseVisualStyleBackColor = true;
             btnModificarCarreras.Click += btnModificarCarreras_Click;
             // 
             // btnAgregarCarreras
             // 
-            btnAgregarCarreras.Location = new Point(649, 87);
+            btnAgregarCarreras.BackgroundImage = (Image)resources.GetObject("btnAgregarCarreras.BackgroundImage");
+            btnAgregarCarreras.BackgroundImageLayout = ImageLayout.Stretch;
+            btnAgregarCarreras.FlatAppearance.BorderSize = 0;
+            btnAgregarCarreras.FlatStyle = FlatStyle.Flat;
+            btnAgregarCarreras.Location = new Point(666, 59);
             btnAgregarCarreras.Name = "btnAgregarCarreras";
-            btnAgregarCarreras.Size = new Size(75, 23);
+            btnAgregarCarreras.Size = new Size(90, 73);
             btnAgregarCarreras.TabIndex = 10;
-            btnAgregarCarreras.Text = "Agregar";
             btnAgregarCarreras.UseVisualStyleBackColor = true;
             btnAgregarCarreras.Click += btnAgregarCarreras_Click;
             // 
@@ -145,6 +155,13 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(439, 261);
             panel3.TabIndex = 0;
+            // 
+            // txtAñoPlan
+            // 
+            txtAñoPlan.Location = new Point(151, 124);
+            txtAñoPlan.Name = "txtAñoPlan";
+            txtAñoPlan.Size = new Size(142, 23);
+            txtAñoPlan.TabIndex = 10;
             // 
             // lblIDCarrera
             // 
@@ -222,13 +239,6 @@
             // error1
             // 
             error1.ContainerControl = this;
-            // 
-            // txtAñoPlan
-            // 
-            txtAñoPlan.Location = new Point(151, 124);
-            txtAñoPlan.Name = "txtAñoPlan";
-            txtAñoPlan.Size = new Size(142, 23);
-            txtAñoPlan.TabIndex = 10;
             // 
             // FormCarrerasModal
             // 
