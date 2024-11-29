@@ -19,6 +19,7 @@ using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using iText.Kernel.Exceptions;
+using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 
 
 namespace DiseñoFinal
@@ -96,6 +97,7 @@ namespace DiseñoFinal
 
             //Tab Page Examenes
             Cargar_Tabla_Examenes();
+            CargarFiltroExamenes();
 
             AjustarVisibilidadPerfil(perfil); //Por ultimo ajusto los formularios dependiendo el perfil
         }
@@ -109,16 +111,32 @@ namespace DiseñoFinal
                 btnDatosAlumnos.Visible = true;
                 tabControl1.TabPages.RemoveAt(0); //Borro la primer tabpage ya que es solo para administradores o profesores
                 tabControl1.TabPages.RemoveAt(1); //Borro la tercer tabpage que es la de los profesores
-
+                tabControl1.TabPages.RemoveAt(1);
+                tabControl1.TabPages.RemoveAt(1);
+                tabControl1.TabPages.RemoveAt(1);
+                tabControl1.TabPages.RemoveAt(1);
+                tabControl1.TabPages.RemoveAt(1);
             }
             else if (perfil == "Profesor")
             {
-                // tabControl1.TabPages.RemoveAt(0);
-                // tabControl1.TabPages.RemoveAt(0);
+                tabControl1.TabPages.RemoveAt(0);
+                tabControl1.TabPages.RemoveAt(0);
+                tabControl1.TabPages.RemoveAt(2);
+                tabControl1.TabPages.RemoveAt(2);
+                tabControl1.TabPages.RemoveAt(2);
                 Cargar_Tabla_AlumnosPorProfesor(Id_Persona);
                 CargarDatosEnControles(Id_Persona);
                 Cargar_Tabla_MateriasxProfesor(Id_Persona);
+                Cargar_Tabla_ExamenesPorProfesor(Id_Persona);
                 lblAlumnos.Text = "Mis Alumnos";
+
+                cmbFiltroExamenes.Visible = false;
+                cmbFiltroExamenesAño.Visible = false;
+                label32.Visible = false;
+                label30.Visible = false;
+                btnFiltrarExamenes.Visible = false;
+                btnRecargarExamenes.Visible = false;
+                label31.Visible = false;
             }
             else if (perfil == "Personal Administrativo")
             {
@@ -195,13 +213,31 @@ namespace DiseñoFinal
 
         public void Cargar_Tabla_Empleados()
         {
-            string consulta = "SELECT * FROM Empleados";
+            string consulta = @"
+                                SELECT 
+                                    e.id_empleado, 
+                                    e.nombre, 
+                                    e.apellido, 
+                                    e.direccion_calle, 
+                                    e.direccion_nro, 
+                                    e.telefono, 
+                                    e.dni, 
+                                    e.email, 
+                                    e.fecha_nacimiento, 
+                                    e.salario, 
+                                    e.tipo_perfil,
+                                    p.tipo AS perfil  -- Seleccionamos el tipo de perfil en lugar del ID
+                                FROM 
+                                    Empleados e
+                                INNER JOIN 
+                                    Perfiles p ON e.tipo_perfil = p.id_perfil";
             SqlCommand command = new SqlCommand(consulta);
 
             try
             {
                 DataTable dt = gestorempleados.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
                 dataGridViewEmpleados.DataSource = dt;
+                dataGridViewEmpleados.Columns["tipo_perfil"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -288,10 +324,6 @@ namespace DiseñoFinal
             cmbEspecialidadEmpleado.DataSource = especialidades;
             cmbEspecialidadEmpleado.DisplayMember = "Especialidad";  // Lo que se muestra en el ComboBox
             cmbEspecialidadEmpleado.ValueMember = "IdEspecialidad"; // El valor que necesitas
-
-            cmbEspecialidadEmpleados.DataSource = especialidades;
-            cmbEspecialidadEmpleados.DisplayMember = "Especialidad";
-            cmbEspecialidadEmpleados.ValueMember = "IdEspecialidad";
         }
 
 
@@ -401,6 +433,63 @@ namespace DiseñoFinal
             }
         }
 
+        //Seleccionar empleado
+        private void dataGridViewEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+                    int idprofesor = Convert.ToInt32(dataGridViewEmpleados.Rows[e.RowIndex].Cells["id_empleado"].Value);
+                    string nombre = dataGridViewEmpleados.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                    string apellido = dataGridViewEmpleados.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
+                    string direcalle = dataGridViewEmpleados.Rows[e.RowIndex].Cells["direccion_calle"].Value.ToString();
+                    string direnum = dataGridViewEmpleados.Rows[e.RowIndex].Cells["direccion_nro"].ToString();
+                    string telefono = dataGridViewEmpleados.Rows[e.RowIndex].Cells["Telefono"].Value?.ToString();
+                    string documento = dataGridViewEmpleados.Rows[e.RowIndex].Cells["dni"].Value?.ToString();
+                    string email = dataGridViewEmpleados.Rows[e.RowIndex].Cells["Email"].Value?.ToString();
+                    DateTime fechaNacimiento = Convert.ToDateTime(dataGridViewEmpleados.Rows[e.RowIndex].Cells["fecha_nacimiento"].Value);
+                    int salario = Convert.ToInt32(dataGridViewEmpleados.Rows[e.RowIndex].Cells["Salario"].Value);
+                    int especialidad = Convert.ToInt32(dataGridViewEmpleados.Rows[e.RowIndex].Cells["Tipo_Perfil"].Value);
+
+
+
+                    FormEmpleadosModal formempleadosmodal = new FormEmpleadosModal(idprofesor, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, salario, especialidad, Perfil);
+                    formempleadosmodal.EmpleadoEvento += FormAgregar_EmpleadoEvento;
+                    formempleadosmodal.ShowDialog();
+                }
+                catch
+                {
+                    int idprofesor = 0;
+                    string nombre = "";
+                    string apellido = "";
+                    string direcalle = "";
+                    string direnum = "";
+                    string telefono = "";
+                    string documento = "";
+                    string email = "";
+                    DateTime fechaNacimiento = DateTime.Now;
+                    int salario = 0;
+                    int especialidad = 1;
+
+                    FormEmpleadosModal formempleadosmodal = new FormEmpleadosModal(idprofesor, nombre, apellido, direcalle, direnum, telefono, documento, email, fechaNacimiento, salario, especialidad, Perfil);
+                    formempleadosmodal.EmpleadoEvento += FormAgregar_EmpleadoEvento;
+                    formempleadosmodal.ShowDialog();
+                }
+
+            }
+        }
+
+        //Evento Empleados
+        private void FormAgregar_EmpleadoEvento()
+        {
+            ActualizarDataGridViewEmpleados();
+        }
+
+        private void ActualizarDataGridViewEmpleados()
+        {
+            Cargar_Tabla_Empleados();
+        }
 
         //Filtros Empleados
 
@@ -408,32 +497,39 @@ namespace DiseñoFinal
         {
             cmbFiltrosEmpleados.Items.Clear();
             cmbFiltrosEmpleados.Items.Add("Nombre y Apellido");
-            cmbFiltrosEmpleados.Items.Add("Carrera");
-            cmbFiltrosEmpleados.Items.Add("Especialidad");
-
         }
-        private void cmbFiltrosEmpleados_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cmbEspecialidadEmpleados.Visible = false;
-            cmbCarreraEmpleados.Visible = false;
-            txtNombreApellidoEmpleado.Visible = false;
 
-            // Muestra el control correspondiente según la selección.
-            switch (cmbFiltrosEmpleados.SelectedItem.ToString())
+        //filtrar empleados
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            try
             {
-                case "Nombre y Apellido":
-                    txtNombreApellidoEmpleado.Visible = true;
-                    break;
-                case "Carrera":
-                    cmbCarreraEmpleados.Visible = true;
-                    break;
-                case "Especialidad":
-                    cmbEspecialidadEmpleados.Visible = true;
-                    break;
+                string nombreApellido = string.Empty;
+                string query = "";
+
+
+                nombreApellido = txtNombreApellidoEmpleado.Text.Trim();
+                query = "EXEC SP_BuscarEmpleadoPorNombreApellido @NombreApellido";
+
+
+                SqlCommand command = new SqlCommand(query, conexion);
+                command.Parameters.AddWithValue("@NombreApellido", nombreApellido);
+
+
+                DataTable dt = gestorempleados.EjecutarConsulta(command);
+                dataGridViewEmpleados.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar empleados: " + ex.Message);
             }
         }
 
-
+        //Recargar tabla empleados
+        private void btnRecargarTablaEmpleados_Click(object sender, EventArgs e)
+        {
+            Cargar_Tabla_Empleados();
+        }
         //Tab Page Alumnos
 
         public void CargarDatosAlumno(int matricula)
@@ -499,14 +595,6 @@ namespace DiseñoFinal
             cmbAñoAlumno.Items.Add("1");
             cmbAñoAlumno.Items.Add("2");
             cmbAñoAlumno.Items.Add("3");
-
-            cmbFiltrosMaterias.Items.Add("Carreras");
-            cmbFiltrosMaterias.Items.Add("Año");
-
-            cmbAñoMaterias.Items.Clear();
-            cmbAñoMaterias.Items.Add("1");
-            cmbAñoMaterias.Items.Add("2");
-            cmbAñoMaterias.Items.Add("3");
         }
 
         private void cmbFiltrosAlumnos_SelectedIndexChanged(object sender, EventArgs e)
@@ -617,6 +705,9 @@ namespace DiseñoFinal
             }
         }
 
+        
+
+
         //Cargo Combo box Carreras 
         private void CargarCarreras()
         {
@@ -644,19 +735,13 @@ namespace DiseñoFinal
 
                         // Agregar la carrera al ComboBox
                         cmbCarreraAlumno.Items.Add(carrera);
-                        cmbCarreraEmpleados.Items.Add(carrera);
-                        cmbCarreraMaterias.Items.Add(carrera);
+
                     }
 
 
                     cmbCarreraAlumno.DisplayMember = "Nombre_Carrera"; // Lo que se muestra 
                     cmbCarreraAlumno.ValueMember = "ID_Carrera"; // El valor
 
-                    cmbCarreraEmpleados.DisplayMember = "Nombre_Carrera";
-                    cmbCarreraEmpleados.ValueMember = "ID_Carrera";
-
-                    cmbCarreraMaterias.DisplayMember = "Nombre_Carrera";
-                    cmbCarreraMaterias.ValueMember = "ID_Carrera";
                 }
             }
             catch (Exception ex)
@@ -1029,6 +1114,10 @@ namespace DiseñoFinal
             Cargar_Tabla_Materias();
         }
 
+        private void btnRecargarTablaMaterias_Click(object sender, EventArgs e)
+        {
+            Cargar_Tabla_Materias();
+        }
 
 
         // Tab Page Carreras
@@ -1167,85 +1256,120 @@ namespace DiseñoFinal
             }
         }
 
-        private void btnFiltrarMaterias_Click(object sender, EventArgs e)
+        //Cargo la tabla examenes por porfesor
+        private void Cargar_Tabla_ExamenesPorProfesor(int idProfesor)
         {
-            // Filtrar solo por Año
-            if (cmbAñoMaterias.Visible)
+            string consulta = @"
+                                SELECT 
+                                    e.id_examen,
+                                    c.id_carrera, -- Esta columna se incluye pero no se mostrará
+                                    c.nombre_carrera AS Carrera,
+                                    m.id_materia, 
+                                    m.nombre_materia AS Materia,
+                                    m.anio_cursada AS Año, 
+                                    e.fecha_examen AS Fecha,
+                                    e.hora_examen AS [Hora Examen],
+                                    te.id_tipoexamen,
+                                    te.descripcion AS [Tipo de Examen],
+                                    e.libro,
+                                    e.folio
+                                FROM 
+                                    Examenes e
+                                JOIN 
+                                    Carreras c ON e.id_carrera = c.id_carrera
+                                JOIN 
+                                    Materias m ON e.id_materia = m.id_materia
+                                JOIN 
+                                    TipoExamen te ON e.tipo_examen = te.id_tipoexamen
+                                WHERE 
+                                    m.id_empleado = @IdProfesor;";  // Filtro por el id del profesor
+
+            SqlCommand command = new SqlCommand(consulta);
+            command.Parameters.AddWithValue("@IdProfesor", idProfesor);  // Añade el parámetro id_profesor
+
+            try
             {
-                int añoSeleccionado = Convert.ToInt32(cmbAñoMaterias.SelectedItem);
+                DataTable dt = gestorexamenes.EjecutarConsulta(command);  // Usa la clase gestora para ejecutar la consulta
+                dataGridViewExamenes.DataSource = dt;
 
-                if (añoSeleccionado > 0)
-                {
-                    // Llama al método de búsqueda con solo el filtro de Año
-                    GestorMaterias gestorMaterias = new GestorMaterias();
-                    DataTable resultados = gestorMaterias.FiltrarPorAño(añoSeleccionado);
-
-                    // Verifica si se encontraron resultados
-                    if (resultados != null && resultados.Rows.Count > 0)
-                    {
-                        // Si se encuentran resultados, mostrar en un DataGridView
-                        dataGridViewMaterias.DataSource = resultados;
-                        dataGridViewMaterias.Columns["id_carrera"].Visible = false;
-                        dataGridViewMaterias.Columns["ID_Empleado"].Visible = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se encontraron materias para el año seleccionado.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Por favor seleccione un año válido.");
-                }
+                // Ocultar la columna de ids que no son necesarias
+                dataGridViewExamenes.Columns["id_carrera"].Visible = false;
+                dataGridViewExamenes.Columns["id_materia"].Visible = false;
+                dataGridViewExamenes.Columns["id_tipoexamen"].Visible = false;
+                dataGridViewExamenes.Columns["id_examen"].Visible = false;
             }
-            // Filtrar solo por Carrera
-            else if (cmbCarreraMaterias.Visible)
+            catch (Exception ex)
             {
-
-                Carrera carreraSeleccionada = (Carrera)cmbCarreraMaterias.SelectedItem;
-
-
-                if (carreraSeleccionada != null && carreraSeleccionada.ID_Carrera > 0)
-                {
-
-                    GestorMaterias gestormat = new GestorMaterias();
-                    DataTable resultados = gestormat.FiltrarPorCarrera(carreraSeleccionada.ID_Carrera);
-
-                    if (resultados != null && resultados.Rows.Count > 0)
-                    {
-
-                        dataGridViewMaterias.DataSource = resultados;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se encontraron alumnos para la carrera seleccionada.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Por favor seleccione una carrera válida.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Seleccione un filtro válido para buscar.");
+                MessageBox.Show("Error al cargar la tabla: " + ex.Message);
             }
         }
 
-        private void cmbFiltrosMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        //Cargo cmbfiltros
+        private void CargarFiltroExamenes()
         {
-            cmbCarreraMaterias.Visible = false;
-            cmbAñoMaterias.Visible = false;
+            cmbFiltroExamenes.Items.Add("Año");
 
-            switch (cmbFiltrosMaterias.SelectedItem.ToString())
+            cmbFiltroExamenesAño.Items.Add("1");
+            cmbFiltroExamenesAño.Items.Add("2");
+            cmbFiltroExamenesAño.Items.Add("3");
+        }
+        private void btnFiltrarExamenes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void Cargar_Tabla_Examenes(int? año = null)
+        {
+            string procedimientoAlmacenado = "";
+            SqlCommand command = new SqlCommand();
+
+            
+            if (año.HasValue)
             {
-                case "Año":
-                    cmbAñoMaterias.Visible = true;
-                    break;
-                case "Carreras":
-                    cmbCarreraMaterias.Visible = true;
-                    break;
+                procedimientoAlmacenado = "SP_BuscarExamenesPorAño";
+                command.Parameters.AddWithValue("@Año", año.Value);
             }
+            else
+            {
+                MessageBox.Show("Seleccione un año valido");
+            }
+
+
+            command.CommandText = procedimientoAlmacenado;
+            command.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                DataTable dt = gestorexamenes.EjecutarConsulta(command); // Usa la clase gestora para ejecutar la consulta
+                dataGridViewExamenes.DataSource = dt;
+
+                // Ocultar la columna de ids
+                dataGridViewExamenes.Columns["id_carrera"].Visible = false;
+                dataGridViewExamenes.Columns["id_materia"].Visible = false;
+                dataGridViewExamenes.Columns["id_tipoexamen"].Visible = false;
+                dataGridViewExamenes.Columns["id_examen"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la tabla: " + ex.Message);
+            }
+        }
+
+
+
+        private void cmbFiltroExamenesAño_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int año = Convert.ToInt32(cmbFiltroExamenesAño.SelectedItem);
+            Cargar_Tabla_Examenes(año: año);
+        }
+
+
+        private void btnRecargarExamenes_Click(object sender, EventArgs e)
+        {
+            cmbFiltroExamenesAño.SelectedIndex = 0;
+            cmbFiltroExamenes.SelectedIndex = 0;
+            Cargar_Tabla_Examenes();
         }
     }
 }

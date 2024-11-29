@@ -704,14 +704,19 @@ END;
 
 --------------------------------------------------------Store Procedure Busqueda Empleados--------------------------------------------------------
 
-CREATE PROCEDURE SP_BuscarEmpleadosPorNombre
-    @Nombre NVARCHAR,
-	@Apellido NVARCHAR
+CREATE PROCEDURE SP_BuscarEmpleadoPorNombreApellido
+    @NombreApellido VARCHAR(60)
 AS
 BEGIN
-    SELECT *
-    FROM Empleados
-    WHERE nombre LIKE '%' + @Nombre + '%' AND apellido LIKE '%' + @Apellido + '%'
+    SET NOCOUNT ON;
+
+    SELECT e.id_empleado, e.nombre, e.apellido, e.direccion_calle, e.direccion_nro,
+           e.telefono, e.dni, e.email, e.fecha_nacimiento, e.salario, e.tipo_perfil, 
+           p.tipo AS perfil  
+    FROM Empleados e
+    INNER JOIN Perfiles p ON e.tipo_perfil = p.id_perfil
+    WHERE (e.nombre + ' ' + e.apellido LIKE '%' + @NombreApellido + '%'
+           OR e.apellido + ' ' + e.nombre LIKE '%' + @NombreApellido + '%')
 END;
 
 
@@ -763,6 +768,140 @@ BEGIN
         c.id_carrera = @id_carrera;  -- Filtra solo por carrera
 END;
 
+--------------------------------------------------------Filtros Examenes x Alumno--------------------------------------------------------
+
+
+CREATE PROCEDURE SP_ObtenerExamenesPorAlumnoYMateria
+    @Matricula INT,
+    @IdMateria INT
+AS
+BEGIN
+    SELECT 
+    exa.id_examenxalumno, 
+    a.matricula, 
+    a.nombre AS Alumno,
+    ex.id_examen,
+    ex.fecha_examen AS Fecha,
+    m.id_materia,
+    m.nombre_materia AS Materia,
+    c.id_carrera, 
+    c.nombre_carrera AS Carrera,
+    m.anio_cursada AS Año,
+    te.descripcion AS TipoExamen,
+    exa.calificacion 
+	FROM 
+		ExamenesXAlumno exa
+	INNER JOIN 
+		Alumnos a ON exa.matricula = a.matricula
+	INNER JOIN 
+		Examenes ex ON exa.id_examen = ex.id_examen
+	INNER JOIN 
+		Materias m ON ex.id_materia = m.id_materia
+	INNER JOIN 
+		Carreras c ON ex.id_carrera = c.id_carrera
+	INNER JOIN 
+		tipoexamen te ON ex.tipo_examen = te.id_tipoexamen
+	WHERE 
+		exa.matricula = @Matricula 
+		AND ex.id_materia = @IdMateria;
+END;
+
+--------------------------------------------------------Filtros Examenes--------------------------------------------------------
+
+CREATE PROCEDURE SP_BuscarExamenesPorCarrera
+    @IdCarrera INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        e.id_examen,
+        c.id_carrera,
+        c.nombre_carrera AS Carrera,
+        m.id_materia, 
+        m.nombre_materia AS Materia,
+        m.anio_cursada AS Año, 
+        e.fecha_examen AS Fecha,
+        e.hora_examen AS [Hora Examen],
+        te.id_tipoexamen,
+        te.descripcion AS [Tipo de Examen],
+        e.libro,
+        e.folio
+    FROM 
+        Examenes e
+    JOIN 
+        Carreras c ON e.id_carrera = c.id_carrera
+    JOIN 
+        Materias m ON e.id_materia = m.id_materia
+    JOIN 
+        TipoExamen te ON e.tipo_examen = te.id_tipoexamen
+    WHERE
+        e.id_carrera = @IdCarrera;
+END;
+
+
+CREATE PROCEDURE SP_BuscarExamenesPorMateria
+    @IdMateria INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        e.id_examen,
+        c.id_carrera,
+        c.nombre_carrera AS Carrera,
+        m.id_materia, 
+        m.nombre_materia AS Materia,
+        m.anio_cursada AS Año, 
+        e.fecha_examen AS Fecha,
+        e.hora_examen AS [Hora Examen],
+        te.id_tipoexamen,
+        te.descripcion AS [Tipo de Examen],
+        e.libro,
+        e.folio
+    FROM 
+        Examenes e
+    JOIN 
+        Carreras c ON e.id_carrera = c.id_carrera
+    JOIN 
+        Materias m ON e.id_materia = m.id_materia
+    JOIN 
+        TipoExamen te ON e.tipo_examen = te.id_tipoexamen
+    WHERE
+        e.id_materia = @IdMateria;
+END;
+
+
+CREATE PROCEDURE SP_BuscarExamenesPorAño
+    @Año INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        e.id_examen,
+        c.id_carrera,
+        c.nombre_carrera AS Carrera,
+        m.id_materia, 
+        m.nombre_materia AS Materia,
+        m.anio_cursada AS Año, 
+        e.fecha_examen AS Fecha,
+        e.hora_examen AS [Hora Examen],
+        te.id_tipoexamen,
+        te.descripcion AS [Tipo de Examen],
+        e.libro,
+        e.folio
+    FROM 
+        Examenes e
+    JOIN 
+        Carreras c ON e.id_carrera = c.id_carrera
+    JOIN 
+        Materias m ON e.id_materia = m.id_materia
+    JOIN 
+        TipoExamen te ON e.tipo_examen = te.id_tipoexamen
+    WHERE
+        m.anio_cursada = @Año;
+END;
 
 --------------------------------------------------------Funciones Estadisticas--------------------------------------------------------
 

@@ -38,8 +38,6 @@
             label3 = new Label();
             panel4 = new Panel();
             cmbEstado = new ComboBox();
-            btnBorrar = new Button();
-            btnModificar = new Button();
             btnAgregar = new Button();
             label5 = new Label();
             txtIdMateria = new TextBox();
@@ -130,8 +128,6 @@
             // panel4
             // 
             panel4.Controls.Add(cmbEstado);
-            panel4.Controls.Add(btnBorrar);
-            panel4.Controls.Add(btnModificar);
             panel4.Controls.Add(btnAgregar);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(txtIdMateria);
@@ -152,28 +148,9 @@
             cmbEstado.Size = new Size(100, 23);
             cmbEstado.TabIndex = 16;
             // 
-            // btnBorrar
-            // 
-            btnBorrar.Location = new Point(188, 222);
-            btnBorrar.Name = "btnBorrar";
-            btnBorrar.Size = new Size(71, 48);
-            btnBorrar.TabIndex = 15;
-            btnBorrar.Text = "Borrar";
-            btnBorrar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Location = new Point(102, 222);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(71, 48);
-            btnModificar.TabIndex = 14;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            btnModificar.Click += btnModificar_Click;
-            // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(22, 222);
+            btnAgregar.Location = new Point(168, 214);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(63, 48);
             btnAgregar.TabIndex = 9;
@@ -262,8 +239,6 @@
         private Label label3;
         private Panel panel4;
         private ComboBox cmbEstado;
-        private Button btnBorrar;
-        private Button btnModificar;
         private Button btnAgregar;
         private Label label5;
         private TextBox txtIdMateria;

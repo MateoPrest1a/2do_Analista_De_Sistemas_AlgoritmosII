@@ -128,13 +128,6 @@ namespace DiseñoFinal
             panel21 = new Panel();
             label8 = new Label();
             btnRecargarTablaMaterias = new Button();
-            label7 = new Label();
-            btnFiltrarMaterias = new Button();
-            cmbProfesoresMaterias = new ComboBox();
-            cmbAñoMaterias = new ComboBox();
-            cmbCarreraMaterias = new ComboBox();
-            cmbFiltrosMaterias = new ComboBox();
-            label4 = new Label();
             panel22 = new Panel();
             panel20 = new Panel();
             label3 = new Label();
@@ -143,9 +136,10 @@ namespace DiseñoFinal
             panel33 = new Panel();
             panel32 = new Panel();
             panel30 = new Panel();
+            label1 = new Label();
+            btnRecargarTablaEmpleados = new Button();
+            label27 = new Label();
             btnBuscar = new Button();
-            cmbCarreraEmpleados = new ComboBox();
-            cmbEspecialidadEmpleados = new ComboBox();
             txtNombreApellidoEmpleado = new TextBox();
             cmbFiltrosEmpleados = new ComboBox();
             label24 = new Label();
@@ -157,13 +151,6 @@ namespace DiseñoFinal
             panel36 = new Panel();
             label26 = new Label();
             button2 = new Button();
-            label27 = new Label();
-            btnFiltrarCarreras = new Button();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
-            comboBox4 = new ComboBox();
-            label28 = new Label();
             panel37 = new Panel();
             panel35 = new Panel();
             panel34 = new Panel();
@@ -174,8 +161,7 @@ namespace DiseñoFinal
             panel43 = new Panel();
             panel42 = new Panel();
             panel40 = new Panel();
-            btnReporteGeneralExamenes = new Button();
-            btnReporteAlumnoExamenes = new Button();
+            cmbFiltroExamenesAño = new ComboBox();
             label30 = new Label();
             label31 = new Label();
             btnRecargarExamenes = new Button();
@@ -1286,13 +1272,6 @@ namespace DiseñoFinal
             panel21.BackColor = Color.FromArgb(33, 63, 96);
             panel21.Controls.Add(label8);
             panel21.Controls.Add(btnRecargarTablaMaterias);
-            panel21.Controls.Add(label7);
-            panel21.Controls.Add(btnFiltrarMaterias);
-            panel21.Controls.Add(cmbProfesoresMaterias);
-            panel21.Controls.Add(cmbAñoMaterias);
-            panel21.Controls.Add(cmbCarreraMaterias);
-            panel21.Controls.Add(cmbFiltrosMaterias);
-            panel21.Controls.Add(label4);
             panel21.Controls.Add(panel22);
             panel21.Dock = DockStyle.Bottom;
             panel21.Location = new Point(3, 509);
@@ -1321,78 +1300,7 @@ namespace DiseñoFinal
             btnRecargarTablaMaterias.Size = new Size(40, 38);
             btnRecargarTablaMaterias.TabIndex = 53;
             btnRecargarTablaMaterias.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.ForeColor = SystemColors.ButtonHighlight;
-            label7.Location = new Point(366, 42);
-            label7.Name = "label7";
-            label7.Size = new Size(37, 15);
-            label7.TabIndex = 52;
-            label7.Text = "Filtrar";
-            // 
-            // btnFiltrarMaterias
-            // 
-            btnFiltrarMaterias.BackgroundImage = (Image)resources.GetObject("btnFiltrarMaterias.BackgroundImage");
-            btnFiltrarMaterias.BackgroundImageLayout = ImageLayout.Stretch;
-            btnFiltrarMaterias.FlatAppearance.BorderSize = 0;
-            btnFiltrarMaterias.FlatStyle = FlatStyle.Flat;
-            btnFiltrarMaterias.ImageAlign = ContentAlignment.TopLeft;
-            btnFiltrarMaterias.Location = new Point(365, 4);
-            btnFiltrarMaterias.Name = "btnFiltrarMaterias";
-            btnFiltrarMaterias.Size = new Size(40, 38);
-            btnFiltrarMaterias.TabIndex = 51;
-            btnFiltrarMaterias.UseVisualStyleBackColor = true;
-            btnFiltrarMaterias.Click += btnFiltrarMaterias_Click;
-            // 
-            // cmbProfesoresMaterias
-            // 
-            cmbProfesoresMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbProfesoresMaterias.FormattingEnabled = true;
-            cmbProfesoresMaterias.Location = new Point(224, 20);
-            cmbProfesoresMaterias.Name = "cmbProfesoresMaterias";
-            cmbProfesoresMaterias.Size = new Size(121, 23);
-            cmbProfesoresMaterias.TabIndex = 49;
-            // 
-            // cmbAñoMaterias
-            // 
-            cmbAñoMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbAñoMaterias.FormattingEnabled = true;
-            cmbAñoMaterias.Location = new Point(224, 20);
-            cmbAñoMaterias.Name = "cmbAñoMaterias";
-            cmbAñoMaterias.Size = new Size(121, 23);
-            cmbAñoMaterias.TabIndex = 47;
-            // 
-            // cmbCarreraMaterias
-            // 
-            cmbCarreraMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCarreraMaterias.FormattingEnabled = true;
-            cmbCarreraMaterias.Location = new Point(224, 19);
-            cmbCarreraMaterias.Name = "cmbCarreraMaterias";
-            cmbCarreraMaterias.Size = new Size(121, 23);
-            cmbCarreraMaterias.TabIndex = 44;
-            // 
-            // cmbFiltrosMaterias
-            // 
-            cmbFiltrosMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbFiltrosMaterias.FormattingEnabled = true;
-            cmbFiltrosMaterias.Location = new Point(97, 20);
-            cmbFiltrosMaterias.Name = "cmbFiltrosMaterias";
-            cmbFiltrosMaterias.Size = new Size(121, 23);
-            cmbFiltrosMaterias.TabIndex = 41;
-            cmbFiltrosMaterias.SelectedIndexChanged += cmbFiltrosMaterias_SelectedIndexChanged;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ButtonHighlight;
-            label4.Location = new Point(12, 19);
-            label4.Name = "label4";
-            label4.Size = new Size(79, 18);
-            label4.TabIndex = 40;
-            label4.Text = "Filtrar por :";
+            btnRecargarTablaMaterias.Click += btnRecargarTablaMaterias_Click;
             // 
             // panel22
             // 
@@ -1443,8 +1351,10 @@ namespace DiseñoFinal
             dataGridViewEmpleados.Dock = DockStyle.Fill;
             dataGridViewEmpleados.Location = new Point(94, 66);
             dataGridViewEmpleados.Name = "dataGridViewEmpleados";
+            dataGridViewEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewEmpleados.Size = new Size(1020, 443);
             dataGridViewEmpleados.TabIndex = 47;
+            dataGridViewEmpleados.CellDoubleClick += dataGridViewEmpleados_CellDoubleClick;
             // 
             // panel33
             // 
@@ -1467,9 +1377,10 @@ namespace DiseñoFinal
             // panel30
             // 
             panel30.BackColor = Color.FromArgb(33, 63, 96);
+            panel30.Controls.Add(label1);
+            panel30.Controls.Add(btnRecargarTablaEmpleados);
+            panel30.Controls.Add(label27);
             panel30.Controls.Add(btnBuscar);
-            panel30.Controls.Add(cmbCarreraEmpleados);
-            panel30.Controls.Add(cmbEspecialidadEmpleados);
             panel30.Controls.Add(txtNombreApellidoEmpleado);
             panel30.Controls.Add(cmbFiltrosEmpleados);
             panel30.Controls.Add(label24);
@@ -1480,32 +1391,52 @@ namespace DiseñoFinal
             panel30.Size = new Size(1202, 61);
             panel30.TabIndex = 41;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(1090, 44);
+            label1.Name = "label1";
+            label1.Size = new Size(83, 15);
+            label1.TabIndex = 56;
+            label1.Text = "Recargar Tabla";
+            // 
+            // btnRecargarTablaEmpleados
+            // 
+            btnRecargarTablaEmpleados.BackgroundImage = (Image)resources.GetObject("btnRecargarTablaEmpleados.BackgroundImage");
+            btnRecargarTablaEmpleados.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRecargarTablaEmpleados.FlatAppearance.BorderSize = 0;
+            btnRecargarTablaEmpleados.FlatStyle = FlatStyle.Flat;
+            btnRecargarTablaEmpleados.Location = new Point(1111, 5);
+            btnRecargarTablaEmpleados.Name = "btnRecargarTablaEmpleados";
+            btnRecargarTablaEmpleados.Size = new Size(40, 38);
+            btnRecargarTablaEmpleados.TabIndex = 55;
+            btnRecargarTablaEmpleados.UseVisualStyleBackColor = true;
+            btnRecargarTablaEmpleados.Click += btnRecargarTablaEmpleados_Click;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.ForeColor = SystemColors.ButtonHighlight;
+            label27.Location = new Point(377, 41);
+            label27.Name = "label27";
+            label27.Size = new Size(37, 15);
+            label27.TabIndex = 54;
+            label27.Text = "Filtrar";
+            // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(366, 20);
+            btnBuscar.BackgroundImage = (Image)resources.GetObject("btnBuscar.BackgroundImage");
+            btnBuscar.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBuscar.FlatAppearance.BorderSize = 0;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ImageAlign = ContentAlignment.TopLeft;
+            btnBuscar.Location = new Point(376, 3);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(70, 23);
-            btnBuscar.TabIndex = 46;
-            btnBuscar.Text = "Buscar";
+            btnBuscar.Size = new Size(40, 38);
+            btnBuscar.TabIndex = 53;
             btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // cmbCarreraEmpleados
-            // 
-            cmbCarreraEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCarreraEmpleados.FormattingEnabled = true;
-            cmbCarreraEmpleados.Location = new Point(233, 20);
-            cmbCarreraEmpleados.Name = "cmbCarreraEmpleados";
-            cmbCarreraEmpleados.Size = new Size(127, 23);
-            cmbCarreraEmpleados.TabIndex = 44;
-            // 
-            // cmbEspecialidadEmpleados
-            // 
-            cmbEspecialidadEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbEspecialidadEmpleados.FormattingEnabled = true;
-            cmbEspecialidadEmpleados.Location = new Point(233, 19);
-            cmbEspecialidadEmpleados.Name = "cmbEspecialidadEmpleados";
-            cmbEspecialidadEmpleados.Size = new Size(127, 23);
-            cmbEspecialidadEmpleados.TabIndex = 43;
+            btnBuscar.Click += btnBuscar_Click_1;
             // 
             // txtNombreApellidoEmpleado
             // 
@@ -1522,7 +1453,6 @@ namespace DiseñoFinal
             cmbFiltrosEmpleados.Name = "cmbFiltrosEmpleados";
             cmbFiltrosEmpleados.Size = new Size(121, 23);
             cmbFiltrosEmpleados.TabIndex = 41;
-            cmbFiltrosEmpleados.SelectedIndexChanged += cmbFiltrosEmpleados_SelectedIndexChanged;
             // 
             // label24
             // 
@@ -1592,13 +1522,6 @@ namespace DiseñoFinal
             panel36.BackColor = Color.FromArgb(33, 63, 96);
             panel36.Controls.Add(label26);
             panel36.Controls.Add(button2);
-            panel36.Controls.Add(label27);
-            panel36.Controls.Add(btnFiltrarCarreras);
-            panel36.Controls.Add(comboBox1);
-            panel36.Controls.Add(comboBox2);
-            panel36.Controls.Add(comboBox3);
-            panel36.Controls.Add(comboBox4);
-            panel36.Controls.Add(label28);
             panel36.Controls.Add(panel37);
             panel36.Dock = DockStyle.Bottom;
             panel36.Location = new Point(94, 509);
@@ -1627,76 +1550,6 @@ namespace DiseñoFinal
             button2.Size = new Size(40, 38);
             button2.TabIndex = 53;
             button2.UseVisualStyleBackColor = true;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.ForeColor = SystemColors.ButtonHighlight;
-            label27.Location = new Point(366, 42);
-            label27.Name = "label27";
-            label27.Size = new Size(37, 15);
-            label27.TabIndex = 52;
-            label27.Text = "Filtrar";
-            // 
-            // btnFiltrarCarreras
-            // 
-            btnFiltrarCarreras.BackgroundImage = (Image)resources.GetObject("btnFiltrarCarreras.BackgroundImage");
-            btnFiltrarCarreras.BackgroundImageLayout = ImageLayout.Stretch;
-            btnFiltrarCarreras.FlatAppearance.BorderSize = 0;
-            btnFiltrarCarreras.FlatStyle = FlatStyle.Flat;
-            btnFiltrarCarreras.ImageAlign = ContentAlignment.TopLeft;
-            btnFiltrarCarreras.Location = new Point(365, 4);
-            btnFiltrarCarreras.Name = "btnFiltrarCarreras";
-            btnFiltrarCarreras.Size = new Size(40, 38);
-            btnFiltrarCarreras.TabIndex = 51;
-            btnFiltrarCarreras.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(224, 20);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 49;
-            // 
-            // comboBox2
-            // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(224, 20);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 47;
-            // 
-            // comboBox3
-            // 
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(224, 19);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(121, 23);
-            comboBox3.TabIndex = 44;
-            // 
-            // comboBox4
-            // 
-            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(97, 20);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(121, 23);
-            comboBox4.TabIndex = 41;
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label28.ForeColor = SystemColors.ButtonHighlight;
-            label28.Location = new Point(12, 19);
-            label28.Name = "label28";
-            label28.Size = new Size(79, 18);
-            label28.TabIndex = 40;
-            label28.Text = "Filtrar por :";
             // 
             // panel37
             // 
@@ -1740,6 +1593,7 @@ namespace DiseñoFinal
             dataGridViewCarreras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCarreras.Location = new Point(94, 66);
             dataGridViewCarreras.Name = "dataGridViewCarreras";
+            dataGridViewCarreras.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCarreras.Size = new Size(1023, 443);
             dataGridViewCarreras.TabIndex = 1;
             dataGridViewCarreras.CellDoubleClick += dataGridViewCarreras_CellDoubleClick;
@@ -1765,6 +1619,7 @@ namespace DiseñoFinal
             dataGridViewExamenes.Dock = DockStyle.Fill;
             dataGridViewExamenes.Location = new Point(94, 81);
             dataGridViewExamenes.Name = "dataGridViewExamenes";
+            dataGridViewExamenes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewExamenes.Size = new Size(1020, 428);
             dataGridViewExamenes.TabIndex = 47;
             dataGridViewExamenes.CellDoubleClick += dataGridViewExamenes_CellDoubleClick;
@@ -1790,8 +1645,7 @@ namespace DiseñoFinal
             // panel40
             // 
             panel40.BackColor = Color.FromArgb(33, 63, 96);
-            panel40.Controls.Add(btnReporteGeneralExamenes);
-            panel40.Controls.Add(btnReporteAlumnoExamenes);
+            panel40.Controls.Add(cmbFiltroExamenesAño);
             panel40.Controls.Add(label30);
             panel40.Controls.Add(label31);
             panel40.Controls.Add(btnRecargarExamenes);
@@ -1805,23 +1659,15 @@ namespace DiseñoFinal
             panel40.Size = new Size(1202, 61);
             panel40.TabIndex = 41;
             // 
-            // btnReporteGeneralExamenes
+            // cmbFiltroExamenesAño
             // 
-            btnReporteGeneralExamenes.Location = new Point(856, 11);
-            btnReporteGeneralExamenes.Name = "btnReporteGeneralExamenes";
-            btnReporteGeneralExamenes.Size = new Size(97, 40);
-            btnReporteGeneralExamenes.TabIndex = 52;
-            btnReporteGeneralExamenes.Text = "Reporte General";
-            btnReporteGeneralExamenes.UseVisualStyleBackColor = true;
-            // 
-            // btnReporteAlumnoExamenes
-            // 
-            btnReporteAlumnoExamenes.Location = new Point(959, 10);
-            btnReporteAlumnoExamenes.Name = "btnReporteAlumnoExamenes";
-            btnReporteAlumnoExamenes.Size = new Size(97, 40);
-            btnReporteAlumnoExamenes.TabIndex = 51;
-            btnReporteAlumnoExamenes.Text = "Generar Reporte";
-            btnReporteAlumnoExamenes.UseVisualStyleBackColor = true;
+            cmbFiltroExamenesAño.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltroExamenesAño.FormattingEnabled = true;
+            cmbFiltroExamenesAño.Location = new Point(238, 19);
+            cmbFiltroExamenesAño.Name = "cmbFiltroExamenesAño";
+            cmbFiltroExamenesAño.Size = new Size(121, 23);
+            cmbFiltroExamenesAño.TabIndex = 54;
+            cmbFiltroExamenesAño.SelectedIndexChanged += cmbFiltroExamenesAño_SelectedIndexChanged;
             // 
             // label30
             // 
@@ -1854,6 +1700,7 @@ namespace DiseñoFinal
             btnRecargarExamenes.Size = new Size(40, 38);
             btnRecargarExamenes.TabIndex = 47;
             btnRecargarExamenes.UseVisualStyleBackColor = true;
+            btnRecargarExamenes.Click += btnRecargarExamenes_Click;
             // 
             // btnFiltrarExamenes
             // 
@@ -1867,6 +1714,7 @@ namespace DiseñoFinal
             btnFiltrarExamenes.Size = new Size(40, 38);
             btnFiltrarExamenes.TabIndex = 46;
             btnFiltrarExamenes.UseVisualStyleBackColor = true;
+            btnFiltrarExamenes.Click += btnFiltrarExamenes_Click;
             // 
             // cmbFiltroExamenes
             // 
@@ -2047,18 +1895,11 @@ namespace DiseñoFinal
         private Panel panel24;
         private Panel panel23;
         private Panel panel21;
-        private ComboBox cmbAñoMaterias;
-        private ComboBox cmbCarreraMaterias;
-        private ComboBox cmbFiltrosMaterias;
-        private Label label4;
         private Panel panel22;
         private DataGridView dataGridViewMaterias;
-        private ComboBox cmbProfesoresMaterias;
         private ComboBox cmbProfesoresAlumno;
         private Label label6;
         private Label label5;
-        private Label label7;
-        private Button btnFiltrarMaterias;
         private Label label8;
         private Button btnRecargarTablaMaterias;
         private Panel panel9;
@@ -2101,9 +1942,6 @@ namespace DiseñoFinal
         private Label label22;
         private Panel panel32;
         private Panel panel30;
-        private Button btnBuscar;
-        private ComboBox cmbCarreraEmpleados;
-        private ComboBox cmbEspecialidadEmpleados;
         private TextBox txtNombreApellidoEmpleado;
         private ComboBox cmbFiltrosEmpleados;
         private Label label24;
@@ -2115,13 +1953,6 @@ namespace DiseñoFinal
         private Panel panel36;
         private Label label26;
         private Button button2;
-        private Label label27;
-        private Button btnFiltrarCarreras;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
-        private ComboBox comboBox4;
-        private Label label28;
         private Panel panel37;
         private Panel panel35;
         private Panel panel34;
@@ -2136,8 +1967,6 @@ namespace DiseñoFinal
         private Panel panel43;
         private Panel panel42;
         private Panel panel40;
-        private Button btnReporteGeneralExamenes;
-        private Button btnReporteAlumnoExamenes;
         private Label label30;
         private Label label31;
         private Button btnRecargarExamenes;
@@ -2145,5 +1974,10 @@ namespace DiseñoFinal
         private ComboBox cmbFiltroExamenes;
         private Label label32;
         private Panel panel41;
+        private ComboBox cmbFiltroExamenesAño;
+        private Label label27;
+        private Button btnBuscar;
+        private Label label1;
+        private Button btnRecargarTablaEmpleados;
     }
 }

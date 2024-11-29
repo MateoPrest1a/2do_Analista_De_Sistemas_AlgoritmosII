@@ -136,10 +136,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                          m.nombre_materia 
                      FROM 
                          Materias as M
-                     INNER JOIN 
-                        MateriasxCarrera mc ON mc.id_materia = m.id_materia
                     INNER JOIN 
-                        Carreras c ON mc.id_carrera = c.id_carrera
+                        Carreras c ON m.id_carrera = c.id_carrera
                     WHERE 
                         c.id_carrera = @idCarrera";
             try

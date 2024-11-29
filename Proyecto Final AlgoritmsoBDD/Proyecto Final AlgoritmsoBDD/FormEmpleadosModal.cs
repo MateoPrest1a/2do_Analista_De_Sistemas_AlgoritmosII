@@ -54,6 +54,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             if (idprofesor != 0)
             {
                 lblEmpleado.Text = idprofesor.ToString();
+                btnAgregarEmpleado.Visible = false;
             }
             else
             {
@@ -61,6 +62,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 lblEmpleado.Visible = false;
                 txtDireNumeroEmpleados.Clear();
                 txtSalarioEmpleados.Clear();
+                btnModificarEmpleado.Visible = false;
+                btnEliminarEmpleado.Visible= false;
             }
 
             AjustarVisibilidadPerfil(perfil);
@@ -98,7 +101,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
             else if (perfil == "Personal Administrativo")
             {
-
+                btnEliminarEmpleado .Visible = false;
             }
         }
 
