@@ -34,11 +34,9 @@
             btnSalir = new Button();
             panel2 = new Panel();
             panel4 = new Panel();
+            cmbAño = new ComboBox();
             btnBuscar = new Button();
-            txtDni = new TextBox();
             cmbCarrera = new ComboBox();
-            cmbEspecialidad = new ComboBox();
-            txtNombreApellido = new TextBox();
             cmbFiltros = new ComboBox();
             label2 = new Label();
             panel5 = new Panel();
@@ -105,11 +103,9 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(33, 63, 96);
+            panel4.Controls.Add(cmbAño);
             panel4.Controls.Add(btnBuscar);
-            panel4.Controls.Add(txtDni);
             panel4.Controls.Add(cmbCarrera);
-            panel4.Controls.Add(cmbEspecialidad);
-            panel4.Controls.Add(txtNombreApellido);
             panel4.Controls.Add(cmbFiltros);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(panel5);
@@ -119,6 +115,15 @@
             panel4.Size = new Size(800, 61);
             panel4.TabIndex = 42;
             // 
+            // cmbAño
+            // 
+            cmbAño.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAño.FormattingEnabled = true;
+            cmbAño.Location = new Point(224, 21);
+            cmbAño.Name = "cmbAño";
+            cmbAño.Size = new Size(121, 23);
+            cmbAño.TabIndex = 47;
+            // 
             // btnBuscar
             // 
             btnBuscar.Location = new Point(366, 20);
@@ -127,38 +132,16 @@
             btnBuscar.TabIndex = 46;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtDni
-            // 
-            txtDni.Location = new Point(233, 20);
-            txtDni.Name = "txtDni";
-            txtDni.Size = new Size(127, 23);
-            txtDni.TabIndex = 45;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // cmbCarrera
             // 
             cmbCarrera.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCarrera.FormattingEnabled = true;
-            cmbCarrera.Location = new Point(233, 20);
+            cmbCarrera.Location = new Point(224, 21);
             cmbCarrera.Name = "cmbCarrera";
             cmbCarrera.Size = new Size(121, 23);
             cmbCarrera.TabIndex = 44;
-            // 
-            // cmbEspecialidad
-            // 
-            cmbEspecialidad.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbEspecialidad.FormattingEnabled = true;
-            cmbEspecialidad.Location = new Point(233, 20);
-            cmbEspecialidad.Name = "cmbEspecialidad";
-            cmbEspecialidad.Size = new Size(121, 23);
-            cmbEspecialidad.TabIndex = 43;
-            // 
-            // txtNombreApellido
-            // 
-            txtNombreApellido.Location = new Point(233, 20);
-            txtNombreApellido.Name = "txtNombreApellido";
-            txtNombreApellido.Size = new Size(127, 23);
-            txtNombreApellido.TabIndex = 42;
             // 
             // cmbFiltros
             // 
@@ -168,6 +151,7 @@
             cmbFiltros.Name = "cmbFiltros";
             cmbFiltros.Size = new Size(121, 23);
             cmbFiltros.TabIndex = 41;
+            cmbFiltros.SelectedIndexChanged += cmbFiltros_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -216,12 +200,10 @@
         private Panel panel2;
         private Panel panel4;
         private Button btnBuscar;
-        private TextBox txtDni;
         private ComboBox cmbCarrera;
-        private ComboBox cmbEspecialidad;
-        private TextBox txtNombreApellido;
         private ComboBox cmbFiltros;
         private Label label2;
         private Panel panel5;
+        private ComboBox cmbAño;
     }
 }

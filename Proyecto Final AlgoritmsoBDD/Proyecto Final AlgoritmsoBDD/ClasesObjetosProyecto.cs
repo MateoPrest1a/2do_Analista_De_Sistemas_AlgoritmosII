@@ -12,7 +12,7 @@ public abstract class Persona  // CLASE BASE DE ALUMNO Y EMPLEADOS
     public string Documento { get; set; }
     public string Email { get; set; }
     public DateTime Fecha_Nacimiento { get; set; }
-
+    
 }
 
 public class Alumno : Persona
@@ -32,6 +32,15 @@ public class Empleado : Persona
     public int ID_Empleado { get; set; } //PRIMARY KEY
     public double Salario { get; set; }
     public int DiasTrabajadosMensuales { get; set; }
+
+    public string NombreCompleto
+    {
+        get { return $"{Apellido}, {Nombre}"; }
+    }
+    public override string ToString()
+    {
+        return NombreCompleto;
+    }
 }
 
 public class Especialidad

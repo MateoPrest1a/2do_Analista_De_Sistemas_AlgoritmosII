@@ -124,11 +124,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             }
         }
 
-        private void btnHistorial_Click(object sender, EventArgs e)
-        {
-            FormHistorialExamenAlumno formulario = new FormHistorialExamenAlumno(Matricula);
-            formulario.ShowDialog();
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {

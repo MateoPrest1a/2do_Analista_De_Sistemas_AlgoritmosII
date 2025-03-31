@@ -29,6 +29,8 @@ namespace DiseñoFinal
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiseñoFinalCodigo));
             tabControl1 = new TabControl();
             tabMenuPrincipal = new TabPage();
             panel8 = new Panel();
@@ -37,81 +39,190 @@ namespace DiseñoFinal
             label14 = new Label();
             label13 = new Label();
             panel7 = new Panel();
-            label7 = new Label();
-            label35 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label21 = new Label();
-            label23 = new Label();
-            label20 = new Label();
-            label1 = new Label();
-            label3 = new Label();
-            label22 = new Label();
             panel6 = new Panel();
-            label31 = new Label();
-            label30 = new Label();
-            label29 = new Label();
-            label28 = new Label();
             panel5 = new Panel();
-            label19 = new Label();
-            label27 = new Label();
-            label12 = new Label();
-            label26 = new Label();
-            label25 = new Label();
-            label24 = new Label();
             panel4 = new Panel();
             panel3 = new Panel();
-            label18 = new Label();
-            label17 = new Label();
-            label2 = new Label();
-            label16 = new Label();
-            label8 = new Label();
-            label15 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
             panel1 = new Panel();
             btnABMAlumnos = new Button();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             btnABMMaterias = new Button();
             btnABMProfesores = new Button();
-            btnABMPermisos = new Button();
+            btnABMCarreras = new Button();
             btnABMEmpleados = new Button();
             tabPerfilAlumno = new TabPage();
             panel10 = new Panel();
+            AlumnoImagenes = new PictureBox();
             panel12 = new Panel();
             lblUsuarioAlumno = new Label();
             lblPerfilAlumno = new Label();
             label33 = new Label();
             label34 = new Label();
             panel11 = new Panel();
+            pictureBox2 = new PictureBox();
             btnExamenesAlumnos = new Button();
             btnDatosAlumnos = new Button();
             btnMateriasAlumnos = new Button();
             tabPerfilProfesores = new TabPage();
-            button2 = new Button();
             panel9 = new Panel();
+            panel28 = new Panel();
+            lblUsuarioEmpleado = new Label();
+            label23 = new Label();
+            label37 = new Label();
             button1 = new Button();
-            btnExamenesProfesor = new Button();
-            btnCarrerasProfesor = new Button();
-            btnMateriasProfesor = new Button();
+            panel29 = new Panel();
+            panel27 = new Panel();
+            panel26 = new Panel();
+            panel25 = new Panel();
+            btnSalir = new Button();
+            label21 = new Label();
+            cmbEspecialidadEmpleado = new ComboBox();
+            lblEmpleado = new Label();
+            lblEmpleado2 = new Label();
+            label12 = new Label();
+            txtSalarioEmpleados = new TextBox();
+            label9 = new Label();
+            pictureBox4 = new PictureBox();
+            label10 = new Label();
+            label11 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            dtpFechaNacimientoEmpleado = new DateTimePicker();
+            txtEmailEmpleados = new TextBox();
+            txtDocumentoEmpleados = new TextBox();
+            txtDireNumeroEmpleados = new TextBox();
+            txtTelefonoEmpleados = new TextBox();
+            txtDireCalleEmpleados = new TextBox();
+            txtApellidoEmpleados = new TextBox();
+            txtNombreEmpleados = new TextBox();
+            TabPageAlumnos = new TabPage();
+            panel19 = new Panel();
+            panel18 = new Panel();
+            dataGridViewAlumnos = new DataGridView();
+            panel16 = new Panel();
+            btnReporteGeneral = new Button();
+            btnGenerarReporte = new Button();
+            label6 = new Label();
+            label5 = new Label();
+            cmbProfesoresAlumno = new ComboBox();
+            btnRecargarTablaAlumnos = new Button();
+            btnFiltrarAlumnos = new Button();
+            cmbCarreraAlumno = new ComboBox();
+            cmbAñoAlumno = new ComboBox();
+            txtNombreApellidoAlumno = new TextBox();
+            cmbFiltrosAlumnos = new ComboBox();
+            label2 = new Label();
+            panel17 = new Panel();
+            panel14 = new Panel();
+            panel15 = new Panel();
+            lblAlumnos = new Label();
+            TabPageMaterias = new TabPage();
+            dataGridViewMaterias = new DataGridView();
+            panel24 = new Panel();
+            panel23 = new Panel();
+            panel21 = new Panel();
+            label8 = new Label();
+            btnRecargarTablaMaterias = new Button();
+            label7 = new Label();
+            btnFiltrarMaterias = new Button();
+            cmbProfesoresMaterias = new ComboBox();
+            cmbAñoMaterias = new ComboBox();
+            cmbCarreraMaterias = new ComboBox();
+            cmbFiltrosMaterias = new ComboBox();
+            label4 = new Label();
+            panel22 = new Panel();
+            panel20 = new Panel();
+            label3 = new Label();
+            TabPageEmpleados = new TabPage();
+            dataGridViewEmpleados = new DataGridView();
+            panel33 = new Panel();
+            panel32 = new Panel();
+            panel30 = new Panel();
+            btnBuscar = new Button();
+            cmbCarreraEmpleados = new ComboBox();
+            cmbEspecialidadEmpleados = new ComboBox();
+            txtNombreApellidoEmpleado = new TextBox();
+            cmbFiltrosEmpleados = new ComboBox();
+            label24 = new Label();
+            panel31 = new Panel();
+            panel13 = new Panel();
+            label22 = new Label();
+            TabPageCarreras = new TabPage();
+            panel38 = new Panel();
+            panel36 = new Panel();
+            label26 = new Label();
+            button2 = new Button();
+            label27 = new Label();
+            btnFiltrarCarreras = new Button();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            comboBox3 = new ComboBox();
+            comboBox4 = new ComboBox();
+            label28 = new Label();
+            panel37 = new Panel();
+            panel35 = new Panel();
+            panel34 = new Panel();
+            label25 = new Label();
+            dataGridViewCarreras = new DataGridView();
+            TabPageExamenes = new TabPage();
+            dataGridViewExamenes = new DataGridView();
+            panel43 = new Panel();
+            panel42 = new Panel();
+            panel40 = new Panel();
+            btnReporteGeneralExamenes = new Button();
+            btnReporteAlumnoExamenes = new Button();
+            label30 = new Label();
+            label31 = new Label();
+            btnRecargarExamenes = new Button();
+            btnFiltrarExamenes = new Button();
+            cmbFiltroExamenes = new ComboBox();
+            label32 = new Label();
+            panel41 = new Panel();
+            panel39 = new Panel();
+            label29 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             tabControl1.SuspendLayout();
             tabMenuPrincipal.SuspendLayout();
             panel8.SuspendLayout();
-            panel7.SuspendLayout();
-            panel6.SuspendLayout();
-            panel5.SuspendLayout();
-            panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tabPerfilAlumno.SuspendLayout();
             panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AlumnoImagenes).BeginInit();
             panel12.SuspendLayout();
             panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tabPerfilProfesores.SuspendLayout();
             panel9.SuspendLayout();
+            panel28.SuspendLayout();
+            panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            TabPageAlumnos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAlumnos).BeginInit();
+            panel16.SuspendLayout();
+            panel14.SuspendLayout();
+            TabPageMaterias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).BeginInit();
+            panel21.SuspendLayout();
+            panel20.SuspendLayout();
+            TabPageEmpleados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpleados).BeginInit();
+            panel30.SuspendLayout();
+            panel13.SuspendLayout();
+            TabPageCarreras.SuspendLayout();
+            panel36.SuspendLayout();
+            panel34.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCarreras).BeginInit();
+            TabPageExamenes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewExamenes).BeginInit();
+            panel40.SuspendLayout();
+            panel39.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -119,6 +230,11 @@ namespace DiseñoFinal
             tabControl1.Controls.Add(tabMenuPrincipal);
             tabControl1.Controls.Add(tabPerfilAlumno);
             tabControl1.Controls.Add(tabPerfilProfesores);
+            tabControl1.Controls.Add(TabPageAlumnos);
+            tabControl1.Controls.Add(TabPageMaterias);
+            tabControl1.Controls.Add(TabPageEmpleados);
+            tabControl1.Controls.Add(TabPageCarreras);
+            tabControl1.Controls.Add(TabPageExamenes);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -200,258 +316,28 @@ namespace DiseñoFinal
             // panel7
             // 
             panel7.BackColor = Color.Gainsboro;
-            panel7.Controls.Add(label7);
-            panel7.Controls.Add(label35);
-            panel7.Controls.Add(label4);
-            panel7.Controls.Add(label5);
-            panel7.Controls.Add(label21);
-            panel7.Controls.Add(label23);
-            panel7.Controls.Add(label20);
-            panel7.Controls.Add(label1);
-            panel7.Controls.Add(label3);
-            panel7.Controls.Add(label22);
             panel7.Dock = DockStyle.Top;
             panel7.Location = new Point(197, 423);
             panel7.Name = "panel7";
             panel7.Size = new Size(1008, 111);
             panel7.TabIndex = 5;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(348, 69);
-            label7.Name = "label7";
-            label7.Size = new Size(38, 15);
-            label7.TabIndex = 6;
-            label7.Text = "label7";
-            // 
-            // label35
-            // 
-            label35.AutoSize = true;
-            label35.Location = new Point(376, 31);
-            label35.Name = "label35";
-            label35.Size = new Size(44, 15);
-            label35.TabIndex = 32;
-            label35.Text = "label35";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(33, 63, 96);
-            label4.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(51, 64);
-            label4.Name = "label4";
-            label4.Size = new Size(278, 22);
-            label4.TabIndex = 3;
-            label4.Text = "Cantidad de Alumnos de Publicidad:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(672, 31);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 4;
-            label5.Text = "label5";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.BackColor = Color.FromArgb(33, 63, 96);
-            label21.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label21.ForeColor = SystemColors.ControlLightLight;
-            label21.Location = new Point(727, 26);
-            label21.Name = "label21";
-            label21.Size = new Size(197, 22);
-            label21.TabIndex = 18;
-            label21.Text = "Egresados de Publicidad:";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new Point(930, 31);
-            label23.Name = "label23";
-            label23.Size = new Size(44, 15);
-            label23.TabIndex = 20;
-            label23.Text = "label23";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.BackColor = Color.FromArgb(33, 63, 96);
-            label20.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label20.ForeColor = SystemColors.ControlLightLight;
-            label20.Location = new Point(435, 69);
-            label20.Name = "label20";
-            label20.Size = new Size(272, 22);
-            label20.TabIndex = 17;
-            label20.Text = "Egresados de Analista de Sistemas:";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(33, 63, 96);
-            label1.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(435, 24);
-            label1.Name = "label1";
-            label1.Size = new Size(231, 22);
-            label1.TabIndex = 0;
-            label1.Text = "Cantidad de Alumnos Totales:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.FromArgb(33, 63, 96);
-            label3.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(17, 24);
-            label3.Name = "label3";
-            label3.Size = new Size(353, 22);
-            label3.TabIndex = 2;
-            label3.Text = "Cantidad de Alumnos de Analista de Sistemas:";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(713, 76);
-            label22.Name = "label22";
-            label22.Size = new Size(44, 15);
-            label22.TabIndex = 19;
-            label22.Text = "label22";
-            // 
             // panel6
             // 
-            panel6.Controls.Add(label31);
-            panel6.Controls.Add(label30);
-            panel6.Controls.Add(label29);
-            panel6.Controls.Add(label28);
             panel6.Dock = DockStyle.Top;
             panel6.Location = new Point(197, 318);
             panel6.Name = "panel6";
             panel6.Size = new Size(1008, 105);
             panel6.TabIndex = 4;
             // 
-            // label31
-            // 
-            label31.AutoSize = true;
-            label31.Location = new Point(801, 47);
-            label31.Name = "label31";
-            label31.Size = new Size(44, 15);
-            label31.TabIndex = 28;
-            label31.Text = "label31";
-            // 
-            // label30
-            // 
-            label30.AutoSize = true;
-            label30.Location = new Point(426, 47);
-            label30.Name = "label30";
-            label30.Size = new Size(44, 15);
-            label30.TabIndex = 27;
-            label30.Text = "label30";
-            // 
-            // label29
-            // 
-            label29.AutoSize = true;
-            label29.BackColor = Color.FromArgb(33, 63, 96);
-            label29.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label29.ForeColor = SystemColors.ControlLightLight;
-            label29.Location = new Point(554, 42);
-            label29.Name = "label29";
-            label29.Size = new Size(241, 22);
-            label29.TabIndex = 26;
-            label29.Text = "Materias totales de Publicidad:";
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.BackColor = Color.FromArgb(33, 63, 96);
-            label28.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label28.ForeColor = SystemColors.ControlLightLight;
-            label28.Location = new Point(104, 42);
-            label28.Name = "label28";
-            label28.Size = new Size(316, 22);
-            label28.TabIndex = 25;
-            label28.Text = "Materias totales de Analista de Sistemas:";
-            // 
             // panel5
             // 
             panel5.BackColor = Color.Gainsboro;
-            panel5.Controls.Add(label19);
-            panel5.Controls.Add(label27);
-            panel5.Controls.Add(label12);
-            panel5.Controls.Add(label26);
-            panel5.Controls.Add(label25);
-            panel5.Controls.Add(label24);
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(197, 213);
             panel5.Name = "panel5";
             panel5.Size = new Size(1008, 105);
             panel5.TabIndex = 3;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(751, 47);
-            label19.Name = "label19";
-            label19.Size = new Size(44, 15);
-            label19.TabIndex = 16;
-            label19.Text = "label19";
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Location = new Point(438, 65);
-            label27.Name = "label27";
-            label27.Size = new Size(44, 15);
-            label27.TabIndex = 24;
-            label27.Text = "label27";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.BackColor = Color.FromArgb(33, 63, 96);
-            label12.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.ForeColor = SystemColors.ControlLightLight;
-            label12.Location = new Point(554, 42);
-            label12.Name = "label12";
-            label12.Size = new Size(191, 22);
-            label12.TabIndex = 11;
-            label12.Text = "Cantidad de Profesores:";
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.BackColor = Color.FromArgb(33, 63, 96);
-            label26.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label26.ForeColor = SystemColors.ControlLightLight;
-            label26.Location = new Point(230, 60);
-            label26.Name = "label26";
-            label26.Size = new Size(202, 22);
-            label26.TabIndex = 23;
-            label26.Text = "Profesores de Publicidad:";
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Location = new Point(471, 22);
-            label25.Name = "label25";
-            label25.Size = new Size(44, 15);
-            label25.TabIndex = 22;
-            label25.Text = "label25";
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.BackColor = Color.FromArgb(33, 63, 96);
-            label24.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label24.ForeColor = SystemColors.ControlLightLight;
-            label24.Location = new Point(193, 17);
-            label24.Name = "label24";
-            label24.Size = new Size(277, 22);
-            label24.TabIndex = 21;
-            label24.Text = "Profesores de Analista de Sistemas:";
             // 
             // panel4
             // 
@@ -464,112 +350,11 @@ namespace DiseñoFinal
             // panel3
             // 
             panel3.BackColor = Color.Gainsboro;
-            panel3.Controls.Add(label18);
-            panel3.Controls.Add(label17);
-            panel3.Controls.Add(label2);
-            panel3.Controls.Add(label16);
-            panel3.Controls.Add(label8);
-            panel3.Controls.Add(label15);
-            panel3.Controls.Add(label11);
-            panel3.Controls.Add(label10);
-            panel3.Controls.Add(label9);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(197, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(1008, 105);
             panel3.TabIndex = 1;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(773, 21);
-            label18.Name = "label18";
-            label18.Size = new Size(44, 15);
-            label18.TabIndex = 15;
-            label18.Text = "label18";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(778, 69);
-            label17.Name = "label17";
-            label17.Size = new Size(44, 15);
-            label17.TabIndex = 14;
-            label17.Text = "label17";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(172, 66);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 15);
-            label2.TabIndex = 1;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(454, 69);
-            label16.Name = "label16";
-            label16.Size = new Size(44, 15);
-            label16.TabIndex = 13;
-            label16.Text = "label16";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.FromArgb(33, 63, 96);
-            label8.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ControlLightLight;
-            label8.Location = new Point(172, 16);
-            label8.Name = "label8";
-            label8.Size = new Size(248, 22);
-            label8.TabIndex = 7;
-            label8.Text = "Cantidad de Empleados Totales:";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(426, 21);
-            label15.Name = "label15";
-            label15.Size = new Size(44, 15);
-            label15.TabIndex = 12;
-            label15.Text = "label15";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.FromArgb(33, 63, 96);
-            label11.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = SystemColors.ControlLightLight;
-            label11.Location = new Point(160, 64);
-            label11.Name = "label11";
-            label11.Size = new Size(288, 22);
-            label11.TabIndex = 10;
-            label11.Text = "Cantidad de Personal Administrativo:";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.FromArgb(33, 63, 96);
-            label10.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = SystemColors.ControlLightLight;
-            label10.Location = new Point(584, 16);
-            label10.Name = "label10";
-            label10.Size = new Size(183, 22);
-            label10.TabIndex = 9;
-            label10.Text = "Cantidad de Auxiliares:";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.FromArgb(33, 63, 96);
-            label9.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ControlLightLight;
-            label9.Location = new Point(584, 64);
-            label9.Name = "label9";
-            label9.Size = new Size(191, 22);
-            label9.TabIndex = 8;
-            label9.Text = "Cantidad de Profesores:";
             // 
             // panel1
             // 
@@ -578,7 +363,7 @@ namespace DiseñoFinal
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnABMMaterias);
             panel1.Controls.Add(btnABMProfesores);
-            panel1.Controls.Add(btnABMPermisos);
+            panel1.Controls.Add(btnABMCarreras);
             panel1.Controls.Add(btnABMEmpleados);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(3, 3);
@@ -663,23 +448,23 @@ namespace DiseñoFinal
             btnABMProfesores.UseVisualStyleBackColor = false;
             btnABMProfesores.Click += btnABMProfesores_Click;
             // 
-            // btnABMPermisos
+            // btnABMCarreras
             // 
-            btnABMPermisos.BackColor = Color.FromArgb(33, 63, 96);
-            btnABMPermisos.BackgroundImageLayout = ImageLayout.None;
-            btnABMPermisos.Cursor = Cursors.Hand;
-            btnABMPermisos.Dock = DockStyle.Top;
-            btnABMPermisos.FlatAppearance.BorderSize = 0;
-            btnABMPermisos.FlatStyle = FlatStyle.Flat;
-            btnABMPermisos.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnABMPermisos.ForeColor = Color.White;
-            btnABMPermisos.Location = new Point(0, 105);
-            btnABMPermisos.Name = "btnABMPermisos";
-            btnABMPermisos.Size = new Size(194, 105);
-            btnABMPermisos.TabIndex = 2;
-            btnABMPermisos.Text = "PERMISOS";
-            btnABMPermisos.UseVisualStyleBackColor = false;
-            btnABMPermisos.Click += btnABMPermisos_Click;
+            btnABMCarreras.BackColor = Color.FromArgb(33, 63, 96);
+            btnABMCarreras.BackgroundImageLayout = ImageLayout.None;
+            btnABMCarreras.Cursor = Cursors.Hand;
+            btnABMCarreras.Dock = DockStyle.Top;
+            btnABMCarreras.FlatAppearance.BorderSize = 0;
+            btnABMCarreras.FlatStyle = FlatStyle.Flat;
+            btnABMCarreras.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnABMCarreras.ForeColor = Color.White;
+            btnABMCarreras.Location = new Point(0, 105);
+            btnABMCarreras.Name = "btnABMCarreras";
+            btnABMCarreras.Size = new Size(194, 105);
+            btnABMCarreras.TabIndex = 2;
+            btnABMCarreras.Text = "CARRERAS";
+            btnABMCarreras.UseVisualStyleBackColor = false;
+            btnABMCarreras.Click += btnabmCarreras_Click;
             // 
             // btnABMEmpleados
             // 
@@ -711,6 +496,7 @@ namespace DiseñoFinal
             // 
             // panel10
             // 
+            panel10.Controls.Add(AlumnoImagenes);
             panel10.Controls.Add(panel12);
             panel10.Controls.Add(panel11);
             panel10.Dock = DockStyle.Fill;
@@ -718,6 +504,17 @@ namespace DiseñoFinal
             panel10.Name = "panel10";
             panel10.Size = new Size(1208, 573);
             panel10.TabIndex = 0;
+            // 
+            // AlumnoImagenes
+            // 
+            AlumnoImagenes.Dock = DockStyle.Fill;
+            AlumnoImagenes.Image = (Image)resources.GetObject("AlumnoImagenes.Image");
+            AlumnoImagenes.Location = new Point(195, 0);
+            AlumnoImagenes.Name = "AlumnoImagenes";
+            AlumnoImagenes.Size = new Size(1013, 524);
+            AlumnoImagenes.SizeMode = PictureBoxSizeMode.StretchImage;
+            AlumnoImagenes.TabIndex = 8;
+            AlumnoImagenes.TabStop = false;
             // 
             // panel12
             // 
@@ -727,9 +524,9 @@ namespace DiseñoFinal
             panel12.Controls.Add(label33);
             panel12.Controls.Add(label34);
             panel12.Dock = DockStyle.Bottom;
-            panel12.Location = new Point(195, 530);
+            panel12.Location = new Point(195, 524);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1013, 43);
+            panel12.Size = new Size(1013, 49);
             panel12.TabIndex = 7;
             // 
             // lblUsuarioAlumno
@@ -774,6 +571,7 @@ namespace DiseñoFinal
             // 
             // panel11
             // 
+            panel11.Controls.Add(pictureBox2);
             panel11.Controls.Add(btnExamenesAlumnos);
             panel11.Controls.Add(btnDatosAlumnos);
             panel11.Controls.Add(btnMateriasAlumnos);
@@ -782,6 +580,19 @@ namespace DiseñoFinal
             panel11.Name = "panel11";
             panel11.Size = new Size(195, 573);
             panel11.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = Proyecto_Final_AlgoritmsoBDD.Properties.Resources.logo_hilet_azul_grande;
+            pictureBox2.Location = new Point(0, 524);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(195, 49);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 4;
+            pictureBox2.TabStop = false;
             // 
             // btnExamenesAlumnos
             // 
@@ -794,9 +605,9 @@ namespace DiseñoFinal
             btnExamenesAlumnos.ForeColor = SystemColors.ButtonHighlight;
             btnExamenesAlumnos.Location = new Point(0, 380);
             btnExamenesAlumnos.Name = "btnExamenesAlumnos";
-            btnExamenesAlumnos.Size = new Size(195, 193);
+            btnExamenesAlumnos.Size = new Size(195, 144);
             btnExamenesAlumnos.TabIndex = 3;
-            btnExamenesAlumnos.Text = "EXAMENES";
+            btnExamenesAlumnos.Text = "EXAMENES RENDIDOS";
             btnExamenesAlumnos.UseVisualStyleBackColor = false;
             btnExamenesAlumnos.Click += btnExamenesAlumnos_Click;
             // 
@@ -836,7 +647,6 @@ namespace DiseñoFinal
             // 
             // tabPerfilProfesores
             // 
-            tabPerfilProfesores.Controls.Add(button2);
             tabPerfilProfesores.Controls.Add(panel9);
             tabPerfilProfesores.Location = new Point(4, 24);
             tabPerfilProfesores.Name = "tabPerfilProfesores";
@@ -846,98 +656,1269 @@ namespace DiseñoFinal
             tabPerfilProfesores.Text = "Mi Perfil";
             tabPerfilProfesores.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(33, 63, 96);
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = SystemColors.ButtonHighlight;
-            button2.Location = new Point(313, 64);
-            button2.Name = "button2";
-            button2.Size = new Size(195, 193);
-            button2.TabIndex = 2;
-            button2.Text = "asignar materia";
-            button2.UseVisualStyleBackColor = false;
-            // 
             // panel9
             // 
-            panel9.Controls.Add(button1);
-            panel9.Controls.Add(btnExamenesProfesor);
-            panel9.Controls.Add(btnCarrerasProfesor);
-            panel9.Controls.Add(btnMateriasProfesor);
-            panel9.Dock = DockStyle.Left;
+            panel9.Controls.Add(panel28);
+            panel9.Controls.Add(panel27);
+            panel9.Controls.Add(panel26);
+            panel9.Controls.Add(panel25);
+            panel9.Controls.Add(cmbEspecialidadEmpleado);
+            panel9.Controls.Add(lblEmpleado);
+            panel9.Controls.Add(lblEmpleado2);
+            panel9.Controls.Add(label12);
+            panel9.Controls.Add(txtSalarioEmpleados);
+            panel9.Controls.Add(label9);
+            panel9.Controls.Add(pictureBox4);
+            panel9.Controls.Add(label10);
+            panel9.Controls.Add(label11);
+            panel9.Controls.Add(label15);
+            panel9.Controls.Add(label16);
+            panel9.Controls.Add(label17);
+            panel9.Controls.Add(label18);
+            panel9.Controls.Add(label19);
+            panel9.Controls.Add(label20);
+            panel9.Controls.Add(dtpFechaNacimientoEmpleado);
+            panel9.Controls.Add(txtEmailEmpleados);
+            panel9.Controls.Add(txtDocumentoEmpleados);
+            panel9.Controls.Add(txtDireNumeroEmpleados);
+            panel9.Controls.Add(txtTelefonoEmpleados);
+            panel9.Controls.Add(txtDireCalleEmpleados);
+            panel9.Controls.Add(txtApellidoEmpleados);
+            panel9.Controls.Add(txtNombreEmpleados);
+            panel9.Dock = DockStyle.Fill;
             panel9.Location = new Point(3, 3);
             panel9.Name = "panel9";
-            panel9.Size = new Size(195, 567);
+            panel9.Size = new Size(1202, 567);
             panel9.TabIndex = 0;
+            // 
+            // panel28
+            // 
+            panel28.BackColor = Color.FromArgb(33, 63, 96);
+            panel28.Controls.Add(lblUsuarioEmpleado);
+            panel28.Controls.Add(label23);
+            panel28.Controls.Add(label37);
+            panel28.Controls.Add(button1);
+            panel28.Controls.Add(panel29);
+            panel28.Dock = DockStyle.Bottom;
+            panel28.Location = new Point(91, 506);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(1020, 61);
+            panel28.TabIndex = 69;
+            // 
+            // lblUsuarioEmpleado
+            // 
+            lblUsuarioEmpleado.AutoSize = true;
+            lblUsuarioEmpleado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUsuarioEmpleado.ForeColor = SystemColors.ButtonHighlight;
+            lblUsuarioEmpleado.Location = new Point(71, 22);
+            lblUsuarioEmpleado.Name = "lblUsuarioEmpleado";
+            lblUsuarioEmpleado.Size = new Size(69, 21);
+            lblUsuarioEmpleado.TabIndex = 3;
+            lblUsuarioEmpleado.Text = "Usuario";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.ForeColor = SystemColors.ButtonHighlight;
+            label23.Location = new Point(1111, 44);
+            label23.Name = "label23";
+            label23.Size = new Size(83, 15);
+            label23.TabIndex = 49;
+            label23.Text = "Recargar Tabla";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label37.ForeColor = SystemColors.ButtonHighlight;
+            label37.Location = new Point(26, 22);
+            label37.Name = "label37";
+            label37.Size = new Size(54, 21);
+            label37.TabIndex = 0;
+            label37.Text = "Hola, ";
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(33, 63, 96);
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.Dock = DockStyle.Top;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(0, 573);
+            button1.Location = new Point(1132, 5);
             button1.Name = "button1";
-            button1.Size = new Size(195, 193);
-            button1.TabIndex = 4;
-            button1.Text = "MATERIAS";
-            button1.UseVisualStyleBackColor = false;
+            button1.Size = new Size(40, 38);
+            button1.TabIndex = 47;
+            button1.UseVisualStyleBackColor = true;
             // 
-            // btnExamenesProfesor
+            // panel29
             // 
-            btnExamenesProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnExamenesProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnExamenesProfesor.Dock = DockStyle.Top;
-            btnExamenesProfesor.FlatAppearance.BorderSize = 0;
-            btnExamenesProfesor.FlatStyle = FlatStyle.Flat;
-            btnExamenesProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnExamenesProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnExamenesProfesor.Location = new Point(0, 380);
-            btnExamenesProfesor.Name = "btnExamenesProfesor";
-            btnExamenesProfesor.Size = new Size(195, 193);
-            btnExamenesProfesor.TabIndex = 3;
-            btnExamenesProfesor.Text = "EXAMENES";
-            btnExamenesProfesor.UseVisualStyleBackColor = false;
-            btnExamenesProfesor.Click += btnExamenesProfesor_Click;
+            panel29.Location = new Point(3, 84);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(797, 59);
+            panel29.TabIndex = 39;
             // 
-            // btnCarrerasProfesor
+            // panel27
             // 
-            btnCarrerasProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnCarrerasProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnCarrerasProfesor.Dock = DockStyle.Top;
-            btnCarrerasProfesor.FlatAppearance.BorderSize = 0;
-            btnCarrerasProfesor.FlatStyle = FlatStyle.Flat;
-            btnCarrerasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCarrerasProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnCarrerasProfesor.Location = new Point(0, 193);
-            btnCarrerasProfesor.Name = "btnCarrerasProfesor";
-            btnCarrerasProfesor.Size = new Size(195, 187);
-            btnCarrerasProfesor.TabIndex = 2;
-            btnCarrerasProfesor.Text = "CARRERAS";
-            btnCarrerasProfesor.UseVisualStyleBackColor = false;
-            btnCarrerasProfesor.Click += btnCarrerasProfesor_Click;
+            panel27.BackColor = Color.FromArgb(33, 63, 96);
+            panel27.Dock = DockStyle.Right;
+            panel27.Location = new Point(1111, 70);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(91, 497);
+            panel27.TabIndex = 68;
             // 
-            // btnMateriasProfesor
+            // panel26
             // 
-            btnMateriasProfesor.BackColor = Color.FromArgb(33, 63, 96);
-            btnMateriasProfesor.BackgroundImageLayout = ImageLayout.None;
-            btnMateriasProfesor.Dock = DockStyle.Top;
-            btnMateriasProfesor.FlatAppearance.BorderSize = 0;
-            btnMateriasProfesor.FlatStyle = FlatStyle.Flat;
-            btnMateriasProfesor.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMateriasProfesor.ForeColor = SystemColors.ButtonHighlight;
-            btnMateriasProfesor.Location = new Point(0, 0);
-            btnMateriasProfesor.Name = "btnMateriasProfesor";
-            btnMateriasProfesor.Size = new Size(195, 193);
-            btnMateriasProfesor.TabIndex = 1;
-            btnMateriasProfesor.Text = "MATERIAS";
-            btnMateriasProfesor.UseVisualStyleBackColor = false;
+            panel26.BackColor = Color.FromArgb(33, 63, 96);
+            panel26.Dock = DockStyle.Left;
+            panel26.Location = new Point(0, 70);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(91, 497);
+            panel26.TabIndex = 67;
+            // 
+            // panel25
+            // 
+            panel25.BackColor = Color.FromArgb(33, 63, 96);
+            panel25.Controls.Add(btnSalir);
+            panel25.Controls.Add(label21);
+            panel25.Dock = DockStyle.Top;
+            panel25.Location = new Point(0, 0);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(1202, 70);
+            panel25.TabIndex = 66;
+            // 
+            // btnSalir
+            // 
+            btnSalir.FlatAppearance.BorderSize = 0;
+            btnSalir.FlatStyle = FlatStyle.Flat;
+            btnSalir.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSalir.Location = new Point(725, 5);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(63, 57);
+            btnSalir.TabIndex = 43;
+            btnSalir.Text = "X";
+            btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label21.ForeColor = SystemColors.ButtonHighlight;
+            label21.Location = new Point(0, 6);
+            label21.Name = "label21";
+            label21.Size = new Size(260, 56);
+            label21.TabIndex = 0;
+            label21.Text = "Empleado";
+            // 
+            // cmbEspecialidadEmpleado
+            // 
+            cmbEspecialidadEmpleado.FormattingEnabled = true;
+            cmbEspecialidadEmpleado.Location = new Point(502, 412);
+            cmbEspecialidadEmpleado.Name = "cmbEspecialidadEmpleado";
+            cmbEspecialidadEmpleado.Size = new Size(182, 23);
+            cmbEspecialidadEmpleado.TabIndex = 65;
+            // 
+            // lblEmpleado
+            // 
+            lblEmpleado.AutoSize = true;
+            lblEmpleado.Font = new Font("Microsoft Sans Serif", 12F);
+            lblEmpleado.Location = new Point(507, 151);
+            lblEmpleado.Name = "lblEmpleado";
+            lblEmpleado.Size = new Size(0, 20);
+            lblEmpleado.TabIndex = 64;
+            // 
+            // lblEmpleado2
+            // 
+            lblEmpleado2.AutoSize = true;
+            lblEmpleado2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmpleado2.ImageAlign = ContentAlignment.BottomLeft;
+            lblEmpleado2.Location = new Point(390, 151);
+            lblEmpleado2.Name = "lblEmpleado2";
+            lblEmpleado2.Size = new Size(110, 20);
+            lblEmpleado2.TabIndex = 63;
+            lblEmpleado2.Text = "ID Empleado :";
+            lblEmpleado2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Microsoft Sans Serif", 12F);
+            label12.Location = new Point(390, 412);
+            label12.Name = "label12";
+            label12.Size = new Size(107, 20);
+            label12.TabIndex = 62;
+            label12.Text = "Especialidad :";
+            // 
+            // txtSalarioEmpleados
+            // 
+            txtSalarioEmpleados.Location = new Point(502, 383);
+            txtSalarioEmpleados.Name = "txtSalarioEmpleados";
+            txtSalarioEmpleados.Size = new Size(182, 23);
+            txtSalarioEmpleados.TabIndex = 61;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 12F);
+            label9.Location = new Point(432, 385);
+            label9.Name = "label9";
+            label9.Size = new Size(66, 20);
+            label9.TabIndex = 60;
+            label9.Text = "Salario :";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(739, 149);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(86, 86);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 59;
+            pictureBox4.TabStop = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft Sans Serif", 12F);
+            label10.Location = new Point(354, 357);
+            label10.Name = "label10";
+            label10.Size = new Size(145, 20);
+            label10.TabIndex = 58;
+            label10.Text = "Fecha Nacimiento :";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft Sans Serif", 12F);
+            label11.Location = new Point(438, 325);
+            label11.Name = "label11";
+            label11.Size = new Size(56, 20);
+            label11.TabIndex = 57;
+            label11.Text = "Email :";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Microsoft Sans Serif", 12F);
+            label15.Location = new Point(398, 296);
+            label15.Name = "label15";
+            label15.Size = new Size(100, 20);
+            label15.TabIndex = 56;
+            label15.Text = "Documento :";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Microsoft Sans Serif", 12F);
+            label16.Location = new Point(418, 267);
+            label16.Name = "label16";
+            label16.Size = new Size(79, 20);
+            label16.TabIndex = 55;
+            label16.Text = "Telefono :";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Microsoft Sans Serif", 12F);
+            label17.Location = new Point(631, 238);
+            label17.Name = "label17";
+            label17.Size = new Size(73, 20);
+            label17.TabIndex = 54;
+            label17.Text = "Numero :";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Microsoft Sans Serif", 12F);
+            label18.Location = new Point(375, 238);
+            label18.Name = "label18";
+            label18.Size = new Size(122, 20);
+            label18.TabIndex = 53;
+            label18.Text = "Dirección Calle :";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Microsoft Sans Serif", 12F);
+            label19.Location = new Point(423, 209);
+            label19.Name = "label19";
+            label19.Size = new Size(73, 20);
+            label19.TabIndex = 52;
+            label19.Text = "Apellido :";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label20.ImageAlign = ContentAlignment.BottomLeft;
+            label20.Location = new Point(423, 180);
+            label20.Name = "label20";
+            label20.Size = new Size(73, 20);
+            label20.TabIndex = 51;
+            label20.Text = "Nombre :";
+            label20.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // dtpFechaNacimientoEmpleado
+            // 
+            dtpFechaNacimientoEmpleado.Location = new Point(502, 353);
+            dtpFechaNacimientoEmpleado.Name = "dtpFechaNacimientoEmpleado";
+            dtpFechaNacimientoEmpleado.Size = new Size(239, 23);
+            dtpFechaNacimientoEmpleado.TabIndex = 50;
+            // 
+            // txtEmailEmpleados
+            // 
+            txtEmailEmpleados.Location = new Point(502, 325);
+            txtEmailEmpleados.Name = "txtEmailEmpleados";
+            txtEmailEmpleados.Size = new Size(182, 23);
+            txtEmailEmpleados.TabIndex = 49;
+            // 
+            // txtDocumentoEmpleados
+            // 
+            txtDocumentoEmpleados.Location = new Point(502, 296);
+            txtDocumentoEmpleados.Name = "txtDocumentoEmpleados";
+            txtDocumentoEmpleados.Size = new Size(157, 23);
+            txtDocumentoEmpleados.TabIndex = 48;
+            // 
+            // txtDireNumeroEmpleados
+            // 
+            txtDireNumeroEmpleados.Location = new Point(710, 239);
+            txtDireNumeroEmpleados.Name = "txtDireNumeroEmpleados";
+            txtDireNumeroEmpleados.Size = new Size(100, 23);
+            txtDireNumeroEmpleados.TabIndex = 47;
+            // 
+            // txtTelefonoEmpleados
+            // 
+            txtTelefonoEmpleados.Location = new Point(502, 267);
+            txtTelefonoEmpleados.Name = "txtTelefonoEmpleados";
+            txtTelefonoEmpleados.Size = new Size(157, 23);
+            txtTelefonoEmpleados.TabIndex = 46;
+            // 
+            // txtDireCalleEmpleados
+            // 
+            txtDireCalleEmpleados.Location = new Point(502, 238);
+            txtDireCalleEmpleados.Name = "txtDireCalleEmpleados";
+            txtDireCalleEmpleados.Size = new Size(123, 23);
+            txtDireCalleEmpleados.TabIndex = 45;
+            // 
+            // txtApellidoEmpleados
+            // 
+            txtApellidoEmpleados.Location = new Point(502, 209);
+            txtApellidoEmpleados.Name = "txtApellidoEmpleados";
+            txtApellidoEmpleados.Size = new Size(123, 23);
+            txtApellidoEmpleados.TabIndex = 44;
+            // 
+            // txtNombreEmpleados
+            // 
+            txtNombreEmpleados.Location = new Point(502, 180);
+            txtNombreEmpleados.Name = "txtNombreEmpleados";
+            txtNombreEmpleados.Size = new Size(123, 23);
+            txtNombreEmpleados.TabIndex = 43;
+            // 
+            // TabPageAlumnos
+            // 
+            TabPageAlumnos.Controls.Add(panel19);
+            TabPageAlumnos.Controls.Add(panel18);
+            TabPageAlumnos.Controls.Add(dataGridViewAlumnos);
+            TabPageAlumnos.Controls.Add(panel16);
+            TabPageAlumnos.Controls.Add(panel14);
+            TabPageAlumnos.Location = new Point(4, 24);
+            TabPageAlumnos.Name = "TabPageAlumnos";
+            TabPageAlumnos.Padding = new Padding(3);
+            TabPageAlumnos.Size = new Size(1208, 573);
+            TabPageAlumnos.TabIndex = 3;
+            TabPageAlumnos.Text = "Alumnos";
+            TabPageAlumnos.UseVisualStyleBackColor = true;
+            // 
+            // panel19
+            // 
+            panel19.BackColor = Color.FromArgb(33, 63, 96);
+            panel19.Dock = DockStyle.Right;
+            panel19.Location = new Point(1114, 76);
+            panel19.Name = "panel19";
+            panel19.Size = new Size(91, 433);
+            panel19.TabIndex = 43;
+            // 
+            // panel18
+            // 
+            panel18.BackColor = Color.FromArgb(33, 63, 96);
+            panel18.Dock = DockStyle.Left;
+            panel18.Location = new Point(3, 76);
+            panel18.Name = "panel18";
+            panel18.Size = new Size(91, 433);
+            panel18.TabIndex = 42;
+            // 
+            // dataGridViewAlumnos
+            // 
+            dataGridViewAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewAlumnos.Location = new Point(92, 76);
+            dataGridViewAlumnos.Name = "dataGridViewAlumnos";
+            dataGridViewAlumnos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewAlumnos.Size = new Size(1025, 433);
+            dataGridViewAlumnos.TabIndex = 41;
+            dataGridViewAlumnos.CellContentDoubleClick += dataGridViewAlumnos_CellContentDoubleClick;
+            dataGridViewAlumnos.CellDoubleClick += dataGridViewAlumnos_CellDoubleClick;
+            // 
+            // panel16
+            // 
+            panel16.BackColor = Color.FromArgb(33, 63, 96);
+            panel16.Controls.Add(btnReporteGeneral);
+            panel16.Controls.Add(btnGenerarReporte);
+            panel16.Controls.Add(label6);
+            panel16.Controls.Add(label5);
+            panel16.Controls.Add(cmbProfesoresAlumno);
+            panel16.Controls.Add(btnRecargarTablaAlumnos);
+            panel16.Controls.Add(btnFiltrarAlumnos);
+            panel16.Controls.Add(cmbCarreraAlumno);
+            panel16.Controls.Add(cmbAñoAlumno);
+            panel16.Controls.Add(txtNombreApellidoAlumno);
+            panel16.Controls.Add(cmbFiltrosAlumnos);
+            panel16.Controls.Add(label2);
+            panel16.Controls.Add(panel17);
+            panel16.Dock = DockStyle.Bottom;
+            panel16.Location = new Point(3, 509);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(1202, 61);
+            panel16.TabIndex = 40;
+            // 
+            // btnReporteGeneral
+            // 
+            btnReporteGeneral.Location = new Point(856, 11);
+            btnReporteGeneral.Name = "btnReporteGeneral";
+            btnReporteGeneral.Size = new Size(97, 40);
+            btnReporteGeneral.TabIndex = 52;
+            btnReporteGeneral.Text = "Reporte General";
+            btnReporteGeneral.UseVisualStyleBackColor = true;
+            btnReporteGeneral.Click += btnReporteGeneral_Click;
+            // 
+            // btnGenerarReporte
+            // 
+            btnGenerarReporte.Location = new Point(959, 10);
+            btnGenerarReporte.Name = "btnGenerarReporte";
+            btnGenerarReporte.Size = new Size(97, 40);
+            btnGenerarReporte.TabIndex = 51;
+            btnGenerarReporte.Text = "Generar Reporte";
+            btnGenerarReporte.UseVisualStyleBackColor = true;
+            btnGenerarReporte.Click += btnGenerarReporte_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = SystemColors.ButtonHighlight;
+            label6.Location = new Point(381, 43);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 15);
+            label6.TabIndex = 50;
+            label6.Text = "Filtrar";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(1111, 44);
+            label5.Name = "label5";
+            label5.Size = new Size(83, 15);
+            label5.TabIndex = 49;
+            label5.Text = "Recargar Tabla";
+            // 
+            // cmbProfesoresAlumno
+            // 
+            cmbProfesoresAlumno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProfesoresAlumno.FormattingEnabled = true;
+            cmbProfesoresAlumno.Location = new Point(233, 20);
+            cmbProfesoresAlumno.Name = "cmbProfesoresAlumno";
+            cmbProfesoresAlumno.Size = new Size(127, 23);
+            cmbProfesoresAlumno.TabIndex = 48;
+            // 
+            // btnRecargarTablaAlumnos
+            // 
+            btnRecargarTablaAlumnos.BackgroundImage = (Image)resources.GetObject("btnRecargarTablaAlumnos.BackgroundImage");
+            btnRecargarTablaAlumnos.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRecargarTablaAlumnos.FlatAppearance.BorderSize = 0;
+            btnRecargarTablaAlumnos.FlatStyle = FlatStyle.Flat;
+            btnRecargarTablaAlumnos.Location = new Point(1132, 5);
+            btnRecargarTablaAlumnos.Name = "btnRecargarTablaAlumnos";
+            btnRecargarTablaAlumnos.Size = new Size(40, 38);
+            btnRecargarTablaAlumnos.TabIndex = 47;
+            btnRecargarTablaAlumnos.UseVisualStyleBackColor = true;
+            btnRecargarTablaAlumnos.Click += btnRecargarTablaAlumnos_Click;
+            // 
+            // btnFiltrarAlumnos
+            // 
+            btnFiltrarAlumnos.BackgroundImage = (Image)resources.GetObject("btnFiltrarAlumnos.BackgroundImage");
+            btnFiltrarAlumnos.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrarAlumnos.FlatAppearance.BorderSize = 0;
+            btnFiltrarAlumnos.FlatStyle = FlatStyle.Flat;
+            btnFiltrarAlumnos.ImageAlign = ContentAlignment.TopLeft;
+            btnFiltrarAlumnos.Location = new Point(380, 5);
+            btnFiltrarAlumnos.Name = "btnFiltrarAlumnos";
+            btnFiltrarAlumnos.Size = new Size(40, 38);
+            btnFiltrarAlumnos.TabIndex = 46;
+            btnFiltrarAlumnos.UseVisualStyleBackColor = true;
+            btnFiltrarAlumnos.Click += btnFiltrarAlumnos_Click;
+            // 
+            // cmbCarreraAlumno
+            // 
+            cmbCarreraAlumno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCarreraAlumno.FormattingEnabled = true;
+            cmbCarreraAlumno.Location = new Point(233, 21);
+            cmbCarreraAlumno.Name = "cmbCarreraAlumno";
+            cmbCarreraAlumno.Size = new Size(127, 23);
+            cmbCarreraAlumno.TabIndex = 44;
+            // 
+            // cmbAñoAlumno
+            // 
+            cmbAñoAlumno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAñoAlumno.FormattingEnabled = true;
+            cmbAñoAlumno.Location = new Point(233, 21);
+            cmbAñoAlumno.Name = "cmbAñoAlumno";
+            cmbAñoAlumno.Size = new Size(121, 23);
+            cmbAñoAlumno.TabIndex = 43;
+            // 
+            // txtNombreApellidoAlumno
+            // 
+            txtNombreApellidoAlumno.Location = new Point(233, 20);
+            txtNombreApellidoAlumno.Name = "txtNombreApellidoAlumno";
+            txtNombreApellidoAlumno.Size = new Size(127, 23);
+            txtNombreApellidoAlumno.TabIndex = 42;
+            // 
+            // cmbFiltrosAlumnos
+            // 
+            cmbFiltrosAlumnos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltrosAlumnos.FormattingEnabled = true;
+            cmbFiltrosAlumnos.Location = new Point(97, 20);
+            cmbFiltrosAlumnos.Name = "cmbFiltrosAlumnos";
+            cmbFiltrosAlumnos.Size = new Size(121, 23);
+            cmbFiltrosAlumnos.TabIndex = 41;
+            cmbFiltrosAlumnos.SelectedIndexChanged += cmbFiltrosAlumnos_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(12, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(79, 18);
+            label2.TabIndex = 40;
+            label2.Text = "Filtrar por :";
+            // 
+            // panel17
+            // 
+            panel17.Location = new Point(3, 84);
+            panel17.Name = "panel17";
+            panel17.Size = new Size(797, 59);
+            panel17.TabIndex = 39;
+            // 
+            // panel14
+            // 
+            panel14.BackColor = Color.FromArgb(33, 63, 96);
+            panel14.Controls.Add(panel15);
+            panel14.Controls.Add(lblAlumnos);
+            panel14.Dock = DockStyle.Top;
+            panel14.Location = new Point(3, 3);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(1202, 73);
+            panel14.TabIndex = 39;
+            // 
+            // panel15
+            // 
+            panel15.Location = new Point(3, 84);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(797, 59);
+            panel15.TabIndex = 39;
+            // 
+            // lblAlumnos
+            // 
+            lblAlumnos.AutoSize = true;
+            lblAlumnos.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            lblAlumnos.ForeColor = SystemColors.ButtonHighlight;
+            lblAlumnos.Location = new Point(3, 9);
+            lblAlumnos.Name = "lblAlumnos";
+            lblAlumnos.Size = new Size(227, 56);
+            lblAlumnos.TabIndex = 1;
+            lblAlumnos.Text = "Alumnos";
+            lblAlumnos.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // TabPageMaterias
+            // 
+            TabPageMaterias.Controls.Add(dataGridViewMaterias);
+            TabPageMaterias.Controls.Add(panel24);
+            TabPageMaterias.Controls.Add(panel23);
+            TabPageMaterias.Controls.Add(panel21);
+            TabPageMaterias.Controls.Add(panel20);
+            TabPageMaterias.Location = new Point(4, 24);
+            TabPageMaterias.Name = "TabPageMaterias";
+            TabPageMaterias.Padding = new Padding(3);
+            TabPageMaterias.Size = new Size(1208, 573);
+            TabPageMaterias.TabIndex = 4;
+            TabPageMaterias.Text = "Materias";
+            TabPageMaterias.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewMaterias
+            // 
+            dataGridViewMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMaterias.Dock = DockStyle.Fill;
+            dataGridViewMaterias.Location = new Point(94, 66);
+            dataGridViewMaterias.Name = "dataGridViewMaterias";
+            dataGridViewMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewMaterias.Size = new Size(1020, 443);
+            dataGridViewMaterias.TabIndex = 46;
+            dataGridViewMaterias.CellContentDoubleClick += dataGridViewMaterias_CellContentDoubleClick;
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.FromArgb(33, 63, 96);
+            panel24.Dock = DockStyle.Right;
+            panel24.Location = new Point(1114, 66);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(91, 443);
+            panel24.TabIndex = 45;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.FromArgb(33, 63, 96);
+            panel23.Dock = DockStyle.Left;
+            panel23.Location = new Point(3, 66);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(91, 443);
+            panel23.TabIndex = 44;
+            // 
+            // panel21
+            // 
+            panel21.BackColor = Color.FromArgb(33, 63, 96);
+            panel21.Controls.Add(label8);
+            panel21.Controls.Add(btnRecargarTablaMaterias);
+            panel21.Controls.Add(label7);
+            panel21.Controls.Add(btnFiltrarMaterias);
+            panel21.Controls.Add(cmbProfesoresMaterias);
+            panel21.Controls.Add(cmbAñoMaterias);
+            panel21.Controls.Add(cmbCarreraMaterias);
+            panel21.Controls.Add(cmbFiltrosMaterias);
+            panel21.Controls.Add(label4);
+            panel21.Controls.Add(panel22);
+            panel21.Dock = DockStyle.Bottom;
+            panel21.Location = new Point(3, 509);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(1202, 61);
+            panel21.TabIndex = 43;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = SystemColors.ButtonHighlight;
+            label8.Location = new Point(1110, 42);
+            label8.Name = "label8";
+            label8.Size = new Size(83, 15);
+            label8.TabIndex = 54;
+            label8.Text = "Recargar Tabla";
+            // 
+            // btnRecargarTablaMaterias
+            // 
+            btnRecargarTablaMaterias.BackgroundImage = (Image)resources.GetObject("btnRecargarTablaMaterias.BackgroundImage");
+            btnRecargarTablaMaterias.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRecargarTablaMaterias.FlatAppearance.BorderSize = 0;
+            btnRecargarTablaMaterias.FlatStyle = FlatStyle.Flat;
+            btnRecargarTablaMaterias.Location = new Point(1131, 3);
+            btnRecargarTablaMaterias.Name = "btnRecargarTablaMaterias";
+            btnRecargarTablaMaterias.Size = new Size(40, 38);
+            btnRecargarTablaMaterias.TabIndex = 53;
+            btnRecargarTablaMaterias.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = SystemColors.ButtonHighlight;
+            label7.Location = new Point(366, 42);
+            label7.Name = "label7";
+            label7.Size = new Size(37, 15);
+            label7.TabIndex = 52;
+            label7.Text = "Filtrar";
+            // 
+            // btnFiltrarMaterias
+            // 
+            btnFiltrarMaterias.BackgroundImage = (Image)resources.GetObject("btnFiltrarMaterias.BackgroundImage");
+            btnFiltrarMaterias.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrarMaterias.FlatAppearance.BorderSize = 0;
+            btnFiltrarMaterias.FlatStyle = FlatStyle.Flat;
+            btnFiltrarMaterias.ImageAlign = ContentAlignment.TopLeft;
+            btnFiltrarMaterias.Location = new Point(365, 4);
+            btnFiltrarMaterias.Name = "btnFiltrarMaterias";
+            btnFiltrarMaterias.Size = new Size(40, 38);
+            btnFiltrarMaterias.TabIndex = 51;
+            btnFiltrarMaterias.UseVisualStyleBackColor = true;
+            btnFiltrarMaterias.Click += btnFiltrarMaterias_Click;
+            // 
+            // cmbProfesoresMaterias
+            // 
+            cmbProfesoresMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbProfesoresMaterias.FormattingEnabled = true;
+            cmbProfesoresMaterias.Location = new Point(224, 20);
+            cmbProfesoresMaterias.Name = "cmbProfesoresMaterias";
+            cmbProfesoresMaterias.Size = new Size(121, 23);
+            cmbProfesoresMaterias.TabIndex = 49;
+            // 
+            // cmbAñoMaterias
+            // 
+            cmbAñoMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAñoMaterias.FormattingEnabled = true;
+            cmbAñoMaterias.Location = new Point(224, 20);
+            cmbAñoMaterias.Name = "cmbAñoMaterias";
+            cmbAñoMaterias.Size = new Size(121, 23);
+            cmbAñoMaterias.TabIndex = 47;
+            // 
+            // cmbCarreraMaterias
+            // 
+            cmbCarreraMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCarreraMaterias.FormattingEnabled = true;
+            cmbCarreraMaterias.Location = new Point(224, 19);
+            cmbCarreraMaterias.Name = "cmbCarreraMaterias";
+            cmbCarreraMaterias.Size = new Size(121, 23);
+            cmbCarreraMaterias.TabIndex = 44;
+            // 
+            // cmbFiltrosMaterias
+            // 
+            cmbFiltrosMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltrosMaterias.FormattingEnabled = true;
+            cmbFiltrosMaterias.Location = new Point(97, 20);
+            cmbFiltrosMaterias.Name = "cmbFiltrosMaterias";
+            cmbFiltrosMaterias.Size = new Size(121, 23);
+            cmbFiltrosMaterias.TabIndex = 41;
+            cmbFiltrosMaterias.SelectedIndexChanged += cmbFiltrosMaterias_SelectedIndexChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = SystemColors.ButtonHighlight;
+            label4.Location = new Point(12, 19);
+            label4.Name = "label4";
+            label4.Size = new Size(79, 18);
+            label4.TabIndex = 40;
+            label4.Text = "Filtrar por :";
+            // 
+            // panel22
+            // 
+            panel22.Location = new Point(3, 84);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(797, 59);
+            panel22.TabIndex = 39;
+            // 
+            // panel20
+            // 
+            panel20.BackColor = Color.FromArgb(33, 63, 96);
+            panel20.Controls.Add(label3);
+            panel20.Dock = DockStyle.Top;
+            panel20.Location = new Point(3, 3);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(1202, 63);
+            panel20.TabIndex = 40;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(0, 3);
+            label3.Name = "label3";
+            label3.Size = new Size(226, 56);
+            label3.TabIndex = 2;
+            label3.Text = "Materias";
+            // 
+            // TabPageEmpleados
+            // 
+            TabPageEmpleados.Controls.Add(dataGridViewEmpleados);
+            TabPageEmpleados.Controls.Add(panel33);
+            TabPageEmpleados.Controls.Add(panel32);
+            TabPageEmpleados.Controls.Add(panel30);
+            TabPageEmpleados.Controls.Add(panel13);
+            TabPageEmpleados.Location = new Point(4, 24);
+            TabPageEmpleados.Name = "TabPageEmpleados";
+            TabPageEmpleados.Padding = new Padding(3);
+            TabPageEmpleados.Size = new Size(1208, 573);
+            TabPageEmpleados.TabIndex = 5;
+            TabPageEmpleados.Text = "Empleados";
+            TabPageEmpleados.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewEmpleados
+            // 
+            dataGridViewEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEmpleados.Dock = DockStyle.Fill;
+            dataGridViewEmpleados.Location = new Point(94, 66);
+            dataGridViewEmpleados.Name = "dataGridViewEmpleados";
+            dataGridViewEmpleados.Size = new Size(1020, 443);
+            dataGridViewEmpleados.TabIndex = 47;
+            // 
+            // panel33
+            // 
+            panel33.BackColor = Color.FromArgb(33, 63, 96);
+            panel33.Dock = DockStyle.Right;
+            panel33.Location = new Point(1114, 66);
+            panel33.Name = "panel33";
+            panel33.Size = new Size(91, 443);
+            panel33.TabIndex = 46;
+            // 
+            // panel32
+            // 
+            panel32.BackColor = Color.FromArgb(33, 63, 96);
+            panel32.Dock = DockStyle.Left;
+            panel32.Location = new Point(3, 66);
+            panel32.Name = "panel32";
+            panel32.Size = new Size(91, 443);
+            panel32.TabIndex = 45;
+            // 
+            // panel30
+            // 
+            panel30.BackColor = Color.FromArgb(33, 63, 96);
+            panel30.Controls.Add(btnBuscar);
+            panel30.Controls.Add(cmbCarreraEmpleados);
+            panel30.Controls.Add(cmbEspecialidadEmpleados);
+            panel30.Controls.Add(txtNombreApellidoEmpleado);
+            panel30.Controls.Add(cmbFiltrosEmpleados);
+            panel30.Controls.Add(label24);
+            panel30.Controls.Add(panel31);
+            panel30.Dock = DockStyle.Bottom;
+            panel30.Location = new Point(3, 509);
+            panel30.Name = "panel30";
+            panel30.Size = new Size(1202, 61);
+            panel30.TabIndex = 41;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(366, 20);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(70, 23);
+            btnBuscar.TabIndex = 46;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // cmbCarreraEmpleados
+            // 
+            cmbCarreraEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCarreraEmpleados.FormattingEnabled = true;
+            cmbCarreraEmpleados.Location = new Point(233, 20);
+            cmbCarreraEmpleados.Name = "cmbCarreraEmpleados";
+            cmbCarreraEmpleados.Size = new Size(127, 23);
+            cmbCarreraEmpleados.TabIndex = 44;
+            // 
+            // cmbEspecialidadEmpleados
+            // 
+            cmbEspecialidadEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEspecialidadEmpleados.FormattingEnabled = true;
+            cmbEspecialidadEmpleados.Location = new Point(233, 19);
+            cmbEspecialidadEmpleados.Name = "cmbEspecialidadEmpleados";
+            cmbEspecialidadEmpleados.Size = new Size(127, 23);
+            cmbEspecialidadEmpleados.TabIndex = 43;
+            // 
+            // txtNombreApellidoEmpleado
+            // 
+            txtNombreApellidoEmpleado.Location = new Point(233, 20);
+            txtNombreApellidoEmpleado.Name = "txtNombreApellidoEmpleado";
+            txtNombreApellidoEmpleado.Size = new Size(127, 23);
+            txtNombreApellidoEmpleado.TabIndex = 42;
+            // 
+            // cmbFiltrosEmpleados
+            // 
+            cmbFiltrosEmpleados.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltrosEmpleados.FormattingEnabled = true;
+            cmbFiltrosEmpleados.Location = new Point(97, 20);
+            cmbFiltrosEmpleados.Name = "cmbFiltrosEmpleados";
+            cmbFiltrosEmpleados.Size = new Size(121, 23);
+            cmbFiltrosEmpleados.TabIndex = 41;
+            cmbFiltrosEmpleados.SelectedIndexChanged += cmbFiltrosEmpleados_SelectedIndexChanged;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label24.ForeColor = SystemColors.ButtonHighlight;
+            label24.Location = new Point(12, 19);
+            label24.Name = "label24";
+            label24.Size = new Size(79, 18);
+            label24.TabIndex = 40;
+            label24.Text = "Filtrar por :";
+            // 
+            // panel31
+            // 
+            panel31.Location = new Point(3, 84);
+            panel31.Name = "panel31";
+            panel31.Size = new Size(797, 59);
+            panel31.TabIndex = 39;
+            // 
+            // panel13
+            // 
+            panel13.BackColor = Color.FromArgb(33, 63, 96);
+            panel13.Controls.Add(label22);
+            panel13.Dock = DockStyle.Top;
+            panel13.Location = new Point(3, 3);
+            panel13.Name = "panel13";
+            panel13.Size = new Size(1202, 63);
+            panel13.TabIndex = 37;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label22.ForeColor = SystemColors.ButtonHighlight;
+            label22.Location = new Point(0, 4);
+            label22.Name = "label22";
+            label22.Size = new Size(286, 56);
+            label22.TabIndex = 2;
+            label22.Text = "Empleados";
+            // 
+            // TabPageCarreras
+            // 
+            TabPageCarreras.Controls.Add(panel38);
+            TabPageCarreras.Controls.Add(panel36);
+            TabPageCarreras.Controls.Add(panel35);
+            TabPageCarreras.Controls.Add(panel34);
+            TabPageCarreras.Controls.Add(dataGridViewCarreras);
+            TabPageCarreras.Location = new Point(4, 24);
+            TabPageCarreras.Name = "TabPageCarreras";
+            TabPageCarreras.Padding = new Padding(3);
+            TabPageCarreras.Size = new Size(1208, 573);
+            TabPageCarreras.TabIndex = 6;
+            TabPageCarreras.Text = "Carreras";
+            TabPageCarreras.UseVisualStyleBackColor = true;
+            // 
+            // panel38
+            // 
+            panel38.BackColor = Color.FromArgb(33, 63, 96);
+            panel38.Dock = DockStyle.Right;
+            panel38.Location = new Point(1114, 66);
+            panel38.Name = "panel38";
+            panel38.Size = new Size(91, 443);
+            panel38.TabIndex = 48;
+            // 
+            // panel36
+            // 
+            panel36.BackColor = Color.FromArgb(33, 63, 96);
+            panel36.Controls.Add(label26);
+            panel36.Controls.Add(button2);
+            panel36.Controls.Add(label27);
+            panel36.Controls.Add(btnFiltrarCarreras);
+            panel36.Controls.Add(comboBox1);
+            panel36.Controls.Add(comboBox2);
+            panel36.Controls.Add(comboBox3);
+            panel36.Controls.Add(comboBox4);
+            panel36.Controls.Add(label28);
+            panel36.Controls.Add(panel37);
+            panel36.Dock = DockStyle.Bottom;
+            panel36.Location = new Point(94, 509);
+            panel36.Name = "panel36";
+            panel36.Size = new Size(1111, 61);
+            panel36.TabIndex = 47;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.ForeColor = SystemColors.ButtonHighlight;
+            label26.Location = new Point(1110, 42);
+            label26.Name = "label26";
+            label26.Size = new Size(83, 15);
+            label26.TabIndex = 54;
+            label26.Text = "Recargar Tabla";
+            // 
+            // button2
+            // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Location = new Point(1131, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(40, 38);
+            button2.TabIndex = 53;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.ForeColor = SystemColors.ButtonHighlight;
+            label27.Location = new Point(366, 42);
+            label27.Name = "label27";
+            label27.Size = new Size(37, 15);
+            label27.TabIndex = 52;
+            label27.Text = "Filtrar";
+            // 
+            // btnFiltrarCarreras
+            // 
+            btnFiltrarCarreras.BackgroundImage = (Image)resources.GetObject("btnFiltrarCarreras.BackgroundImage");
+            btnFiltrarCarreras.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrarCarreras.FlatAppearance.BorderSize = 0;
+            btnFiltrarCarreras.FlatStyle = FlatStyle.Flat;
+            btnFiltrarCarreras.ImageAlign = ContentAlignment.TopLeft;
+            btnFiltrarCarreras.Location = new Point(365, 4);
+            btnFiltrarCarreras.Name = "btnFiltrarCarreras";
+            btnFiltrarCarreras.Size = new Size(40, 38);
+            btnFiltrarCarreras.TabIndex = 51;
+            btnFiltrarCarreras.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(224, 20);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 49;
+            // 
+            // comboBox2
+            // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(224, 20);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(121, 23);
+            comboBox2.TabIndex = 47;
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(224, 19);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(121, 23);
+            comboBox3.TabIndex = 44;
+            // 
+            // comboBox4
+            // 
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(97, 20);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(121, 23);
+            comboBox4.TabIndex = 41;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label28.ForeColor = SystemColors.ButtonHighlight;
+            label28.Location = new Point(12, 19);
+            label28.Name = "label28";
+            label28.Size = new Size(79, 18);
+            label28.TabIndex = 40;
+            label28.Text = "Filtrar por :";
+            // 
+            // panel37
+            // 
+            panel37.Location = new Point(3, 84);
+            panel37.Name = "panel37";
+            panel37.Size = new Size(797, 59);
+            panel37.TabIndex = 39;
+            // 
+            // panel35
+            // 
+            panel35.BackColor = Color.FromArgb(33, 63, 96);
+            panel35.Dock = DockStyle.Left;
+            panel35.Location = new Point(3, 66);
+            panel35.Name = "panel35";
+            panel35.Size = new Size(91, 504);
+            panel35.TabIndex = 46;
+            // 
+            // panel34
+            // 
+            panel34.BackColor = Color.FromArgb(33, 63, 96);
+            panel34.Controls.Add(label25);
+            panel34.Dock = DockStyle.Top;
+            panel34.Location = new Point(3, 3);
+            panel34.Name = "panel34";
+            panel34.Size = new Size(1202, 63);
+            panel34.TabIndex = 38;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label25.ForeColor = SystemColors.ButtonHighlight;
+            label25.Location = new Point(0, 4);
+            label25.Name = "label25";
+            label25.Size = new Size(223, 56);
+            label25.TabIndex = 2;
+            label25.Text = "Carreras";
+            // 
+            // dataGridViewCarreras
+            // 
+            dataGridViewCarreras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCarreras.Location = new Point(94, 66);
+            dataGridViewCarreras.Name = "dataGridViewCarreras";
+            dataGridViewCarreras.Size = new Size(1023, 443);
+            dataGridViewCarreras.TabIndex = 1;
+            dataGridViewCarreras.CellDoubleClick += dataGridViewCarreras_CellDoubleClick;
+            // 
+            // TabPageExamenes
+            // 
+            TabPageExamenes.Controls.Add(dataGridViewExamenes);
+            TabPageExamenes.Controls.Add(panel43);
+            TabPageExamenes.Controls.Add(panel42);
+            TabPageExamenes.Controls.Add(panel40);
+            TabPageExamenes.Controls.Add(panel39);
+            TabPageExamenes.Location = new Point(4, 24);
+            TabPageExamenes.Name = "TabPageExamenes";
+            TabPageExamenes.Padding = new Padding(3);
+            TabPageExamenes.Size = new Size(1208, 573);
+            TabPageExamenes.TabIndex = 7;
+            TabPageExamenes.Text = "Examenes";
+            TabPageExamenes.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewExamenes
+            // 
+            dataGridViewExamenes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewExamenes.Dock = DockStyle.Fill;
+            dataGridViewExamenes.Location = new Point(94, 81);
+            dataGridViewExamenes.Name = "dataGridViewExamenes";
+            dataGridViewExamenes.Size = new Size(1020, 428);
+            dataGridViewExamenes.TabIndex = 47;
+            dataGridViewExamenes.CellDoubleClick += dataGridViewExamenes_CellDoubleClick;
+            // 
+            // panel43
+            // 
+            panel43.BackColor = Color.FromArgb(33, 63, 96);
+            panel43.Dock = DockStyle.Right;
+            panel43.Location = new Point(1114, 81);
+            panel43.Name = "panel43";
+            panel43.Size = new Size(91, 428);
+            panel43.TabIndex = 46;
+            // 
+            // panel42
+            // 
+            panel42.BackColor = Color.FromArgb(33, 63, 96);
+            panel42.Dock = DockStyle.Left;
+            panel42.Location = new Point(3, 81);
+            panel42.Name = "panel42";
+            panel42.Size = new Size(91, 428);
+            panel42.TabIndex = 45;
+            // 
+            // panel40
+            // 
+            panel40.BackColor = Color.FromArgb(33, 63, 96);
+            panel40.Controls.Add(btnReporteGeneralExamenes);
+            panel40.Controls.Add(btnReporteAlumnoExamenes);
+            panel40.Controls.Add(label30);
+            panel40.Controls.Add(label31);
+            panel40.Controls.Add(btnRecargarExamenes);
+            panel40.Controls.Add(btnFiltrarExamenes);
+            panel40.Controls.Add(cmbFiltroExamenes);
+            panel40.Controls.Add(label32);
+            panel40.Controls.Add(panel41);
+            panel40.Dock = DockStyle.Bottom;
+            panel40.Location = new Point(3, 509);
+            panel40.Name = "panel40";
+            panel40.Size = new Size(1202, 61);
+            panel40.TabIndex = 41;
+            // 
+            // btnReporteGeneralExamenes
+            // 
+            btnReporteGeneralExamenes.Location = new Point(856, 11);
+            btnReporteGeneralExamenes.Name = "btnReporteGeneralExamenes";
+            btnReporteGeneralExamenes.Size = new Size(97, 40);
+            btnReporteGeneralExamenes.TabIndex = 52;
+            btnReporteGeneralExamenes.Text = "Reporte General";
+            btnReporteGeneralExamenes.UseVisualStyleBackColor = true;
+            // 
+            // btnReporteAlumnoExamenes
+            // 
+            btnReporteAlumnoExamenes.Location = new Point(959, 10);
+            btnReporteAlumnoExamenes.Name = "btnReporteAlumnoExamenes";
+            btnReporteAlumnoExamenes.Size = new Size(97, 40);
+            btnReporteAlumnoExamenes.TabIndex = 51;
+            btnReporteAlumnoExamenes.Text = "Generar Reporte";
+            btnReporteAlumnoExamenes.UseVisualStyleBackColor = true;
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.ForeColor = SystemColors.ButtonHighlight;
+            label30.Location = new Point(381, 43);
+            label30.Name = "label30";
+            label30.Size = new Size(37, 15);
+            label30.TabIndex = 50;
+            label30.Text = "Filtrar";
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.ForeColor = SystemColors.ButtonHighlight;
+            label31.Location = new Point(1111, 44);
+            label31.Name = "label31";
+            label31.Size = new Size(83, 15);
+            label31.TabIndex = 49;
+            label31.Text = "Recargar Tabla";
+            // 
+            // btnRecargarExamenes
+            // 
+            btnRecargarExamenes.BackgroundImage = (Image)resources.GetObject("btnRecargarExamenes.BackgroundImage");
+            btnRecargarExamenes.BackgroundImageLayout = ImageLayout.Stretch;
+            btnRecargarExamenes.FlatAppearance.BorderSize = 0;
+            btnRecargarExamenes.FlatStyle = FlatStyle.Flat;
+            btnRecargarExamenes.Location = new Point(1132, 5);
+            btnRecargarExamenes.Name = "btnRecargarExamenes";
+            btnRecargarExamenes.Size = new Size(40, 38);
+            btnRecargarExamenes.TabIndex = 47;
+            btnRecargarExamenes.UseVisualStyleBackColor = true;
+            // 
+            // btnFiltrarExamenes
+            // 
+            btnFiltrarExamenes.BackgroundImage = (Image)resources.GetObject("btnFiltrarExamenes.BackgroundImage");
+            btnFiltrarExamenes.BackgroundImageLayout = ImageLayout.Stretch;
+            btnFiltrarExamenes.FlatAppearance.BorderSize = 0;
+            btnFiltrarExamenes.FlatStyle = FlatStyle.Flat;
+            btnFiltrarExamenes.ImageAlign = ContentAlignment.TopLeft;
+            btnFiltrarExamenes.Location = new Point(380, 5);
+            btnFiltrarExamenes.Name = "btnFiltrarExamenes";
+            btnFiltrarExamenes.Size = new Size(40, 38);
+            btnFiltrarExamenes.TabIndex = 46;
+            btnFiltrarExamenes.UseVisualStyleBackColor = true;
+            // 
+            // cmbFiltroExamenes
+            // 
+            cmbFiltroExamenes.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltroExamenes.FormattingEnabled = true;
+            cmbFiltroExamenes.Location = new Point(97, 20);
+            cmbFiltroExamenes.Name = "cmbFiltroExamenes";
+            cmbFiltroExamenes.Size = new Size(121, 23);
+            cmbFiltroExamenes.TabIndex = 41;
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label32.ForeColor = SystemColors.ButtonHighlight;
+            label32.Location = new Point(12, 19);
+            label32.Name = "label32";
+            label32.Size = new Size(79, 18);
+            label32.TabIndex = 40;
+            label32.Text = "Filtrar por :";
+            // 
+            // panel41
+            // 
+            panel41.Location = new Point(3, 84);
+            panel41.Name = "panel41";
+            panel41.Size = new Size(797, 59);
+            panel41.TabIndex = 39;
+            // 
+            // panel39
+            // 
+            panel39.BackColor = Color.FromArgb(33, 63, 96);
+            panel39.Controls.Add(label29);
+            panel39.Dock = DockStyle.Top;
+            panel39.Location = new Point(3, 3);
+            panel39.Name = "panel39";
+            panel39.Size = new Size(1202, 78);
+            panel39.TabIndex = 1;
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label29.ForeColor = SystemColors.ButtonHighlight;
+            label29.Location = new Point(3, 9);
+            label29.Name = "label29";
+            label29.Size = new Size(265, 56);
+            label29.TabIndex = 1;
+            label29.Text = "Examenes";
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // DiseñoFinalCodigo
             // 
@@ -946,29 +1927,59 @@ namespace DiseñoFinal
             ClientSize = new Size(1216, 601);
             Controls.Add(tabControl1);
             Name = "DiseñoFinalCodigo";
-            Text = "Form1";
+            Text = "HILET";
             tabControl1.ResumeLayout(false);
             tabMenuPrincipal.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tabPerfilAlumno.ResumeLayout(false);
             panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AlumnoImagenes).EndInit();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tabPerfilProfesores.ResumeLayout(false);
             panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            panel28.ResumeLayout(false);
+            panel28.PerformLayout();
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            TabPageAlumnos.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAlumnos).EndInit();
+            panel16.ResumeLayout(false);
+            panel16.PerformLayout();
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
+            TabPageMaterias.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).EndInit();
+            panel21.ResumeLayout(false);
+            panel21.PerformLayout();
+            panel20.ResumeLayout(false);
+            panel20.PerformLayout();
+            TabPageEmpleados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpleados).EndInit();
+            panel30.ResumeLayout(false);
+            panel30.PerformLayout();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            TabPageCarreras.ResumeLayout(false);
+            panel36.ResumeLayout(false);
+            panel36.PerformLayout();
+            panel34.ResumeLayout(false);
+            panel34.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCarreras).EndInit();
+            TabPageExamenes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewExamenes).EndInit();
+            panel40.ResumeLayout(false);
+            panel40.PerformLayout();
+            panel39.ResumeLayout(false);
+            panel39.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -985,7 +1996,7 @@ namespace DiseñoFinal
         private TabPage tabPerfilProfesores;
         private Button btnABMMaterias;
         private Button btnABMProfesores;
-        private Button btnABMPermisos;
+        private Button btnABMCarreras;
         private Button btnABMEmpleados;
         private Panel panel2;
         private PictureBox pictureBox1;
@@ -995,56 +2006,144 @@ namespace DiseñoFinal
         private Panel panel5;
         private Panel panel4;
         private Panel panel3;
-        private Label label1;
-        private Label label2;
-        private Panel panel9;
-        private Button btnExamenesProfesor;
-        private Button btnCarrerasProfesor;
-        private Button btnMateriasProfesor;
-        private Label label3;
-        private Label label4;
-        private Label label12;
-        private Label label11;
-        private Label label10;
-        private Label label9;
-        private Label label8;
-        private Label label7;
-        private Label label5;
         private Label lblUsuario;
         private Label lblPerfil;
         private Label label14;
         private Label label13;
-        private Label label24;
-        private Label label23;
-        private Label label22;
-        private Label label21;
-        private Label label20;
-        private Label label19;
-        private Label label18;
-        private Label label17;
-        private Label label16;
-        private Label label15;
-        private Label label27;
-        private Label label26;
-        private Label label25;
-        private Label label29;
-        private Label label28;
-        private Label label31;
-        private Label label30;
         private TabPage tabPerfilAlumno;
-        private Label label35;
         private Button btnABMAlumnos;
         private Panel panel10;
         private Panel panel11;
         private Button btnExamenesAlumnos;
         private Button btnMateriasAlumnos;
-        private Button button1;
-        private Button button2;
         private Button btnDatosAlumnos;
         private Panel panel12;
         private Label lblUsuarioAlumno;
         private Label lblPerfilAlumno;
         private Label label33;
         private Label label34;
+        private PictureBox pictureBox2;
+        private PictureBox AlumnoImagenes;
+        private System.Windows.Forms.Timer timer1;
+        private TabPage TabPageAlumnos;
+        private Panel panel14;
+        private Panel panel15;
+        private Label lblAlumnos;
+        private Panel panel16;
+        private Button btnRecargarTablaAlumnos;
+        private Button btnFiltrarAlumnos;
+        private ComboBox cmbCarreraAlumno;
+        private ComboBox cmbAñoAlumno;
+        private TextBox txtNombreApellidoAlumno;
+        private ComboBox cmbFiltrosAlumnos;
+        private Label label2;
+        private Panel panel17;
+        private DataGridView dataGridViewAlumnos;
+        private Panel panel19;
+        private Panel panel18;
+        private TabPage TabPageMaterias;
+        private Panel panel20;
+        private Label label3;
+        private Panel panel24;
+        private Panel panel23;
+        private Panel panel21;
+        private ComboBox cmbAñoMaterias;
+        private ComboBox cmbCarreraMaterias;
+        private ComboBox cmbFiltrosMaterias;
+        private Label label4;
+        private Panel panel22;
+        private DataGridView dataGridViewMaterias;
+        private ComboBox cmbProfesoresMaterias;
+        private ComboBox cmbProfesoresAlumno;
+        private Label label6;
+        private Label label5;
+        private Label label7;
+        private Button btnFiltrarMaterias;
+        private Label label8;
+        private Button btnRecargarTablaMaterias;
+        private Panel panel9;
+        private Panel panel28;
+        private Label lblUsuarioEmpleado;
+        private Label label23;
+        private Label label37;
+        private Button button1;
+        private Panel panel29;
+        private Panel panel27;
+        private Panel panel26;
+        private Panel panel25;
+        private Button btnSalir;
+        private Label label21;
+        private ComboBox cmbEspecialidadEmpleado;
+        private Label lblEmpleado;
+        private Label lblEmpleado2;
+        private Label label12;
+        private TextBox txtSalarioEmpleados;
+        private Label label9;
+        private PictureBox pictureBox4;
+        private Label label10;
+        private Label label11;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private DateTimePicker dtpFechaNacimientoEmpleado;
+        private TextBox txtEmailEmpleados;
+        private TextBox txtDocumentoEmpleados;
+        private TextBox txtDireNumeroEmpleados;
+        private TextBox txtTelefonoEmpleados;
+        private TextBox txtDireCalleEmpleados;
+        private TextBox txtApellidoEmpleados;
+        private TextBox txtNombreEmpleados;
+        private TabPage TabPageEmpleados;
+        private Panel panel13;
+        private Label label22;
+        private Panel panel32;
+        private Panel panel30;
+        private Button btnBuscar;
+        private ComboBox cmbCarreraEmpleados;
+        private ComboBox cmbEspecialidadEmpleados;
+        private TextBox txtNombreApellidoEmpleado;
+        private ComboBox cmbFiltrosEmpleados;
+        private Label label24;
+        private Panel panel31;
+        private Panel panel33;
+        private DataGridView dataGridViewEmpleados;
+        private TabPage TabPageCarreras;
+        private Panel panel38;
+        private Panel panel36;
+        private Label label26;
+        private Button button2;
+        private Label label27;
+        private Button btnFiltrarCarreras;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private ComboBox comboBox3;
+        private ComboBox comboBox4;
+        private Label label28;
+        private Panel panel37;
+        private Panel panel35;
+        private Panel panel34;
+        private Label label25;
+        private DataGridView dataGridViewCarreras;
+        private Button btnGenerarReporte;
+        private Button btnReporteGeneral;
+        private TabPage TabPageExamenes;
+        private Panel panel39;
+        private Label label29;
+        private DataGridView dataGridViewExamenes;
+        private Panel panel43;
+        private Panel panel42;
+        private Panel panel40;
+        private Button btnReporteGeneralExamenes;
+        private Button btnReporteAlumnoExamenes;
+        private Label label30;
+        private Label label31;
+        private Button btnRecargarExamenes;
+        private Button btnFiltrarExamenes;
+        private ComboBox cmbFiltroExamenes;
+        private Label label32;
+        private Panel panel41;
     }
 }

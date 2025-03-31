@@ -108,11 +108,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("HelveticaNeueLT Std Med", 36F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 36F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(0, 6);
             label1.Name = "label1";
-            label1.Size = new Size(286, 56);
+            label1.Size = new Size(274, 55);
             label1.TabIndex = 0;
             label1.Text = "Empleados";
             // 
@@ -226,6 +226,7 @@
             txtSalarioEmpleados.Name = "txtSalarioEmpleados";
             txtSalarioEmpleados.Size = new Size(182, 23);
             txtSalarioEmpleados.TabIndex = 36;
+            txtSalarioEmpleados.TextChanged += txtSalarioEmpleados_TextChanged;
             // 
             // label2
             // 

@@ -7,8 +7,10 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Proyecto_Final_AlgoritmsoBDD.FormAlumnosModal;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Proyecto_Final_AlgoritmsoBDD
@@ -18,8 +20,8 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private GestorEmpleados gestorEmpleados = new GestorEmpleados();
 
         public event Action EmpleadoEvento; //Evento para actualizar el datagridview
-       
 
+        SqlConnection conexion = Conexionbdd.ObtenerInstancia().ObtenerConexion();
 
         private void CargarEspecialidades()
         {
@@ -34,10 +36,9 @@ namespace Proyecto_Final_AlgoritmsoBDD
             cmbEspecialidadEmpleado.ValueMember = "IdEspecialidad"; // El valor que necesitas
         }
 
-        public FormEmpleadosModal(int idprofesor, string nombre, string apellido, string direccioncalle, int direccionnumero, string telefono, string dni, string email, DateTime fechanacimiento, decimal salario, int especialidad)
+        public FormEmpleadosModal(int idprofesor, string nombre, string apellido, string direccioncalle, string direccionnumero, string telefono, string dni, string email, DateTime fechanacimiento, decimal salario, int especialidad, string perfil)
         {
             InitializeComponent();
-
             CargarEspecialidades();
 
 
@@ -62,8 +63,45 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 txtDireNumeroEmpleados.Clear();
                 txtSalarioEmpleados.Clear();
             }
+
+            AjustarVisibilidadPerfil(perfil);
         }
 
+        private void AjustarVisibilidadPerfil(string perfil)
+        {
+
+            if (perfil == "Alumno")
+            {
+                //Oculto Botones
+
+
+                //Deshabilito edicion de atributos
+
+            }
+            else if (perfil == "Profesor")
+            {
+                btnAgregarEmpleado.Visible = false;
+                btnModificarEmpleado.Visible = false;
+                btnEliminarEmpleado.Visible = false;
+
+                txtNombreEmpleados.Enabled = false;
+                txtApellidoEmpleados.Enabled = false;
+                txtDireCalleEmpleados.Enabled = false;
+                txtDireNumeroEmpleados.Enabled = false;
+                txtDireNumeroEmpleados.Enabled = false;
+                txtDocumentoEmpleados.Enabled = false;
+                txtEmailEmpleados.Enabled = false;
+                txtSalarioEmpleados.Enabled = false;
+                txtTelefonoEmpleados.Enabled = false;
+                cmbEspecialidadEmpleado.Enabled = false;
+                dtpFechaNacimientoEmpleado.Enabled = false;
+
+            }
+            else if (perfil == "Personal Administrativo")
+            {
+
+            }
+        }
 
 
         private void FormEmpleadosModal_Load(object sender, EventArgs e)
@@ -99,8 +137,25 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 return;
             }
             error1.Clear();
-
         }
+        
+        //Validar si el Mail es valido
+        private bool ValidarMail(string email)
+        {
+            Regex regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return regex.IsMatch(email);
+        }
+
+        //Validar si el salario es valido, y que no sea negativo
+        private bool ValidarSalario(string sal)
+        {
+            if(decimal.TryParse(sal, out decimal salario))
+            {
+                return salario >= 1;
+            }
+           return false;
+        }
+
         private void btnAgregarEmpleado_Click(object sender, EventArgs e)
         {
             string NombreEmpleado = "";
@@ -419,6 +474,11 @@ namespace Proyecto_Final_AlgoritmsoBDD
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtSalarioEmpleados_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

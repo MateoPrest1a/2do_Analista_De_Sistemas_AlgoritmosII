@@ -4,25 +4,22 @@
     <Compile Update="DiseñoFinalCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormAlumnosXProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormAsignarMateriaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormHistorialExamenAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormAlumnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormAlumnosModal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormCarreras.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormCarrerasModal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormEmpleadosModal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormExamenes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormExamenesModal.cs">

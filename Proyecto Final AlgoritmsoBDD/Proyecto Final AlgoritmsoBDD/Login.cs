@@ -35,24 +35,6 @@ namespace Proyecto_Final_AlgoritmsoBDD
             txtContraseña.PasswordChar = checkBox1.Checked ? '\0' : '*';    // Oculta Contraseña
         }
 
-        private string ObtenerNombreUsuario(string usuario)
-        {
-            string nombre = string.Empty;
-            string query = @"SELECT 
-                                nombre_usuario 
-                             FROM
-                                PerfilxAlumno 
-                            WHERE 
-                                nombre_usuario = @Usuario";
-
-            using (SqlCommand command = new SqlCommand(query))
-            {
-                command.Parameters.AddWithValue("@Usuario", usuario);
-                nombre = gestor.EjecutarConsulta(command).Rows.Count > 0 ? usuario : "Not Found";
-            }
-
-            return nombre;
-        }
 
         private string ObtenerPerfilDeUsuario(string usuario, string contrasena)
         {
@@ -64,6 +46,17 @@ namespace Proyecto_Final_AlgoritmsoBDD
                 int idPerfil = -1;  // Usaremos este valor para el ID de perfil
 
                 string query = @" 
+                                -- Caso especial para el administrador
+                                SELECT 
+                                    'Administrador' AS tipo,
+                                    'Admin' AS nombre,
+                                    '' AS apellido,
+                                    0 AS id_perfil  -- Uso 0 como ID ficticio para el administrador
+                                WHERE
+                                    @Usuario = 'admin' AND @Contrasena = 'admin'
+
+                                UNION ALL
+
                                 -- Para obtener el perfil de un empleado (profesor, administrativo, etc.)
                                 SELECT 
                                     p.tipo,  -- Tipo de perfil (Profesor, Personal Administrativo)
@@ -96,6 +89,7 @@ namespace Proyecto_Final_AlgoritmsoBDD
                                     Alumnos AS a ON a.matricula = pa.matricula
                                 WHERE
                                     pa.nombre_usuario = @Usuario AND pa.contrasenia = @Contrasena";
+
 
                 using (SqlCommand command = new SqlCommand(query))
                 {

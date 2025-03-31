@@ -37,7 +37,6 @@
             btnModificarCarreras = new Button();
             btnAgregarCarreras = new Button();
             panel3 = new Panel();
-            cmbAño = new ComboBox();
             lblIDCarrera = new Label();
             label6 = new Label();
             txtResolucion = new TextBox();
@@ -47,6 +46,7 @@
             label3 = new Label();
             lblCarrera = new Label();
             error1 = new ErrorProvider(components);
+            txtAñoPlan = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -132,7 +132,7 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(cmbAño);
+            panel3.Controls.Add(txtAñoPlan);
             panel3.Controls.Add(lblIDCarrera);
             panel3.Controls.Add(label6);
             panel3.Controls.Add(txtResolucion);
@@ -145,15 +145,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(439, 261);
             panel3.TabIndex = 0;
-            // 
-            // cmbAño
-            // 
-            cmbAño.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbAño.FormattingEnabled = true;
-            cmbAño.Location = new Point(151, 124);
-            cmbAño.Name = "cmbAño";
-            cmbAño.Size = new Size(142, 23);
-            cmbAño.TabIndex = 40;
             // 
             // lblIDCarrera
             // 
@@ -222,7 +213,7 @@
             // 
             lblCarrera.AutoSize = true;
             lblCarrera.Font = new Font("Microsoft Sans Serif", 12F);
-            lblCarrera.Location = new Point(54, 45);
+            lblCarrera.Location = new Point(54, 43);
             lblCarrera.Name = "lblCarrera";
             lblCarrera.Size = new Size(91, 20);
             lblCarrera.TabIndex = 0;
@@ -231,6 +222,13 @@
             // error1
             // 
             error1.ContainerControl = this;
+            // 
+            // txtAñoPlan
+            // 
+            txtAñoPlan.Location = new Point(151, 124);
+            txtAñoPlan.Name = "txtAñoPlan";
+            txtAñoPlan.Size = new Size(142, 23);
+            txtAñoPlan.TabIndex = 10;
             // 
             // FormCarrerasModal
             // 
@@ -268,7 +266,7 @@
         private Button btnModificarCarreras;
         private Button btnAgregarCarreras;
         private Label lblIDCarrera;
-        private ComboBox cmbAño;
         private ErrorProvider error1;
+        private TextBox txtAñoPlan;
     }
 }
